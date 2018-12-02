@@ -35,6 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MaterialDesignColors, Version=1.0.0.14576, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.1\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.0.1205, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.5.0.1205\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -49,12 +55,39 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=1.4.17.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.1.4.17\lib\net\WpfAnimatedGif.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Dialogue.xaml.cs">
+      <DependentUpon>Dialogue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Journal.xaml.cs">
+      <DependentUpon>Journal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Map.xaml.cs">
+      <DependentUpon>Map.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Quests.xaml.cs">
+      <DependentUpon>Quests.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Dialogue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Inventory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Journal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,10 +96,21 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Inventory.xaml.cs">
+      <DependentUpon>Inventory.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Map.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Quests.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -86,6 +130,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="fonts\MORPHEUS.TTF" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -93,6 +139,76 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\UI\dlg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\UI\in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\UI\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\UI\inventory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\UI\inventory2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\UI\inventory_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\UI\map_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\UI\quest_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\UI\alch_back.png" />
+    <Resource Include="img\UI\char_back.png" />
+    <Resource Include="img\UI\journ_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="gifs\geralt_inventory.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Maps\Map_Lakeside.png" />
+    <Resource Include="img\Maps\Map_Outskirts.png" />
+    <Resource Include="img\Maps\Map_Swamp.png" />
+    <Resource Include="img\Maps\Map_Trade_Quarter.png" />
+    <Resource Include="img\Maps\Map_Vizima_Temple_Quarter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\UI\alch_back_a.png" />
+    <Resource Include="img\UI\alch_back_c.png" />
+    <Resource Include="img\UI\char_back_a.png" />
+    <Resource Include="img\UI\char_back_c.png" />
+    <Resource Include="img\UI\inventory_back_a.png" />
+    <Resource Include="img\UI\inventory_back_c.png" />
+    <Resource Include="img\UI\journ_back_a.png" />
+    <Resource Include="img\UI\journ_back_c.png" />
+    <Resource Include="img\UI\map_back_a.png" />
+    <Resource Include="img\UI\map_back_c.png" />
+    <Resource Include="img\UI\quest_back_a.png" />
+    <Resource Include="img\UI\quest_back_c.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\UI\Primary_quests.png" />
+    <Resource Include="img\UI\Secondary_quests.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\UI\Bestiary_Alghoul.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\UI\Potion_Full_Moon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Characters\Foltest.png" />
+    <Resource Include="img\Characters\Geralt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\UI\scroll.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

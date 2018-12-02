@@ -1,0 +1,147 @@
+﻿<Page x:Class="WitcherWPF.Quests"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WitcherWPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Quests" Height="850.5" Width="1426.666">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="338*"/>
+            <ColumnDefinition Width="182*"/>
+            <ColumnDefinition Width="298*"/>
+            <ColumnDefinition Width="609*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="108*"/>
+            <RowDefinition Height="68*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="619*"/>
+        </Grid.RowDefinitions>
+        <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63" Grid.RowSpan="4" Grid.ColumnSpan="4"></Image>
+        <StackPanel Background="Black" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="4" Margin="114,0,113,0" Height="100" Width="1200">
+            <Button Name="Map" Click="GetMap" Width="200" Height="100" Background="Transparent"  BorderBrush="{x:Null}">
+                <Image Name="MapIMG">
+                    <Image.Resources>
+                        <Style TargetType="{x:Type Image}">
+                            <!-- Default image -->
+                            <Setter Property="Source" Value="img/UI/map_back.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <!-- Hover image -->
+                                    <Setter Property="Source" Value="img/UI/map_back_a.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Resources>
+                </Image>
+            </Button>
+            <Button Click="GetInventory" Name="Inventoryy" Width="200" Height="100" Background="Transparent" BorderBrush="Transparent">
+                <Image >
+                    <Image.Resources>
+                        <Style TargetType="{x:Type Image}">
+                            <!-- Default image -->
+                            <Setter Property="Source" Value="img/UI/inventory_back.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <!-- Hover image -->
+                                    <Setter Property="Source" Value="img/UI/inventory_back_a.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Resources>
+                </Image>
+            </Button>
+            <Button Name="Quest" Width="200" Height="100" Background="Transparent" BorderBrush="Transparent">
+                <Image Name="QuestIMG" Source="img/UI/quest_back_c.png">
+                </Image>
+            </Button>
+            <Button  Click="GetJournal" Name="Journal" Width="200" Height="100" Background="Transparent" BorderBrush="Transparent">
+                <Image Name="JournIMG">
+                    <Image.Resources>
+                        <Style TargetType="{x:Type Image}">
+                            <!-- Default image -->
+                            <Setter Property="Source" Value="img/UI/journ_back.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <!-- Hover image -->
+                                    <Setter Property="Source" Value="img/UI/journ_back_a.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Resources>
+                </Image>
+            </Button>
+            <Button  Click="GetCharacter" Name="Character" Width="200" Height="100" Background="Transparent" BorderBrush="Transparent">
+                <Image Name="CharIMG">
+                    <Image.Resources>
+                        <Style TargetType="{x:Type Image}">
+                            <!-- Default image -->
+                            <Setter Property="Source" Value="img/UI/char_back.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <!-- Hover image -->
+                                    <Setter Property="Source" Value="img/UI/char_back_a.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Resources>
+                </Image>
+            </Button>
+            <Button  Click="GetAlchemy" Name="Alchemy" Width="200" Height="100" Background="Transparent" BorderBrush="Transparent">
+                <Image Name="AlchIMG">
+                    <Image.Resources>
+                        <Style TargetType="{x:Type Image}">
+                            <!-- Default image -->
+                            <Setter Property="Source" Value="img/UI/alch_back.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <!-- Hover image -->
+                                    <Setter Property="Source" Value="img/UI/alch_back_a.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Resources>
+                </Image>
+            </Button>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0" Height="739" MinWidth="300" MinHeight="739" Width="300" Grid.RowSpan="3">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF232C1B"/>
+                    <GradientStop Color="#FF1E2218" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Border Name="B1" BorderBrush="Black" BorderThickness="0,0,0,3">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel.Background>
+                        <ImageBrush ImageSource="img/UI/in.png"/>
+                    </StackPanel.Background>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="img/UI/Primary_quests.png" Height="32" Width="32"></Image>
+                        <Button Content="MainQuest1Name" FontSize="20" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"></Button>
+                    </StackPanel>
+                    <Label Content="Recommended Level: 40" FontSize="15" Foreground="#DDFFFFFF"></Label>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+        <Rectangle Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" Height="740" Margin="0,1" Grid.RowSpan="3" Grid.ColumnSpan="3">
+            <Rectangle.Effect>
+                <DropShadowEffect BlurRadius="10"/>
+            </Rectangle.Effect>
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF232C1B"/>
+                    <GradientStop Color="#FF1E2218" Offset="0.996"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Content="QuestName" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" MinHeight="26" MinWidth="62" Foreground="#DDFFFFFF" Margin="52,6" Height="56" Width="194"></Label>
+        <Label Content="QuestTarget" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" MinHeight="26" MinWidth="62" Foreground="#DDFFFFFF"></Label>
+        <Label Content="QuestBackStory" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" MinHeight="26" MinWidth="62" Foreground="#DDFFFFFF"></Label>
+    </Grid>
+</Page>

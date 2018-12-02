@@ -20,6 +20,7 @@ namespace WitcherWPF {
     public partial class MainWindow : Window {
         public MainWindow() {
             InitializeComponent();
+            mainFrame.Navigate(new Dialogue(mainFrame));
         }
     }
 }

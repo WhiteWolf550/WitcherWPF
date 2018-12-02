@@ -1,0 +1,102 @@
+﻿<Page x:Class="WitcherWPF.Map"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WitcherWPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Map" Height="850.5" Width="1426.666">
+
+    <Grid>
+        <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63"></Image>
+        <StackPanel Background="Black" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Button Name="Maps" Width="200" Height="100" Background="Transparent"  BorderBrush="{x:Null}">
+                <Image Name="MapIMG" Source="img/UI/map_back_c.png">
+                    
+                </Image>
+            </Button>
+            <Button Click="GetInventory" Name="Inventoryy" Width="200" Height="100" Background="Transparent" BorderBrush="Transparent">
+                <Image >
+                    <Image.Resources>
+                        <Style TargetType="{x:Type Image}">
+                            <!-- Default image -->
+                            <Setter Property="Source" Value="img/UI/inventory_back.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <!-- Hover image -->
+                                    <Setter Property="Source" Value="img/UI/inventory_back_a.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Resources>
+                </Image>
+            </Button>
+            <Button Name="Quest" Click="GetQuests" Width="200" Height="100" Background="Transparent" BorderBrush="Transparent">
+                <Image Name="QuestsIMG">
+                    <Image.Resources>
+                        <Style TargetType="{x:Type Image}">
+                            <!-- Default image -->
+                            <Setter Property="Source" Value="img/UI/quest_back.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <!-- Hover image -->
+                                    <Setter Property="Source" Value="img/UI/quest_back_a.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Resources>
+                </Image>
+            </Button>
+            <Button  Click="GetJournal" Name="Journal" Width="200" Height="100" Background="Transparent" BorderBrush="Transparent">
+                <Image Name="JournIMG">
+                    <Image.Resources>
+                        <Style TargetType="{x:Type Image}">
+                            <!-- Default image -->
+                            <Setter Property="Source" Value="img/UI/journ_back.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <!-- Hover image -->
+                                    <Setter Property="Source" Value="img/UI/journ_back_a.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Resources>
+                </Image>
+            </Button>
+            <Button  Click="GetCharacter" Name="Character" Width="200" Height="100" Background="Transparent" BorderBrush="Transparent">
+                <Image Name="CharIMG">
+                    <Image.Resources>
+                        <Style TargetType="{x:Type Image}">
+                            <!-- Default image -->
+                            <Setter Property="Source" Value="img/UI/char_back.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <!-- Hover image -->
+                                    <Setter Property="Source" Value="img/UI/char_back_a.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Resources>
+                </Image>
+            </Button>
+            <Button  Click="GetAlchemy" Name="Alchemy" Width="200" Height="100" Background="Transparent" BorderBrush="Transparent">
+                <Image Name="AlchIMG">
+                    <Image.Resources>
+                        <Style TargetType="{x:Type Image}">
+                            <!-- Default image -->
+                            <Setter Property="Source" Value="img/UI/alch_back.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <!-- Hover image -->
+                                    <Setter Property="Source" Value="img/UI/alch_back_a.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Resources>
+                </Image>
+            </Button>
+        </StackPanel>
+        <Image Source="img/Maps/Map_Swamp.png" Margin="114,105,151,10"></Image>
+    </Grid>
+</Page>

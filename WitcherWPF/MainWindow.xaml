@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WitcherWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        Title="MainWindow" Height="894" Width="1426.666" ResizeMode="NoResize">
     <Grid>
-        
+        <Frame Name="mainFrame"></Frame>
     </Grid>
 </Window>
