@@ -56,7 +56,8 @@ namespace WitcherWPF
                 Option2.Visibility = Visibility.Visible;
                 Option2.Content = "What is the situation in the city?";
                 First = false;
-            } else if (First == true) {
+            }
+            if (First == true) {
                 PersonName.Content = "Foltest";
                 PersonText.Content = "Geralt, I need your help";
                 await Task.Delay(5000);
@@ -66,6 +67,10 @@ namespace WitcherWPF
                 PersonName.Content = "Foltest";
                 PersonText.Content = "There is a monster in the city. Will you kill it?";
                 DialogueOptions.Visibility = Visibility.Visible;
+                Option1.Content = "Yes";
+                Option2.Content = "No";
+                Option1.Visibility = Visibility.Visible;
+                Option2.Visibility = Visibility.Visible;
             }
         }
 
@@ -75,12 +80,16 @@ namespace WitcherWPF
                 if (button1.Name == "Option1") {
                     if (Char == "Foltest") {
                         First = true;
+                        Begin = false;
                         FoltestDialogue();
                         Option1.Visibility = Visibility.Hidden;
                         Option2.Visibility = Visibility.Hidden;
                         Option3.Visibility = Visibility.Hidden;
                         Option4.Visibility = Visibility.Hidden;
                         Option5.Visibility = Visibility.Hidden;
+                        if (Option1.Content.ToString() == "Yes") {
+
+                        }
                     }
                 }
                 else if (button1.Name == "Option2") {
