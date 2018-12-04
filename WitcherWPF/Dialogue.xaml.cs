@@ -20,12 +20,20 @@ namespace WitcherWPF
     /// </summary>
     public partial class Dialogue : Page
     {
-        bool First = true;
+        bool Begin = true;
+        bool First = false;
+        bool Second = false;
+        bool Third = false;
+        bool Fourth = false;
+
         bool FoltestHelp = false;
+        string Char = "";
+        string DialogPart = "";
         private Frame parentFrame;
         public Dialogue()
         {
             InitializeComponent();
+            Char = "Foltest";
             DialogueOptions.Visibility = Visibility.Hidden;
             Option1.Visibility = Visibility.Hidden;
             Option2.Visibility = Visibility.Hidden;
@@ -38,7 +46,7 @@ namespace WitcherWPF
             this.parentFrame = parentFrame;
         }
         public async void FoltestDialogue() {
-            if (First == true) {
+            if (Begin == true) {
                 PersonName.Content = "Foltest";
                 PersonText.Content = "Welcome Geralt";
                 await Task.Delay(2000);
@@ -47,7 +55,8 @@ namespace WitcherWPF
                 Option1.Content = "Do you need any help?";
                 Option2.Visibility = Visibility.Visible;
                 Option2.Content = "What is the situation in the city?";
-            } else {
+                First = false;
+            } else if (First == true) {
                 PersonName.Content = "Foltest";
                 PersonText.Content = "Geralt, I need your help";
                 await Task.Delay(5000);
@@ -64,8 +73,17 @@ namespace WitcherWPF
             Button button = (Button)sender;
             if (sender is Button button1) {
                 if (button1.Name == "Option1") {
-
-                }else if (button1.Name == "Option2") {
+                    if (Char == "Foltest") {
+                        First = true;
+                        FoltestDialogue();
+                        Option1.Visibility = Visibility.Hidden;
+                        Option2.Visibility = Visibility.Hidden;
+                        Option3.Visibility = Visibility.Hidden;
+                        Option4.Visibility = Visibility.Hidden;
+                        Option5.Visibility = Visibility.Hidden;
+                    }
+                }
+                else if (button1.Name == "Option2") {
 
                 }else if(button1.Name == "Option3") {
 
