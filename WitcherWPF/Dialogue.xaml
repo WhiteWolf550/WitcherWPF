@@ -35,5 +35,9 @@
             <Button Click="Dialogue_Click" Content="What do you have on offer" Name="Option4" FontSize="20" HorizontalAlignment="Center" Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}"></Button>
             <Button Click="Dialogue_Click" Content="s" Name="Option5" FontSize="20" HorizontalAlignment="Center" Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}"></Button>
         </StackPanel>
+        <StackPanel Visibility="Hidden" Opacity="0"  Name="QuestPop" HorizontalAlignment="Center" VerticalAlignment="Top" MinHeight="100" MinWidth="100" Grid.Column="1" Grid.Row="2">
+            <Label Name="QueName" Content="New Quest" FontSize="55" Foreground="#DDE82323"></Label>
+            <Label Name="QueGoal" Content="New Goal" FontSize="35" Background="{x:Null}" Foreground="#DDE82323" HorizontalAlignment="Center"></Label>
+        </StackPanel>
     </Grid>
 </Page>

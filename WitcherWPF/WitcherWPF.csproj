@@ -73,6 +73,7 @@
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Quest.cs" />
     <Compile Include="Quests.xaml.cs">
       <DependentUpon>Quests.xaml</DependentUpon>
     </Compile>
