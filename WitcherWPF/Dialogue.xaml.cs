@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +23,12 @@ namespace WitcherWPF
     /// </summary>
     public partial class Dialogue : Page
     {
+        static JsonSerializerSettings settings = new JsonSerializerSettings {
+            TypeNameHandling = TypeNameHandling.All
+        };
+        //static string questpath = "@../../saves/quests.json";
+        //static string jsonFromQuests = File.ReadAllText(questpath);
+        //static List<Quest> Questlist = JsonConvert.DeserializeObject<List<Quest>>(jsonFromQuests, settings);
         static bool FoltestHelp = true;
         bool Begin = true;
         bool First = false;
@@ -164,12 +172,6 @@ namespace WitcherWPF
                             Begin = false;
                             DialogPart = "Do you need any help?";
                             FoltestDialogue();
-
-                            Option1.Visibility = Visibility.Hidden;
-                            Option2.Visibility = Visibility.Hidden;
-                            Option3.Visibility = Visibility.Hidden;
-                            Option4.Visibility = Visibility.Hidden;
-                            Option5.Visibility = Visibility.Hidden;
                         }
                         if (Option1.Content.ToString() == "Yes") {
                             DialogPart = "Yes";
@@ -208,12 +210,6 @@ namespace WitcherWPF
                     }
 
                 }
-                Option1.Visibility = Visibility.Hidden;
-                Option2.Visibility = Visibility.Hidden;
-                Option3.Visibility = Visibility.Hidden;
-                Option4.Visibility = Visibility.Hidden;
-                Option5.Visibility = Visibility.Hidden;
-                Begin = false;
             }
         }
         public void QuestTimer() {

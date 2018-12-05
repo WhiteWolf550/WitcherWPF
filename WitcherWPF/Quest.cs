@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,6 +50,15 @@ namespace WitcherWPF {
 
             Tran.BeginAnimation(UIElement.OpacityProperty, animation);
         }
-        
+        public void QuestSave(List<Quest> quests) {
+            string questpath = "@../../saves/quests.json";
+            JsonSerializerSettings settings = new JsonSerializerSettings {
+                TypeNameHandling = TypeNameHandling.All
+            };
+            string jsonToFile = JsonConvert.SerializeObject(quests, settings);
+            File.WriteAllText(questpath, jsonToFile);
+        }
+
+
     }
 }

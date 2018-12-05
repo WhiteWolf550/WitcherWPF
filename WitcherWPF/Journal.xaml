@@ -7,7 +7,6 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Journal" Height="850.5" Width="1426.666">
-
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="344*"/>
@@ -123,7 +122,7 @@
                     </StackPanel.Background>
                     <StackPanel Orientation="Horizontal">
 
-                        <Button Content="MonsterName" FontSize="20" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"></Button>
+                        <Button Style="{StaticResource MORPHEUS}" Content="MonsterName" FontSize="20" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"></Button>
                     </StackPanel>
                     <Label Content="Type" FontSize="15" Foreground="#DDFFFFFF"></Label>
                 </StackPanel>
