@@ -23,7 +23,7 @@
         </Grid.RowDefinitions>
         <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63" Grid.RowSpan="4" Grid.ColumnSpan="4"></Image>
         <StackPanel Background="Black" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="4" Margin="114,0,113,0" Height="100" Width="1200">
-            <Button Name="Map" Click="GetMap" Width="200" Height="100" Background="Transparent"  BorderBrush="{x:Null}">
+            <Button Name="Map" Click="GetMap" Width="200" Height="100" Background="Transparent"  BorderBrush="Black">
                 <Image Name="MapIMG">
                     <Image.Resources>
                         <Style TargetType="{x:Type Image}">
@@ -109,6 +109,7 @@
             </Button>
         </StackPanel>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0" Height="739" MinWidth="300" MinHeight="739" Width="300" Grid.RowSpan="3">
+
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF232C1B"/>
@@ -120,6 +121,20 @@
                     <StackPanel.Background>
                         <ImageBrush ImageSource="img/UI/in.png"/>
                     </StackPanel.Background>
+                    <StackPanel Orientation="Horizontal" MinHeight="40">
+                        <Button BorderBrush="Black" MinHeight="70" Width="150">
+                            <Button.Background>
+                                <ImageBrush ImageSource="img/UI/in.png"/>
+                            </Button.Background>
+                            <Image Source="img/UI/primary_quests.png" Width="50" Height="50"></Image>
+                        </Button>
+                        <Button BorderBrush="Black" MinHeight="70" Width="150">
+                            <Button.Background>
+                                <ImageBrush ImageSource="img/UI/in.png"/>
+                            </Button.Background>
+                            <Image Source="img/UI/secondary_quests.png" Width="50" Height="50"></Image>
+                        </Button>
+                    </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Image Source="img/UI/Primary_quests.png" Height="32" Width="32"></Image>
                         <Button Content="MainQuest1Name" FontSize="20" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"></Button>

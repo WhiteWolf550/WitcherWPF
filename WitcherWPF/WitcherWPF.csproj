@@ -72,6 +72,7 @@
       <DependentUpon>Dialogue.xaml</DependentUpon>
     </Compile>
     <Compile Include="Enemy.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Journal.xaml.cs">
       <DependentUpon>Journal.xaml</DependentUpon>
     </Compile>
@@ -82,6 +83,7 @@
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
     <Compile Include="Player.cs" />
+    <Compile Include="PlayerInventory.cs" />
     <Compile Include="Quest.cs" />
     <Compile Include="Quests.xaml.cs">
       <DependentUpon>Quests.xaml</DependentUpon>
@@ -231,6 +233,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\Locations\old_wyzima1_night.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\UI\door.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

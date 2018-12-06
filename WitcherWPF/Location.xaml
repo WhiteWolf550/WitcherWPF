@@ -9,9 +9,11 @@
       Title="Location">
 
     <Grid>
-        <StackPanel Name="">
+        
             <Image x:Name="LocationImage" Source="img/Locations/old_wyzima1_night.png" Margin="-117,-84,-116,-23"/>
-        </StackPanel>
+            <Image Source="img/UI/door.png" HorizontalAlignment="Center" Width="100" Height="98" VerticalAlignment="Center" Margin="350,0"/>
+       
+        
         
     </Grid>
 </Page>
