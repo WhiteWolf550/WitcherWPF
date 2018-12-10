@@ -13,36 +13,32 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WitcherWPF
-{
+namespace WitcherWPF {
     /// <summary>
-    /// Interakční logika pro Inventory.xaml
+    /// Interakční logika pro Character.xaml
     /// </summary>
-    public partial class Inventory : Page
-    {
+    public partial class Character : Page {
         private Frame parentFrame;
-        public Inventory()
-        {
+        public Character() {
             InitializeComponent();
         }
-        public Inventory(Frame parentFrame) : this() {
+        public Character(Frame parentFrame) : this() {
             this.parentFrame = parentFrame;
         }
-
-        public void GetMap(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Map(parentFrame));
+        public void GetInventory(object sender, RoutedEventArgs e) {
+            parentFrame.Navigate(new Inventory(parentFrame));
         }
         public void GetQuests(object sender, RoutedEventArgs e) {
             parentFrame.Navigate(new Quests(parentFrame));
         }
+        public void GetMap(object sender, RoutedEventArgs e) {
+            parentFrame.Navigate(new Map(parentFrame));
+        }
         public void GetJournal(object sender, RoutedEventArgs e) {
             parentFrame.Navigate(new Journal(parentFrame));
         }
-        public void GetCharacter(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Character(parentFrame));
-        }
         public void GetAlchemy(object sender, RoutedEventArgs e) {
-
+            //parentFrame.Navigate(new (parentFrame));
         }
     }
 }

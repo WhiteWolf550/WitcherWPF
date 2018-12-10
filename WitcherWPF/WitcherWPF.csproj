@@ -68,6 +68,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Aard.cs" />
+    <Compile Include="Character.xaml.cs">
+      <DependentUpon>Character.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogue.xaml.cs">
       <DependentUpon>Dialogue.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,10 @@
     </Compile>
     <Compile Include="Sign.cs" />
     <Compile Include="Sword.cs" />
+    <Page Include="Character.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dialogue.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

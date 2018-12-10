@@ -38,7 +38,7 @@ namespace WitcherWPF
             parentFrame.Navigate(new Journal(parentFrame));
         }
         public void GetCharacter(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Dialogue(parentFrame));
+            parentFrame.Navigate(new Character(parentFrame));
         }
         public void GetAlchemy(object sender, RoutedEventArgs e) {
 

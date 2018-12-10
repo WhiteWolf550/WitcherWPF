@@ -1,0 +1,140 @@
+﻿<Page x:Class="WitcherWPF.Character"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WitcherWPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Character" Height="850.5" Width="1426.666">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="76*"/>
+        </Grid.RowDefinitions>
+        <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63" Grid.RowSpan="2"></Image>
+        <StackPanel Background="Black" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="114,0,113,0" Height="100" Width="1200" Grid.RowSpan="2">
+            <Button Name="Maps" Click="GetMap" Width="200" Height="100" Background="Transparent"  BorderBrush="{x:Null}">
+                <Image Name="MapIMG">
+                    <Image.Resources>
+                        <Style TargetType="{x:Type Image}">
+                            <!-- Default image -->
+                            <Setter Property="Source" Value="img/UI/map_back.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <!-- Hover image -->
+                                    <Setter Property="Source" Value="img/UI/map_back_a.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Resources>
+                </Image>
+            </Button>
+            <Button Click="GetInventory" Name="Inventoryy" Width="200" Height="100" Background="Transparent" BorderBrush="Transparent">
+                <Image >
+                    <Image.Resources>
+                        <Style TargetType="{x:Type Image}">
+                            <!-- Default image -->
+                            <Setter Property="Source" Value="img/UI/inventory_back.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <!-- Hover image -->
+                                    <Setter Property="Source" Value="img/UI/inventory_back_a.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Resources>
+                </Image>
+            </Button>
+            <Button Name="Quest" Click="GetQuests" Width="200" Height="100" Background="Transparent" BorderBrush="Transparent">
+                <Image Name="QuestsIMG">
+                    <Image.Resources>
+                        <Style TargetType="{x:Type Image}">
+                            <!-- Default image -->
+                            <Setter Property="Source" Value="img/UI/quest_back.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <!-- Hover image -->
+                                    <Setter Property="Source" Value="img/UI/quest_back_a.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Resources>
+                </Image>
+            </Button>
+            <Button  Click="GetJournal" Name="Journal" Width="200" Height="100" Background="Transparent" BorderBrush="Transparent">
+                <Image Name="JournIMG">
+                    <Image.Resources>
+                        <Style TargetType="{x:Type Image}">
+                            <!-- Default image -->
+                            <Setter Property="Source" Value="img/UI/journ_back.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <!-- Hover image -->
+                                    <Setter Property="Source" Value="img/UI/journ_back_a.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Resources>
+                </Image>
+            </Button>
+            <Button  Name="Char" Width="200" Height="100" Background="Transparent" BorderBrush="Transparent">
+                <Image Name="CharIMG" Source="img/UI/char_back_c.png">
+                    
+                </Image>
+            </Button>
+            <Button  Click="GetAlchemy" Name="Alchemy" Width="200" Height="100" Background="Transparent" BorderBrush="Transparent">
+                <Image Name="AlchIMG">
+                    <Image.Resources>
+                        <Style TargetType="{x:Type Image}">
+                            <!-- Default image -->
+                            <Setter Property="Source" Value="img/UI/alch_back.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <!-- Hover image -->
+                                    <Setter Property="Source" Value="img/UI/alch_back_a.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Resources>
+                </Image>
+            </Button>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Height="740" MinWidth="300" MinHeight="739" Width="300" Grid.Row="1" Margin="0,21,0,-1">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF232C1B"/>
+                    <GradientStop Color="#FF1E2218" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Border Name="B1" BorderBrush="Black" BorderThickness="0,0,0,3">
+                <StackPanel Orientation="Vertical" MinHeight="800">
+                    <StackPanel.Background>
+                        <ImageBrush ImageSource="img/UI/in.png"/>
+                    </StackPanel.Background>
+
+                    <Button Style="{StaticResource MORPHEUS}" Content="Aard" FontSize="30" Background="#FF20341C" BorderBrush="Black" Foreground="White" HorizontalContentAlignment="Center" Width="300"></Button>
+                    <Button Style="{StaticResource MORPHEUS}" Content="Igni" FontSize="30" Background="#FF20341C" BorderBrush="Black" Foreground="White" HorizontalContentAlignment="Center" Width="300"></Button>
+                    <Button Style="{StaticResource MORPHEUS}" Content="Quen" FontSize="30" Background="#FF20341C" BorderBrush="Black" Foreground="White" HorizontalContentAlignment="Center" Width="300"></Button>
+                    <Button Style="{StaticResource MORPHEUS}" Content="Axii" FontSize="30" Background="#FF20341C" BorderBrush="Black" Foreground="White" HorizontalContentAlignment="Center" Width="300"></Button>
+                    <Button Style="{StaticResource MORPHEUS}" Content="Yrden" FontSize="30" Background="#FF20341C" BorderBrush="Black" Foreground="White" HorizontalContentAlignment="Center" Width="300"></Button>
+                    <Button Style="{StaticResource MORPHEUS}" Content="Steel Sword" FontSize="30" Background="#FF20341C" BorderBrush="Black" Foreground="White" HorizontalContentAlignment="Center" Width="300"></Button>
+                    <Button Style="{StaticResource MORPHEUS}" Content="Silver Sword" FontSize="30" Background="#FF20341C" BorderBrush="Black" Foreground="White" HorizontalContentAlignment="Center" Width="300"></Button>
+                    </StackPanel>
+            </Border>
+
+        </StackPanel>
+        <Rectangle  HorizontalAlignment="Right" Width="1100" Height="740" VerticalAlignment="Bottom" Grid.Row="1">
+            <Rectangle.Effect>
+                <DropShadowEffect BlurRadius="10"/>
+            </Rectangle.Effect>
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF232C1B"/>
+                    <GradientStop Color="#FF1E2218" Offset="0.996"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+    </Grid>
+</Page>
