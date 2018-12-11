@@ -20,6 +20,10 @@ namespace WitcherWPF
 {
     /// <summary>
     /// Interakční logika pro Dialogue.xaml
+    /// LAMBERT
+    /// FOLTEST
+    /// TRISS
+    /// 
     /// </summary>
     public partial class Dialogue : Page
     {
@@ -123,6 +127,10 @@ namespace WitcherWPF
                 PersonName.Content = "Foltest";
                 PersonText.Content = "Alright Geralt I cannot force you into anything after you saved my life, but please try to kill it. This city has suffered enough";
                 await Task.Delay(5000);
+                if (FoltestHelp == true) {
+                    Option1.Visibility = Visibility.Visible;
+                    Option1.Content = "Do you need any help?";
+                }
                 Option2.Visibility = Visibility.Visible;
                 Option2.Content = "What is the situation in the city?";
                 Option5.Visibility = Visibility.Visible;
@@ -140,6 +148,7 @@ namespace WitcherWPF
                 await Task.Delay(5000);
                 PersonName.Content = "Foltest";
                 PersonText.Content = "Yes.. the situation is very bad, but i will do my best to bring Wyzima back to life";
+                await Task.Delay(4000);
                 QuestPop.Visibility = Visibility.Hidden;
                 if (FoltestHelp == true) {
                     Option1.Visibility = Visibility.Visible;
@@ -158,7 +167,7 @@ namespace WitcherWPF
                 PersonName.Content = "Foltest";
                 PersonText.Content = "Farewell Geralt";
                 await Task.Delay(5000);
-                parentFrame.Navigate(new Map(parentFrame));
+                parentFrame.Navigate(new Location(parentFrame));
             }
         }
 

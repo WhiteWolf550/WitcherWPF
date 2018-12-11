@@ -1,4 +1,4 @@
-﻿<Page x:Class="WitcherWPF.Location"
+﻿<Page x:Class="WitcherWPF.Combat"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,10 +6,9 @@
       xmlns:local="clr-namespace:WitcherWPF"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Location">
+      Title="Combat">
 
     <Grid>
-        <local:Old_wyzima1 Margin="-52,0,-37,-30"></local:Old_wyzima1>
-        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Click="GetInventory" Content="Inventory" Background="#FF22551D"></Button>
+        
     </Grid>
 </Page>

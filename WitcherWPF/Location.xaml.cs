@@ -18,9 +18,15 @@ namespace WitcherWPF {
     /// Interakční logika pro Location.xaml
     /// </summary>
     public partial class Location : Page {
-        public Location(string uri) {
+        private Frame parentFrame;
+        public Location() {
             InitializeComponent();
-            LocationImage.Source = new BitmapImage(new Uri(uri, UriKind.Relative));
+        }
+        public Location(Frame parentFrame) : this() {
+            this.parentFrame = parentFrame;
+        }
+        public void GetInventory(object sender, RoutedEventArgs e) {
+            parentFrame.Navigate(new Inventory(parentFrame));
         }
     }
 }

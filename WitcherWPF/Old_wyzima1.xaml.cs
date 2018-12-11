@@ -15,12 +15,11 @@ using System.Windows.Shapes;
 
 namespace WitcherWPF {
     /// <summary>
-    /// Interakční logika pro MainWindow.xaml
+    /// Interakční logika pro UserControl1.xaml
     /// </summary>
-    public partial class MainWindow : Window {
-        public MainWindow() {
+    public partial class Old_wyzima1 : UserControl {
+        public Old_wyzima1() {
             InitializeComponent();
-            mainFrame.Navigate(new Dialogue(mainFrame));
         }
     }
 }

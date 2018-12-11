@@ -71,6 +71,9 @@
     <Compile Include="Character.xaml.cs">
       <DependentUpon>Character.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Combat.xaml.cs">
+      <DependentUpon>Combat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogue.xaml.cs">
       <DependentUpon>Dialogue.xaml</DependentUpon>
     </Compile>
@@ -93,7 +96,14 @@
     </Compile>
     <Compile Include="Sign.cs" />
     <Compile Include="Sword.cs" />
+    <Compile Include="Old_wyzima1.xaml.cs">
+      <DependentUpon>Old_wyzima1.xaml</DependentUpon>
+    </Compile>
     <Page Include="Character.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Combat.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -133,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Quests.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Old_wyzima1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

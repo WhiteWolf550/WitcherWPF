@@ -15,12 +15,11 @@ using System.Windows.Shapes;
 
 namespace WitcherWPF {
     /// <summary>
-    /// Interakční logika pro MainWindow.xaml
+    /// Interakční logika pro Combat.xaml
     /// </summary>
-    public partial class MainWindow : Window {
-        public MainWindow() {
+    public partial class Combat : Page {
+        public Combat() {
             InitializeComponent();
-            mainFrame.Navigate(new Dialogue(mainFrame));
         }
     }
 }
