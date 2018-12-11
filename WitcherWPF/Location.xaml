@@ -9,7 +9,8 @@
       Title="Location">
 
     <Grid>
+        
         <Image x:Name="LocationImage" Source="img/Locations/old_wyzima1_night.png" Margin="-117,-84,-116,-23"/>
-        <Image Source="img/UI/door.png" HorizontalAlignment="Center" Width="100" Height="98" VerticalAlignment="Center" Margin="350,0"/>
+        <Image Source="img/UI/door.png" HorizontalAlignment="Center" Width="100" Height="98" VerticalAlignment="Center" Margin="328,157,372,195"/>
     </Grid>
 </Page>
