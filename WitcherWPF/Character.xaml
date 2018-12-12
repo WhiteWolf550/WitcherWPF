@@ -9,12 +9,32 @@
       Title="Character" Height="850.5" Width="1426.666">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="108*"/>
+            <ColumnDefinition Width="1319*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="9*"/>
-            <RowDefinition Height="76*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="376*"/>
         </Grid.RowDefinitions>
-        <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63" Grid.RowSpan="2"></Image>
-        <StackPanel Background="Black" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="114,0,113,0" Height="100" Width="1200" Grid.RowSpan="2">
+        <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63" Grid.RowSpan="2" Grid.ColumnSpan="2"></Image>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" MinWidth="50" MinHeight="80" Click="GetLocation">
+            <Image Width="60" Height="60">
+                <Image.Resources>
+                    <Style TargetType="{x:Type Image}">
+                        <!-- Default image -->
+                        <Setter Property="Source" Value="img/UI/exit.png"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <!-- Hover image -->
+                                <Setter Property="Source" Value="img/UI/exit_a.png"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Resources>
+            </Image>
+        </Button>
+        <StackPanel Background="Black" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="8,0,111,0" Height="100" Width="1200" Grid.RowSpan="2" Grid.Column="1">
             <Button Name="Maps" Click="GetMap" Width="200" Height="100" Background="Transparent"  BorderBrush="{x:Null}">
                 <Image Name="MapIMG">
                     <Image.Resources>
@@ -81,7 +101,7 @@
             </Button>
             <Button  Name="Char" Width="200" Height="100" Background="Transparent" BorderBrush="Transparent">
                 <Image Name="CharIMG" Source="img/UI/char_back_c.png">
-                    
+
                 </Image>
             </Button>
             <Button  Click="GetAlchemy" Name="Alchemy" Width="200" Height="100" Background="Transparent" BorderBrush="Transparent">
@@ -101,7 +121,7 @@
                 </Image>
             </Button>
         </StackPanel>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Height="740" MinWidth="300" MinHeight="739" Width="300" Grid.Row="1" Margin="0,21,0,-1">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Height="740" MinWidth="300" MinHeight="739" Width="300" Grid.Row="1" Margin="0,14,0,-2" Grid.ColumnSpan="2">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF232C1B"/>
@@ -121,11 +141,11 @@
                     <Button Style="{StaticResource MORPHEUS}" Content="Yrden" FontSize="30" Background="#FF20341C" BorderBrush="Black" Foreground="White" HorizontalContentAlignment="Center" Width="300"></Button>
                     <Button Style="{StaticResource MORPHEUS}" Content="Steel Sword" FontSize="30" Background="#FF20341C" BorderBrush="Black" Foreground="White" HorizontalContentAlignment="Center" Width="300"></Button>
                     <Button Style="{StaticResource MORPHEUS}" Content="Silver Sword" FontSize="30" Background="#FF20341C" BorderBrush="Black" Foreground="White" HorizontalContentAlignment="Center" Width="300"></Button>
-                    </StackPanel>
+                </StackPanel>
             </Border>
 
         </StackPanel>
-        <Rectangle  HorizontalAlignment="Right" Width="1100" Height="740" VerticalAlignment="Bottom" Grid.Row="1">
+        <Rectangle  HorizontalAlignment="Right" Width="1100" Height="740" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="1">
             <Rectangle.Effect>
                 <DropShadowEffect BlurRadius="10"/>
             </Rectangle.Effect>

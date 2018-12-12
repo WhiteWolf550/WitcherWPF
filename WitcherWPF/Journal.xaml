@@ -9,7 +9,8 @@
       Title="Journal" Height="850.5" Width="1426.666">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="344*"/>
+            <ColumnDefinition Width="108*"/>
+            <ColumnDefinition Width="236*"/>
             <ColumnDefinition Width="165*"/>
             <ColumnDefinition Width="324*"/>
             <ColumnDefinition Width="214*"/>
@@ -20,8 +21,24 @@
             <RowDefinition Height="87*"/>
             <RowDefinition Height="660*"/>
         </Grid.RowDefinitions>
-        <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63" Grid.RowSpan="3" Grid.ColumnSpan="5"></Image>
-        <StackPanel Background="Black" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="114,0,113,0" Height="100" Width="1200" Grid.ColumnSpan="5">
+        <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63" Grid.RowSpan="3" Grid.ColumnSpan="6"></Image>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" MinWidth="50" MinHeight="80" Click="GetLocation">
+            <Image Width="60" Height="60">
+                <Image.Resources>
+                    <Style TargetType="{x:Type Image}">
+                        <!-- Default image -->
+                        <Setter Property="Source" Value="img/UI/exit.png"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <!-- Hover image -->
+                                <Setter Property="Source" Value="img/UI/exit_a.png"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Resources>
+            </Image>
+        </Button>
+        <StackPanel Background="Black" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5.667,0,113,0" Height="100" Width="1200" Grid.ColumnSpan="5" Grid.Column="1">
             <Button Name="Maps" Click="GetMap" Width="200" Height="100" Background="Transparent"  BorderBrush="{x:Null}">
                 <Image Name="MapIMG">
                     <Image.Resources>
@@ -72,7 +89,7 @@
             </Button>
             <Button Name="JournalB" Width="200" Height="100" Background="Transparent" BorderBrush="Transparent">
                 <Image Name="JournIMG" Source="img/UI/journ_back_c.png">
-                    
+
                 </Image>
             </Button>
             <Button  Click="GetCharacter" Name="Character" Width="200" Height="100" Background="Transparent" BorderBrush="Transparent">
@@ -108,7 +125,7 @@
                 </Image>
             </Button>
         </StackPanel>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="1" Height="739" MinWidth="300" MinHeight="739" Width="300" Grid.RowSpan="2">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="1" Height="739" MinWidth="300" MinHeight="739" Width="300" Grid.RowSpan="2" Grid.ColumnSpan="2">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF232C1B"/>
@@ -129,7 +146,7 @@
             </Border>
 
         </StackPanel>
-        <Rectangle Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" Height="740" Margin="0,3,0,4" Grid.RowSpan="2" Grid.ColumnSpan="3">
+        <Rectangle Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" Height="740" Margin="0,3,0,4" Grid.RowSpan="2" Grid.ColumnSpan="3">
             <Rectangle.Effect>
                 <DropShadowEffect BlurRadius="10"/>
             </Rectangle.Effect>
@@ -140,8 +157,8 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Label Content="MonsterName" FontSize="25" Grid.Column="2" Grid.Row="1" Foreground="#DDFFFFFF" HorizontalAlignment="Center" VerticalAlignment="Center" Height="43"  Width="168" Margin="77,22,79,22"></Label>
-        <StackPanel Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Height="200" MinWidth="10" MinHeight="200" Margin="63,0" Width="198">
+        <Label Content="MonsterName" FontSize="25" Grid.Column="3" Grid.Row="1" Foreground="#DDFFFFFF" HorizontalAlignment="Center" VerticalAlignment="Center" Height="43"  Width="168" Margin="77,22,79,22"></Label>
+        <StackPanel Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Height="200" MinWidth="10" MinHeight="200" Margin="63,0" Width="198">
             <StackPanel MinHeight="10" MinWidth="10" Orientation="Horizontal">
                 <Label FontSize="15" Content="Occurence: " Foreground="#DDFFFFFF"></Label>
                 <Label FontSize="15" Content="OccurenceType" Name="Occurence" Foreground="#DDFFFFFF"></Label>
@@ -155,6 +172,6 @@
                 <Label FontSize="15" Content="ImmunityType" Name="Immunity" Foreground="#DDFFFFFF"></Label>
             </StackPanel>
         </StackPanel>
-        <Image Grid.Column="3" Grid.Row="2" Source="img/UI/Bestiary_Alghoul.png"></Image>
+        <Image Grid.Column="4" Grid.Row="2" Source="img/UI/Bestiary_Alghoul.png"></Image>
     </Grid>
 </Page>

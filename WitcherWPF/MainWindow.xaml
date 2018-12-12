@@ -8,6 +8,6 @@
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         Title="MainWindow" Height="894" Width="1426.666" ResizeMode="NoResize">
     <Grid>
-        <Frame Name="mainFrame"></Frame>
+        <Frame Name="mainFrame" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>

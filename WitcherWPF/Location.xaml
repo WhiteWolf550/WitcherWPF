@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:WitcherWPF"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Location">
+      Title="Location"  Height="894" Width="1426.666">
 
     <Grid>
         <local:Old_wyzima1 Margin="-52,0,-37,-30"></local:Old_wyzima1>

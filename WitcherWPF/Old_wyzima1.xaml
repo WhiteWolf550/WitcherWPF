@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Image x:Name="LocationImage" Source="img/Locations/old_wyzima1_night.png" Margin="-117,-84,-116,-23"/>
-        <Image Source="img/UI/door.png" HorizontalAlignment="Center" Width="100" Height="98" VerticalAlignment="Center" Margin="338,156,362,196"/>
+        <Image x:Name="LocationImage" Source="img/Locations/old_wyzima2.png" Margin="-34,0,0,0"/>
+        <Image Source="img/UI/door.png" HorizontalAlignment="Center" Width="100" Height="98" Visibility="Hidden" VerticalAlignment="Center" Margin="338,156,362,196"/>
     </Grid>
 </UserControl>

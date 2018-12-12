@@ -258,5 +258,13 @@
   <ItemGroup>
     <Resource Include="img\UI\door.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Locations\old_wyzima2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\UI\exit.png" />
+    <Resource Include="img\UI\exit_a.png" />
+    <Resource Include="img\UI\exit_c.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -9,11 +9,35 @@
       Title="Map" Height="850.5" Width="1426.666">
 
     <Grid>
-        <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63"></Image>
-        <StackPanel Background="Black" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="1322*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="377*"/>
+        </Grid.RowDefinitions>
+        <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63" Grid.RowSpan="2" Grid.ColumnSpan="2"></Image>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" MinWidth="50" MinHeight="80" Click="GetLocation">
+            <Image Width="60" Height="60">
+                <Image.Resources>
+                    <Style TargetType="{x:Type Image}">
+                        <!-- Default image -->
+                        <Setter Property="Source" Value="img/UI/exit.png"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <!-- Hover image -->
+                                <Setter Property="Source" Value="img/UI/exit_a.png"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Resources>
+            </Image>
+        </Button>
+        <StackPanel Background="Black" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="11,0,111,0" Grid.RowSpan="2" Height="100" Width="1200" Grid.Column="1">
             <Button Name="Maps" Width="200" Height="100" Background="Transparent"  BorderBrush="{x:Null}">
                 <Image Name="MapIMG" Source="img/UI/map_back_c.png">
-                    
+
                 </Image>
             </Button>
             <Button Click="GetInventory" Name="Inventoryy" Width="200" Height="100" Background="Transparent" BorderBrush="Transparent">
@@ -97,6 +121,6 @@
                 </Image>
             </Button>
         </StackPanel>
-        <Image Source="img/Maps/Map_Swamp.png" Margin="114,105,151,10"></Image>
+        <Image Source="img/Maps/Map_Swamp.png" Margin="21,19,151,10" Grid.Row="1" Grid.Column="1"></Image>
     </Grid>
 </Page>

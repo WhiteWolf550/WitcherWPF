@@ -43,5 +43,8 @@ namespace WitcherWPF
         public void GetAlchemy(object sender, RoutedEventArgs e) {
 
         }
+        public void GetLocation(object sender, RoutedEventArgs e) {
+            parentFrame.Navigate(new Location(parentFrame));
+        }
     }
 }

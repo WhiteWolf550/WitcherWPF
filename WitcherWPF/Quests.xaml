@@ -10,7 +10,8 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="338*"/>
+            <ColumnDefinition Width="114*"/>
+            <ColumnDefinition Width="224*"/>
             <ColumnDefinition Width="182*"/>
             <ColumnDefinition Width="298*"/>
             <ColumnDefinition Width="609*"/>
@@ -21,8 +22,24 @@
             <RowDefinition Height="55*"/>
             <RowDefinition Height="619*"/>
         </Grid.RowDefinitions>
-        <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63" Grid.RowSpan="4" Grid.ColumnSpan="4"></Image>
-        <StackPanel Background="Black" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="4" Margin="114,0,113,0" Height="100" Width="1200">
+        <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63" Grid.RowSpan="4" Grid.ColumnSpan="5"></Image>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" MinWidth="50" MinHeight="80" Click="GetLocation">
+            <Image Width="60" Height="60">
+                <Image.Resources>
+                    <Style TargetType="{x:Type Image}">
+                        <!-- Default image -->
+                        <Setter Property="Source" Value="img/UI/exit.png"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <!-- Hover image -->
+                                <Setter Property="Source" Value="img/UI/exit_a.png"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Resources>
+            </Image>
+        </Button>
+        <StackPanel Background="Black" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="4" Margin="0,0,113,0" Height="100" Width="1200" Grid.Column="1">
             <Button Name="Map" Click="GetMap" Width="200" Height="100" Background="Transparent"  BorderBrush="Black">
                 <Image Name="MapIMG">
                     <Image.Resources>
@@ -108,7 +125,7 @@
                 </Image>
             </Button>
         </StackPanel>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0" Height="739" MinWidth="300" MinHeight="739" Width="300" Grid.RowSpan="3">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0" Height="739" MinWidth="300" MinHeight="739" Width="300" Grid.RowSpan="3" Grid.ColumnSpan="2">
 
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -144,7 +161,7 @@
             </Border>
 
         </StackPanel>
-        <Rectangle Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" Height="740" Margin="0,1" Grid.RowSpan="3" Grid.ColumnSpan="3">
+        <Rectangle Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" Height="740" Margin="0,1" Grid.RowSpan="3" Grid.ColumnSpan="3">
             <Rectangle.Effect>
                 <DropShadowEffect BlurRadius="10"/>
             </Rectangle.Effect>
@@ -155,8 +172,8 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Label Content="QuestName" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" MinHeight="26" MinWidth="62" Foreground="#DDFFFFFF" Margin="52,6" Height="56" Width="194"></Label>
-        <Label Content="QuestTarget" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" MinHeight="26" MinWidth="62" Foreground="#DDFFFFFF"></Label>
-        <Label Content="QuestBackStory" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" MinHeight="26" MinWidth="62" Foreground="#DDFFFFFF"></Label>
+        <Label Content="QuestName" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" MinHeight="26" MinWidth="62" Foreground="#DDFFFFFF" Margin="52,6" Height="56" Width="194"></Label>
+        <Label Content="QuestTarget" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" MinHeight="26" MinWidth="62" Foreground="#DDFFFFFF" Margin="96,0" Height="34" Width="106"></Label>
+        <Label Content="QuestBackStory" Grid.Column="4" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" MinHeight="26" MinWidth="62" Foreground="#DDFFFFFF" Height="30" Width="114"></Label>
     </Grid>
 </Page>
