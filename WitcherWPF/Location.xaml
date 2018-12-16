@@ -9,7 +9,11 @@
       Title="Location"  Height="894" Width="1426.666">
 
     <Grid>
-        <local:Old_wyzima1 Margin="-52,0,-37,-30"></local:Old_wyzima1>
-        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Click="GetInventory" Content="Inventory" Background="#FF22551D"></Button>
+        <local:Old_wyzima1 x:Name="Wyzima_Castle"/>
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Click="GetInventory" Content="Inventory" Name="Inv" Background="#FF22551D" BorderBrush="{x:Null}"></Button>
+        <Image Name="LootBack" Visibility="Hidden" Source="img/UI/inventory.png" HorizontalAlignment="Left" Margin="200,0,0,0"></Image>
+        <WrapPanel Visibility="Hidden" Margin="294,290,853,381" Name="LootInventory"/>
+        <Label Name="Test" Content="45" FontSize="40" Background="{x:Null}" Foreground="#DDFFFFFF"></Label>
+        
     </Grid>
 </Page>

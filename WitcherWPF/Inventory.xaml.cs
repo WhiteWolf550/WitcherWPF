@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,13 +22,24 @@ namespace WitcherWPF
     /// </summary>
     public partial class Inventory : Page
     {
+        static JsonSerializerSettings settings = new JsonSerializerSettings {
+            TypeNameHandling = TypeNameHandling.All
+        };
+        static string ipath = @"../../saves/GameItems.json";
+        static string playerinvpath = @"../../saves/PlayerInventory.json";
+        static string jsonFromFile = File.ReadAllText(ipath);
+        List<Item> items = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
         private Frame parentFrame;
+        static string jsonFromFilein = File.ReadAllText(playerinvpath);
+        List<PlayerInventory> inventory = JsonConvert.DeserializeObject<List<PlayerInventory>>(jsonFromFilein, settings);
         public Inventory()
         {
             InitializeComponent();
+            
         }
         public Inventory(Frame parentFrame) : this() {
             this.parentFrame = parentFrame;
+            LoadInventory();
         }
 
         public void GetMap(object sender, RoutedEventArgs e) {
@@ -46,6 +59,23 @@ namespace WitcherWPF
         }
         public void GetLocation(object sender, RoutedEventArgs e) {
             parentFrame.Navigate(new Location(parentFrame));
+        }
+        public void LoadInventory() {
+            foreach(var item in inventory) {
+                Image inventoryimage = new Image();
+                inventoryimage.Width = 18;
+                inventoryimage.Height = 18;
+                inventoryimage.Source = new BitmapImage(new Uri(item.Source, UriKind.Relative));
+                inventoryimage.Margin = new Thickness(-15,-3,-3,-3);
+                Button inventoryitem = new Button();
+                inventoryitem.Content = inventoryimage;
+                inventoryitem.Height = 20;
+                inventoryitem.Width = 20;
+                inventoryitem.BorderBrush = Brushes.Transparent;
+                inventoryitem.Background = Brushes.Transparent;
+                InventoryItems.Children.Add(inventoryitem);
+
+            }
         }
     }
 }

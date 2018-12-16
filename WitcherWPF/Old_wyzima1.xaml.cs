@@ -20,6 +20,10 @@ namespace WitcherWPF {
     public partial class Old_wyzima1 : UserControl {
         public Old_wyzima1() {
             InitializeComponent();
+            
+        }
+        private void GetLoot(object sender, RoutedEventArgs e) {
+            Item item = new Item();
         }
     }
 }

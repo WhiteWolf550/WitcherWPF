@@ -11,43 +11,22 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100*"/>
-            <RowDefinition Height="180*"/>
-            <RowDefinition Height="21*"/>
-            <RowDefinition Height="21*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="22*"/>
-            <RowDefinition Height="21*"/>
-            <RowDefinition Height="19*"/>
-            <RowDefinition Height="22*"/>
-            <RowDefinition Height="39*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="22*"/>
-            <RowDefinition Height="21*"/>
-            <RowDefinition Height="18*"/>
-            <RowDefinition Height="21*"/>
-            <RowDefinition Height="20*"/>
-            <RowDefinition Height="22*"/>
-            <RowDefinition Height="286*"/>
+
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="57*"/>
+            <RowDefinition Height="165*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="111*"/>
-            <ColumnDefinition Width="1070*"/>
-            <ColumnDefinition Width="22*"/>
-            <ColumnDefinition Width="20*"/>
-            <ColumnDefinition Width="19*"/>
-            <ColumnDefinition Width="24*"/>
-            <ColumnDefinition Width="19*"/>
-            <ColumnDefinition Width="21*"/>
-            <ColumnDefinition Width="21*"/>
-            <ColumnDefinition Width="19*"/>
-            <ColumnDefinition Width="21*"/>
-            <ColumnDefinition Width="20*"/>
-            <ColumnDefinition Width="40*"/>
+
+            <ColumnDefinition Width="110*"/>
+            <ColumnDefinition Width="1069*"/>
+            <ColumnDefinition Width="213*"/>
+            <ColumnDefinition Width="35*"/>
         </Grid.ColumnDefinitions>
 
-        <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63" Grid.ColumnSpan="13" Grid.RowSpan="18"></Image>
-        <Button Background="{x:Null}" BorderBrush="{x:Null}" MinWidth="50" MinHeight="80" Click="GetLocation">
+        <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63" Grid.RowSpan="4" Grid.ColumnSpan="4"/>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" MinWidth="50" MinHeight="80" Click="GetLocation"  Grid.Row="0" Height="Auto">
             <Image Width="60" Height="60">
                 <Image.Resources>
                     <Style TargetType="{x:Type Image}">
@@ -63,7 +42,7 @@
                 </Image.Resources>
             </Image>
         </Button>
-        <StackPanel Background="Black" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="8" Margin="5,0,11,0" Height="100" Width="1200" Grid.Column="1" Grid.RowSpan="2">
+        <StackPanel Background="Black" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="101,0,91,0" Height="100" Width="1200" Grid.ColumnSpan="3">
             <Button Name="Map" Click="GetMap" Width="200" Height="100" Background="Transparent"  BorderBrush="{x:Null}">
                 <Image Name="MapIMG">
                     <Image.Resources>
@@ -148,78 +127,21 @@
                 </Image>
             </Button>
         </StackPanel>
-        <Image gif:ImageBehavior.AnimatedSource="gifs/geralt_inventory.gif" HorizontalAlignment="Center" VerticalAlignment="Center" Width="500" Margin="351,106.5,219,206" Height="482" Grid.RowSpan="17" Grid.Column="1" Grid.Row="1"></Image>
-        <Image Source="img/UI/inventory2.png" HorizontalAlignment="Right" VerticalAlignment="Center" Width="300" Grid.ColumnSpan="12" Margin="0,123.5,0,221" Height="450" Grid.RowSpan="17" Grid.Column="1" Grid.Row="1"></Image>
-        <Image Name="InvSlot1" Grid.Column="2" Grid.Row="2" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot2" Grid.Column="3" Grid.Row="2" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot3" Grid.Column="4" Grid.Row="2" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot4" Grid.Column="5" Grid.Row="2" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot5" Grid.Column="6" Grid.Row="2" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot6" Grid.Column="7" Grid.Row="2" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot7" Grid.Column="8" Grid.Row="2" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot8" Grid.Column="9" Grid.Row="2" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot9" Grid.Column="10" Grid.Row="2" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot10" Grid.Column="11" Grid.Row="2" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot11" Grid.Column="2" Grid.Row="3" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot12" Grid.Column="3" Grid.Row="3" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot13" Grid.Column="4" Grid.Row="3" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot14" Grid.Column="5" Grid.Row="3" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot15" Grid.Column="6" Grid.Row="3" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot16" Grid.Column="7" Grid.Row="3" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot17" Grid.Column="8" Grid.Row="3" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot18" Grid.Column="9" Grid.Row="3" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot19" Grid.Column="10" Grid.Row="3" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot20" Grid.Column="11" Grid.Row="3" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot21" Grid.Column="2" Grid.Row="4" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot22" Grid.Column="3" Grid.Row="4" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot23" Grid.Column="4" Grid.Row="4" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot24" Grid.Column="5" Grid.Row="4" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot25" Grid.Column="6" Grid.Row="4" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot26" Grid.Column="7" Grid.Row="4" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot27" Grid.Column="8" Grid.Row="4" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot28" Grid.Column="9" Grid.Row="4" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot29" Grid.Column="10" Grid.Row="4" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot30" Grid.Column="11" Grid.Row="4" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot31" Grid.Column="2" Grid.Row="5" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot32" Grid.Column="3" Grid.Row="5" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot33" Grid.Column="4" Grid.Row="5" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot34" Grid.Column="5" Grid.Row="5" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot35" Grid.Column="6" Grid.Row="5" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot36" Grid.Column="7" Grid.Row="5" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot37" Grid.Column="8" Grid.Row="5" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot38" Grid.Column="9" Grid.Row="5" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot39" Grid.Column="10" Grid.Row="5" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot40" Grid.Column="11" Grid.Row="5" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot41" Grid.Column="2" Grid.Row="6" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot42" Grid.Column="3" Grid.Row="6" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot43" Grid.Column="4" Grid.Row="6" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot44" Grid.Column="5" Grid.Row="6" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot45" Grid.Column="6" Grid.Row="6" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot46" Grid.Column="7" Grid.Row="6" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot47" Grid.Column="8" Grid.Row="6" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot48" Grid.Column="9" Grid.Row="6" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot49" Grid.Column="10" Grid.Row="6" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot50" Grid.Column="11" Grid.Row="6" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot51" Grid.Column="2" Grid.Row="7" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot52" Grid.Column="3" Grid.Row="7" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot53" Grid.Column="4" Grid.Row="7" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot54" Grid.Column="5" Grid.Row="7" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot55" Grid.Column="6" Grid.Row="7" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot56" Grid.Column="7" Grid.Row="7" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot57" Grid.Column="8" Grid.Row="7" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot58" Grid.Column="9" Grid.Row="7" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot59" Grid.Column="10" Grid.Row="7" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot60" Grid.Column="11" Grid.Row="7" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot61" Grid.Column="2" Grid.Row="8" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot62" Grid.Column="3" Grid.Row="8" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot63" Grid.Column="4" Grid.Row="8" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot64" Grid.Column="5" Grid.Row="8" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot65" Grid.Column="6" Grid.Row="8" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot66" Grid.Column="7" Grid.Row="8" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot67" Grid.Column="8" Grid.Row="8" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot68" Grid.Column="9" Grid.Row="8" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot69" Grid.Column="10" Grid.Row="8" Source="img/UI/Potion_Full_Moon.png"></Image>
-        <Image Name="InvSlot70" Grid.Column="11" Grid.Row="8" Source="img/UI/Potion_Full_Moon.png"></Image>
+        <Image gif:ImageBehavior.AnimatedSource="gifs/geralt_inventory.gif" HorizontalAlignment="Center" VerticalAlignment="Center" Width="500" Margin="447,54,122,250" Height="482" Grid.Row="1" Grid.Column="1" Grid.RowSpan="3"/>
+        <Image Source="img/UI/inventory2.png" HorizontalAlignment="Right" VerticalAlignment="Center" Width="300" Margin="0,66,0,270" Height="450" Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
+        <WrapPanel Grid.Row="2" Grid.Column="2" Margin="3" Name="InventoryItems">
+            <Button Background="{x:Null}" BorderBrush="{x:Null}" Width="20" Height="20" >
+                <Image Source="img/Items/Food_Chicken.png" Width="18" Height="18" Margin="-15,-3,-3,-3" ToolTip="Kuře"/>
+            </Button>
+
+
+
+
+
+
+
+
+        </WrapPanel>
 
 
 

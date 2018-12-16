@@ -14,11 +14,11 @@
             <ColumnDefinition Width="1322*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="48*"/>
-            <RowDefinition Height="377*"/>
+            <RowDefinition Height="54*"/>
+            <RowDefinition Height="371*"/>
         </Grid.RowDefinitions>
         <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63" Grid.RowSpan="2" Grid.ColumnSpan="2"></Image>
-        <Button Background="{x:Null}" BorderBrush="{x:Null}" MinWidth="50" MinHeight="80" Click="GetLocation">
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" MinWidth="50" MinHeight="80" Click="GetLocation" Height="Auto" Margin="0,7,0,4">
             <Image Width="60" Height="60">
                 <Image.Resources>
                     <Style TargetType="{x:Type Image}">
@@ -34,7 +34,7 @@
                 </Image.Resources>
             </Image>
         </Button>
-        <StackPanel Background="Black" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="11,0,111,0" Grid.RowSpan="2" Height="100" Width="1200" Grid.Column="1">
+        <StackPanel Background="Black" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="11,0,111,0" Height="100" Width="1200" Grid.Column="1">
             <Button Name="Maps" Width="200" Height="100" Background="Transparent"  BorderBrush="{x:Null}">
                 <Image Name="MapIMG" Source="img/UI/map_back_c.png">
 
@@ -121,6 +121,6 @@
                 </Image>
             </Button>
         </StackPanel>
-        <Image Source="img/Maps/Map_Swamp.png" Margin="21,19,151,10" Grid.Row="1" Grid.Column="1"></Image>
+        <Image Source="img/Maps/Map_Foltest.png" Margin="21,19,151,10" Grid.Row="1" Grid.Column="1"></Image>
     </Grid>
 </Page>

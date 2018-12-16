@@ -1,0 +1,1 @@
+{"$type":"System.Collections.Generic.List`1[[WitcherWPF.PlayerInventory, WitcherWPF]], mscorlib","$values":[{"$type":"WitcherWPF.PlayerInventory, WitcherWPF","Name":"Fisstech","Description":"Silná droga, lze prodat","Type":"Loot","Source":"img/Items/Potion_Fisstech.png","Count":2}]}

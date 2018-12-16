@@ -169,6 +169,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="saves\GameItems.json" />
     <Resource Include="fonts\MORPHEUS.TTF" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -250,7 +251,11 @@
     <Resource Include="img\UI\scroll.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="saves\" />
+    <Resource Include="img\Items\Alcohol_Winered.png" />
+    <Resource Include="img\Items\Drink_Apple_Juice.png" />
+    <Resource Include="img\Items\Food_Chicken.png" />
+    <Resource Include="img\Items\Potion_Fisstech.png" />
+    <Resource Include="img\Items\Potion_Full_Moon.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\Locations\old_wyzima1_night.png" />
@@ -265,6 +270,9 @@
     <Resource Include="img\UI\exit.png" />
     <Resource Include="img\UI\exit_a.png" />
     <Resource Include="img\UI\exit_c.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Maps\Map_Foltest.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
