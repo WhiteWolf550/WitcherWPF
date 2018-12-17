@@ -30,64 +30,89 @@ namespace WitcherWPF
             this.Type = Type;
             this.Source = Source;
         }
-        public void GenerateLoot(WrapPanel LootInventory, Button Hide, Image LootBack, Button TakeLoot) {
+        public void GenerateLoot(WrapPanel LootInventory, Button Hide, Image LootBack, Button TakeLoot, Button CloseBut) {
+            bool pass = true;
             Hide.Visibility = Visibility.Hidden;
             LootInventory.Visibility = Visibility.Visible;
             LootBack.Visibility = Visibility.Visible;
+            CloseBut.Visibility = Visibility.Visible;
             TakeLoot.Visibility = Visibility.Visible;
             string ipath = @"../../saves/GameItems.json";
             string lootpath = @"../../saves/Loot.json";
             JsonSerializerSettings settings = new JsonSerializerSettings {
                 TypeNameHandling = TypeNameHandling.All
             };
-            string jsonFromFileloot = File.ReadAllText(lootpath);
-            List<Item> items = new List<Item>();
             List<Item> loot = new List<Item>();
-            if (jsonFromFileloot.Length > 0) {
-                items = JsonConvert.DeserializeObject<List<Item>>(jsonFromFileloot, settings);
-            }else {
-                string jsonFromFile = File.ReadAllText(ipath);
-                items = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
-                Dictionary<Item, Button> lootitems = new Dictionary<Item, Button>();
-            }
+            string jsonFromFileloot;
+            string jsonFromFile = File.ReadAllText(ipath);
+            List<Item> items = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
+            //Dictionary<Item, Button> lootitems = new Dictionary<Item, Button>();
+            
             
             var matches = items.Where(s => s.Type == "Loot").ToList();
             int itc = matches.Count();
             Random rand = new Random();
             int lootcount = rand.Next(1, 4);
-            
-            for (int i = 0;i <= lootcount;i++) {
-                int rn = rand.Next(0, itc);
-                Image inventoryimage = new Image();
-                inventoryimage.Width = 18;
-                inventoryimage.Height = 18;
-                inventoryimage.Source = new BitmapImage(new Uri(matches[rn].Source, UriKind.Relative));
-                inventoryimage.Margin = new Thickness(-15, -3, -3, -3);
-                Button inventoryitem = new Button();
-                inventoryitem.Content = inventoryimage;
-                inventoryitem.Height = 20;
-                inventoryitem.Width = 20;
-                inventoryitem.BorderBrush = Brushes.Transparent;
-                inventoryitem.Background = Brushes.Transparent;
-                LootInventory.Children.Add(inventoryitem);
-                Item it = new Item();
-                it.Name = matches[rn].Name;
-                it.Description = matches[rn].Description;
-                it.Type = matches[rn].Type;
-                it.Source = matches[rn].Source;
-                loot.Add(it);
+            if (!File.Exists(lootpath)) {
+
+                for (int i = 0;i <= lootcount;i++) {
+                    int rn = rand.Next(0, itc);
+                    Image inventoryimage = new Image();
+                    inventoryimage.Width = 18;
+                    inventoryimage.Height = 18;
+                    inventoryimage.Source = new BitmapImage(new Uri(matches[rn].Source, UriKind.Relative));
+                    inventoryimage.Margin = new Thickness(-15, -3, -3, -3);
+                    Button inventoryitem = new Button();
+                    inventoryitem.Content = inventoryimage;
+                    inventoryitem.Height = 20;
+                    inventoryitem.Width = 20;
+                    inventoryitem.BorderBrush = Brushes.Transparent;
+                    inventoryitem.Background = Brushes.Transparent;
+                    LootInventory.Children.Add(inventoryitem);
+                    Item it = new Item();
+                    it.Name = matches[rn].Name;
+                    it.Description = matches[rn].Description;
+                    it.Type = matches[rn].Type;
+                    it.Source = matches[rn].Source;
+                    loot.Add(it);
+                    
+                }
+                string jsonToFile = JsonConvert.SerializeObject(loot, settings);
+                File.WriteAllText(lootpath, jsonToFile);
+            }else if (File.Exists(lootpath)) {
+                jsonFromFileloot = File.ReadAllText(lootpath);
+                loot = JsonConvert.DeserializeObject<List<Item>>(jsonFromFileloot, settings);
+                foreach (var item in loot) {
+                    Image inventoryimage2 = new Image();
+                    inventoryimage2.Width = 18;
+                    inventoryimage2.Height = 18;
+                    inventoryimage2.Source = new BitmapImage(new Uri(item.Source, UriKind.Relative));
+                    inventoryimage2.Margin = new Thickness(-15, -3, -3, -3);
+                    Button inventoryitem = new Button();
+                    inventoryitem.Content = inventoryimage2;
+                    inventoryitem.Height = 20;
+                    inventoryitem.Width = 20;
+                    inventoryitem.BorderBrush = Brushes.Transparent;
+                    inventoryitem.Background = Brushes.Transparent;
+                    LootInventory.Children.Add(inventoryitem);
+                }
             }
-            string jsonToFile = JsonConvert.SerializeObject(loot, settings);
-            File.WriteAllText(lootpath, jsonToFile);
+            
 
         }
-        public void LootToInventory(WrapPanel LootInventory, Button LootButton, Image LootBack) {
+        public void LootToInventory(WrapPanel LootInventory, Button LootButton, Image LootBack, Button CloseBut) {
             string lootpath = @"../../saves/Loot.json";
             string invpath = @"../../saves/PlayerInventory.json";
             JsonSerializerSettings settings = new JsonSerializerSettings {
                 TypeNameHandling = TypeNameHandling.All
             };
-            string jsonFromFile = File.ReadAllText(lootpath);
+            string jsonFromFile;
+            try {
+                jsonFromFile = File.ReadAllText(lootpath);
+            } catch {
+                File.WriteAllText(invpath, "");
+                jsonFromFile = File.ReadAllText(lootpath);
+            }
             List<Item> loot = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
             string jsonFromFileinv = File.ReadAllText(invpath);
             List<PlayerInventory> inventory = new List<PlayerInventory>();
@@ -97,16 +122,35 @@ namespace WitcherWPF
             else {
 
             }
-            foreach (var item in loot) {
-                PlayerInventory inv = new PlayerInventory(item, 1);
-                inventory.Add(inv);
+            foreach (var item1 in loot) {
+                var match = loot.Where(s => s.Name == item1.Name).ToList();
+                var match2 = inventory.Where(s => s.Item.Name == item1.Name).ToList();
+                if (match2.Count() > 0) {
+                    foreach (var item2 in inventory) {
+                        if (item2.Item.Name == item1.Name) {
+                            item2.Count++;
+                        }
+                    }
+                }else {
+                    PlayerInventory inv = new PlayerInventory(item1, 1);
+                    inventory.Add(inv);
+                }
+                //PlayerInventory inv = new PlayerInventory(item1, cit);
+                //inventory.Add(inv);
             }
             LootInventory.Visibility = Visibility.Hidden;
             LootButton.Visibility = Visibility.Hidden;
             LootBack.Visibility = Visibility.Hidden;
+            CloseBut.Visibility = Visibility.Hidden;
             string jsonToFile = JsonConvert.SerializeObject(inventory, settings);
             File.WriteAllText(invpath, jsonToFile);
-            loot.Clear();            
+            try {
+                File.Delete(lootpath);
+
+            }
+            catch (IOException iox) {
+                Console.WriteLine(iox.Message);
+            }
 
         }
 

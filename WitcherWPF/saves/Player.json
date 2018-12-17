@@ -1,0 +1,1 @@
+{"$type":"System.Collections.Generic.List`1[[WitcherWPF.Player, WitcherWPF]], mscorlib","$values":[{"$type":"WitcherWPF.Player, WitcherWPF","maxHealth":100,"health":100,"maxEndurance":100,"endurance":90,"maxToxicity":100,"toxicity":100,"money":50,"strongStunChance":10,"fastStunChance":5,"signIntensity":5}]}

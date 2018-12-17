@@ -29,7 +29,8 @@ namespace WitcherWPF {
         //List<Item> items = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
         public MainWindow() {
             InitializeComponent();
-            CreateInv();
+            //CreateInv();
+            //CreatePlayer();
             mainFrame.Navigate(new Inventory(mainFrame));
         }
         public void CreateInv() {
@@ -39,6 +40,13 @@ namespace WitcherWPF {
             items.Add(new Item("Víno", "Alkohol, lze prodat kupcům nebo použít", "Loot", @"img/Items/Alcohol_Winered.png"));
             //string jsonToFile = JsonConvert.SerializeObject(items, settings);
             //File.WriteAllText(ipath, jsonToFile);
+        }
+        public void CreatePlayer() {
+            string playerpath = @"../../saves/Player.json";
+            List<Player> player = new List<Player>();
+            player.Add(new Player(100, 100, 100, 100, 100, 100, 50, 10, 5, 5));
+            string jsonToFile = JsonConvert.SerializeObject(player, settings);
+            File.WriteAllText(playerpath, jsonToFile);
         }
     }
 }

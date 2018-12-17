@@ -130,18 +130,17 @@
         <Image gif:ImageBehavior.AnimatedSource="gifs/geralt_inventory.gif" HorizontalAlignment="Center" VerticalAlignment="Center" Width="500" Margin="447,54,122,250" Height="482" Grid.Row="1" Grid.Column="1" Grid.RowSpan="3"/>
         <Image Source="img/UI/inventory2.png" HorizontalAlignment="Right" VerticalAlignment="Center" Width="300" Margin="0,66,0,270" Height="450" Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
         <WrapPanel Grid.Row="2" Grid.Column="2" Margin="3" Name="InventoryItems">
-            <Button Background="{x:Null}" BorderBrush="{x:Null}" Width="20" Height="20" >
-                <Image Source="img/Items/Food_Chicken.png" Width="18" Height="18" Margin="-15,-3,-3,-3" ToolTip="Kuře"/>
-            </Button>
-
-
-
-
-
-
-
-
+            <!-- <Button Visibility="Visible" Background="{x:Null}" BorderBrush="{x:Null}" Width="20" Height="20" >
+                <Image Source="img/Items/Food_Chicken.png" Width="18" Height="18" Margin="-15,-3,-3,-3" ToolTip="Kuře"></Image>
+            </Button> -->
         </WrapPanel>
+        <StackPanel Margin="324,250,345,137" Grid.Row="3" Grid.Column="1" MinWidth="400">
+            <ProgressBar Name="HealthBar" Margin="5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Minimum="0" Maximum="100" Value="30" Width="300" Height="20" Grid.Column="1" Grid.Row="3" Background="#FF919191" Foreground="#FFD21919"></ProgressBar>
+            <ProgressBar Name="EnduranceBar" Margin="5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Minimum="0" Maximum="100" Value="60" Width="300" Height="20" Grid.Column="1" Grid.Row="3" Background="#FF919191" Foreground="#FFE2C234"></ProgressBar>
+            <ProgressBar Name="ToxicityBar" Margin="5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Minimum="0" Maximum="100" Value="10" Width="300" Height="20" Grid.Column="1" Grid.Row="3" Background="#FF919191" Foreground="#FF2FAC13"></ProgressBar>
+        </StackPanel>
+
+
 
 
 

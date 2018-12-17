@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace WitcherWPF
 {
@@ -13,6 +14,9 @@ namespace WitcherWPF
         public Item Item { get; set; }
         public int Count { get; set; }
 
+        public PlayerInventory() {
+
+        }
         public PlayerInventory(Item item, int Count) {
             this.Item = item;
             this.Count = Count;
@@ -33,6 +37,22 @@ namespace WitcherWPF
             int itemcount = rn.Next(0, 6);
             int rand = rn.Next(0, matchcount);
             inventory.Add(new PlayerInventory(matches[rand], itemcount));
+            string jsonToFile = JsonConvert.SerializeObject(inventory, settings);
+            File.WriteAllText(playerinvpath, jsonToFile);
+        }
+        public void DropItem(MenuItem button) {
+            JsonSerializerSettings settings = new JsonSerializerSettings {
+                TypeNameHandling = TypeNameHandling.All
+            };
+            string playerinvpath = @"../../saves/PlayerInventory.json";
+            string jsonFromFileinv = File.ReadAllText(playerinvpath);
+            List<PlayerInventory> inventory = JsonConvert.DeserializeObject<List<PlayerInventory>>(jsonFromFileinv, settings);
+            foreach(var item in inventory) {
+                if (item.Item.Name == button.Tag.ToString()) {
+                    inventory.Remove(item);
+                    break;
+                }
+            }
             string jsonToFile = JsonConvert.SerializeObject(inventory, settings);
             File.WriteAllText(playerinvpath, jsonToFile);
         }

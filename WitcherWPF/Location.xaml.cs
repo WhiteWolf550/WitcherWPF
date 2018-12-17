@@ -40,11 +40,18 @@ namespace WitcherWPF {
         }
         public void GetLoot(object sender, RoutedEventArgs e) {
             
-            it.GenerateLoot(LootInventory, Wyzima_Castle.Flower, LootBack, TakeLoot);
+            it.GenerateLoot(LootInventory, Wyzima_Castle.Flower, LootBack, TakeLoot, CloseBut);
         }
         public void LootToInventory(object sender, RoutedEventArgs e) {
-            it.LootToInventory(LootInventory, TakeLoot, LootBack);
+            it.LootToInventory(LootInventory, TakeLoot, LootBack, CloseBut);
         }
-
+        public void CloseLoot(object sender, RoutedEventArgs e) {
+            TakeLoot.Visibility = Visibility.Hidden;
+            LootInventory.Visibility = Visibility.Hidden;
+            LootBack.Visibility = Visibility.Hidden;
+            CloseBut.Visibility = Visibility.Hidden;
+            Wyzima_Castle.Flower.Visibility = Visibility.Visible;
+            LootInventory.Children.Clear();
+        }
     }
 }
