@@ -30,8 +30,7 @@ namespace WitcherWPF
         static string jsonFromFile = File.ReadAllText(ipath);
         List<Item> items = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
         private Frame parentFrame;
-        static string jsonFromFilein = File.ReadAllText(playerinvpath);
-        List<PlayerInventory> inventory = JsonConvert.DeserializeObject<List<PlayerInventory>>(jsonFromFilein, settings);
+        
         public Inventory()
         {
             InitializeComponent();
@@ -61,11 +60,18 @@ namespace WitcherWPF
             parentFrame.Navigate(new Location(parentFrame));
         }
         public void LoadInventory() {
-            foreach(var item in inventory) {
+            string jsonFromFilein = File.ReadAllText(playerinvpath);
+            List<PlayerInventory> inventory = new List<PlayerInventory>();
+            if (jsonFromFilein.Length > 0) {
+                inventory = JsonConvert.DeserializeObject<List<PlayerInventory>>(jsonFromFilein, settings);
+            } else {
+                
+            }
+            foreach (var item in inventory) {
                 Image inventoryimage = new Image();
                 inventoryimage.Width = 18;
                 inventoryimage.Height = 18;
-                inventoryimage.Source = new BitmapImage(new Uri(item.Source, UriKind.Relative));
+                inventoryimage.Source = new BitmapImage(new Uri(item.Item.Source, UriKind.Relative));
                 inventoryimage.Margin = new Thickness(-15,-3,-3,-3);
                 Button inventoryitem = new Button();
                 inventoryitem.Content = inventoryimage;

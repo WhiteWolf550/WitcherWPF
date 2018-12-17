@@ -30,18 +30,33 @@ namespace WitcherWPF
             this.Type = Type;
             this.Source = Source;
         }
-        public void GenerateLoot(WrapPanel LootInventory, Label Test) {
+        public void GenerateLoot(WrapPanel LootInventory, Button Hide, Image LootBack, Button TakeLoot) {
+            Hide.Visibility = Visibility.Hidden;
+            LootInventory.Visibility = Visibility.Visible;
+            LootBack.Visibility = Visibility.Visible;
+            TakeLoot.Visibility = Visibility.Visible;
             string ipath = @"../../saves/GameItems.json";
+            string lootpath = @"../../saves/Loot.json";
             JsonSerializerSettings settings = new JsonSerializerSettings {
                 TypeNameHandling = TypeNameHandling.All
             };
-            string jsonFromFile = File.ReadAllText(ipath);
-            List<Item> items = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
+            string jsonFromFileloot = File.ReadAllText(lootpath);
+            List<Item> items = new List<Item>();
+            List<Item> loot = new List<Item>();
+            if (jsonFromFileloot.Length > 0) {
+                items = JsonConvert.DeserializeObject<List<Item>>(jsonFromFileloot, settings);
+            }else {
+                string jsonFromFile = File.ReadAllText(ipath);
+                items = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
+                Dictionary<Item, Button> lootitems = new Dictionary<Item, Button>();
+            }
+            
             var matches = items.Where(s => s.Type == "Loot").ToList();
             int itc = matches.Count();
             Random rand = new Random();
             int lootcount = rand.Next(1, 4);
-            for (int i = 0;i == lootcount;i++) {
+            
+            for (int i = 0;i <= lootcount;i++) {
                 int rn = rand.Next(0, itc);
                 Image inventoryimage = new Image();
                 inventoryimage.Width = 18;
@@ -55,9 +70,45 @@ namespace WitcherWPF
                 inventoryitem.BorderBrush = Brushes.Transparent;
                 inventoryitem.Background = Brushes.Transparent;
                 LootInventory.Children.Add(inventoryitem);
-                Test.Content = rn;
+                Item it = new Item();
+                it.Name = matches[rn].Name;
+                it.Description = matches[rn].Description;
+                it.Type = matches[rn].Type;
+                it.Source = matches[rn].Source;
+                loot.Add(it);
+            }
+            string jsonToFile = JsonConvert.SerializeObject(loot, settings);
+            File.WriteAllText(lootpath, jsonToFile);
+
+        }
+        public void LootToInventory(WrapPanel LootInventory, Button LootButton, Image LootBack) {
+            string lootpath = @"../../saves/Loot.json";
+            string invpath = @"../../saves/PlayerInventory.json";
+            JsonSerializerSettings settings = new JsonSerializerSettings {
+                TypeNameHandling = TypeNameHandling.All
+            };
+            string jsonFromFile = File.ReadAllText(lootpath);
+            List<Item> loot = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
+            string jsonFromFileinv = File.ReadAllText(invpath);
+            List<PlayerInventory> inventory = new List<PlayerInventory>();
+            if (jsonFromFileinv.Length > 0) {
+                inventory = JsonConvert.DeserializeObject<List<PlayerInventory>>(jsonFromFileinv, settings);
+            }
+            else {
 
             }
+            foreach (var item in loot) {
+                PlayerInventory inv = new PlayerInventory(item, 1);
+                inventory.Add(inv);
+            }
+            LootInventory.Visibility = Visibility.Hidden;
+            LootButton.Visibility = Visibility.Hidden;
+            LootBack.Visibility = Visibility.Hidden;
+            string jsonToFile = JsonConvert.SerializeObject(inventory, settings);
+            File.WriteAllText(invpath, jsonToFile);
+            loot.Clear();            
+
         }
+
     }
 }
