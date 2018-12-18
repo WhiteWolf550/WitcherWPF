@@ -125,10 +125,27 @@ namespace WitcherWPF
             foreach (var item1 in loot) {
                 var match = loot.Where(s => s.Name == item1.Name).ToList();
                 var match2 = inventory.Where(s => s.Item.Name == item1.Name).ToList();
+                var match3 = match2.Where(s => s.Count < 10).ToList();
                 if (match2.Count() > 0) {
                     foreach (var item2 in inventory) {
                         if (item2.Item.Name == item1.Name) {
-                            item2.Count++;
+                            if(item2.Count == 10) {
+                                
+                                if (match3.Count() == 0) {
+                                    PlayerInventory inv = new PlayerInventory(item1, 1);
+                                    inventory.Add(inv);
+                                    break;
+                                }
+                                
+                            }
+                            else {
+                                
+                                foreach(var item3 in match3) {
+                                    item3.Count++;
+                                }
+                                
+                            }
+                            
                         }
                     }
                 }else {
