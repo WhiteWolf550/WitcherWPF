@@ -130,19 +130,18 @@ namespace WitcherWPF
                     foreach (var item2 in inventory) {
                         if (item2.Item.Name == item1.Name) {
                             if(item2.Count == 10) {
-                                
                                 if (match3.Count() == 0) {
                                     PlayerInventory inv = new PlayerInventory(item1, 1);
                                     inventory.Add(inv);
                                     break;
+                                }else {
+
                                 }
                                 
                             }
                             else {
-                                
-                                foreach(var item3 in match3) {
-                                    item3.Count++;
-                                }
+
+                                item2.Count++;
                                 
                             }
                             
