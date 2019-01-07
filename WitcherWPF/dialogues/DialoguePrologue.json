@@ -1,0 +1,146 @@
+{
+  "$type": "System.Collections.Generic.List`1[[WitcherWPF.Dialogues, WitcherWPF]], mscorlib",
+  "$values": [
+    {
+      
+      "$type": "WitcherWPF.Dialogues, WitcherWPF",
+      "CharName": "Foltest",
+      "CharSay": "Vítej zpět Zaklínači",
+      "DialogueID": 0,
+      "Choice": "Pozdrav",
+      "Type": "Greet",
+      "Dialogue": "Foltest",
+      "Enabled": true
+    },
+    {
+      "$type": "WitcherWPF.Dialogues, WitcherWPF",
+      "CharName": "Foltest",
+      "CharSay": "Geralte, zjistil si už něco o tom vrahovi?",
+      "DialogueID": 1,
+      "Choice": "Co potřebujete králi?",
+      "Type": "Talk",
+      "Dialogue": "Foltest",
+      "Enabled": true
+    },
+    {
+      "$type": "WitcherWPF.Dialogues, WitcherWPF",
+      "CharName": "Geralt",
+      "CharSay": "Ne králi, zatím ne",
+      "DialogueID": 1,
+      "Choice": "Co potřebujete králi?",
+      "Type": "Talk",
+      "Dialogue": "Foltest",
+      "Enabled": true
+    },
+    {
+      "$type": "WitcherWPF.Dialogues, WitcherWPF",
+      "CharName": "Foltest",
+      "CharSay": "Tak to by sis měl pospíšit Geralte. Přeci jen jde o tvojí reputaci",
+      "DialogueID": 1,
+      "Choice": "Co potřebujete králi?",
+      "Type": "Talk",
+      "Dialogue": "Foltest",
+      "Enabled": true
+    },
+    {
+      "$type": "WitcherWPF.Dialogues, WitcherWPF",
+      "CharName": "Geralt",
+      "CharSay": "To že se jeden Zaklínač pokusí o zabití krále, ihned neznamená, že takový jsou všichni zaklínači",
+      "DialogueID": 1,
+      "Choice": "Co potřebujete králi?",
+      "Type": "Talk",
+      "Dialogue": "Foltest",
+      "Enabled": true
+    },
+    {
+      "$type": "WitcherWPF.Dialogues, WitcherWPF",
+      "CharName": "Foltest",
+      "CharSay": "Takhle to ale u prostého lidu nefunguje. Lidem stačí, aby se jeden Zaklínač pokusil o vraždu a bude nenávidět všechny",
+      "DialogueID": 1,
+      "Choice": "Co potřebujete králi?",
+      "Type": "Talk",
+      "Dialogue": "Foltest",
+      "Enabled": true
+    },
+    {
+      "$type": "WitcherWPF.Dialogues, WitcherWPF",
+      "CharName": "Foltest",
+      "CharSay": "Potřebuji mít tuto záležitost co nejrychleji zasebou Zaklínači.",
+      "DialogueID": 1,
+      "Choice": "Co potřebujete králi?",
+      "Type": "Talk",
+      "Dialogue": "Foltest",
+      "Enabled": true
+    },
+    {
+      "$type": "WitcherWPF.Dialogues, WitcherWPF",
+      "CharName": "Geralt",
+      "CharSay": "Dobře králi",
+      "DialogueID": 1,
+      "Choice": "Co potřebujete králi?",
+      "Type": "Talk",
+      "Dialogue": "Foltest",
+      "Enabled": true
+    },
+    {
+      "$type": "WitcherWPF.Dialogues, WitcherWPF",
+      "CharName": "Geralt",
+      "CharSay": "Jak se daří Wyzimě?",
+      "DialogueID": 2,
+      "Choice": "Jak se daří Wyzimě?",
+      "Type": "Talk",
+      "Dialogue": "Foltest",
+      "Enabled": true
+    },
+    {
+      "$type": "WitcherWPF.Dialogues, WitcherWPF",
+      "CharName": "Foltest",
+      "CharSay": "To tě to opravdu zajímá Zaklínači?",
+      "DialogueID": 2,
+      "Choice": "Jak se daří Wyzimě?",
+      "Type": "Talk",
+      "Dialogue": "Foltest",
+      "Enabled": true
+    },
+    {
+      "$type": "WitcherWPF.Dialogues, WitcherWPF",
+      "CharName": "Geralt",
+      "CharSay": "Ne, nezajímá",
+      "DialogueID": 2,
+      "Choice": "Jak se daří Wyzimě?",
+      "Type": "Talk",
+      "Dialogue": "Foltest",
+      "Enabled": true
+    },
+    {
+      "$type": "WitcherWPF.Dialogues, WitcherWPF",
+      "CharName": "Foltest",
+      "CharSay": "Wyzima je pořád v torskách. Budu se ale snažit ji vrátit zpět do své krásy",
+      "DialogueID": 2,
+      "Choice": "Jak se daří Wyzimě?",
+      "Type": "Talk",
+      "Dialogue": "Foltest",
+      "Enabled": true
+    },
+    {
+      "$type": "WitcherWPF.Dialogues, WitcherWPF",
+      "CharName": "Geralt",
+      "CharSay": "Nashle králi",
+      "DialogueID": 2,
+      "Choice": "Nashle",
+      "Type": "Talk",
+      "Dialogue": "Foltest",
+      "Enabled": true
+    },
+    {
+      "$type": "WitcherWPF.Dialogues, WitcherWPF",
+      "CharName": "Foltest",
+      "CharSay": "Nashle Zaklínači",
+      "DialogueID": 3,
+      "Choice": "Nashle",
+      "Type": "Talk",
+      "Dialogue": "Foltest",
+      "Enabled": true
+    }
+  ]
+}

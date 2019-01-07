@@ -26,14 +26,11 @@
         <Image Source="img/UI/scroll.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1000" Grid.ColumnSpan="3" Margin="214,81,213,67" Grid.RowSpan="4" Height="746"></Image>
         <StackPanel Orientation="Horizontal" MinWidth="200" MinHeight="100" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label Style="{StaticResource MORPHEUS}" Content="PersonName" FontWeight="Bold" Name="PersonName" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"></Label>
-            <Label Content="Text" Name="PersonText" Grid.Column="1" Grid.Row="1" MinWidth="100" MinHeight="30" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"></Label>
+            <Label   Content="Text"  Name="PersonText" Grid.Column="1" Grid.Row="1" MinWidth="100" MinHeight="30" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" />
         </StackPanel>
         <StackPanel Name="DialogueOptions" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" MinWidth="200" MinHeight="200">
-            <Button Click="Dialogue_Click" Content="Option1" Name="Option1" FontSize="20" HorizontalAlignment="Center" Background="{x:Null}" Foreground="#FFFD0707" BorderBrush="{x:Null}"></Button>
-            <Button Click="Dialogue_Click" Content="Option2" Name="Option2" FontSize="20" HorizontalAlignment="Center" Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}"></Button>
-            <Button Click="Dialogue_Click" Content="Option3" Name="Option3" FontSize="20" HorizontalAlignment="Center" Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}"></Button>
-            <Button Click="Dialogue_Click" Content="Option4" Name="Option4" FontSize="20" HorizontalAlignment="Center" Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}"></Button>
-            <Button Click="Dialogue_Click" Content="Option5" Name="Option5" FontSize="20" HorizontalAlignment="Center" Background="{x:Null}" Foreground="Black" BorderBrush="{x:Null}"></Button>
+            
+
         </StackPanel>
         <StackPanel Visibility="Hidden" Opacity="0"  Name="QuestPop" HorizontalAlignment="Center" VerticalAlignment="Top" MinHeight="100" MinWidth="100" Grid.Column="1" Grid.Row="2">
             <Label Style="{StaticResource MORPHEUS}" Name="QueName" Content="New Quest" FontSize="55" Foreground="#DDE82323"></Label>

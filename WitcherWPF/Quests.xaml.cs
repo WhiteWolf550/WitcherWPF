@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +22,7 @@ namespace WitcherWPF
     /// </summary>
     public partial class Quests : Page
     {
+        
         private Frame parentFrame;
         public Quests()
         {
@@ -27,6 +30,7 @@ namespace WitcherWPF
         }
         public Quests(Frame parentFrame) : this() {
             this.parentFrame = parentFrame;
+            LoadQuests();
         }
         public void GetInventory(object sender, RoutedEventArgs e) {
             parentFrame.Navigate(new Inventory(parentFrame));
@@ -45,6 +49,51 @@ namespace WitcherWPF
         }
         public void GetLocation(object sender, RoutedEventArgs e) {
             parentFrame.Navigate(new Location(parentFrame));
+        }
+        public void LoadQuests() {
+            JsonSerializerSettings settings = new JsonSerializerSettings {
+                TypeNameHandling = TypeNameHandling.All
+            };
+            string questpath = @"../../saves/Quests.json";
+            string jsonFromFile = File.ReadAllText(questpath);
+            List<Quest> quests = JsonConvert.DeserializeObject<List<Quest>>(jsonFromFile, settings);
+            var matches = quests.Where(s => s.QuestActive == true);
+            foreach (var item in matches) {
+                StackPanel stack = new StackPanel();
+                stack.Orientation = Orientation.Horizontal;
+
+                Image img = new Image();
+                img.Source = new BitmapImage(new Uri(@"img/UI/Primary_quests.png", UriKind.Relative));
+                img.Width = 32;
+                img.Height = 32;
+
+                Button but = new Button();
+                but.Content = item.QuestName;
+                but.FontSize = 20;
+                but.Foreground = Brushes.White;
+                but.Background = Brushes.Transparent;
+                but.BorderBrush = Brushes.Transparent;
+                but.Click += new RoutedEventHandler(OpenQuest);
+                but.Tag = item.QuestName;
+                stack.Children.Add(img);
+                stack.Children.Add(but);
+                QuestStack.Children.Add(stack);
+            }
+        }
+        public void OpenQuest(object sender, RoutedEventArgs e) {
+            JsonSerializerSettings settings = new JsonSerializerSettings {
+                TypeNameHandling = TypeNameHandling.All
+            };
+            string questpath = @"../../saves/Quests.json";
+            string jsonFromFile = File.ReadAllText(questpath);
+            List<Quest> quests = JsonConvert.DeserializeObject<List<Quest>>(jsonFromFile, settings);
+            Button button = (Button)sender;
+            var matches = quests.Where(s => s.QuestName == button.Tag.ToString());
+            foreach (var item in matches ) {
+                NameQ.Content = item.QuestName;
+                GoalQ.Content = item.QuestGoal;
+                DescQ.Text = item.QuestDescription;
+            }
         }
     }
 }

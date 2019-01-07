@@ -41,185 +41,69 @@ namespace WitcherWPF
         bool Fourth = false;
         string Char = "";
         string DialogPart = "";
+        static string questpath = @"../../saves/Quests.json";
         private Frame parentFrame;
         DispatcherTimer timer = new DispatcherTimer();
+        static string prolog = @"../../dialogues/DialoguePrologue.json";
+        static string jsonFromFileinv = File.ReadAllText(prolog);
+        List<Dialogues> dialog = JsonConvert.DeserializeObject<List<Dialogues>>(jsonFromFileinv, settings);
+        Dialogues dialogues = new Dialogues();
+
         public Dialogue()
         {
             InitializeComponent();
-            Char = "Foltest";
-            DialogueOptions.Visibility = Visibility.Hidden;
-            Option1.Visibility = Visibility.Hidden;
-            Option2.Visibility = Visibility.Hidden;
-            Option3.Visibility = Visibility.Hidden;
-            Option4.Visibility = Visibility.Hidden;
-            Option5.Visibility = Visibility.Hidden;
-            FoltestDialogue();
+            
+            
         }
         public Dialogue(Frame parentFrame) : this() {
             this.parentFrame = parentFrame;
+            dialogues.DialogueGreet(PersonName, PersonText);
+            LoadOptions();
+
         }
-        public async void FoltestDialogue() {
-            Option1.Visibility = Visibility.Hidden;
-            Option2.Visibility = Visibility.Hidden;
-            Option3.Visibility = Visibility.Hidden;
-            Option4.Visibility = Visibility.Hidden;
-            Option5.Visibility = Visibility.Hidden;
-            if (Begin == true) {
-                PersonName.Content = "Foltest";
-                PersonText.Content = "Welcome Geralt";
-                await Task.Delay(2000);
-                DialogueOptions.Visibility = Visibility.Visible;
-                if (FoltestHelp == true) {
-                    Option1.Visibility = Visibility.Visible;
-                    Option1.Content = "Do you need any help?";
+        public void FoltestDialogue(Button button) {
+            dialogues.Foltest(PersonName, PersonText, button, QueName, QueGoal, QuestPop, DialogueOptions);
+            
+        }
+        public void LoadOptions() {
+            var matches = dialog.Where(s => s.Dialogue == "Foltest");
+            var matches2 = matches.Where(s => s.Type == "Talk");
+            int i = 0;
+            string t = "";
+            foreach (var item in matches2) {
+                if (t != item.Choice) {
+                    Button option = new Button();
+                    option.Content = item.Choice;
+                    option.Tag = item.Dialogue;
+                    option.FontSize = 20;
+                    option.HorizontalAlignment = HorizontalAlignment.Center;
+                    option.BorderBrush = Brushes.Transparent;
+                    option.Background = Brushes.Transparent;
+                    option.Foreground = Brushes.Black;
+                    option.Click += new RoutedEventHandler(Dialogue_Click);
+                    DialogueOptions.Children.Add(option);
+                    t = item.Choice;
                 }
-                Option2.Visibility = Visibility.Visible;
-                Option2.Content = "What is the situation in the city?";
-                Option5.Visibility = Visibility.Visible;
-                Option5.Content = "GoodBye";
-                First = false;
+
+                i++;
             }
-            if (DialogPart == "Do you need any help?") {
-                PersonName.Content = "Foltest";
-                PersonText.Content = "Yes Geralt I have a problem that you can take care off";
-                await Task.Delay(5000);
-                PersonName.Content = "Geralt";
-                PersonText.Content = "What do you need sire?";
-                await Task.Delay(5000);
-                PersonName.Content = "Foltest";
-                PersonText.Content = "There is a monster in the city. Will you kill it?";
-                await Task.Delay(5000);
-                DialogueOptions.Visibility = Visibility.Visible;
-                Option1.Content = "Yes";
-                Option2.Content = "No, I cannot help you now";
-                Option1.Visibility = Visibility.Visible;
-                Option2.Visibility = Visibility.Visible;
-            }
-            if (DialogPart == "Yes") {
-                PersonName.Content = "Geralt";
-                PersonText.Content = "Yes, I can do that but i need to know more than that";
-                await Task.Delay(5000);
-                PersonName.Content = "Foltest";
-                PersonText.Content = "Well... I do not know much about the monster but a local smith saw it. He can tell you more about it";
-                await Task.Delay(5000);
-                PersonName.Content = "Geralt";
-                PersonText.Content = "Fine, i will go and ask him";
-                Quest MonsterHunt = new Quest();
-                MonsterHunt.NewQuest("Main","Silent Killer","Foltest asked Geralt to hunt down a monster that was murdering the last citizens that stayed in Wyzima. Geralt Accepted and was told to go to a local smith and ask him about the details","Ask the Wyzima's smith about the monster", 1);
-                QueName.Content = "New Quest: Silent Killer";
-                QueGoal.Content = "Ask the Wyzima's smith about the monster";
-                MonsterHunt.QuestShow(QuestPop); 
-                QuestTimer();
-                await Task.Delay(5000);
-                if (FoltestHelp == true) {
-                    Option1.Visibility = Visibility.Visible;
-                    Option1.Content = "Do you need any help?";
-                }
-                Option2.Visibility = Visibility.Visible;
-                Option2.Content = "What is the situation in the city?";
-                Option5.Visibility = Visibility.Visible;
-                Option5.Content = "GoodBye";
-            }
-            if (DialogPart == "No, I cannot help you now") {
-                PersonName.Content = "Geralt";
-                PersonText.Content = DialogPart;
-                await Task.Delay(5000);
-                PersonName.Content = "Foltest";
-                PersonText.Content = "Alright Geralt I cannot force you into anything after you saved my life, but please try to kill it. This city has suffered enough";
-                await Task.Delay(5000);
-                if (FoltestHelp == true) {
-                    Option1.Visibility = Visibility.Visible;
-                    Option1.Content = "Do you need any help?";
-                }
-                Option2.Visibility = Visibility.Visible;
-                Option2.Content = "What is the situation in the city?";
-                Option5.Visibility = Visibility.Visible;
-                Option5.Content = "GoodBye";
-            }
-            if (DialogPart == "What is the situation in the city?") {
-                PersonName.Content = "Geralt";
-                PersonText.Content = DialogPart;
-                await Task.Delay(5000);
-                PersonName.Content = "Foltest";
-                PersonText.Content = "People are still scared after what happened here";
-                await Task.Delay(5000);
-                PersonName.Content = "Foltest";
-                PersonText.Content = "And Wyzima is completely destoryed. Almost everything has burned down";
-                await Task.Delay(5000);
-                PersonName.Content = "Foltest";
-                PersonText.Content = "Yes.. the situation is very bad, but i will do my best to bring Wyzima back to life";
-                await Task.Delay(4000);
-                QuestPop.Visibility = Visibility.Hidden;
-                if (FoltestHelp == true) {
-                    Option1.Visibility = Visibility.Visible;
-                    Option1.Content = "Do you need any help?";
-                }
-                Option2.Visibility = Visibility.Visible;
-                Option2.Content = "What is the situation in the city?";
-                Option5.Visibility = Visibility.Visible;
-                Option5.Content = "GoodBye";
-                
-            }
-            if (DialogPart == "GoodBye") {
-                PersonName.Content = "Geralt";
-                PersonText.Content = DialogPart;
-                await Task.Delay(5000);
-                PersonName.Content = "Foltest";
-                PersonText.Content = "Farewell Geralt";
-                await Task.Delay(5000);
-                parentFrame.Navigate(new Location(parentFrame));
-            }
+            
+            //FoltestDialogue();
         }
 
         private void Dialogue_Click(object sender, RoutedEventArgs e) {
+            DialogueOptions.Visibility = Visibility.Hidden;
             Button button = (Button)sender;
-            if (sender is Button button1) {
-                if (button1.Name == "Option1") {
-                    if (Char == "Foltest") {
-                        if (Option1.Content.ToString() == "Do you need any help?") {
-                            First = true;
-                            Begin = false;
-                            DialogPart = "Do you need any help?";
-                            FoltestDialogue();
-                        }
-                        if (Option1.Content.ToString() == "Yes") {
-                            DialogPart = "Yes";
-                            FoltestHelp = false;
-                        }
-                        Begin = false;
-                        FoltestDialogue();
-                    }
-
-                }
-                else if (button1.Name == "Option2") {
-                    if (Char == "Foltest") {
-                        if (Option2.Content.ToString() == "No, I cannot help you now") {
-                            DialogPart = "No, I cannot help you now";
-                        }
-                        if (Option2.Content.ToString() == "What is the situation in the city?") {
-                            DialogPart = "What is the situation in the city?";
-
-                        }
-                        Begin = false;
-                        FoltestDialogue();
-                    }
-                    
-                }
-                else if(button1.Name == "Option3") {
-
-                }else if(button1.Name == "Option4") {
-
-                }else if(button1.Name == "Option5") {
-                    if (Char == "Foltest") {
-                        if (Option5.Content.ToString() == "GoodBye") {
-                            DialogPart = "GoodBye";
-                        }
-                        Begin = false;
-                        FoltestDialogue();
-                    }
-
-                }
+            if (button.Content.ToString() == "Nashle") {
+                dialogues.DialogueLeave(PersonName, PersonText, parentFrame);
+                
             }
+            else {
+                FoltestDialogue(button);
+            }
+            //FoltestDialogue(button);
+            
+
         }
         public void QuestTimer() {
             timer.Interval = new TimeSpan(0, 0, 0, 0, 10000);

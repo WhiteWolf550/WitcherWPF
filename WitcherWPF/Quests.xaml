@@ -12,9 +12,10 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="114*"/>
             <ColumnDefinition Width="224*"/>
-            <ColumnDefinition Width="182*"/>
-            <ColumnDefinition Width="298*"/>
-            <ColumnDefinition Width="609*"/>
+            <ColumnDefinition Width="28*"/>
+            <ColumnDefinition Width="405*"/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="649*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="108*"/>
@@ -22,8 +23,8 @@
             <RowDefinition Height="55*"/>
             <RowDefinition Height="619*"/>
         </Grid.RowDefinitions>
-        <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63" Grid.RowSpan="4" Grid.ColumnSpan="5"></Image>
-        <Button Background="{x:Null}" BorderBrush="{x:Null}" MinWidth="50" MinHeight="80" Click="GetLocation">
+        <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63" Grid.RowSpan="4" Grid.ColumnSpan="6"></Image>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" MinWidth="50" MinHeight="80" Click="GetLocation" Height="Auto" Margin="0,14">
             <Image Width="60" Height="60">
                 <Image.Resources>
                     <Style TargetType="{x:Type Image}">
@@ -39,7 +40,7 @@
                 </Image.Resources>
             </Image>
         </Button>
-        <StackPanel Background="Black" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="4" Margin="0,0,113,0" Height="100" Width="1200" Grid.Column="1">
+        <StackPanel Background="Black" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.ColumnSpan="5" Margin="0,0,113,0" Height="100" Width="1200" Grid.Column="1">
             <Button Name="Map" Click="GetMap" Width="200" Height="100" Background="Transparent"  BorderBrush="Black">
                 <Image Name="MapIMG">
                     <Image.Resources>
@@ -134,34 +135,28 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
             <Border Name="B1" BorderBrush="Black" BorderThickness="0,0,0,3">
-                <StackPanel Orientation="Vertical">
-                    <StackPanel.Background>
-                        <ImageBrush ImageSource="img/UI/in.png"/>
-                    </StackPanel.Background>
+                <StackPanel Orientation="Vertical" Name="QuestStack">
+
                     <StackPanel Orientation="Horizontal" MinHeight="40">
-                        <Button BorderBrush="Black" MinHeight="70" Width="150">
+                        <Button BorderBrush="Black" MinHeight="70" Width="150" ToolTip="Hlavní úkoly">
                             <Button.Background>
                                 <ImageBrush ImageSource="img/UI/in.png"/>
                             </Button.Background>
                             <Image Source="img/UI/primary_quests.png" Width="50" Height="50"></Image>
                         </Button>
-                        <Button BorderBrush="Black" MinHeight="70" Width="150">
+                        <Button BorderBrush="Black" MinHeight="70" Width="150" ToolTip="Vedlejší úkoly">
                             <Button.Background>
                                 <ImageBrush ImageSource="img/UI/in.png"/>
                             </Button.Background>
                             <Image Source="img/UI/secondary_quests.png" Width="50" Height="50"></Image>
                         </Button>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="img/UI/Primary_quests.png" Height="32" Width="32"></Image>
-                        <Button Content="MainQuest1Name" FontSize="20" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"></Button>
-                    </StackPanel>
-                    <Label Content="Recommended Level: 40" FontSize="15" Foreground="#DDFFFFFF"></Label>
+
                 </StackPanel>
             </Border>
 
         </StackPanel>
-        <Rectangle Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" Height="740" Margin="0,1" Grid.RowSpan="3" Grid.ColumnSpan="3">
+        <Rectangle Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" Height="740" Margin="0,1" Grid.RowSpan="3" Grid.ColumnSpan="4">
             <Rectangle.Effect>
                 <DropShadowEffect BlurRadius="10"/>
             </Rectangle.Effect>
@@ -172,8 +167,8 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <Label Content="QuestName" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="35" MinHeight="26" MinWidth="62" Foreground="#DDFFFFFF" Margin="52,6" Height="56" Width="194"></Label>
-        <Label Content="QuestTarget" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" MinHeight="26" MinWidth="62" Foreground="#DDFFFFFF" Margin="96,0" Height="34" Width="106"></Label>
-        <Label Content="QuestBackStory" Grid.Column="4" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" MinHeight="26" MinWidth="62" Foreground="#DDFFFFFF" Height="30" Width="114"></Label>
+        <Label Name="NameQ" HorizontalContentAlignment="Center" Content="QuestName" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" MinHeight="26" MinWidth="62" Foreground="#DDFFFFFF" Margin="3,6,0,6" Height="56" Width="430" Grid.ColumnSpan="2"/>
+        <Label Name="GoalQ" HorizontalContentAlignment="Center"  Content="QuestTarget" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" MinHeight="26" MinWidth="62" Foreground="#DDD9E213" Height="34" Width="430" Margin="3,0,0,0" Grid.ColumnSpan="2" Background="{x:Null}"/>
+        <TextBlock TextWrapping="Wrap" Name="DescQ" Text="QuestBackStory"  Grid.ColumnSpan="1" Grid.Column="5" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" MinHeight="26" MinWidth="62" Foreground="#DDFFFFFF" Height="619" Width="260"></TextBlock>
     </Grid>
 </Page>

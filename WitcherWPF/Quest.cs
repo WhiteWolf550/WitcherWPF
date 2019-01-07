@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 
@@ -16,16 +17,21 @@ namespace WitcherWPF {
         public string QuestDescription { get; set; }
         public string QuestGoal { get; set; }
         public int QuestLevel { get; set; }
+        public bool QuestActive { get; set; }
 
-        public void NewQuest(string QuestType, string QuestName, string QuestDescription, string QuestGoal, int QuestLevel) {
+        public Quest() {
+
+        }
+        public Quest(string QuestType, string QuestName, string QuestDescription, string QuestGoal, int QuestLevel, bool QuestActive) {
             this.QuestType = QuestType;
             this.QuestName = QuestName;
             this.QuestDescription = QuestDescription;
             this.QuestGoal = QuestGoal;
             this.QuestLevel = QuestLevel;
+            this.QuestActive = QuestActive;
 
         }
-        public void QuestShow(System.Windows.Controls.StackPanel Tran) {
+        public void QuestShow(StackPanel Tran) {
             Tran.Visibility = Visibility.Visible;
             var animation = new DoubleAnimation {
                 To = 1,
@@ -38,7 +44,7 @@ namespace WitcherWPF {
             animation.Completed += (s, a) => Tran.Opacity = 1;
             Tran.BeginAnimation(UIElement.OpacityProperty, animation);
         }
-        public void QuestHide(System.Windows.Controls.StackPanel Tran) {
+        public void QuestHide(StackPanel Tran) {
             var animation = new DoubleAnimation {
                 To = 0,
                 BeginTime = TimeSpan.FromSeconds(1),
@@ -51,7 +57,7 @@ namespace WitcherWPF {
             Tran.BeginAnimation(UIElement.OpacityProperty, animation);
         }
         public void QuestSave(List<Quest> quests) {
-            string questpath = "@../../saves/quests.json";
+            string questpath = "@../../../../saves/Quests.json";
             JsonSerializerSettings settings = new JsonSerializerSettings {
                 TypeNameHandling = TypeNameHandling.All
             };
