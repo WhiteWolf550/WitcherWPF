@@ -19,16 +19,22 @@ namespace WitcherWPF
         public string Description { get; set; }
         public string Type { get; set; }
         public string Source { get; set; }
+        public string Substance { get; set; }
+        public string Effect { get; set; }
+        public string Action { get; set; }
 
         public Item() {
 
         }
 
-        public Item(string Name, string Description, string Type, string Source) {
+        public Item(string Name, string Description, string Type, string Source, string Substance, string Effect, string Action) {
             this.Name = Name;
             this.Description = Description;
             this.Type = Type;
             this.Source = Source;
+            this.Substance = Substance;
+            this.Effect = Effect;
+            this.Action = Action;
         }
         public void GenerateLoot(WrapPanel LootInventory, Button Hide, Image LootBack, Button TakeLoot, Button CloseBut) {
             bool pass = true;
@@ -74,6 +80,9 @@ namespace WitcherWPF
                     it.Description = matches[rn].Description;
                     it.Type = matches[rn].Type;
                     it.Source = matches[rn].Source;
+                    it.Substance = matches[rn].Substance;
+                    it.Effect = matches[rn].Effect;
+                    it.Action = matches[rn].Action;
                     loot.Add(it);
                     
                 }

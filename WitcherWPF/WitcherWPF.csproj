@@ -170,6 +170,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="dialogues\DialoguePrologue.json" />
     <None Include="saves\GameItems.json" />
     <None Include="saves\Quests.json" />
     <Resource Include="fonts\MORPHEUS.TTF" />

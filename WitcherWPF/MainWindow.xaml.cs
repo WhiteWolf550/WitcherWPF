@@ -39,12 +39,12 @@ namespace WitcherWPF {
             mainFrame.Navigate(new Inventory(mainFrame));
         }
         public void CreateInv() {
-            items.Add(new Item("Kuře", "Jídlo,Po snězení doplní malou část zdraví", "Loot", @"img/Items/Food_Chicken.png"));
-            items.Add(new Item("Jablečný Džus", "Nápoj, lze vypít pro doplňení malé části zdraví", "Loot", @"img/Items/Drink_Apple_Juice.png"));
-            items.Add(new Item("Fisstech", "Silná droga, lze prodat", "Loot", @"img/Items/Potion_Fisstech.png"));
-            items.Add(new Item("Víno", "Alkohol, lze prodat kupcům nebo použít", "Loot", @"img/Items/Alcohol_Winered.png"));
-            //string jsonToFile = JsonConvert.SerializeObject(items, settings);
-            //File.WriteAllText(ipath, jsonToFile);
+            items.Add(new Item("Kuře", "Jídlo,Po snězení doplní malou část zdraví", "Loot", @"img/Items/Food_Chicken.png", "none", "Food", "Sníst"));
+            items.Add(new Item("Jablečný Džus", "Nápoj, lze vypít pro doplňení malé části zdraví", "Loot", @"img/Items/Drink_Apple_Juice.png", "none", "Drink", "Vypít"));
+            items.Add(new Item("Fisstech", "Silná droga, lze prodat", "Loot", @"img/Items/Potion_Fisstech.png", "none", "Drug", "Použít"));
+            items.Add(new Item("Víno", "Alkohol, lze prodat kupcům nebo použít", "Loot", @"img/Items/Alcohol_Winered.png", "none", "Alcohol", "Vypít"));
+            string jsonToFile = JsonConvert.SerializeObject(items, settings);
+            File.WriteAllText(ipath, jsonToFile);
         }
         public void CreateDialogue() {
             //greet

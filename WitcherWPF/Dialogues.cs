@@ -34,7 +34,7 @@ namespace WitcherWPF
             this.Dialogue = dialogue;
             this.Enabled = enabled;
         }
-        public async void DialogueGreet(Label Name, Label Text) {
+        public async void DialogueGreet(Label Name, TextBlock Text) {
             JsonSerializerSettings settings = new JsonSerializerSettings {
                 TypeNameHandling = TypeNameHandling.All
             };
@@ -46,14 +46,14 @@ namespace WitcherWPF
             
             foreach (var item in matches2) {
                 Name.Content = item.CharName;
-                Text.Content = item.CharSay;
+                Text.Text = item.CharSay;
                 int leng = item.CharSay.Length;
                 await Task.Delay(20000);
                 
    
             }
         }
-        public async void DialogueLeave(Label Name, Label Text, Frame parentFrame) {
+        public async void DialogueLeave(Label Name, TextBlock Text, Frame parentFrame) {
             JsonSerializerSettings settings = new JsonSerializerSettings {
                 TypeNameHandling = TypeNameHandling.All
             };
@@ -65,7 +65,7 @@ namespace WitcherWPF
 
             foreach (var item in matches2) {
                 Name.Content = item.CharName;
-                Text.Content = item.CharSay;
+                Text.Text = item.CharSay;
                 int leng = item.CharSay.Length;
                 await Task.Delay(2000);
 
@@ -73,7 +73,7 @@ namespace WitcherWPF
             }
             parentFrame.Navigate(new Location(parentFrame));
         }
-        public async void Foltest(Label Name, Label Text, Button button, Label QueName, Label QueGoal, StackPanel Pop, StackPanel DialogueOptions) {
+        public async void Foltest(Label Name, TextBlock Text, Button button, Label QueName, Label QueGoal, StackPanel Pop, StackPanel DialogueOptions) {
             Quest que = new Quest();
             JsonSerializerSettings settings = new JsonSerializerSettings {
                 TypeNameHandling = TypeNameHandling.All
@@ -92,7 +92,7 @@ namespace WitcherWPF
             string t = "";
             foreach (var item in matches4) {
                 Name.Content = item.CharName;
-                Text.Content = item.CharSay;
+                Text.Text = item.CharSay;
                 
                 int leng = item.CharSay.Length;
                 await Task.Delay(2000);

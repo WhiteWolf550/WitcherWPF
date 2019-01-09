@@ -27,6 +27,10 @@ namespace WitcherWPF
         public Quests()
         {
             InitializeComponent();
+            QuestBackground.Visibility = Visibility.Hidden;
+            NameQ.Visibility = Visibility.Hidden;
+            DescQ.Visibility = Visibility.Hidden;
+            GoalQ.Visibility = Visibility.Hidden;
         }
         public Quests(Frame parentFrame) : this() {
             this.parentFrame = parentFrame;
@@ -81,6 +85,10 @@ namespace WitcherWPF
             }
         }
         public void OpenQuest(object sender, RoutedEventArgs e) {
+            QuestBackground.Visibility = Visibility.Visible;
+            NameQ.Visibility = Visibility.Visible;
+            DescQ.Visibility = Visibility.Visible;
+            GoalQ.Visibility = Visibility.Visible;
             JsonSerializerSettings settings = new JsonSerializerSettings {
                 TypeNameHandling = TypeNameHandling.All
             };

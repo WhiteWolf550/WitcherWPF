@@ -102,12 +102,17 @@ namespace WitcherWPF
                 drop.Click += DropItem;
                 drop.Tag = item.Item.Name;
                 cm.Items.Add(drop);
+                MenuItem use = new MenuItem();
+                use.Header = item.Item.Action;
+                use.Click += UseItem;
+                use.Tag = item.Item.Name;
+                cm.Items.Add(use);
                 Button inventoryitem = new Button();
                 inventoryitem.Content = inventoryimage;
                 inventoryitem.Height = 20;
                 inventoryitem.Width = 20;
                 inventoryitem.BorderBrush = Brushes.Transparent;
-                inventoryitem.ToolTip = item.Item.Name + "\n" + item.Count + "x" + "\n" + item.Item.Description;
+                inventoryitem.ToolTip = item.Item.Name + "\n" + item.Count + "x" + "\n" + item.Item.Description + "\n" + "SUBSTANCE:" + "\n" + item.Item.Substance;
                 inventoryitem.ContextMenu = cm;
                 inventoryitem.Tag = item.Item.Name;
                 inventoryitem.Background = Brushes.Transparent;
@@ -121,6 +126,9 @@ namespace WitcherWPF
             invent.DropItem(button);
             InventoryItems.Children.Clear();
             LoadInventory();
+
+        }
+        public void UseItem(object sender, RoutedEventArgs e) {
 
         }
         public void StaminaRegen() {
