@@ -22,12 +22,13 @@ namespace WitcherWPF
         public string Substance { get; set; }
         public string Effect { get; set; }
         public string Action { get; set; }
+        public int Price { get; set; }
 
         public Item() {
 
         }
 
-        public Item(string Name, string Description, string Type, string Source, string Substance, string Effect, string Action) {
+        public Item(string Name, string Description, string Type, string Source, string Substance, string Effect, string Action, int Price) {
             this.Name = Name;
             this.Description = Description;
             this.Type = Type;
@@ -35,6 +36,7 @@ namespace WitcherWPF
             this.Substance = Substance;
             this.Effect = Effect;
             this.Action = Action;
+            this.Price = Price;
         }
         public void GenerateLoot(WrapPanel LootInventory, Button Hide, Image LootBack, Button TakeLoot, Button CloseBut) {
             bool pass = true;
@@ -43,7 +45,7 @@ namespace WitcherWPF
             LootBack.Visibility = Visibility.Visible;
             CloseBut.Visibility = Visibility.Visible;
             TakeLoot.Visibility = Visibility.Visible;
-            string ipath = @"../../saves/GameItems.json";
+            string ipath = @"../../gamefiles/GameItems.json";
             string lootpath = @"../../saves/Loot.json";
             JsonSerializerSettings settings = new JsonSerializerSettings {
                 TypeNameHandling = TypeNameHandling.All
@@ -83,6 +85,7 @@ namespace WitcherWPF
                     it.Substance = matches[rn].Substance;
                     it.Effect = matches[rn].Effect;
                     it.Action = matches[rn].Action;
+                    it.Price = matches[rn].Price;
                     loot.Add(it);
                     
                 }

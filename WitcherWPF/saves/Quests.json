@@ -1,1 +1,0 @@
-{"$type":"System.Collections.Generic.List`1[[WitcherWPF.Quest, WitcherWPF]], mscorlib","$values":[{"$type":"WitcherWPF.Quest, WitcherWPF","QuestType":"Primary","QuestName":"Něco končí, něco začíná","QuestDescription":"Foltest si předvolal Geralta hned druhý den potom co krála zaachránil.","QuestGoal":"Zajdi za Foltestem","QuestLevel":1,"QuestActive":true}]}

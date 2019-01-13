@@ -21,9 +21,15 @@ namespace WitcherWPF {
     /// </summary>
     public partial class MainWindow : Window {
         List<Item> items = new List<Item>();
+        List<Armor> armors = new List<Armor>();
         List<Dialogues> dialog = new List<Dialogues>();
         List<Quest> qq = new List<Quest>();
-        static string ipath = @"../../saves/GameItems.json";
+        List<PlayerQuest> qqq = new List<PlayerQuest>();
+        static string ipath = @"../../gamefiles/GameItems.json";
+        static string apath = @"../../gamefiles/GameArmors.json";
+        static string spath = @"../../gamefiles/GameSwords.json";
+        static string qpath = @"../../gamefiles/Quests.json";
+        static string qqpath = @"../../saves/PlayerQuests.json";
         static string prologue = @"../../dialogues/DialoguePrologue.json";
         static JsonSerializerSettings settings = new JsonSerializerSettings {
             TypeNameHandling = TypeNameHandling.All
@@ -35,54 +41,78 @@ namespace WitcherWPF {
             //CreateInv();
             //CreatePlayer();
             //CreateDialogue();
-            CreateQuests();
+            //CreateQuests();
+            CreatePlayerQuests();
             mainFrame.Navigate(new Inventory(mainFrame));
         }
+        public void CreateArmors() {
+            armors.Add(new Armor("Středně těžká zbroj", "Mantikoří zbroj", "Kazajka používaná zaklínači ze školy Mantikory", 1, 50, 0, 0, @"img/Armors/Armor_Manticore", 200, "Manticore", 10, "Start"));
+            armors.Add(new Armor("Středně těžká zbroj", "Mahakamská zbroj", "Zbroj vyrobená trpaslíky z Mahakamu", 5, 50, 0, 0, @"img/Armors/Armor_Manticore", 200, "Mahakam", 10, "Shop"));
+            armors.Add(new Armor("Těžká zbroj", "Ocelová zbroj", "Ocelová zbroj s pevnou ocelovou hrudí a vyztuženými nárameníky", 10, 100, 2, 0, @"img/Armors/Armor_Manticore", 100, "None", 0, "HumanLoot"));
+        }
         public void CreateInv() {
-            items.Add(new Item("Kuře", "Jídlo,Po snězení doplní malou část zdraví", "Loot", @"img/Items/Food_Chicken.png", "none", "Food", "Sníst"));
-            items.Add(new Item("Jablečný Džus", "Nápoj, lze vypít pro doplňení malé části zdraví", "Loot", @"img/Items/Drink_Apple_Juice.png", "none", "Drink", "Vypít"));
-            items.Add(new Item("Fisstech", "Silná droga, lze prodat", "Loot", @"img/Items/Potion_Fisstech.png", "none", "Drug", "Použít"));
-            items.Add(new Item("Víno", "Alkohol, lze prodat kupcům nebo použít", "Loot", @"img/Items/Alcohol_Winered.png", "none", "Alcohol", "Vypít"));
+            items.Add(new Item("Kuře", "Jídlo,Po snězení doplní malou část zdraví", "Loot", @"img/Items/Food_Chicken.png", "none", "Food", "Sníst", 20));
+            items.Add(new Item("Jablečný Džus", "Nápoj, lze vypít pro doplňení malé části zdraví", "Loot", @"img/Items/Drink_Apple_Juice.png", "none", "Drink", "Vypít", 15));
+            items.Add(new Item("Fisstech", "Silná droga, lze prodat", "Loot", @"img/Items/Potion_Fisstech.png", "none", "Drug", "Použít", 150));
+            items.Add(new Item("Víno", "Alkohol, lze prodat kupcům nebo použít", "Loot", @"img/Items/Alcohol_Winered.png", "none", "Alcohol", "Vypít", 50));
             string jsonToFile = JsonConvert.SerializeObject(items, settings);
             File.WriteAllText(ipath, jsonToFile);
         }
         public void CreateDialogue() {
             //greet
-            dialog.Add(new Dialogues("Foltest", "Vítej zpět Zaklínači", 1, "Pozdrav", "Greet", "Foltest", true));
+            dialog.Add(new Dialogues("Foltest", "Vítej zpět Zaklínači", 1, "Pozdrav", "Greet", "Foltest", true, null));
 
-            dialog.Add(new Dialogues("Foltest", "Geralte, zjistil si už něco o tom vrahovi?",1, "Co potřebujete králi?", "Talk", "Foltest", true));
-            dialog.Add(new Dialogues("Geralt", "Ne králi, zatím ne", 1, "Co potřebujete králi?", "Talk", "Foltest", true));
-            dialog.Add(new Dialogues("Foltest", "Tak to by sis měl pospíšit Geralte. Přeci jen jde o tvojí reputaci", 1, "Co potřebujete králi?", "Talk", "Foltest", true));
-            dialog.Add(new Dialogues("Geralt", "To že se jeden Zaklínač pokusí o zabití krále, ihned neznamená, že takový jsou všichni zaklínači", 1, "Co potřebujete králi?", "Talk", "Foltest", true));
-            dialog.Add(new Dialogues("Foltest", "Takhle to ale u prostého lidu nefunguje. Lidem stačí, aby se jeden Zaklínač pokusil o vraždu a bude nenávidět všechny", 1, "Co potřebujete králi?", "Talk", "Foltest", true));
-            dialog.Add(new Dialogues("Foltest", "Potřebuji mít tuto záležitost co nejrychleji zasebou Zaklínači.", 1, "Co potřebujete králi?", "Talk", "Foltest", true));
-            dialog.Add(new Dialogues("Geralt", "Dobře králi", 1, "Co potřebujete králi?", "Talk", "Foltest", true));
+            dialog.Add(new Dialogues("Foltest", "Geralte, zjistil si už něco o tom vrahovi?",1, "Co potřebujete králi?", "Talk", "Foltest", true, "Něco končí, něco začíná"));
+            dialog.Add(new Dialogues("Geralt", "Ne králi, zatím ne", 1, "Co potřebujete králi?", "Talk", "Foltest", true, null));
+            dialog.Add(new Dialogues("Foltest", "Tak to by sis měl pospíšit Geralte. Přeci jen jde o tvojí reputaci", 1, "Co potřebujete králi?", "Talk", "Foltest", true, "Něco končí, něco začíná"));
+            dialog.Add(new Dialogues("Geralt", "To že se jeden Zaklínač pokusí o zabití krále, ihned neznamená, že takový jsou všichni zaklínači", 1, "Co potřebujete králi?", "Talk", "Foltest", true, "Něco končí, něco začíná"));
+            dialog.Add(new Dialogues("Foltest", "Takhle to ale u prostého lidu nefunguje. Lidem stačí, aby se jeden Zaklínač pokusil o vraždu a bude nenávidět všechny", 1, "Co potřebujete králi?", "Talk", "Foltest", true, "Něco končí, něco začíná"));
+            dialog.Add(new Dialogues("Foltest", "Potřebuji mít tuto záležitost co nejrychleji zasebou Zaklínači.", 1, "Co potřebujete králi?", "Talk", "Foltest", true, "Něco končí, něco začíná"));
+            dialog.Add(new Dialogues("Geralt", "Dobře králi", 1, "Co potřebujete králi?", "Talk", "Foltest", true, "Něco končí, něco začíná"));
 
             //2
-            dialog.Add(new Dialogues("Geralt", "Jak se daří Wyzimě?", 2, "Jak se daří Wyzimě?", "Talk", "Foltest", true));
-            dialog.Add(new Dialogues("Foltest", "To tě to opravdu zajímá Zaklínači?", 2, "Jak se daří Wyzimě?", "Talk", "Foltest", true));
-            dialog.Add(new Dialogues("Geralt", "Ne, nezajímá", 2, "Jak se daří Wyzimě?", "Talk", "Foltest", true));
-            dialog.Add(new Dialogues("Foltest", "Wyzima je pořád v torskách. Budu se ale snažit ji vrátit zpět do své krásy", 2, "Jak se daří Wyzimě?", "Talk", "Foltest", true));
+            dialog.Add(new Dialogues("Geralt", "Jak se daří Wyzimě?", 2, "Jak se daří Wyzimě?", "Talk", "Foltest", true, null));
+            dialog.Add(new Dialogues("Foltest", "To tě to opravdu zajímá Zaklínači?", 2, "Jak se daří Wyzimě?", "Talk", "Foltest", true, null));
+            dialog.Add(new Dialogues("Geralt", "Ne, nezajímá", 2, "Jak se daří Wyzimě?", "Talk", "Foltest", true, null));
+            dialog.Add(new Dialogues("Foltest", "Wyzima je pořád v torskách. Budu se ale snažit ji vrátit zpět do své krásy", 2, "Jak se daří Wyzimě?", "Talk", "Foltest", true, null));
 
             //leave
-            dialog.Add(new Dialogues("Geralt", "Nashle králi", 2, "Exit", "Talk", "Foltest", true));
-            dialog.Add(new Dialogues("Geralt", "Nashle Zaklínači", 2, "Exit", "Talk", "Foltest", true));
+            dialog.Add(new Dialogues("Geralt", "Nashle králi", 2, "Nashle", "Talk", "Foltest", true, null));
+            dialog.Add(new Dialogues("Geralt", "Nashle Zaklínači", 2, "Nashle", "Talk", "Foltest", true, null));
             string jsonToFile = JsonConvert.SerializeObject(dialog, settings);
             File.WriteAllText(prologue, jsonToFile);
         }
         public void CreatePlayer() {
             string playerpath = @"../../saves/Player.json";
             List<Player> player = new List<Player>();
-            player.Add(new Player(100, 100, 100, 100, 100, 100, 50, 10, 5, 5));
+            //player.Add(new Player(100, 100, 100, 100, 100, 100, 50, 10, 5, 5));
             string jsonToFile = JsonConvert.SerializeObject(player, settings);
             File.WriteAllText(playerpath, jsonToFile);
         }
         public void CreateQuests() {
-            string playerpath = @"../../saves/Quests.json";
-            qq.Add(new Quest("Primary", "Něco končí, něco začíná", "Foltest si předvolal Geralta hned druhý den potom co krála zaachránil.", "Zajdi za Foltestem", 1, true));
-            Quest q = new Quest();
-            q.QuestSave(qq);
+            qq.Add(new Quest (1, "Primary", "Něco končí, něco začíná", "Foltest si předvolal Geralta hned druhý den potom co krála zachránil.", "Zajdi za Foltestem", 1, true, "Něco končí, něco začíná"));
+            qq.Add(new Quest(2, "Primary", "Něco končí, něco začíná", "Foltest si předvolal Geralta hned druhý den potom co krále zachránil. Foltest Geraltovi oznámil, že by měl něco zjistit o vrahovi s pomocí Triss", "Zajdi za Triss a zjisti něco o vrahovi", 1, true, "Něco končí, něco začíná"));
+
+            
+            string jsonToFilet = JsonConvert.SerializeObject(qq, settings);
+            File.WriteAllText(qpath, jsonToFilet);
 
         }
+        public void CreatePlayerQuests() {
+            string qsts = @"../../gamefiles/Quests.json";
+            string jsonFromFileinv = File.ReadAllText(qsts);
+            List<Quest> qust = JsonConvert.DeserializeObject<List<Quest>>(jsonFromFileinv, settings);
+            var matches = qust.Where(s => s.QuestID == 1);
+            
+            foreach(var item in matches) {
+                Quest q = item;
+                qqq.Add(new PlayerQuest(q));
+
+            }
+            string jsonToFilet = JsonConvert.SerializeObject(qqq, settings);
+            File.WriteAllText(qqpath, jsonToFilet);
+
+        }
+
     }
 }

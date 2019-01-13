@@ -21,11 +21,12 @@ namespace WitcherWPF
         public string Type { get; set; }
         public string Dialogue { get; set; }
         public bool Enabled { get; set; }
+        public string QuestActivate { get; set; }
 
         public Dialogues() {
 
         }
-        public Dialogues(string charName, string charSay, int dialogueID, string choice, string type, string dialogue, bool enabled) {
+        public Dialogues(string charName, string charSay, int dialogueID, string choice, string type, string dialogue, bool enabled, string QuestActivate) {
             this.CharName = charName;
             this.CharSay = charSay;
             this.DialogueID = dialogueID;
@@ -33,6 +34,7 @@ namespace WitcherWPF
             this.Type = type;
             this.Dialogue = dialogue;
             this.Enabled = enabled;
+            this.QuestActivate = QuestActivate;
         }
         public async void DialogueGreet(Label Name, TextBlock Text) {
             JsonSerializerSettings settings = new JsonSerializerSettings {
@@ -74,13 +76,16 @@ namespace WitcherWPF
             parentFrame.Navigate(new Location(parentFrame));
         }
         public async void Foltest(Label Name, TextBlock Text, Button button, Label QueName, Label QueGoal, StackPanel Pop, StackPanel DialogueOptions) {
-            Quest que = new Quest();
+            PlayerQuest que = new PlayerQuest();
             JsonSerializerSettings settings = new JsonSerializerSettings {
                 TypeNameHandling = TypeNameHandling.All
             };
-            string quest = @"../../saves/Quests.json";
+            string quest = @"../../gamefiles/Quests.json";
+            string pquest = @"../../saves/PlayerQuests.json";
             string jsonFromFileq = File.ReadAllText(quest);
             List<Quest> Quests = JsonConvert.DeserializeObject<List<Quest>>(jsonFromFileq, settings);
+            string jsonFromFileqq = File.ReadAllText(pquest);
+            List<PlayerQuest> PlayerQuests = JsonConvert.DeserializeObject<List<PlayerQuest>>(jsonFromFileqq, settings);
 
             string prolog = @"../../dialogues/DialoguePrologue.json";
             string jsonFromFileinv = File.ReadAllText(prolog);
@@ -89,28 +94,35 @@ namespace WitcherWPF
             var matches2 = matches.Where(s => s.Type == "Talk");
             var matches3 = matches2.Where(s => s.Enabled == true);
             var matches4 = matches2.Where(s => s.Choice == button.Content.ToString());
-            string t = "";
+            string Activate = "";
             foreach (var item in matches4) {
                 Name.Content = item.CharName;
                 Text.Text = item.CharSay;
                 
                 int leng = item.CharSay.Length;
                 await Task.Delay(2000);
-                t = item.Choice;
+                Activate = item.QuestActivate;
             }
-            if (t == "Co potřebujete králi?") {
-                var matches5 = Quests.Where(s => s.QuestName == "Něco končí, něco začíná");
-                foreach (var item1 in matches5) {
-                    item1.QuestGoal = "Zajdi za Triss a zjisti něco o vrahovi";
-                    item1.QuestDescription += "\n" + "Foltest Geraltovi oznámil, že by měl něco zjistit o vrahovi s pomocí Triss";
-                    QueName.Content = item1.QuestName;
-                    QueGoal.Content = item1.QuestGoal;
-                    
+            if (Activate != null) {
+                var match = PlayerQuests.Where(s => s.Quest.QuestSeries == Activate);
+                int id = 0;
+                foreach(var item in match) {
+                    id = item.Quest.QuestID;
                 }
+                var matches5 = Quests.Where(s => s.QuestSeries == Activate);
+                var matches6 = matches5.Where(s => s.QuestID == id+1);
+                foreach (var it in match) {
+                    foreach(var it2 in matches6) {
+                        it.Quest.QuestID++;
+                        it.Quest.QuestDescription = it2.QuestDescription;
+                        it.Quest.QuestGoal = it2.QuestGoal;
+                    }
+                }
+
                 que.QuestShow(Pop);
                 await Task.Delay(10000);
                 que.QuestHide(Pop);
-                que.QuestSave(Quests);
+                que.QuestSave(PlayerQuests);
             }
             DialogueOptions.Visibility = Visibility.Visible;
 

@@ -22,13 +22,15 @@ namespace WitcherWPF {
         public int strongStunChance { get; set; }
         public int fastStunChance { get; set; }
         public int signIntensity { get; set; }
+        public Sword Sword { get; set; }
+        public Armor Armor { get; set; }
 
         public Player() {
             
             
         }
 
-        public Player(int MaxHealth, int Health, int MaxEndurance, int Endurance, int MaxToxicity, int Toxicity, int Money, int StrongStunChance, int FastStunChance, int SignIntensity ) {
+        public Player(int MaxHealth, int Health, int MaxEndurance, int Endurance, int MaxToxicity, int Toxicity, int Money, int StrongStunChance, int FastStunChance, int SignIntensity, Sword Sword, Armor Armor ) {
             this.maxHealth = MaxHealth;
             this.health = Health;
             this.maxEndurance = MaxEndurance;
@@ -39,6 +41,8 @@ namespace WitcherWPF {
             this.strongStunChance = StrongStunChance;
             this.fastStunChance = FastStunChance;
             this.signIntensity = SignIntensity;
+            this.Sword = Sword;
+            this.Armor = Armor;
         }
         public void LoadAttributes(ProgressBar HealthBar, ProgressBar EnduranceBar, ProgressBar ToxicityBar) {
             string playerpath = @"../../saves/Player.json";

@@ -41,7 +41,7 @@ namespace WitcherWPF
         bool Fourth = false;
         string Char = "";
         string DialogPart = "";
-        static string questpath = @"../../saves/Quests.json";
+        static string questpath = @"../../gamefiles/Quests.json";
         private Frame parentFrame;
         DispatcherTimer timer = new DispatcherTimer();
         static string prolog = @"../../dialogues/DialoguePrologue.json";
@@ -111,7 +111,7 @@ namespace WitcherWPF
             timer.Start();
         }
         void timer_Tick(object sender, EventArgs e) {
-            Quest hider = new Quest();
+            PlayerQuest hider = new PlayerQuest();
             hider.QuestHide(QuestPop);
             timer.Stop();
         }

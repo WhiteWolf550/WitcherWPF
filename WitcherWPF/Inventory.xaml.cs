@@ -27,7 +27,7 @@ namespace WitcherWPF
         static JsonSerializerSettings settings = new JsonSerializerSettings {
             TypeNameHandling = TypeNameHandling.All
         };
-        static string ipath = @"../../saves/GameItems.json";
+        static string ipath = @"../../gamefiles/GameItems.json";
         static string playerinvpath = @"../../saves/PlayerInventory.json";
         static string playerpath = @"../../saves/Player.json";
         static string jsonFromFile = File.ReadAllText(ipath);
@@ -47,11 +47,11 @@ namespace WitcherWPF
             Stamina.Interval = TimeSpan.FromSeconds(1);
             Stamina.Tick += new EventHandler(Stamina_tick);
             Player player = new Player();
-            player.LoadAttributes(HealthBar, EnduranceBar, ToxicityBar);
+            //player.LoadAttributes(HealthBar, EnduranceBar, ToxicityBar);
             LoadInventory();
-            if (EnduranceBar.Value != EnduranceBar.Maximum ) {
+            /*if (EnduranceBar.Value != EnduranceBar.Maximum ) {
                 StaminaRegen();
-            }
+            }*/
         }
 
         public void GetMap(object sender, RoutedEventArgs e) {
@@ -112,7 +112,7 @@ namespace WitcherWPF
                 inventoryitem.Height = 20;
                 inventoryitem.Width = 20;
                 inventoryitem.BorderBrush = Brushes.Transparent;
-                inventoryitem.ToolTip = item.Item.Name + "\n" + item.Count + "x" + "\n" + item.Item.Description + "\n" + "SUBSTANCE:" + "\n" + item.Item.Substance;
+                inventoryitem.ToolTip = item.Item.Name + "\n" + item.Count + "x" + "\n" + item.Item.Description + "\n" + "SUBSTANCE:" + "\n" + item.Item.Substance + "\n" + "Cena:" + item.Item.Price;
                 inventoryitem.ContextMenu = cm;
                 inventoryitem.Tag = item.Item.Name;
                 inventoryitem.Background = Brushes.Transparent;

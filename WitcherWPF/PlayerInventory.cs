@@ -25,7 +25,7 @@ namespace WitcherWPF
             JsonSerializerSettings settings = new JsonSerializerSettings {
                 TypeNameHandling = TypeNameHandling.All
             };
-            string ipath = @"../../saves/GameItems.json";
+            string ipath = @"../../gamefiles/GameItems.json";
             string playerinvpath = @"../../saves/PlayerInventory.json";
             string jsonFromFile = File.ReadAllText(ipath);
             string jsonFromFileinv = File.ReadAllText(playerinvpath);

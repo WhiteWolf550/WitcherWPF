@@ -68,6 +68,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Aard.cs" />
+    <Compile Include="Armor.cs" />
     <Compile Include="Character.xaml.cs">
       <DependentUpon>Character.xaml</DependentUpon>
     </Compile>
@@ -91,6 +92,7 @@
     </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="PlayerInventory.cs" />
+    <Compile Include="PlayerQuest.cs" />
     <Compile Include="Quest.cs" />
     <Compile Include="Quests.xaml.cs">
       <DependentUpon>Quests.xaml</DependentUpon>
@@ -171,9 +173,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="dialogues\DialoguePrologue.json" />
-    <None Include="saves\GameItems.json" />
-    <None Include="saves\Quests.json" />
     <Resource Include="fonts\MORPHEUS.TTF" />
+    <None Include="gamefiles\GameItems.json" />
+    <None Include="gamefiles\Quests.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -276,6 +278,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\Maps\Map_Foltest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="saves\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
