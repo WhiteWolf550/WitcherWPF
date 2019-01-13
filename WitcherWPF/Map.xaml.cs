@@ -24,6 +24,8 @@ namespace WitcherWPF
         public Map()
         {
             InitializeComponent();
+            WyzimaCastle.WyzimaCastle1.Click += new RoutedEventHandler(Travel);
+            WyzimaCastle.WyzimaCastle2.Click += new RoutedEventHandler(Travel);
         }
         public Map(Frame parentFrame) : this() {
             this.parentFrame = parentFrame;
@@ -45,6 +47,12 @@ namespace WitcherWPF
         }
         public void GetLocation(object sender, RoutedEventArgs e) {
             parentFrame.Navigate(new Location(parentFrame));
+        }
+        public void Travel(object sender, RoutedEventArgs e) {
+            Button button = (sender as Button);
+            string tag = button.Tag.ToString();
+            parentFrame.Navigate(new Location(parentFrame, tag));
+
         }
     }
 }

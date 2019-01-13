@@ -36,14 +36,14 @@ namespace WitcherWPF
             this.Enabled = enabled;
             this.QuestActivate = QuestActivate;
         }
-        public async void DialogueGreet(Label Name, TextBlock Text) {
+        public async void DialogueGreet(Label Name, TextBlock Text, string Character) {
             JsonSerializerSettings settings = new JsonSerializerSettings {
                 TypeNameHandling = TypeNameHandling.All
             };
             string prolog = @"../../dialogues/DialoguePrologue.json";
             string jsonFromFileinv = File.ReadAllText(prolog);
             List<Dialogues> dialog = JsonConvert.DeserializeObject<List<Dialogues>>(jsonFromFileinv, settings);
-            var matches = dialog.Where(s => s.Dialogue == "Foltest");
+            var matches = dialog.Where(s => s.Dialogue == Character);
             var matches2 = matches.Where(s => s.Type == "Greet");
             
             foreach (var item in matches2) {
@@ -55,14 +55,14 @@ namespace WitcherWPF
    
             }
         }
-        public async void DialogueLeave(Label Name, TextBlock Text, Frame parentFrame) {
+        public async void DialogueLeave(Label Name, TextBlock Text, Frame parentFrame, string Character) {
             JsonSerializerSettings settings = new JsonSerializerSettings {
                 TypeNameHandling = TypeNameHandling.All
             };
             string prolog = @"../../dialogues/DialoguePrologue.json";
             string jsonFromFileinv = File.ReadAllText(prolog);
             List<Dialogues> dialog = JsonConvert.DeserializeObject<List<Dialogues>>(jsonFromFileinv, settings);
-            var matches = dialog.Where(s => s.Dialogue == "Foltest");
+            var matches = dialog.Where(s => s.Dialogue == Character);
             var matches2 = matches.Where(s => s.Choice == "Nashle");
 
             foreach (var item in matches2) {
@@ -75,7 +75,7 @@ namespace WitcherWPF
             }
             parentFrame.Navigate(new Location(parentFrame));
         }
-        public async void Foltest(Label Name, TextBlock Text, Button button, Label QueName, Label QueGoal, StackPanel Pop, StackPanel DialogueOptions) {
+        public async void Foltest(Label Name, TextBlock Text, Button button, Label QueName, Label QueGoal, StackPanel Pop, StackPanel DialogueOptions, string Character) {
             PlayerQuest que = new PlayerQuest();
             JsonSerializerSettings settings = new JsonSerializerSettings {
                 TypeNameHandling = TypeNameHandling.All
@@ -90,7 +90,7 @@ namespace WitcherWPF
             string prolog = @"../../dialogues/DialoguePrologue.json";
             string jsonFromFileinv = File.ReadAllText(prolog);
             List<Dialogues> dialog = JsonConvert.DeserializeObject<List<Dialogues>>(jsonFromFileinv, settings);
-            var matches = dialog.Where(s => s.Dialogue == "Foltest");
+            var matches = dialog.Where(s => s.Dialogue == Character);
             var matches2 = matches.Where(s => s.Type == "Talk");
             var matches3 = matches2.Where(s => s.Enabled == true);
             var matches4 = matches2.Where(s => s.Choice == button.Content.ToString());

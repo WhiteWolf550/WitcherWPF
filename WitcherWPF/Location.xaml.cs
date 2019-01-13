@@ -21,21 +21,38 @@ namespace WitcherWPF {
     /// </summary>
     public partial class Location : Page {
         private Frame parentFrame;
+        static public string loc;
         Item it = new Item();
         public Location() {
             InitializeComponent();
-            Wyzima_Castle.Foltest.Click += new RoutedEventHandler(GetDialogueFoltest);
+            Wyzima_Castle.Foltest.Click += new RoutedEventHandler(GetDialogue);
             Wyzima_Castle.Flower.Click += new RoutedEventHandler(GetLoot);
-            
+            Wyzima_Castle2.Triss.Click += new RoutedEventHandler(GetDialogue);
+
+        }
+        public Location(Frame parentFrame, string location) : this() {
+            this.parentFrame = parentFrame;
+            loc = location;
+            SetLocation();
+        }
+        public void SetLocation() {
+            if (loc == "Old_wyzima2") {
+                Wyzima_Castle2.Visibility = Visibility.Visible;
+            }else if(loc == "Old_wyzima1") {
+                Wyzima_Castle.Visibility = Visibility.Visible;
+            }
         }
         public Location(Frame parentFrame) : this() {
             this.parentFrame = parentFrame;
+            SetLocation();
         }
         public void GetInventory(object sender, RoutedEventArgs e) {
             parentFrame.Navigate(new Inventory(parentFrame));
         }
-        public void GetDialogueFoltest(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Dialogue(parentFrame));
+        public void GetDialogue(object sender, RoutedEventArgs e) {
+            Button button = (sender as Button);
+            string charworld = button.Name.ToString();
+            parentFrame.Navigate(new Dialogue(parentFrame, charworld));
              
         }
         public void GetLoot(object sender, RoutedEventArgs e) {

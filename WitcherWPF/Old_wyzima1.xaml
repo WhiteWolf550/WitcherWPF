@@ -18,7 +18,7 @@
             <ColumnDefinition Width="203*"/>
         </Grid.ColumnDefinitions>
         <Image x:Name="LocationImage" Source="img/Locations/old_wyzima2.png" Margin="-99,-42,-80,-48" Grid.ColumnSpan="3" Grid.RowSpan="3"></Image>
-        <Button Grid.Column="1" Grid.Row="1" Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Foltest">
+        <Button Grid.Column="1" Grid.Row="1" Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Foltest" ToolTip="Král Foltest">
             <Image Source="img/Characters/Foltest.png" Grid.Column="1" Grid.Row="1"></Image>
         </Button>
         <Button Name="Flower" Content="Květináč" Height="Auto" Grid.Column="2" Margin="246,10,10,10" Grid.Row="1" Click="GetLoot" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF686FFF" FontSize="18" FontWeight="Bold"/>

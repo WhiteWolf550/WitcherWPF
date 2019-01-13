@@ -33,16 +33,9 @@ namespace WitcherWPF
         //static string questpath = "@../../saves/quests.json";
         //static string jsonFromQuests = File.ReadAllText(questpath);
         //static List<Quest> Questlist = JsonConvert.DeserializeObject<List<Quest>>(jsonFromQuests, settings);
-        static bool FoltestHelp = true;
-        bool Begin = true;
-        bool First = false;
-        bool Second = false;
-        bool Third = false;
-        bool Fourth = false;
-        string Char = "";
-        string DialogPart = "";
-        static string questpath = @"../../gamefiles/Quests.json";
+        
         private Frame parentFrame;
+        public string Character;
         DispatcherTimer timer = new DispatcherTimer();
         static string prolog = @"../../dialogues/DialoguePrologue.json";
         static string jsonFromFileinv = File.ReadAllText(prolog);
@@ -55,18 +48,20 @@ namespace WitcherWPF
             
             
         }
-        public Dialogue(Frame parentFrame) : this() {
+        public Dialogue(Frame parentFrame, string Char) : this() {
             this.parentFrame = parentFrame;
-            dialogues.DialogueGreet(PersonName, PersonText);
+            Character = Char;
+            dialogues.DialogueGreet(PersonName, PersonText, Character);
+            DialogueCharacter.Source = new BitmapImage(new Uri(@"img/Characters/" + Character + ".png", UriKind.Relative));
             LoadOptions();
 
         }
         public void FoltestDialogue(Button button) {
-            dialogues.Foltest(PersonName, PersonText, button, QueName, QueGoal, QuestPop, DialogueOptions);
+            dialogues.Foltest(PersonName, PersonText, button, QueName, QueGoal, QuestPop, DialogueOptions, Character);
             
         }
         public void LoadOptions() {
-            var matches = dialog.Where(s => s.Dialogue == "Foltest");
+            var matches = dialog.Where(s => s.Dialogue == Character);
             var matches2 = matches.Where(s => s.Type == "Talk");
             int i = 0;
             string t = "";
@@ -95,7 +90,7 @@ namespace WitcherWPF
             DialogueOptions.Visibility = Visibility.Hidden;
             Button button = (Button)sender;
             if (button.Content.ToString() == "Nashle") {
-                dialogues.DialogueLeave(PersonName, PersonText, parentFrame);
+                dialogues.DialogueLeave(PersonName, PersonText, parentFrame, Character);
                 
             }
             else {

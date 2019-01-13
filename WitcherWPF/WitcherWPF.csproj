@@ -46,6 +46,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -89,6 +91,12 @@
     </Compile>
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Map_WyzimaCastle.xaml.cs">
+      <DependentUpon>Map_WyzimaCastle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Old_wyzima2.xaml.cs">
+      <DependentUpon>Old_wyzima2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="PlayerInventory.cs" />
@@ -142,6 +150,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Map.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Map_WyzimaCastle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Old_wyzima2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -263,9 +279,6 @@
     <Resource Include="img\Items\Potion_Full_Moon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\Locations\old_wyzima1_night.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="img\UI\door.png" />
   </ItemGroup>
   <ItemGroup>
@@ -281,6 +294,19 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="saves\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\UI\map\map_quest.png" />
+    <Resource Include="img\UI\map\map_shop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\UI\map\map_npc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Locations\old_wyzima1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Characters\Triss.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

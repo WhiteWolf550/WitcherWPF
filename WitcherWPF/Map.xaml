@@ -121,6 +121,7 @@
                 </Image>
             </Button>
         </StackPanel>
-        <Image Source="img/Maps/Map_Foltest.png" Margin="21,19,151,10" Grid.Row="1" Grid.Column="1"></Image>
+        
+        <local:Map_WyzimaCastle x:Name="WyzimaCastle" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"></local:Map_WyzimaCastle>
     </Grid>
 </Page>

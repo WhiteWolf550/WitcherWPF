@@ -22,7 +22,7 @@
         </Grid.ColumnDefinitions>
         <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63" Grid.ColumnSpan="3" Grid.RowSpan="4"/>
         <Image Source="img/Characters/Geralt.png" HorizontalAlignment="Left" VerticalAlignment="Center" Height="432"  Width="174" Margin="0,70,0,10" Grid.Row="2"></Image>
-        <Image Source="img/Characters/Foltest.png" HorizontalAlignment="Right" VerticalAlignment="Center" Height="432"  Width="174" Grid.Column="2" Margin="0,70,0,10" Grid.Row="2"></Image>
+        <Image Source="img/Characters/Foltest.png" Name="DialogueCharacter" HorizontalAlignment="Right" VerticalAlignment="Center" Height="432"  Width="174" Grid.Column="2" Margin="0,70,0,10" Grid.Row="2"></Image>
         <Image Source="img/UI/scroll.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1000" Grid.ColumnSpan="3" Margin="214,81,213,67" Grid.RowSpan="4" Height="746"></Image>
         <StackPanel Orientation="Horizontal" MinWidth="200" MinHeight="100" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Label Style="{StaticResource MORPHEUS}" Content="PersonName" FontWeight="Bold" Name="PersonName" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"></Label>
