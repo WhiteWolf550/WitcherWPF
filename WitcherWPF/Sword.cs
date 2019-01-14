@@ -5,17 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace WitcherWPF {
-    class Sword {
-        public string Type { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public int Level { get; set; }
+    class Sword : Equipment {
+        
         public int Damage { get; set; }
         public int Bleedingchance { get; set; }
         public int Poisonchance { get; set; }
-        public string Source { get; set; }
+       
 
-        public Sword(string Type, string Name, string Description, int Level, int Damage, int Bleedingchance, int Poisonchance, string Source) {
+        public Sword(string Type, string Name, string Description, int Level, int Damage, int Bleedingchance, int Poisonchance, string Source, int Price, string SetName, int SetBonus, string LootType) {
             this.Type = Type;
             this.Name = Name;
             this.Description = Description;
@@ -24,6 +21,10 @@ namespace WitcherWPF {
             this.Bleedingchance = Bleedingchance;
             this.Poisonchance = Poisonchance;
             this.Source = Source;
+            this.Price = Price;
+            this.SetName = SetName;
+            this.SetBonus = SetBonus;
+            this.LootType = LootType;
         }
     }
 }

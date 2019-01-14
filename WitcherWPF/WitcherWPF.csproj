@@ -82,6 +82,7 @@
     </Compile>
     <Compile Include="Dialogues.cs" />
     <Compile Include="Enemy.cs" />
+    <Compile Include="Equipment.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Journal.xaml.cs">
       <DependentUpon>Journal.xaml</DependentUpon>
@@ -307,6 +308,55 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\Characters\Triss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\UI\sign_aard.png" />
+    <Resource Include="img\UI\sign_axii.png" />
+    <Resource Include="img\UI\sign_igni.png" />
+    <Resource Include="img\UI\sign_quen.png" />
+    <Resource Include="img\UI\sign_yrden.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="gifs\FX\Aard.gif" />
+    <Resource Include="gifs\FX\Axii.gif" />
+    <Resource Include="gifs\FX\Igni.gif" />
+    <Resource Include="gifs\FX\Quen.gif" />
+    <Resource Include="gifs\FX\Yrden.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_attackSilver1.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_attackSilver2.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_attackSteel1.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_attackSteel2%28old%29.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_attackSteel2.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_castAard.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_castAxii.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_castIgni.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_castQuen.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_castYrden.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_defend.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_DrawSilver.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_DrawSteel.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_drink.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_finish.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_hit.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_idle.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_NoSword.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_Silverdeffend.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_Silverhit.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_Silveridle.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_Silverstagger.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_stagger.gif" />
+    <Resource Include="gifs\NPC\npc_fight_deffend.gif" />
+    <Resource Include="gifs\NPC\npc_fight_hit.gif" />
+    <Resource Include="gifs\NPC\npc_fight_idle.gif" />
+    <Resource Include="gifs\NPC\npc_figt_attack.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Armors\Armor_Manticore.png" />
+    <Resource Include="img\Swords\Sword_Aerondight.png" />
+    <Resource Include="img\Swords\Sword_Mahakam_Sihil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\UI\oren.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

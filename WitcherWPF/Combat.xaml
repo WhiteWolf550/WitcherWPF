@@ -3,12 +3,80 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:gif="http://wpfanimatedgif.codeplex.com"
       xmlns:local="clr-namespace:WitcherWPF"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Combat">
+      Title="Combat" Height="894" Width="1426.666">
 
     <Grid>
-        
+        <Image Name="forest" Source="img/ui/back.jpg" Margin="-35,-675,-1022,-512"/>
+        <Image gif:ImageBehavior.AnimatedSource="gifs/Geralt/geralt_fight_idle.gif"  RenderTransformOrigin="1.715,0.504" Margin="98,40,302,226" Name="GIF3"  gif:ImageBehavior.AnimationCompleted="Idle" Source="gifs/Geralt/geralt_fight_idle.gif" />
+        <Image gif:ImageBehavior.AnimatedSource="gifs/NPC/npc_fight_idle.gif"  RenderTransformOrigin="1.715,0.504" Margin="228,0,10,174" Name="GIF4"  gif:ImageBehavior.AnimationCompleted="npc" Source="gifs/NPC/npc_fight_idle.gif" />
+        <Image RenderTransformOrigin="1.715,0.504" Margin="540,150,358,366" Name="GIFSign"  gif:ImageBehavior.AnimationCompleted="SignEnd" Source="gifs/FX/Aard.gif" />
+        <Image RenderTransformOrigin="1.715,0.504" Margin="72,33,372,174" Name="GIFSelf"  gif:ImageBehavior.AnimationCompleted="SignEnd" Source="gifs/FX/Quen.gif" />
+        <Label HorizontalAlignment="Left" VerticalAlignment="Top" Content="100" Foreground="Red" Name="PlayerHP" FontSize="35"></Label>
+        <Label HorizontalAlignment="Left" VerticalAlignment="Top" Content="100" Foreground="#FFFFDC00" Name="PlayerStamina" FontSize="35" Margin="0,57,0,0" Background="{x:Null}"></Label>
+        <Label HorizontalAlignment="Left" VerticalAlignment="Top" Content="0" Foreground="#FF4CB824" Name="PlayerToxicity" FontSize="35" Margin="0,107,0,0" Background="{x:Null}"></Label>
+        <Label HorizontalAlignment="Right" VerticalAlignment="Top" Content="100" Foreground="Red" Name="EnemyHP" FontSize="35" Background="{x:Null}"></Label>
+        <Button Content="Potions" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="25" Margin="180,42,0,0" Name="PotionsBut" Click="PotBut"></Button>
+        <Rectangle Fill="Black" Opacity="0.5" Name="Blackout" Visibility="Hidden" ></Rectangle>
+        <TextBox Background="Black" Foreground="Orange" HorizontalAlignment="Left" VerticalAlignment="Bottom" Name="textb" Width="314" Height="138"></TextBox>
+        <StackPanel Name="PotionsMenu" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Black" Visibility="Hidden">
+            <Button Content="Close" Click="PotButClose" FontSize="32" Background="#FF2B2B2B" Foreground="White"></Button>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Swallow" Foreground="White" FontSize="30" Width="400"></Label>
+                <Button Content="Drink Potion" FontSize="15"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Tawny Owl" Foreground="White" FontSize="30" Width="400"></Label>
+                <Button Content="Drink Potion" FontSize="15"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Black Blood" Foreground="White" FontSize="30" Width="400"></Label>
+                <Button Content="Drink Potion" FontSize="15"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Full Moon" Foreground="White" FontSize="30" Width="400"></Label>
+                <Button Content="Drink Potion" FontSize="15"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Petri's Philter" Foreground="White" FontSize="30" Width="400"></Label>
+                <Button Content="Drink Potion" FontSize="15"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Thunderbolt" Foreground="White" FontSize="30" Width="400"></Label>
+                <Button Content="Drink Potion" FontSize="15"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="White Honey" Foreground="White" FontSize="30" Width="400"></Label>
+                <Button Content="Drink Potion" FontSize="15"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="White Raffard's Decoction" Foreground="White" FontSize="30" Width="400"></Label>
+                <Button Content="Drink Potion" FontSize="15"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Willow" Foreground="White" FontSize="30" Width="400"></Label>
+                <Button Content="Drink Potion" FontSize="15"></Button>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Name="Signs" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" MinHeight="50" MinWidth="100">
+            <StackPanel Orientation="Horizontal">
+                <Image Name="Aard" Source="img/ui/sign_aard.png" Width="50" Height="50" VerticalAlignment="Top"></Image>
+                <Image x:Name="Igni" Source="img/ui/sign_igni.png" Width="55" Height="55"/>
+                <Image x:Name="Axii" Source="img/ui/sign_axii.png" Width="55" Height="55"/>
+                <Image x:Name="Quen" Source="img/ui/sign_quen.png" Width="55" Height="55"/>
+                <Image x:Name="Yrden" Source="img/ui/sign_yrden.png" Width="55" Height="55"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="A" Foreground="#FF84E2EC" Width="50" HorizontalContentAlignment="Center" Background="{x:Null}"></Label>
+                <Label Content="S" Foreground="#FFE02323" Width="55" HorizontalContentAlignment="Center"></Label>
+                <Label Content="D" Foreground="#FF57EE36" Width="55" HorizontalContentAlignment="Center"></Label>
+                <Label Content="F" Foreground="#FFE6DD19" Width="55" HorizontalContentAlignment="Center"></Label>
+                <Label Content="G" Foreground="#FFBB0FD6" Width="55" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+
+        </StackPanel>
     </Grid>
 </Page>

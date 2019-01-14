@@ -25,7 +25,7 @@
         <Image Source="img/Characters/Foltest.png" Name="DialogueCharacter" HorizontalAlignment="Right" VerticalAlignment="Center" Height="432"  Width="174" Grid.Column="2" Margin="0,70,0,10" Grid.Row="2"></Image>
         <Image Source="img/UI/scroll.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1000" Grid.ColumnSpan="3" Margin="214,81,213,67" Grid.RowSpan="4" Height="746"></Image>
         <StackPanel Orientation="Horizontal" MinWidth="200" MinHeight="100" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label Style="{StaticResource MORPHEUS}" Content="PersonName" FontWeight="Bold" Name="PersonName" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"></Label>
+            <Label Style="{StaticResource MORPHEUS}" Content="PersonName" FontWeight="Bold" Name="PersonName" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Background="{x:Null}" Foreground="#FF080808"></Label>
             <TextBlock TextWrapping="Wrap" Text="Text"  Name="PersonText" Grid.Column="1" Grid.Row="1" MinWidth="100" MinHeight="30" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Width="652" />
         </StackPanel>
         <StackPanel Name="DialogueOptions" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" MinWidth="200" MinHeight="200">

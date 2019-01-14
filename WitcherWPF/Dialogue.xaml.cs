@@ -27,9 +27,8 @@ namespace WitcherWPF
     /// </summary>
     public partial class Dialogue : Page
     {
-        static JsonSerializerSettings settings = new JsonSerializerSettings {
-            TypeNameHandling = TypeNameHandling.All
-        };
+        static string prolog = @"../../dialogues/DialoguePrologue.json";
+        
         //static string questpath = "@../../saves/quests.json";
         //static string jsonFromQuests = File.ReadAllText(questpath);
         //static List<Quest> Questlist = JsonConvert.DeserializeObject<List<Quest>>(jsonFromQuests, settings);
@@ -37,9 +36,8 @@ namespace WitcherWPF
         private Frame parentFrame;
         public string Character;
         DispatcherTimer timer = new DispatcherTimer();
-        static string prolog = @"../../dialogues/DialoguePrologue.json";
-        static string jsonFromFileinv = File.ReadAllText(prolog);
-        List<Dialogues> dialog = JsonConvert.DeserializeObject<List<Dialogues>>(jsonFromFileinv, settings);
+        string jsonFromFileinv = File.ReadAllText(prolog);
+
         Dialogues dialogues = new Dialogues();
 
         public Dialogue()
@@ -59,13 +57,21 @@ namespace WitcherWPF
         public void FoltestDialogue(Button button) {
             dialogues.Foltest(PersonName, PersonText, button, QueName, QueGoal, QuestPop, DialogueOptions, Character);
             
+            
         }
+        
         public void LoadOptions() {
+            JsonSerializerSettings settings = new JsonSerializerSettings {
+                TypeNameHandling = TypeNameHandling.All
+            };
+            string jsonFromFileinv = File.ReadAllText(prolog);
+            List<Dialogues> dialog = JsonConvert.DeserializeObject<List<Dialogues>>(jsonFromFileinv, settings);
             var matches = dialog.Where(s => s.Dialogue == Character);
             var matches2 = matches.Where(s => s.Type == "Talk");
+            var matches3 = matches2.Where(s => s.Enabled == true);
             int i = 0;
             string t = "";
-            foreach (var item in matches2) {
+            foreach (var item in matches3) {
                 if (t != item.Choice) {
                     Button option = new Button();
                     option.Content = item.Choice;
@@ -77,6 +83,7 @@ namespace WitcherWPF
                     option.Foreground = Brushes.Black;
                     option.Click += new RoutedEventHandler(Dialogue_Click);
                     DialogueOptions.Children.Add(option);
+                    option.ToolTip = item.Enabled;
                     t = item.Choice;
                 }
 
@@ -86,7 +93,7 @@ namespace WitcherWPF
             //FoltestDialogue();
         }
 
-        private void Dialogue_Click(object sender, RoutedEventArgs e) {
+        public void Dialogue_Click(object sender, RoutedEventArgs e) {
             DialogueOptions.Visibility = Visibility.Hidden;
             Button button = (Button)sender;
             if (button.Content.ToString() == "Nashle") {

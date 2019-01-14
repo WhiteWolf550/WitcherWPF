@@ -21,5 +21,20 @@ namespace WitcherWPF {
         public Combat() {
             InitializeComponent();
         }
+        public void Idle(object sender, RoutedEventArgs e) {
+
+        }
+        public void npc(object sender, RoutedEventArgs e) {
+
+        }
+        public void SignEnd(object sender, RoutedEventArgs e) {
+
+        }
+        public void PotBut(object sender, RoutedEventArgs e) {
+
+        }
+        public void PotButClose(object sender, RoutedEventArgs e) {
+
+        }
     }
 }
