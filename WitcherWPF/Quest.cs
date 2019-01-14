@@ -20,11 +20,12 @@ namespace WitcherWPF {
         public int QuestLevel { get; set; }
         public bool QuestActive { get; set; }
         public string QuestSeries { get; set; }
+        public string DialogueActivate { get; set; }
 
         public Quest() {
 
         }
-        public Quest(int QuestID, string QuestType, string QuestName, string QuestDescription, string QuestGoal, int QuestLevel, bool QuestActive, string QuestSeries) {
+        public Quest(int QuestID, string QuestType, string QuestName, string QuestDescription, string QuestGoal, int QuestLevel, bool QuestActive, string QuestSeries, string DialogueActivate) {
             this.QuestID = QuestID;
             this.QuestType = QuestType;
             this.QuestName = QuestName;
@@ -33,6 +34,7 @@ namespace WitcherWPF {
             this.QuestLevel = QuestLevel;
             this.QuestActive = QuestActive;
             this.QuestSeries = QuestSeries;
+            this.DialogueActivate = DialogueActivate;
 
         }
         

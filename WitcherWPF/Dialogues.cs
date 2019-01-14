@@ -76,6 +76,9 @@ namespace WitcherWPF
             parentFrame.Navigate(new Location(parentFrame));
         }
         public async void Foltest(Label Name, TextBlock Text, Button button, Label QueName, Label QueGoal, StackPanel Pop, StackPanel DialogueOptions, string Character) {
+            Brush c;
+            string qname = "";
+            string qdesc = "";
             PlayerQuest que = new PlayerQuest();
             JsonSerializerSettings settings = new JsonSerializerSettings {
                 TypeNameHandling = TypeNameHandling.All
@@ -105,19 +108,37 @@ namespace WitcherWPF
             }
             if (Activate != null) {
                 var match = PlayerQuests.Where(s => s.Quest.QuestSeries == Activate);
-                int id = 0;
-                foreach(var item in match) {
-                    id = item.Quest.QuestID;
-                }
-                var matches5 = Quests.Where(s => s.QuestSeries == Activate);
-                var matches6 = matches5.Where(s => s.QuestID == id+1);
-                foreach (var it in match) {
-                    foreach(var it2 in matches6) {
-                        it.Quest.QuestID++;
-                        it.Quest.QuestDescription = it2.QuestDescription;
-                        it.Quest.QuestGoal = it2.QuestGoal;
+                if (match.Count() == 0) {
+                    c = Brushes.Yellow;
+                    var match2 = Quests.Where(s => s.QuestSeries == Activate);
+                    var match3 = match2.Where(s => s.QuestID == 1);
+                    
+                    foreach(var pitem in match3) {
+                        PlayerQuests.Add(new PlayerQuest(pitem));
+                        qname = pitem.QuestName;
+                        qdesc = pitem.QuestGoal;
+                    }
+                } else {
+                    c = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#DDE82323")); ;
+                    int id = 0;
+                    foreach (var item in match) {
+                        id = item.Quest.QuestID;
+                    }
+                    var matches5 = Quests.Where(s => s.QuestSeries == Activate);
+                    var matches6 = matches5.Where(s => s.QuestID == id + 1);
+                    foreach (var it in match) {
+                        foreach (var it2 in matches6) {
+                            it.Quest.QuestID++;
+                            it.Quest.QuestDescription = it2.QuestDescription;
+                            it.Quest.QuestGoal = it2.QuestGoal;
+                            qname = it2.QuestName;
+                            qdesc = it2.QuestGoal;
+                        }
                     }
                 }
+
+                QueName.Content = qname;
+                QueGoal.Content = qdesc;
 
                 que.QuestShow(Pop);
                 await Task.Delay(10000);
@@ -125,6 +146,7 @@ namespace WitcherWPF
                 que.QuestSave(PlayerQuests);
             }
             DialogueOptions.Visibility = Visibility.Visible;
+
 
         }
         

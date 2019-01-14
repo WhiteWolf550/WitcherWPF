@@ -22,12 +22,16 @@ namespace WitcherWPF {
     public partial class Location : Page {
         private Frame parentFrame;
         static public string loc;
+        static public bool LootLock;
         Item it = new Item();
         public Location() {
             InitializeComponent();
             Wyzima_Castle.Foltest.Click += new RoutedEventHandler(GetDialogue);
             Wyzima_Castle.Flower.Click += new RoutedEventHandler(GetLoot);
             Wyzima_Castle2.Triss.Click += new RoutedEventHandler(GetDialogue);
+            if (LootLock == true) {
+                Wyzima_Castle.Flower.Visibility = Visibility.Hidden;
+            }
 
         }
         public Location(Frame parentFrame, string location) : this() {
@@ -61,6 +65,8 @@ namespace WitcherWPF {
         }
         public void LootToInventory(object sender, RoutedEventArgs e) {
             it.LootToInventory(LootInventory, TakeLoot, LootBack, CloseBut);
+            LootLock = true;
+
         }
         public void CloseLoot(object sender, RoutedEventArgs e) {
             TakeLoot.Visibility = Visibility.Hidden;
