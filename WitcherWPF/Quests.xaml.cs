@@ -99,7 +99,7 @@ namespace WitcherWPF
             var matches = quests.Where(s => s.Quest.QuestName == button.Tag.ToString());
             foreach (var item in matches ) {
                 NameQ.Content = item.Quest.QuestName;
-                GoalQ.Content = item.Quest.QuestGoal;
+                GoalQ.Text = item.Quest.QuestGoal;
                 DescQ.Text = item.Quest.QuestDescription;
             }
         }

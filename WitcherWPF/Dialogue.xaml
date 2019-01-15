@@ -33,8 +33,8 @@
 
         </StackPanel>
         <StackPanel Visibility="Hidden" Opacity="0"  Name="QuestPop" HorizontalAlignment="Center" VerticalAlignment="Top" MinHeight="100" MinWidth="100" Grid.Column="1" Grid.Row="2">
-            <Label Style="{StaticResource MORPHEUS}" Name="QueName" Content="New Quest" FontSize="55" Foreground="#DDE82323"></Label>
-            <Label Style="{StaticResource MORPHEUS}" Name="QueGoal" Content="New Goal" FontSize="35" Background="{x:Null}" Foreground="#DDE82323" HorizontalAlignment="Center"></Label>
+            <Label Style="{StaticResource MORPHEUS}" HorizontalContentAlignment="Center" Name="QueName" Content="New Quest" FontSize="55" Foreground="#DDE82323"></Label>
+            <TextBlock Style="{StaticResource MORPHEUS}" TextWrapping="Wrap" Name="QueGoal" Text="New Goal" FontSize="35" Background="{x:Null}" Foreground="#DDE82323" HorizontalAlignment="Center"></TextBlock>
         </StackPanel>
     </Grid>
 </Page>

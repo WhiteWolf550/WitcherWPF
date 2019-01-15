@@ -83,6 +83,8 @@
     <Compile Include="Dialogues.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Equipment.cs" />
+    <Compile Include="FileManager.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Journal.xaml.cs">
       <DependentUpon>Journal.xaml</DependentUpon>

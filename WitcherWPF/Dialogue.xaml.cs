@@ -28,11 +28,13 @@ namespace WitcherWPF
     public partial class Dialogue : Page
     {
         static string prolog = @"../../dialogues/DialoguePrologue.json";
-        
+        JsonSerializerSettings settings = new JsonSerializerSettings {
+            TypeNameHandling = TypeNameHandling.All
+        };
         //static string questpath = "@../../saves/quests.json";
         //static string jsonFromQuests = File.ReadAllText(questpath);
         //static List<Quest> Questlist = JsonConvert.DeserializeObject<List<Quest>>(jsonFromQuests, settings);
-        
+
         private Frame parentFrame;
         public string Character;
         DispatcherTimer timer = new DispatcherTimer();
@@ -55,15 +57,15 @@ namespace WitcherWPF
 
         }
         public void FoltestDialogue(Button button) {
-            dialogues.Foltest(PersonName, PersonText, button, QueName, QueGoal, QuestPop, DialogueOptions, Character);
             
-            
+            dialogues.MainDialogue(PersonName, PersonText, button, QueName, QueGoal, QuestPop, DialogueOptions, Character);
+            DialogueOptions.Children.Clear();
+            LoadOptions();
+   
         }
         
         public void LoadOptions() {
-            JsonSerializerSettings settings = new JsonSerializerSettings {
-                TypeNameHandling = TypeNameHandling.All
-            };
+            
             string jsonFromFileinv = File.ReadAllText(prolog);
             List<Dialogues> dialog = JsonConvert.DeserializeObject<List<Dialogues>>(jsonFromFileinv, settings);
             var matches = dialog.Where(s => s.Dialogue == Character);

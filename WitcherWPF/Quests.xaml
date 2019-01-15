@@ -168,7 +168,7 @@
             </Rectangle.Fill>
         </Rectangle>
         <Label Name="NameQ" HorizontalContentAlignment="Center" Content="QuestName" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" MinHeight="26" MinWidth="62" Foreground="#DDFFFFFF" Margin="3,6,0,6" Height="56" Width="430" Grid.ColumnSpan="2"/>
-        <Label Name="GoalQ" HorizontalContentAlignment="Center"  Content="QuestTarget" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" MinHeight="26" MinWidth="62" Foreground="#DDD9E213" Height="34" Width="430" Margin="3,0,0,0" Grid.ColumnSpan="2" Background="{x:Null}"/>
+        <TextBlock TextWrapping="Wrap" Name="GoalQ"   Text="QuestTarget" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" MinHeight="200" MinWidth="62" Foreground="#DDD9E213" Height="34" Width="286" Margin="121,0,5,0" Background="{x:Null}" Grid.ColumnSpan="2"/>
         <TextBlock TextWrapping="Wrap" Name="DescQ" Text="QuestBackStory"  Grid.ColumnSpan="1" Grid.Column="5" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15" MinHeight="26" MinWidth="62" Foreground="#DDFFFFFF" Height="619" Width="260"></TextBlock>
     </Grid>
 </Page>
