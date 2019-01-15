@@ -36,6 +36,8 @@ namespace WitcherWPF
             this.QuestActivate = QuestActivate;
         }
 
+        
+
         //---------------------DIALOGUE START---------------------------
         public async void DialogueGreet(Label Name, TextBlock Text, string Character) {
             JsonSerializerSettings settings = new JsonSerializerSettings {
@@ -76,9 +78,14 @@ namespace WitcherWPF
 
             }
             parentFrame.Navigate(new Location(parentFrame));
+
         }
+
+        
+        //--
         //---------------------MAIN DIALOGUE FUNCTION (LOADS DIALOGUE JSON AND WRITES TO USER) ACTIVATES QUESTS BASED ON DIALOGUE---------------------------
         public async void MainDialogue(Label Name, TextBlock Text, Button button, Label QueName, TextBlock QueGoal, StackPanel Pop, StackPanel DialogueOptions, string Character) {
+            Text.Text = "";
             //---------------------VARIABLES---------------------------
             Brush c;
             string qname = "";
@@ -111,21 +118,28 @@ namespace WitcherWPF
             int ic = 0;
             int id2 = 0;
             foreach (var item in matches4) {
-
+                Text.Text = "";
+                string StringToDisplay = item.CharSay;
+                char[] CharactersofString = StringToDisplay.ToCharArray();
                 Name.Content = item.CharName;
-                Text.Text = item.CharSay;
+                foreach (char f in CharactersofString) {
+                    Text.Text += f;
+                    await Task.Delay(60);
+                }
+                await Task.Delay(1000);
+                
+                
                 diadis = item.Choice;
-                int leng = item.CharSay.Length;
-                await Task.Delay(2000);
+                
                 if (ic == cd-2) {
                     Activate2 = item.QuestActivate;
-                    //DialogueOptions.Visibility = Visibility.Visible;
-                    Text.Text = Activate2;
+                    
+                    
                 }
                 Activate = item.QuestActivate;
                 ic++;
             }
-            //---------------------IF QUEST HAS DIALOGUE ACTIVATION---------------------------
+            //---------------------IF DIALOGUE HAS QUEST ACTIVATION---------------------------
             if (Activate != null) {
                 
                 var match = PlayerQuests.Where(s => s.Quest.QuestSeries == Activate);

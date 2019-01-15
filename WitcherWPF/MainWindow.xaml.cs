@@ -143,7 +143,7 @@ namespace WitcherWPF {
             foreach (var aerondight in matches2) {
                 silver = aerondight;
             } 
-            player.Add(new Player(100, 100, 100, 100, 100, 100, 50, 10, 5, 5, steel, silver, ar));
+            player.Add(new Player(100, 100, 100, 100, 100, 100, 0, 1000, 50, 10, 5, 5, 5, 2, steel, silver, ar));
             string jsonToFile = JsonConvert.SerializeObject(player, settings);
             File.WriteAllText(playerpath, jsonToFile);
         }

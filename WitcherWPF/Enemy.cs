@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 
 namespace WitcherWPF {
     class Enemy {
-        public int EnemyHP { get; set; }
-        public string EnemyName { get; set; }
-        public int EnemyDamage { get; set; }
-        public int EnemyStrongSpeed { get; set; }
-        public int EnemyFastSpeed { get; set; }
-        public string EnemyStrongGif { get; set; }
-        public string EnemyFastGif { get; set; }
-        public string EnemyDeffendGif { get; set; }
-        public string EnemyIdleGif { get; set; }
-        public string EnemyHitGif { get; set; }
-        public string EnemyStunGif { get; set; }
+        public Dictionary<string, Uri> AnimationSet { get; set; }
+        public int MaxHP { get; set; }
+        public int HP { get; set; }
+        public string Name { get; set; }
+        public int Damage { get; set; }
+        public int StrongSpeed { get; set; }
+        public int FastSpeed { get; set; }
+        public bool HurtSteelSword { get; set; }
+        public int StrongDamage { get; set; }
+        public int FastDamage { get; set; }
+
+        
+
 
     }
 }

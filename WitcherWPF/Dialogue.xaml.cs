@@ -57,11 +57,19 @@ namespace WitcherWPF
 
         }
         public void FoltestDialogue(Button button) {
-            
+
             dialogues.MainDialogue(PersonName, PersonText, button, QueName, QueGoal, QuestPop, DialogueOptions, Character);
             DialogueOptions.Children.Clear();
-            LoadOptions();
+            OptionsLoader();
    
+        }
+        public void OptionsLoader() {
+
+            LoadOptions();
+        }
+        void DialogueLoader(Button button) {
+            
+
         }
         
         public void LoadOptions() {
@@ -92,7 +100,7 @@ namespace WitcherWPF
                 i++;
             }
             
-            //FoltestDialogue();
+            
         }
 
         public void Dialogue_Click(object sender, RoutedEventArgs e) {

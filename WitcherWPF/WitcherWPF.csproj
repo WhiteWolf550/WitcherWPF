@@ -85,6 +85,7 @@
     <Compile Include="Equipment.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Human.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Journal.xaml.cs">
       <DependentUpon>Journal.xaml</DependentUpon>
@@ -98,6 +99,8 @@
     <Compile Include="Map_WyzimaCastle.xaml.cs">
       <DependentUpon>Map_WyzimaCastle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Monster.cs" />
+    <Compile Include="Murderer1.cs" />
     <Compile Include="Old_wyzima2.xaml.cs">
       <DependentUpon>Old_wyzima2.xaml</DependentUpon>
     </Compile>
@@ -359,6 +362,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\UI\oren.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\UI\back.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
