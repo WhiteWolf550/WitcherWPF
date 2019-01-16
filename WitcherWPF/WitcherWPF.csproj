@@ -353,7 +353,6 @@
     <Resource Include="gifs\NPC\npc_fight_deffend.gif" />
     <Resource Include="gifs\NPC\npc_fight_hit.gif" />
     <Resource Include="gifs\NPC\npc_fight_idle.gif" />
-    <Resource Include="gifs\NPC\npc_figt_attack.gif" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\Armors\Armor_Manticore.png" />
@@ -365,6 +364,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\UI\back.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="gifs\NPC\npc_fight_attack.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

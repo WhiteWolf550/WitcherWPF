@@ -93,7 +93,7 @@ namespace WitcherWPF {
             this.SilverSword = SilverSword;
             this.Armor = Armor;
         }
-        public void LoadAttributes(ProgressBar HealthBar, ProgressBar EnduranceBar, ProgressBar ToxicityBar, Label Orens) {
+        public void LoadAttributes(ProgressBar HealthBar, ProgressBar EnduranceBar, ProgressBar ToxicityBar) {
             string playerpath = @"../../saves/Player.json";
             JsonSerializerSettings settings = new JsonSerializerSettings {
                 TypeNameHandling = TypeNameHandling.All
@@ -113,9 +113,16 @@ namespace WitcherWPF {
                 ToxicityBar.Value = item.toxicity;
                 ToxicityBar.ToolTip = item.toxicity + "/" + item.maxToxicity;
 
-                Orens.Content = item.money;
+                
+            }
+        }
+        public void LoadOrens(Label Orens) {
+            List<Player> player = manager.LoadPlayer();
+            foreach (Player oren in player) {
+                Orens.Content = oren.money;
                 Orens.ToolTip = "Orény";
             }
+
         }
         public bool Stun(bool StrongAttack) {
             List<Player> player = manager.LoadPlayer();
@@ -196,9 +203,9 @@ namespace WitcherWPF {
         public void Deffend() {
 
         }
-        public int Hit(int Health, int Damage) {
-            int HP = Health - Damage;
-            return HP;
+        public double Hit(double Health, int Damage) {
+            Health = Health - Damage;
+            return Health;
         }
         public void CastAard() {
 

@@ -10,7 +10,6 @@ namespace WitcherWPF {
         public int MaxHP { get; set; }
         public int HP { get; set; }
         public string Name { get; set; }
-        public int Damage { get; set; }
         public int StrongSpeed { get; set; }
         public int FastSpeed { get; set; }
         public bool HurtSteelSword { get; set; }
@@ -18,8 +17,19 @@ namespace WitcherWPF {
         public int FastDamage { get; set; }
 
         public int Hit(int EnemyHealth, int Damage ) {
-            int HP = EnemyHealth - Damage;
+            this.HP = EnemyHealth - Damage;
             return HP;
+        }
+        public int Attack(bool StrongAttack) {
+            int damage = 0;
+            if (StrongAttack == true) {
+                damage = this.StrongDamage;
+            }else {
+                damage = this.FastDamage;
+            }
+            Random rand = new Random();
+            int hitfor = rand.Next(damage - 2, damage);
+            return hitfor;
         }
 
 

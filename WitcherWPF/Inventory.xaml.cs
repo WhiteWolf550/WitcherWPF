@@ -48,7 +48,8 @@ namespace WitcherWPF
             Stamina.Interval = TimeSpan.FromSeconds(1);
             Stamina.Tick += new EventHandler(Stamina_tick);
             Player player = new Player();
-            player.LoadAttributes(HealthBar, EnduranceBar, ToxicityBar, Oren);
+            player.LoadAttributes(HealthBar, EnduranceBar, ToxicityBar);
+            player.LoadOrens(Oren);
             LoadInventory();
             LoadGear();
             if (EnduranceBar.Value != EnduranceBar.Maximum ) {
