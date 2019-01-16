@@ -6,8 +6,9 @@
       xmlns:gif="http://wpfanimatedgif.codeplex.com"
       xmlns:local="clr-namespace:WitcherWPF"
       mc:Ignorable="d" 
+      KeyDown="Crossway"
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Combat" Height="894" Width="1426.666" MouseLeftButtonDown="StrongAttack" MouseRightButtonDown="FastAttack" PreviewKeyDown="Crossway">
+      Title="Combat" Height="894" Width="1426.666" MouseLeftButtonDown="StrongAttack" MouseRightButtonDown="FastAttack">
 
     <Grid>
         <Image Name="forest" Source="img/ui/back.jpg" Margin="-35,-675,-1022,-512"/>

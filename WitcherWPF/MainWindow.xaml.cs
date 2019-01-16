@@ -48,7 +48,7 @@ namespace WitcherWPF {
             CreatePlayerQuests();
             //CreateArmors();
             //CreateSwords();
-            mainFrame.Navigate(new Inventory(mainFrame));
+            mainFrame.Navigate(new Combat(mainFrame));
         }
         public void CreateArmors() {
             armors.Add(new Armor("Středně těžká zbroj", "Mantikoří zbroj", "Kazajka používaná zaklínači ze školy Mantikory", 1, 50, 0, 0, @"img/Armors/Armor_Manticore.png", 200, "Manticore", 10, "Start"));

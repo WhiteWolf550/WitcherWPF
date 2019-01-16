@@ -63,8 +63,11 @@ namespace WitcherWPF
             List<PlayerQuest> quests = JsonConvert.DeserializeObject<List<PlayerQuest>>(jsonFromFile, settings);
             var matches = quests.Where(s => s.Quest.QuestActive == true);
             foreach (var item in matches) {
+                Border border = new Border();
+                
                 StackPanel stack = new StackPanel();
                 stack.Orientation = Orientation.Horizontal;
+                
 
                 Image img = new Image();
                 img.Source = new BitmapImage(new Uri(@"img/UI/Primary_quests.png", UriKind.Relative));
@@ -76,7 +79,8 @@ namespace WitcherWPF
                 but.FontSize = 20;
                 but.Foreground = Brushes.White;
                 but.Width = 300;
-                but.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF283423"));
+                but.Height = 70;
+                but.Background = Brushes.Transparent;
                 but.BorderBrush = Brushes.Transparent;
                 but.Click += new RoutedEventHandler(OpenQuest);
                 but.Tag = item.Quest.QuestName;

@@ -68,7 +68,7 @@ namespace WitcherWPF {
             }else {
                 AnimationSets = player.SilverAnimationSets;
             }
-            IdleAnimation();
+            DrawSwordAnimation();
         }
         private void PlayerAnimationEnd(object sender, RoutedEventArgs e) {
             IdleAnimation();
@@ -123,6 +123,8 @@ namespace WitcherWPF {
             image.EndInit();
             ImageBehavior.SetAnimatedSource(Geralt, image);
             ImageBehavior.SetRepeatBehavior(Geralt, new RepeatBehavior(1));
+            
+
         }
         public void CastAardAnimation() {
             var image = new BitmapImage();

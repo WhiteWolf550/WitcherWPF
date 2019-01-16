@@ -127,31 +127,31 @@
             </Button>
         </StackPanel>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Grid.Column="0" Height="739" MinWidth="300" MinHeight="739" Width="300" Grid.RowSpan="3" Grid.ColumnSpan="2">
-            
+
             <StackPanel.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="#FF232B1B"/>
                     <GradientStop Color="#FF232B1B" Offset="1"/>
                 </LinearGradientBrush>
             </StackPanel.Background>
-            <Border Name="B1" BorderBrush="Black" BorderThickness="0,0,0,3">
+            <Border Name="B1" >
                 <StackPanel Orientation="Vertical" Name="QuestStack" Width="300">
 
                     <StackPanel Orientation="Horizontal" MinHeight="40">
-                        <Button BorderBrush="Black" MinHeight="70" Width="150" ToolTip="Hlavní úkoly">
+                        <Button BorderBrush="{x:Null}" MinHeight="70" Width="150" ToolTip="Hlavní úkoly">
                             <Button.Background>
                                 <ImageBrush ImageSource="img/UI/in.png"/>
                             </Button.Background>
                             <Image Source="img/UI/primary_quests.png" Width="50" Height="50"></Image>
                         </Button>
-                        <Button BorderBrush="Black" MinHeight="70" Width="150" ToolTip="Vedlejší úkoly">
+                        <Button  MinHeight="70" Width="150" ToolTip="Vedlejší úkoly" BorderBrush="{x:Null}">
                             <Button.Background>
                                 <ImageBrush ImageSource="img/UI/in.png"/>
                             </Button.Background>
                             <Image Source="img/UI/secondary_quests.png" Width="50" Height="50"></Image>
                         </Button>
                     </StackPanel>
-                    
+
 
                 </StackPanel>
             </Border>

@@ -35,7 +35,7 @@ namespace WitcherWPF {
         public Sword SilverSword { get; set; }
         public Armor Armor { get; set; }
 
-        public FileManager manager;
+        public FileManager manager = new FileManager();
 
         public Player() {
             this.SteelAnimationSets = new Dictionary<string, Uri>();
