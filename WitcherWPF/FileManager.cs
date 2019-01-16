@@ -26,16 +26,16 @@ namespace WitcherWPF {
             return jsonread;
 
         }
-        public List<Quest> LoadQuests(string path) {
-
+        public List<Quest> LoadQuests() {
+            string path = @"../../gamefiles/Quests.json";
             string jsonFromFile = File.ReadAllText(path);
             List<Quest> jsonread = JsonConvert.DeserializeObject<List<Quest>>(jsonFromFile, settings);
             return jsonread;
 
         }
 
-        public List<PlayerQuest> LoadPlayerQuests(string path) {
-
+        public List<PlayerQuest> LoadPlayerQuests() {
+            string path = @"../../saves/PlayerQuests.json";
             string jsonFromFile = File.ReadAllText(path);
             List<PlayerQuest> jsonread = JsonConvert.DeserializeObject<List<PlayerQuest>>(jsonFromFile, settings);
             return jsonread;
@@ -47,6 +47,18 @@ namespace WitcherWPF {
             List<PlayerInventory> jsonread = JsonConvert.DeserializeObject<List<PlayerInventory>>(jsonFromFile, settings);
             return jsonread;
 
+        }
+
+
+        public void SavePlayerQuests(List<PlayerQuest> PlayerQuests) {
+            string path = @"../../saves/PlayerQuests.json";
+            string jsonToFilet = JsonConvert.SerializeObject(PlayerQuests, settings);
+            File.WriteAllText(path, jsonToFilet);
+        }
+        public void SaveDialogues(List<Dialogues> Dialogues, string path) {
+            
+            string jsonToFilet = JsonConvert.SerializeObject(Dialogues, settings);
+            File.WriteAllText(path, jsonToFilet);
         }
     }
 }

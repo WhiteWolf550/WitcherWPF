@@ -183,6 +183,7 @@ namespace WitcherWPF {
         private void StrongAttack(object sender, RoutedEventArgs e) {
             StrongAttackAnimation();
             int damage = player.Attack(SteelSword, true);
+            
         }
         private void FastAttack(object sender, RoutedEventArgs e) {
             FastAttackAnimation();
@@ -195,6 +196,17 @@ namespace WitcherWPF {
             image.EndInit();
             ImageBehavior.SetAnimatedSource(Geralt, image);
             ImageBehavior.SetRepeatBehavior(Geralt, RepeatBehavior.Forever);
+        }
+        public void EnemyHitAnimation() {
+            var image = new BitmapImage();
+            image.BeginInit();
+            image.UriSource = EnemyAnimationSets["Hit"];
+            image.EndInit();
+            ImageBehavior.SetAnimatedSource(Geralt, image);
+            ImageBehavior.SetRepeatBehavior(Geralt, RepeatBehavior.Forever);
+        }
+        public void EnemyHit() {
+
         }
         public void SignEnd(object sender, RoutedEventArgs e) {
 

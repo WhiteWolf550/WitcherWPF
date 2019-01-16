@@ -197,8 +197,8 @@ namespace WitcherWPF {
 
         }
         public int Hit(int Health, int Damage) {
-            int playerhitfor = Health - Damage;
-            return playerhitfor;
+            int HP = Health - Damage;
+            return HP;
         }
         public void CastAard() {
 

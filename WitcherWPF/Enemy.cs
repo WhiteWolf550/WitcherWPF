@@ -17,7 +17,10 @@ namespace WitcherWPF {
         public int StrongDamage { get; set; }
         public int FastDamage { get; set; }
 
-        
+        public int Hit(int EnemyHealth, int Damage ) {
+            int HP = EnemyHealth - Damage;
+            return HP;
+        }
 
 
     }

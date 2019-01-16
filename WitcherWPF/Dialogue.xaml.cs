@@ -39,7 +39,7 @@ namespace WitcherWPF
         public string Character;
         DispatcherTimer timer = new DispatcherTimer();
         string jsonFromFileinv = File.ReadAllText(prolog);
-
+        Dialogue df;
         Dialogues dialogues = new Dialogues();
 
         public Dialogue()
@@ -60,7 +60,7 @@ namespace WitcherWPF
 
             dialogues.MainDialogue(PersonName, PersonText, button, QueName, QueGoal, QuestPop, DialogueOptions, Character);
             DialogueOptions.Children.Clear();
-            OptionsLoader();
+            
    
         }
         public void OptionsLoader() {

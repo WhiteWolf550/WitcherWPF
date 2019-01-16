@@ -75,7 +75,8 @@ namespace WitcherWPF
                 but.Content = item.Quest.QuestName;
                 but.FontSize = 20;
                 but.Foreground = Brushes.White;
-                but.Background = Brushes.Transparent;
+                but.Width = 300;
+                but.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF283423"));
                 but.BorderBrush = Brushes.Transparent;
                 but.Click += new RoutedEventHandler(OpenQuest);
                 but.Tag = item.Quest.QuestName;

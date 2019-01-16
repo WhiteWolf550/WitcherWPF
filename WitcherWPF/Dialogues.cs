@@ -35,9 +35,9 @@ namespace WitcherWPF
             this.Enabled = enabled;
             this.QuestActivate = QuestActivate;
         }
-
+        private FileManager manager = new FileManager();
         
-
+        
         //---------------------DIALOGUE START---------------------------
         public async void DialogueGreet(Label Name, TextBlock Text, string Character) {
             JsonSerializerSettings settings = new JsonSerializerSettings {
@@ -80,7 +80,6 @@ namespace WitcherWPF
             parentFrame.Navigate(new Location(parentFrame));
 
         }
-
         
         //--
         //---------------------MAIN DIALOGUE FUNCTION (LOADS DIALOGUE JSON AND WRITES TO USER) ACTIVATES QUESTS BASED ON DIALOGUE---------------------------
@@ -94,21 +93,16 @@ namespace WitcherWPF
             string Activate = "";
             string Activate2 = "";
             PlayerQuest que = new PlayerQuest();
-            JsonSerializerSettings settings = new JsonSerializerSettings {
-                TypeNameHandling = TypeNameHandling.All
-            };
+            
             //---------------------PATHS---------------------------
-            string quest = @"../../gamefiles/Quests.json";
-            string pquest = @"../../saves/PlayerQuests.json";
+            
             string prolog = @"../../dialogues/DialoguePrologue.json";
-            //---------------------JSON READING(QUESTS, PLAYERQUESTS, DIALOGUE)---------------------------
-            string jsonFromFileq = File.ReadAllText(quest);
-            string jsonFromFileqq = File.ReadAllText(pquest);
-            string jsonFromFileinv = File.ReadAllText(prolog);
-            //---------------------JSON DESERIALIZE---------------------------
-            List<Quest> Quests = JsonConvert.DeserializeObject<List<Quest>>(jsonFromFileq, settings);
-            List<PlayerQuest> PlayerQuests = JsonConvert.DeserializeObject<List<PlayerQuest>>(jsonFromFileqq, settings);
-            List<Dialogues> dialog = JsonConvert.DeserializeObject<List<Dialogues>>(jsonFromFileinv, settings);
+            
+            //---------------------FILE LOADING---------------------------
+            List<Quest> Quests = manager.LoadQuests();
+            List<PlayerQuest> PlayerQuests = manager.LoadPlayerQuests();
+            List<Dialogues> dialog = manager.LoadDialogue(prolog);
+            //---------------------FILTERS---------------------------
             var matches = dialog.Where(s => s.Dialogue == Character);
             var matches2 = matches.Where(s => s.Type == "Talk");
             var matches3 = matches2.Where(s => s.Enabled == true);
@@ -124,7 +118,7 @@ namespace WitcherWPF
                 Name.Content = item.CharName;
                 foreach (char f in CharactersofString) {
                     Text.Text += f;
-                    await Task.Delay(60);
+                    await Task.Delay(40);
                 }
                 await Task.Delay(1000);
                 
@@ -220,21 +214,21 @@ namespace WitcherWPF
                 que.QuestSave(PlayerQuests);
 
                 //saving
-                string jsonToFilet = JsonConvert.SerializeObject(PlayerQuests, settings);
-                File.WriteAllText(pquest, jsonToFilet);
-                string jsonToFiledia = JsonConvert.SerializeObject(dialog, settings);
-                File.WriteAllText(prolog, jsonToFiledia);
+
+                manager.SavePlayerQuests(PlayerQuests);
+                manager.SaveDialogues(dialog, prolog);
 
             }
             DialogueOptions.Visibility = Visibility.Visible;
             
-            
-            
-            
-            
 
 
-        }
+
+
+
+
+
+    }
         
 
     }
