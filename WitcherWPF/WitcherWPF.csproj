@@ -350,7 +350,7 @@
     <Resource Include="gifs\Geralt\geralt_fight_Silveridle.gif" />
     <Resource Include="gifs\Geralt\geralt_fight_Silverstagger.gif" />
     <Resource Include="gifs\Geralt\geralt_fight_stagger.gif" />
-    <Resource Include="gifs\NPC\npc_fight_deffend.gif" />
+    <Resource Include="gifs\NPC\npc_fight_stagger.gif" />
     <Resource Include="gifs\NPC\npc_fight_hit.gif" />
     <Resource Include="gifs\NPC\npc_fight_idle.gif" />
   </ItemGroup>
