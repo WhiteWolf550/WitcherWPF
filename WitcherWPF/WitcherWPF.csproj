@@ -368,5 +368,9 @@
   <ItemGroup>
     <Resource Include="gifs\NPC\npc_fight_attack.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="gifs\Geralt\geralt_fight_stunned.gif" />
+    <Content Include="sounds\music\The_Order.mp3" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

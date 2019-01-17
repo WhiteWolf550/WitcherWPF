@@ -25,6 +25,8 @@ namespace WitcherWPF {
         List<Sword> swords = new List<Sword>();
         List<Dialogues> dialog = new List<Dialogues>();
         List<Quest> qq = new List<Quest>();
+        private MediaPlayer mediaPlayer = new MediaPlayer();
+        Uri uri = new Uri((@"../../sounds/music/The_Order.mp3"), UriKind.Relative);
         List<PlayerQuest> qqq = new List<PlayerQuest>();
         static string ipath = @"../../gamefiles/GameItems.json";
         static string apath = @"../../gamefiles/GameArmors.json";
@@ -40,7 +42,10 @@ namespace WitcherWPF {
         static string jsonFromFile = File.ReadAllText(ipath);
         //List<Item> items = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
         public MainWindow() {
+            
             InitializeComponent();
+            mediaPlayer.Open(uri);
+            //mediaPlayer.Play();
             //CreateInv();
             //CreatePlayer();
             CreateDialogue();

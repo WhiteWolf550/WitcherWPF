@@ -22,7 +22,8 @@ namespace WitcherWPF {
             this.MaxHP = 30;
             this.HP = this.MaxHP;
             this.Name = "Vrah";
-            
+            this.XP = 30;
+
             this.StrongSpeed = 900;
             this.FastSpeed = 350;
             this.StrongDamage = 12;
