@@ -369,7 +369,18 @@
     <Resource Include="gifs\NPC\npc_fight_attack.gif" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="gifs\Geralt\geralt_fight_dodge.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_SilvercastAard.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_SilvercastAxii.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_SilvercastIgni.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_SilvercastQuen.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_SilvercastYrden.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_Silverdodge.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_Silverdrink.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_Silverstunned.gif" />
     <Resource Include="gifs\Geralt\geralt_fight_stunned.gif" />
+    <Resource Include="gifs\NPC\npc_fight_fastattack.gif" />
+    <Resource Include="gifs\NPC\npc_fight_strongattack.gif" />
     <Content Include="sounds\music\The_Order.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
