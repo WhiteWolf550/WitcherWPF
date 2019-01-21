@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace WitcherWPF {
     class Axii : Sign {
-        public int StunChance { get; set; }
+        public int DamageDecrease { get; set; }
 
         public Axii() {
 
         }
 
-        public Axii(int StunChance) {
-            this.StunChance = StunChance;
+        public Axii(int DamagaDecrease) {
+            this.DamageDecrease = DamageDecrease;
         }
     }
 }

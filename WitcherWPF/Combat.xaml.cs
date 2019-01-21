@@ -33,7 +33,9 @@ namespace WitcherWPF {
 
         private Frame parentFrame;
         FileManager manager = new FileManager();
-        Player player = new Player(); 
+        Player player = new Player();
+        List<Player> playerlist;
+        Aard aard = new Aard();
         Enemy enemy;
         Yrden yrden = new Yrden();
         Dictionary<string, Uri> AnimationSets;
@@ -132,6 +134,7 @@ namespace WitcherWPF {
         }
         public void LoadPlayer() {
             player.LoadAttributes(HealthBar, EnduranceBar, ToxicityBar);
+            playerlist = manager.LoadPlayer();
             NoSwordAnimation();
 
         }
@@ -368,6 +371,10 @@ namespace WitcherWPF {
 
             bool isStunned = false;
             int StunDur = 0;
+            foreach(Player item in playerlist) {
+                isStunned = item.Aard.Stun();
+                StunDur = item.Aard.StunDuration;
+            }
             
             if (isStunned == true) {
                 StunDuration.Interval = new TimeSpan(0, 0, 0, StunDur);

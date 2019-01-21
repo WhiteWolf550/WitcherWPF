@@ -55,7 +55,7 @@ namespace WitcherWPF {
             CreatePlayerQuests();
             //CreateArmors();
             //CreateSwords();
-            //CreateSigns();
+            
             mainFrame.Navigate(new Combat(mainFrame));
         }
         public void CreateArmors() {
@@ -125,6 +125,7 @@ namespace WitcherWPF {
             File.WriteAllText(prologue, jsonToFile);
         }
         public void CreatePlayer() {
+
             Sword silver = null;
             Sword steel = null;
             Armor ar = null;
@@ -136,6 +137,31 @@ namespace WitcherWPF {
             List<Sword> sword = JsonConvert.DeserializeObject<List<Sword>>(jsonFromFileinv, settings);
             List<Armor> armor = JsonConvert.DeserializeObject<List<Armor>>(jsonFromFilearmor, settings);
             List<Player> player = new List<Player>();
+
+            Aard aard = new Aard();
+            aard.EnduranceCost = 50;
+            aard.EnduranceRequired = 70;
+            aard.StunChance = 10;
+            aard.StunDuration = 3;
+            Igni igni = new Igni();
+            igni.EnduranceCost = 60;
+            igni.EnduranceRequired = 70;
+            igni.Damage = 5;
+            igni.BurnChance = 5;
+            Quen quen = new Quen();
+            quen.EnduranceCost = 50;
+            quen.EnduranceRequired = 70;
+            quen.ShieldDuration = 3;
+            Axii axii = new Axii();
+            axii.EnduranceCost = 50;
+            axii.EnduranceRequired = 70;
+            axii.DamageDecrease = 5;
+            Yrden yrden = new Yrden();
+            yrden.EnduranceCost = 50;
+            yrden.EnduranceRequired = 70;
+            yrden.DamageBoost = 5;
+
+
             var matches = sword.Where(s => s.Type == "Stříbrný meč");
             var matches2 = matches.Where(s => s.LootType == "Start");
             var matches3 = sword.Where(s => s.Type == "Ocelový meč");
@@ -151,7 +177,7 @@ namespace WitcherWPF {
             foreach (var aerondight in matches2) {
                 silver = aerondight;
             } 
-            player.Add(new Player(100, 100, 100, 100, 100, 100, 0, 1000, 50, 10, 5, 5, 5, 2, steel, silver, ar));
+            player.Add(new Player(100, 100, 100, 100, 100, 100, 0, 1000, 50, 10, 5, 5, 2, steel, silver, ar, aard, igni, quen, axii, yrden));
             string jsonToFile = JsonConvert.SerializeObject(player, settings);
             File.WriteAllText(playerpath, jsonToFile);
         }
@@ -181,15 +207,7 @@ namespace WitcherWPF {
             File.WriteAllText(qqpath, jsonToFilet);
 
         }
-        public void CreateSigns() {
-            signs.Add(new Aard(80, 2));
-            signs.Add(new Igni(10, 10));
-            signs.Add(new Quen(3, 5));
-            signs.Add(new Axii(10));
-            signs.Add(new Yrden(10));
-            manager.SaveSigns(signs);
-
-        }
+        
 
     }
 }

@@ -27,7 +27,6 @@ namespace WitcherWPF {
         public int experiencetolevelup { get; set; }
         public int money { get; set; }
         public int strongStunChance { get; set; }
-        public int fastStunChance { get; set; }
         public int signIntensity { get; set; }
         public int strongstyledamage { get; set; }
         public int faststyledamage { get; set; }
@@ -86,7 +85,7 @@ namespace WitcherWPF {
 
         }
 
-        public Player(int MaxHealth, int Health, int MaxEndurance, int Endurance, int MaxToxicity, int Toxicity, int experience, int experiencetolevelup, int Money, int StrongStunChance, int FastStunChance, int SignIntensity, int strongstyledamage, int faststyledamage, Sword SteelSword, Sword SilverSword, Armor Armor, Aard Aard, Igni Igni, Quen Quen, Axii Axii, Yrden Yrden ) {
+        public Player(int MaxHealth, int Health, int MaxEndurance, int Endurance, int MaxToxicity, int Toxicity, int experience, int experiencetolevelup, int Money, int StrongStunChance, int SignIntensity, int strongstyledamage, int faststyledamage, Sword SteelSword, Sword SilverSword, Armor Armor, Aard Aard, Igni Igni, Quen Quen, Axii Axii, Yrden Yrden ) {
             this.maxHealth = MaxHealth;
             this.health = Health;
             this.maxEndurance = MaxEndurance;
@@ -97,7 +96,6 @@ namespace WitcherWPF {
             this.experiencetolevelup = experiencetolevelup;
             this.money = Money;
             this.strongStunChance = StrongStunChance;
-            this.fastStunChance = FastStunChance;
             this.signIntensity = SignIntensity;
             this.strongstyledamage = strongstyledamage;
             this.faststyledamage = faststyledamage;
@@ -142,22 +140,24 @@ namespace WitcherWPF {
 
         }
         public bool Stun(bool StrongAttack) {
-            List<Player> player = manager.LoadPlayer();
-            int stunchance = 0;
-            foreach(Player item in player) {
-                if (StrongAttack == true) {
+            bool stun = false;
+            if (StrongAttack == true) {
+                List<Player> player = manager.LoadPlayer();
+                int stunchance = 0;
+                foreach (Player item in player) {
+
                     stunchance = item.strongStunChance;
-                }else {
-                    stunchance = item.fastStunChance;
+
+                }
+                Random rand = new Random();
+                int rn = rand.Next(0, 100);
+                if (rn < stunchance) {
+                    stun = true;
+                } else {
+                    stun = false;
                 }
             }
-            Random rand = new Random();
-            int rn = rand.Next(0, 100);
-            if (rn < stunchance) {
-                return true;
-            }else {
-                return false;
-            }
+            return stun;
         }
         public bool Bleed(bool SteelSword) {
             List<Player> player = manager.LoadPlayer();
