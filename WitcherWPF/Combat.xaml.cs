@@ -27,11 +27,15 @@ namespace WitcherWPF {
         DispatcherTimer PlayerFastAttackDuration = new DispatcherTimer();
         DispatcherTimer EnemyTimeToAttack = new DispatcherTimer();
         DispatcherTimer EnemyStrongAttackDuration = new DispatcherTimer();
+        DispatcherTimer EnemyFastAttackDuration = new DispatcherTimer();
+        DispatcherTimer StunDuration = new DispatcherTimer();
 
 
         private Frame parentFrame;
+        FileManager manager = new FileManager();
         Player player = new Player(); 
         Enemy enemy;
+        Yrden yrden = new Yrden();
         Dictionary<string, Uri> AnimationSets;
         Dictionary<string, Uri> EnemyAnimationSets = new Dictionary<string, Uri>();
         bool SteelSword;
@@ -68,6 +72,11 @@ namespace WitcherWPF {
             EnemyStrongAttackDuration.Interval = new TimeSpan(0, 0, 0, 0, 800);
             EnemyStrongAttackDuration.Tick += new EventHandler(EnemyStrongDuration_Tick);
 
+            EnemyFastAttackDuration.Interval = new TimeSpan(0, 0, 0, 0, 500);
+            EnemyFastAttackDuration.Tick += new EventHandler(EnemyFastDuration_Tick);
+
+
+
         }
         void PlayerStrongDuration_Tick(object sender, EventArgs e) {
             PlayerStrongAttackDuration.Stop();
@@ -93,6 +102,13 @@ namespace WitcherWPF {
             PlayerFastAttackDuration.Stop();
             EnemyStrongAttack();
         }
+        void EnemyFastDuration_Tick(object sender, EventArgs e) {
+            CanEnemyTouchSword = true;
+            EnemyFastAttackDuration.Stop();
+            PlayerStrongAttackDuration.Stop();
+            PlayerFastAttackDuration.Stop();
+            EnemyFastAttack();
+        }
         void EnemyToAttack_Tick(object sender, EventArgs e) {
             EnemyTimeToAttack.Stop();
             
@@ -101,7 +117,7 @@ namespace WitcherWPF {
             if (rn < 60) {
                 //fast
                 
-                EnemyStrongAttackAnimation();
+                EnemyFastAttackAnimation();
                 
             }else if (rn > 60) {
 
@@ -109,6 +125,10 @@ namespace WitcherWPF {
                 
             }
             
+        }
+        void Stun_Tick(object sender, EventArgs e ) {
+            StunDuration.Stop();
+            EnemyIdleAnimation();
         }
         public void LoadPlayer() {
             player.LoadAttributes(HealthBar, EnduranceBar, ToxicityBar);
@@ -130,8 +150,12 @@ namespace WitcherWPF {
                 } else if (e.Key == Key.E) {
                     SteelSword = false;
                     SwordAnims();
-                }else if (e.Key == Key.Space) {
+                }else if (e.Key == Key.W) {
                     DeffendAnimation();
+                }else if (e.Key == Key.A) {
+                    DodgeAnimation();
+                }else if (e.Key == Key.X) {
+                    CastAardAnimation();
                 }
             }
         }
@@ -185,6 +209,26 @@ namespace WitcherWPF {
             image.EndInit();
             ImageBehavior.SetAnimatedSource(Geralt, image);
             ImageBehavior.SetRepeatBehavior(Geralt, new RepeatBehavior(1));
+            Deffend();
+        }
+        public void DodgeAnimation() {
+            PlayerAttacking = true;
+            var image = new BitmapImage();
+            image.BeginInit();
+            image.UriSource = AnimationSets["Dodge"];
+            image.EndInit();
+            ImageBehavior.SetAnimatedSource(Geralt, image);
+            ImageBehavior.SetRepeatBehavior(Geralt, new RepeatBehavior(1));
+            Dodge();
+        }
+        public void StunnedAnimation() {
+            PlayerAttacking = true;
+            var image = new BitmapImage();
+            image.BeginInit();
+            image.UriSource = AnimationSets["Stunned"];
+            image.EndInit();
+            ImageBehavior.SetAnimatedSource(Geralt, image);
+            ImageBehavior.SetRepeatBehavior(Geralt, new RepeatBehavior(1));
         }
         public void StaggerAnimation() {
             PlayerAttacking = true;
@@ -218,6 +262,7 @@ namespace WitcherWPF {
             
 
         }
+        
         public void CastAardAnimation() {
             
             var image = new BitmapImage();
@@ -226,6 +271,7 @@ namespace WitcherWPF {
             image.EndInit();
             ImageBehavior.SetAnimatedSource(Geralt, image);
             ImageBehavior.SetRepeatBehavior(Geralt, new RepeatBehavior(1));
+            Aard();
         }
         public void CastIgniAnimation() {
             var image = new BitmapImage();
@@ -305,7 +351,35 @@ namespace WitcherWPF {
             EnemyCanAttack = true;
         }
         private void Deffend() {
+            if (EnemyAttacking == true) {
+                EnemyStrongAttackDuration.Stop();
+                EnemyFastAttackDuration.Stop();
+                
+            }
+        }
+        private void Dodge() {
+            if (EnemyAttacking == true) {
+                EnemyStrongAttackDuration.Stop();
+                EnemyFastAttackDuration.Stop();
 
+            }
+        }
+        private void Aard() {
+
+            bool isStunned = false;
+            int StunDur = 0;
+            
+            if (isStunned == true) {
+                StunDuration.Interval = new TimeSpan(0, 0, 0, StunDur);
+                StunDuration.Tick += new EventHandler(Stun_Tick);
+
+                EnemyStunAnimation();
+            }else {
+                EnemyStaggerAnimation();
+            }
+            
+            
+            
         }
         public void EnemyIdleAnimation() {
             var image = new BitmapImage();
@@ -347,7 +421,7 @@ namespace WitcherWPF {
             image.EndInit();
             ImageBehavior.SetAnimatedSource(Enemy, image);
             ImageBehavior.SetRepeatBehavior(Enemy, new RepeatBehavior(1));
-            EnemyFastAttack();
+            EnemyFastAttackDuration.Start();
         }
         public void EnemyDeffendAnimation() {
             var image = new BitmapImage();
@@ -363,12 +437,12 @@ namespace WitcherWPF {
             image.UriSource = EnemyAnimationSets["Stun"];
             image.EndInit();
             ImageBehavior.SetAnimatedSource(Enemy, image);
-            ImageBehavior.SetRepeatBehavior(Enemy, new RepeatBehavior(1));
+            ImageBehavior.SetRepeatBehavior(Enemy, RepeatBehavior.Forever);
         }
         public void EnemyStaggerAnimation() {
             var image = new BitmapImage();
             image.BeginInit();
-            image.UriSource = EnemyAnimationSets["Stagger"];
+            image.UriSource = EnemyAnimationSets["Hit"];
             image.EndInit();
             ImageBehavior.SetAnimatedSource(Enemy, image);
             ImageBehavior.SetRepeatBehavior(Enemy, new RepeatBehavior(1));
@@ -383,7 +457,7 @@ namespace WitcherWPF {
         }
         public void EnemyStrongAttack() {
             EnemyStrong = true;
-            EnemyTimeToAttack.Start();
+            //EnemyTimeToAttack.Start();
             HitAnimation();
         }
         public void EnemyFastAttack() {

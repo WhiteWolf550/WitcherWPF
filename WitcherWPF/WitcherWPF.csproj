@@ -71,6 +71,7 @@
     </ApplicationDefinition>
     <Compile Include="Aard.cs" />
     <Compile Include="Armor.cs" />
+    <Compile Include="Axii.cs" />
     <Compile Include="Character.xaml.cs">
       <DependentUpon>Character.xaml</DependentUpon>
     </Compile>
@@ -86,6 +87,7 @@
     <Compile Include="FileManager.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Human.cs" />
+    <Compile Include="Igni.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Journal.xaml.cs">
       <DependentUpon>Journal.xaml</DependentUpon>
@@ -107,6 +109,7 @@
     <Compile Include="Player.cs" />
     <Compile Include="PlayerInventory.cs" />
     <Compile Include="PlayerQuest.cs" />
+    <Compile Include="Quen.cs" />
     <Compile Include="Quest.cs" />
     <Compile Include="Quests.xaml.cs">
       <DependentUpon>Quests.xaml</DependentUpon>
@@ -116,6 +119,7 @@
     <Compile Include="Old_wyzima1.xaml.cs">
       <DependentUpon>Old_wyzima1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Yrden.cs" />
     <Page Include="Character.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

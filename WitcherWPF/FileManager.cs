@@ -48,6 +48,12 @@ namespace WitcherWPF {
             return jsonread;
 
         }
+        public List<Sign> LoadSigns() {
+            string path = @"../../saves/PlayerSigns.json";
+            string jsonFromFile = File.ReadAllText(path);
+            List<Sign> jsonread = JsonConvert.DeserializeObject<List<Sign>>(jsonFromFile, settings);
+            return jsonread;
+        }
 
 
         public void SavePlayerQuests(List<PlayerQuest> PlayerQuests) {
@@ -58,6 +64,11 @@ namespace WitcherWPF {
         public void SaveDialogues(List<Dialogues> Dialogues, string path) {
             
             string jsonToFilet = JsonConvert.SerializeObject(Dialogues, settings);
+            File.WriteAllText(path, jsonToFilet);
+        }
+        public void SaveSigns(List<Sign> Signs) {
+            string path = @"../../saves/PlayerSigns.json";
+            string jsonToFilet = JsonConvert.SerializeObject(Signs, settings);
             File.WriteAllText(path, jsonToFilet);
         }
     }

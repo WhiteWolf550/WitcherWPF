@@ -27,11 +27,11 @@
         </StackPanel>
         <StackPanel Name="Signs" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" MinHeight="50" MinWidth="100">
             <StackPanel Orientation="Horizontal">
-                <Image Name="Aard" Source="img/ui/sign_aard.png" Width="50" Height="50" VerticalAlignment="Top"></Image>
-                <Image x:Name="Igni" Source="img/ui/sign_igni.png" Width="55" Height="55"/>
-                <Image x:Name="Axii" Source="img/ui/sign_axii.png" Width="55" Height="55"/>
-                <Image x:Name="Quen" Source="img/ui/sign_quen.png" Width="55" Height="55"/>
-                <Image x:Name="Yrden" Source="img/ui/sign_yrden.png" Width="55" Height="55"/>
+                <Image Name="Aard_ico" Source="img/ui/sign_aard.png" Width="50" Height="50" VerticalAlignment="Top"></Image>
+                <Image x:Name="Igni_ico" Source="img/ui/sign_igni.png" Width="55" Height="55"/>
+                <Image x:Name="Axii_ico" Source="img/ui/sign_axii.png" Width="55" Height="55"/>
+                <Image x:Name="Quen_ico" Source="img/ui/sign_quen.png" Width="55" Height="55"/>
+                <Image x:Name="Yrden_ico" Source="img/ui/sign_yrden.png" Width="55" Height="55"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label Content="A" Foreground="#FF84E2EC" Width="50" HorizontalContentAlignment="Center" Background="{x:Null}"></Label>

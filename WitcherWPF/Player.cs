@@ -34,6 +34,11 @@ namespace WitcherWPF {
         public Sword SteelSword { get; set; }
         public Sword SilverSword { get; set; }
         public Armor Armor { get; set; }
+        public Aard Aard { get; set; }
+        public Igni Igni { get; set; }
+        public Quen Quen { get; set; }
+        public Yrden Yrden { get; set; }
+        public Axii Axii { get; set; }
 
         public FileManager manager = new FileManager();
 
@@ -44,8 +49,11 @@ namespace WitcherWPF {
             this.SteelAnimationSets.Add("Idle", new Uri("gifs/Geralt/geralt_fight_idle.gif", UriKind.Relative));
             this.SteelAnimationSets.Add("StrongAttack", new Uri("gifs/Geralt/geralt_fight_attackSteel1.gif", UriKind.Relative));
             this.SteelAnimationSets.Add("FastAttack", new Uri("gifs/Geralt/geralt_fight_attackSteel2.gif", UriKind.Relative));
-            this.SteelAnimationSets.Add("Deffend", new Uri("gifs/Geralt/geralt_fight_deffend.gif", UriKind.Relative));
+            this.SteelAnimationSets.Add("Deffend", new Uri("gifs/Geralt/geralt_fight_defend.gif", UriKind.Relative));
+            this.SteelAnimationSets.Add("Dodge", new Uri("gifs/Geralt/geralt_fight_dodge.gif", UriKind.Relative));
             this.SteelAnimationSets.Add("Hit", new Uri("gifs/Geralt/geralt_fight_hit.gif", UriKind.Relative));
+            this.SteelAnimationSets.Add("Finisher", new Uri("gifs/Geralt/geralt_fight_finish.gif", UriKind.Relative));
+            this.SteelAnimationSets.Add("Stunned", new Uri("gifs/Geralt/geralt_fight_stunned.gif", UriKind.Relative));
             this.SteelAnimationSets.Add("Draw", new Uri("gifs/Geralt/geralt_fight_DrawSteel.gif", UriKind.Relative));
             this.SteelAnimationSets.Add("Stagger", new Uri("gifs/Geralt/geralt_fight_stagger.gif", UriKind.Relative));
             this.SteelAnimationSets.Add("Drink", new Uri("gifs/Geralt/geralt_fight_drink.gif", UriKind.Relative));
@@ -62,9 +70,12 @@ namespace WitcherWPF {
             this.SilverAnimationSets.Add("FastAttack", new Uri("gifs/Geralt/geralt_fight_attackSilver2.gif", UriKind.Relative));
             this.SilverAnimationSets.Add("Deffend", new Uri("gifs/Geralt/geralt_fight_Silverdeffend.gif", UriKind.Relative));
             this.SilverAnimationSets.Add("Hit", new Uri("gifs/Geralt/geralt_fight_Silverhit.gif", UriKind.Relative));
+            this.SilverAnimationSets.Add("Finisher", new Uri("gifs/Geralt/geralt_fight_Silverfinish.gif", UriKind.Relative));
+            this.SilverAnimationSets.Add("Stunned", new Uri("gifs/Geralt/geralt_fight_Silverstunned.gif", UriKind.Relative));
             this.SilverAnimationSets.Add("Draw", new Uri("gifs/Geralt/geralt_fight_DrawSilver.gif", UriKind.Relative));
-            this.SilverAnimationSets.Add("Stagger", new Uri("gifs/Geralt/geralt_fight_Silverstagger.gif", UriKind.Relative));
+            this.SilverAnimationSets.Add("Dodge", new Uri("gifs/Geralt/geralt_fight_Silverdodge.gif", UriKind.Relative));
             this.SilverAnimationSets.Add("Drink", new Uri("gifs/Geralt/geralt_fight_Silverdrink.gif", UriKind.Relative));
+            this.SilverAnimationSets.Add("Stagger", new Uri("gifs/Geralt/geralt_fight_Silverstagger.gif", UriKind.Relative));
             this.SilverAnimationSets.Add("Aard", new Uri("gifs/Geralt/geralt_fight_SilvercastAard.gif", UriKind.Relative));
             this.SilverAnimationSets.Add("Igni", new Uri("gifs/Geralt/geralt_fight_SilvercastIgni.gif", UriKind.Relative));
             this.SilverAnimationSets.Add("Axii", new Uri("gifs/Geralt/geralt_fight_SilvercastAxii.gif", UriKind.Relative));
@@ -72,9 +83,10 @@ namespace WitcherWPF {
             this.SilverAnimationSets.Add("Yrden", new Uri("gifs/Geralt/geralt_fight_SilvercastYrden.gif", UriKind.Relative));
 
 
+
         }
 
-        public Player(int MaxHealth, int Health, int MaxEndurance, int Endurance, int MaxToxicity, int Toxicity, int experience, int experiencetolevelup, int Money, int StrongStunChance, int FastStunChance, int SignIntensity, int strongstyledamage, int faststyledamage, Sword SteelSword, Sword SilverSword, Armor Armor ) {
+        public Player(int MaxHealth, int Health, int MaxEndurance, int Endurance, int MaxToxicity, int Toxicity, int experience, int experiencetolevelup, int Money, int StrongStunChance, int FastStunChance, int SignIntensity, int strongstyledamage, int faststyledamage, Sword SteelSword, Sword SilverSword, Armor Armor, Aard Aard, Igni Igni, Quen Quen, Axii Axii, Yrden Yrden ) {
             this.maxHealth = MaxHealth;
             this.health = Health;
             this.maxEndurance = MaxEndurance;
@@ -92,6 +104,11 @@ namespace WitcherWPF {
             this.SteelSword = SteelSword;
             this.SilverSword = SilverSword;
             this.Armor = Armor;
+            this.Aard = Aard;
+            this.Igni = Igni;
+            this.Axii = Axii;
+            this.Yrden = Yrden;
+            this.Quen = Quen;
         }
         public void LoadAttributes(ProgressBar HealthBar, ProgressBar EnduranceBar, ProgressBar ToxicityBar) {
             string playerpath = @"../../saves/Player.json";

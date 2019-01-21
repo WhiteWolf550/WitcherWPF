@@ -23,11 +23,13 @@ namespace WitcherWPF {
         List<Item> items = new List<Item>();
         List<Armor> armors = new List<Armor>();
         List<Sword> swords = new List<Sword>();
+        List<Sign> signs = new List<Sign>();
         List<Dialogues> dialog = new List<Dialogues>();
         List<Quest> qq = new List<Quest>();
         private MediaPlayer mediaPlayer = new MediaPlayer();
         Uri uri = new Uri((@"../../sounds/music/The_Order.mp3"), UriKind.Relative);
         List<PlayerQuest> qqq = new List<PlayerQuest>();
+        FileManager manager = new FileManager();
         static string ipath = @"../../gamefiles/GameItems.json";
         static string apath = @"../../gamefiles/GameArmors.json";
         static string spath = @"../../gamefiles/GameSwords.json";
@@ -53,6 +55,7 @@ namespace WitcherWPF {
             CreatePlayerQuests();
             //CreateArmors();
             //CreateSwords();
+            //CreateSigns();
             mainFrame.Navigate(new Combat(mainFrame));
         }
         public void CreateArmors() {
@@ -176,6 +179,15 @@ namespace WitcherWPF {
             }
             string jsonToFilet = JsonConvert.SerializeObject(qqq, settings);
             File.WriteAllText(qqpath, jsonToFilet);
+
+        }
+        public void CreateSigns() {
+            signs.Add(new Aard(80, 2));
+            signs.Add(new Igni(10, 10));
+            signs.Add(new Quen(3, 5));
+            signs.Add(new Axii(10));
+            signs.Add(new Yrden(10));
+            manager.SaveSigns(signs);
 
         }
 

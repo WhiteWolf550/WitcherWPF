@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace WitcherWPF {
     class Human : Enemy {
         public int Bleedchance { get; set; }
+        public bool isMonster = false;
         
         
     }
