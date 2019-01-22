@@ -49,7 +49,7 @@ namespace WitcherWPF {
             mediaPlayer.Open(uri);
             //mediaPlayer.Play();
             //CreateInv();
-            //CreatePlayer();
+            CreatePlayer();
             CreateDialogue();
             //CreateQuests();
             CreatePlayerQuests();
@@ -148,6 +148,7 @@ namespace WitcherWPF {
             igni.EnduranceRequired = 70;
             igni.Damage = 5;
             igni.BurnChance = 5;
+            igni.BurnDamage = 2;
             Quen quen = new Quen();
             quen.EnduranceCost = 50;
             quen.EnduranceRequired = 70;

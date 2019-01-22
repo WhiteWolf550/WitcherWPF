@@ -29,6 +29,7 @@ namespace WitcherWPF {
         DispatcherTimer EnemyStrongAttackDuration = new DispatcherTimer();
         DispatcherTimer EnemyFastAttackDuration = new DispatcherTimer();
         DispatcherTimer StunDuration = new DispatcherTimer();
+        DispatcherTimer BurnDuration = new DispatcherTimer();
 
 
         private Frame parentFrame;
@@ -44,6 +45,9 @@ namespace WitcherWPF {
         bool Strong;
         bool SwordChosen = false;
         bool EnemyStrong;
+        int i = 0;
+        bool IgniAnim = false;
+        bool QuenAnim = false;
         bool PlayerMoving = false;
         bool PlayerAttacking = false;
         bool EnemyAttacking = false;
@@ -132,6 +136,19 @@ namespace WitcherWPF {
             StunDuration.Stop();
             EnemyIdleAnimation();
         }
+        void Burn_Tick(object sender, EventArgs e) {
+            int dmg = 0;
+            if (i == 5) {
+                BurnDuration.Stop();
+            } else {
+                i++;
+                foreach (Player item in playerlist) {
+                    dmg = item.Igni.BurnDamage;
+                }
+                enemy.HP -= dmg;
+                EnemyHP.Content = enemy.HP;
+            }
+        }
         public void LoadPlayer() {
             player.LoadAttributes(HealthBar, EnduranceBar, ToxicityBar);
             playerlist = manager.LoadPlayer();
@@ -159,6 +176,8 @@ namespace WitcherWPF {
                     DodgeAnimation();
                 }else if (e.Key == Key.X) {
                     CastAardAnimation();
+                }else if (e.Key == Key.C) {
+                    CastIgniAnimation();
                 }
             }
         }
@@ -265,7 +284,14 @@ namespace WitcherWPF {
             
 
         }
-        
+        public void IgniAnimation() {
+            var image = new BitmapImage();
+            image.BeginInit();
+            image.UriSource = AnimationSets["IgniFX"];
+            image.EndInit();
+            ImageBehavior.SetAnimatedSource(GIFSign, image);
+            ImageBehavior.SetRepeatBehavior(GIFSign, new RepeatBehavior(1));
+        }
         public void CastAardAnimation() {
             
             var image = new BitmapImage();
@@ -277,12 +303,16 @@ namespace WitcherWPF {
             Aard();
         }
         public void CastIgniAnimation() {
+            GIFSign.Visibility = Visibility.Visible;
             var image = new BitmapImage();
             image.BeginInit();
             image.UriSource = AnimationSets["Igni"];
             image.EndInit();
             ImageBehavior.SetAnimatedSource(Geralt, image);
             ImageBehavior.SetRepeatBehavior(Geralt, new RepeatBehavior(1));
+            //IgniAnimation();
+            
+            Igni();
         }
         public void CastAxiiAnimation() {
             var image = new BitmapImage();
@@ -366,6 +396,24 @@ namespace WitcherWPF {
                 EnemyFastAttackDuration.Stop();
 
             }
+        }
+        private void Igni() {
+            
+            bool Burn = false;
+            foreach(Player item in playerlist) {
+                
+                Burn = item.Igni.Burn();
+            }
+            
+            if (Burn == true) {
+                BurnDuration.Interval = new TimeSpan(0, 0, 0, 5);
+                BurnDuration.Tick += new EventHandler(Burn_Tick);
+                BurnDuration.Start();
+            } else {
+
+            }
+            IgniAnim = true;
+            EnemyHitAnimation();
         }
         private void Aard() {
 
@@ -474,9 +522,25 @@ namespace WitcherWPF {
 
 
         public void EnemyHit() {
-            int damage = player.Attack(SteelSword, Strong);
-            EnemyHP.Content = enemy.Hit(enemy.HP, damage);
-            textb.Text += "Geralt dává poškození za " + damage;
+            if (IgniAnim != true) {
+                int damage = player.Attack(SteelSword, Strong);
+                EnemyHP.Content = enemy.Hit(enemy.HP, damage);
+                textb.Text += "Geralt dává poškození za " + damage;
+            }else {
+                int damage = 0;
+                foreach(Player item in playerlist) {
+                    damage = item.Igni.Damage;
+                    
+                }
+
+                
+                int hp = enemy.HP -= damage;
+                EnemyHP.Content = hp;
+                IgniAnim = false;
+                textb.Text += "Geralt dává poškození";
+                IgniAnimation();
+
+            }
         }
         public void SignEnd(object sender, RoutedEventArgs e) {
 

@@ -61,6 +61,11 @@ namespace WitcherWPF {
             this.SteelAnimationSets.Add("Axii", new Uri("gifs/Geralt/geralt_fight_castAxii.gif", UriKind.Relative));
             this.SteelAnimationSets.Add("Quen", new Uri("gifs/Geralt/geralt_fight_castQuen.gif", UriKind.Relative));
             this.SteelAnimationSets.Add("Yrden", new Uri("gifs/Geralt/geralt_fight_castYrden.gif", UriKind.Relative));
+            this.SteelAnimationSets.Add("AardFX", new Uri("gifs/FX/Aard.gif", UriKind.Relative));
+            this.SteelAnimationSets.Add("IgniFX", new Uri("gifs/FX/Igni.gif", UriKind.Relative));
+            this.SteelAnimationSets.Add("AxiiFX", new Uri("gifs/FX/Axii.gif", UriKind.Relative));
+            this.SteelAnimationSets.Add("QuenFX", new Uri("gifs/FX/Quen.gif", UriKind.Relative));
+            this.SteelAnimationSets.Add("YrdenFX", new Uri("gifs/FX/Yrden.gif", UriKind.Relative));
             //------------------------SILVER SWORD COMBAT ANIMATIONS----------------------------------------------
             this.SilverAnimationSets = new Dictionary<string, Uri>();
             this.SilverAnimationSets.Add("NoSword", new Uri("gifs/Geralt/geralt_fight_NoSword.gif", UriKind.Relative));
@@ -80,6 +85,11 @@ namespace WitcherWPF {
             this.SilverAnimationSets.Add("Axii", new Uri("gifs/Geralt/geralt_fight_SilvercastAxii.gif", UriKind.Relative));
             this.SilverAnimationSets.Add("Quen", new Uri("gifs/Geralt/geralt_fight_SilvercastQuen.gif", UriKind.Relative));
             this.SilverAnimationSets.Add("Yrden", new Uri("gifs/Geralt/geralt_fight_SilvercastYrden.gif", UriKind.Relative));
+            this.SilverAnimationSets.Add("AardFX", new Uri("gifs/FX/Aard.gif", UriKind.Relative));
+            this.SilverAnimationSets.Add("IgniFX", new Uri("gifs/FX/Igni.gif", UriKind.Relative));
+            this.SilverAnimationSets.Add("AxiiFX", new Uri("gifs/FX/Axii.gif", UriKind.Relative));
+            this.SilverAnimationSets.Add("QuenFX", new Uri("gifs/FX/Quen.gif", UriKind.Relative));
+            this.SilverAnimationSets.Add("YrdenFX", new Uri("gifs/FX/Yrden.gif", UriKind.Relative));
 
 
 
