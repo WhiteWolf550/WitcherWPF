@@ -140,28 +140,23 @@ namespace WitcherWPF {
 
             Aard aard = new Aard();
             aard.EnduranceCost = 50;
-            aard.EnduranceRequired = 70;
             aard.StunChance = 10;
             aard.StunDuration = 3;
             Igni igni = new Igni();
             igni.EnduranceCost = 60;
-            igni.EnduranceRequired = 70;
             igni.Damage = 5;
             igni.BurnChance = 5;
             igni.BurnDamage = 1;
             Quen quen = new Quen();
             quen.EnduranceCost = 50;
-            quen.EnduranceRequired = 70;
             quen.ShieldDuration = 3;
             quen.DamageReduction = 5;
             Axii axii = new Axii();
             axii.EnduranceCost = 50;
-            axii.EnduranceRequired = 70;
             axii.DamageDecrease = 5;
             Yrden yrden = new Yrden();
             yrden.EnduranceCost = 50;
-            yrden.EnduranceRequired = 70;
-            yrden.DamageBoost = 5;
+            yrden.Duration = 5;
 
 
             var matches = sword.Where(s => s.Type == "Stříbrný meč");

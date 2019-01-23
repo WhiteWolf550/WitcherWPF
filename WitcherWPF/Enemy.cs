@@ -18,6 +18,7 @@ namespace WitcherWPF {
         public int XP { get; set; }
         public int StunChance { get; set; }
         public string ResistanceTo { get; set; }
+        public int DodgeChance { get; set; }
 
         public int Hit(int EnemyHealth, int Damage ) {
             this.HP = EnemyHealth - Damage;
@@ -33,6 +34,15 @@ namespace WitcherWPF {
             Random rand = new Random();
             int hitfor = rand.Next(damage, damage + 2);
             return hitfor;
+        }
+        public bool Dodge() {
+            Random rand = new Random();
+            int rn = rand.Next(0, 100);
+            if (rn < this.DodgeChance) {
+                return true;
+            }else {
+                return false;
+            }
         }
 
 

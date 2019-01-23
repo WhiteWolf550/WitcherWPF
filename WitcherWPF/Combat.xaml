@@ -8,7 +8,7 @@
       mc:Ignorable="d" 
       KeyDown="Crossway"
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Combat" Height="894" Width="1426.666" MouseLeftButtonDown="StrongAttack" MouseRightButtonDown="FastAttack">
+      Title="Combat" Height="894" Width="1426.666" MouseLeftButtonDown="StrongAttack" MouseRightButtonDown="FastAttack" Loaded="PageLoaded">
 
     <Grid>
         <Image Name="forest" Source="img/ui/back.jpg" Margin="-35,-675,-1022,-512"/>
@@ -16,6 +16,7 @@
         <Image gif:ImageBehavior.AnimatedSource="gifs/NPC/npc_fight_idle.gif"  RenderTransformOrigin="1.715,0.504" Margin="228,0,10,174" Name="Enemy"  gif:ImageBehavior.AnimationCompleted="EnemyAnimationEnd" Source="gifs/NPC/npc_fight_idle.gif" />
         <Image RenderTransformOrigin="1.715,0.504" Margin="540,150,358,366" Name="GIFSign" Visibility="Hidden"  gif:ImageBehavior.AnimationCompleted="SignEnd" Source="gifs/FX/Aard.gif" />
         <Image RenderTransformOrigin="1.715,0.504" Margin="72,33,372,174" Name="GIFSelf" Visibility="Hidden"  gif:ImageBehavior.AnimationCompleted="SignEnd" Source="gifs/FX/Quen.gif" />
+        <Image RenderTransformOrigin="1.715,0.504" Margin="507,239,95,79" Name="GIFBehind" Visibility="Hidden"  gif:ImageBehavior.AnimationCompleted="SignEnd" Source="gifs/FX/Yrden.gif" />
         <Label HorizontalAlignment="Right" VerticalAlignment="Top" Content="100" Foreground="Red" Name="EnemyHP" FontSize="35" Background="{x:Null}" Margin="0,0,42,0"></Label>
         
         <Rectangle Fill="Black" Opacity="0.5" Name="Blackout" Visibility="Hidden" ></Rectangle>

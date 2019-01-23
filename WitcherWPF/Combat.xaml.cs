@@ -31,6 +31,7 @@ namespace WitcherWPF {
         DispatcherTimer StunDuration = new DispatcherTimer();
         DispatcherTimer BurnDuration = new DispatcherTimer();
         DispatcherTimer QuenDuration = new DispatcherTimer();
+        DispatcherTimer YrdenDuration = new DispatcherTimer();
 
 
         private Frame parentFrame;
@@ -49,8 +50,8 @@ namespace WitcherWPF {
         int i = 0;
         bool IgniAnim = false;
         bool QuenActive = false;
+        bool YrdenActive = false;
         int QuenDurationTime = 0;
-        bool PlayerMoving = false;
         bool PlayerAttacking = false;
         bool EnemyAttacking = false;
         bool EnemyCanAttack = false;
@@ -59,22 +60,32 @@ namespace WitcherWPF {
 
         public Combat() {
             InitializeComponent();
+
             LoadEnemy();
             LoadPlayer();
             SetTimers();
 
         }
+        public void PageLoaded(object sender, RoutedEventArgs e) {
+            Application.Current.MainWindow.KeyDown += new KeyEventHandler(Crossway);
+        }
         public Combat(Frame parentFrame) : this() {
             this.parentFrame = parentFrame;
         }
         public void SetTimers() {
+            int Yrdendur = 0;
+            int Quendur = 0;
+            foreach(Player item in playerlist) {
+                Yrdendur = item.Yrden.Duration;
+                Quendur = item.Quen.ShieldDuration;
+            }
             PlayerStrongAttackDuration.Interval = new TimeSpan(0, 0, 0, 0, 800);
             PlayerStrongAttackDuration.Tick += new EventHandler(PlayerStrongDuration_Tick);
 
             PlayerFastAttackDuration.Interval = new TimeSpan(0, 0, 0, 0, 500);
             PlayerFastAttackDuration.Tick += new EventHandler(PlayerFastDuration_Tick);
 
-            EnemyTimeToAttack.Interval = new TimeSpan(0, 0, 0, 0, 2000);
+            EnemyTimeToAttack.Interval = new TimeSpan(0, 0, 0, 0, 1000);
             EnemyTimeToAttack.Tick += new EventHandler(EnemyToAttack_Tick);
 
             EnemyStrongAttackDuration.Interval = new TimeSpan(0, 0, 0, 0, 800);
@@ -86,8 +97,11 @@ namespace WitcherWPF {
             BurnDuration.Interval = TimeSpan.FromSeconds(1);
             BurnDuration.Tick += new EventHandler(Burn_Tick);
 
-            QuenDuration.Interval = new TimeSpan(0, 0, 0, 5);
+            QuenDuration.Interval = new TimeSpan(0, 0, 0, Quendur);
             QuenDuration.Tick += new EventHandler(QuenDuration_Tick);
+
+            YrdenDuration.Interval = new TimeSpan(0, 0, 0, Yrdendur);
+            YrdenDuration.Tick += new EventHandler(YrdenDuration_Tick);
 
 
 
@@ -96,18 +110,34 @@ namespace WitcherWPF {
             PlayerStrongAttackDuration.Stop();
             EnemyStrongAttackDuration.Stop();
             CanPlayerTouchSword = true;
+
             if (CanPlayerTouchSword == true && CanEnemyTouchSword == true) {
                 StaggerAnimation();
                 EnemyStaggerAnimation();
             }else {
-                EnemyHitAnimation();
+                if (enemy.Dodge() == true && YrdenActive == false) {
+                    EnemyStrongAttackDuration.Stop();
+                    EnemyFastAttackDuration.Stop();
+                    EnemyTimeToAttack.Stop();
+                    EnemyDeffendAnimation();
+                }else {
+                    EnemyHitAnimation();
+                }
+                
             }
             
         }
         void PlayerFastDuration_Tick(object sender, EventArgs e) {
             PlayerFastAttackDuration.Stop();
             EnemyStrongAttackDuration.Stop();
-            EnemyHitAnimation();
+            if (enemy.Dodge() == true && YrdenActive == false) {
+                EnemyStrongAttackDuration.Stop();
+                EnemyFastAttackDuration.Stop();
+                EnemyTimeToAttack.Stop();
+                EnemyDeffendAnimation();
+            } else {
+                EnemyHitAnimation();
+            }
         }
         void EnemyStrongDuration_Tick(object sender, EventArgs e) {
             CanEnemyTouchSword = true;
@@ -163,6 +193,11 @@ namespace WitcherWPF {
             GIFSelf.Visibility = Visibility.Hidden;
             QuenActive = false;
         }
+        void YrdenDuration_Tick(object sender, EventArgs e) {
+            YrdenDuration.Stop();
+            GIFBehind.Visibility = Visibility.Hidden;
+            YrdenActive = false;
+        }
         public void LoadPlayer() {
             player.LoadAttributes(HealthBar, EnduranceBar, ToxicityBar);
             playerlist = manager.LoadPlayer();
@@ -194,6 +229,8 @@ namespace WitcherWPF {
                     CastIgniAnimation();
                 }else if (e.Key == Key.V) {
                     CastQuenAnimation();
+                }else if (e.Key == Key.B) {
+                    CastYrdenAnimation();
                 }
             }
         }
@@ -333,7 +370,16 @@ namespace WitcherWPF {
             image.EndInit();
             ImageBehavior.SetAnimatedSource(GIFSign, image);
             ImageBehavior.SetRepeatBehavior(GIFSign, new RepeatBehavior(1));
-            Aard();
+            
+        }
+        public void YrdenAnimation() {
+            GIFBehind.Visibility = Visibility.Visible;
+            var image = new BitmapImage();
+            image.BeginInit();
+            image.UriSource = AnimationSets["YrdenFX"];
+            image.EndInit();
+            ImageBehavior.SetAnimatedSource(GIFSign, image);
+            ImageBehavior.SetRepeatBehavior(GIFSign, RepeatBehavior.Forever);
         }
         public void CastAardAnimation() {
             
@@ -381,6 +427,7 @@ namespace WitcherWPF {
             image.EndInit();
             ImageBehavior.SetAnimatedSource(Geralt, image);
             ImageBehavior.SetRepeatBehavior(Geralt, new RepeatBehavior(1));
+            Yrden();
         }
         public void IdleAnimation() {
             PlayerAttacking = false; 
@@ -472,14 +519,15 @@ namespace WitcherWPF {
             EnemyHitAnimation();
         }
         private void Axii() {
-
+            
+        }
+        private void Yrden() {
+            YrdenActive = true;
+            YrdenAnimation();
+            YrdenDuration.Start();
         }
         private void Quen() {
             QuenActive = true;
-            foreach(Player item in playerlist) {
-                QuenDurationTime = item.Quen.ShieldDuration;
-            }
-            
             QuenAnimation();
             QuenDuration.Start();
         }

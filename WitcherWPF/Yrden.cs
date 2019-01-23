@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace WitcherWPF {
     class Yrden : Sign{
-        public int DamageBoost { get; set; }
+        public int Duration { get; set; }
 
         public Yrden() {
 
 
         }
 
-        public Yrden(int DamageBoost) {
-            this.DamageBoost = DamageBoost;
+        public Yrden(int Duration) {
+            this.Duration = Duration;
         }
     }
 }
