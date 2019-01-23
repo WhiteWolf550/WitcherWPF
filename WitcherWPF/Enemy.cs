@@ -31,7 +31,7 @@ namespace WitcherWPF {
                 damage = this.FastDamage;
             }
             Random rand = new Random();
-            int hitfor = rand.Next(damage - 2, damage);
+            int hitfor = rand.Next(damage, damage + 2);
             return hitfor;
         }
 

@@ -30,6 +30,7 @@ namespace WitcherWPF {
         DispatcherTimer EnemyFastAttackDuration = new DispatcherTimer();
         DispatcherTimer StunDuration = new DispatcherTimer();
         DispatcherTimer BurnDuration = new DispatcherTimer();
+        DispatcherTimer QuenDuration = new DispatcherTimer();
 
 
         private Frame parentFrame;
@@ -47,7 +48,8 @@ namespace WitcherWPF {
         bool EnemyStrong;
         int i = 0;
         bool IgniAnim = false;
-        bool QuenAnim = false;
+        bool QuenActive = false;
+        int QuenDurationTime = 0;
         bool PlayerMoving = false;
         bool PlayerAttacking = false;
         bool EnemyAttacking = false;
@@ -80,6 +82,12 @@ namespace WitcherWPF {
 
             EnemyFastAttackDuration.Interval = new TimeSpan(0, 0, 0, 0, 500);
             EnemyFastAttackDuration.Tick += new EventHandler(EnemyFastDuration_Tick);
+
+            BurnDuration.Interval = TimeSpan.FromSeconds(1);
+            BurnDuration.Tick += new EventHandler(Burn_Tick);
+
+            QuenDuration.Interval = new TimeSpan(0, 0, 0, 5);
+            QuenDuration.Tick += new EventHandler(QuenDuration_Tick);
 
 
 
@@ -140,14 +148,20 @@ namespace WitcherWPF {
             int dmg = 0;
             if (i == 5) {
                 BurnDuration.Stop();
+                i = 0;
             } else {
                 i++;
                 foreach (Player item in playerlist) {
                     dmg = item.Igni.BurnDamage;
                 }
-                enemy.HP -= dmg;
+                enemy.HP = enemy.HP - dmg;
                 EnemyHP.Content = enemy.HP;
             }
+        }
+        void QuenDuration_Tick(object sender, EventArgs e) {
+            QuenDuration.Stop();
+            GIFSelf.Visibility = Visibility.Hidden;
+            QuenActive = false;
         }
         public void LoadPlayer() {
             player.LoadAttributes(HealthBar, EnduranceBar, ToxicityBar);
@@ -178,6 +192,8 @@ namespace WitcherWPF {
                     CastAardAnimation();
                 }else if (e.Key == Key.C) {
                     CastIgniAnimation();
+                }else if (e.Key == Key.V) {
+                    CastQuenAnimation();
                 }
             }
         }
@@ -190,19 +206,28 @@ namespace WitcherWPF {
             DrawSwordAnimation();
         }
         private void PlayerAnimationEnd(object sender, RoutedEventArgs e) {
-            EnemyCanAttack = true;
+            
             PlayerAttacking = false;
             CanPlayerTouchSword = false;
-            if (EnemyCanAttack == true) {
-                //EnemyTimeToAttack.Start();
-                
-            }
+            
             IdleAnimation();
         }
         private void EnemyAnimationEnd(object sender, RoutedEventArgs e) {
             EnemyAttacking = false;
             CanEnemyTouchSword = false;
-            EnemyIdleAnimation();
+            if (EnemyCheck() == true) {
+                Enemy.Visibility = Visibility.Hidden;
+                EnemyCanAttack = false;
+                EnemyTimeToAttack.Stop();
+                EnemyStrongAttackDuration.Stop();
+                EnemyFastAttackDuration.Stop();
+                EnemyHP.Content = 0;
+            }else {
+                EnemyCanAttack = true;
+                EnemyIdleAnimation();
+
+            }
+            
 
         }
         public void StrongAttackAnimation() {
@@ -244,7 +269,7 @@ namespace WitcherWPF {
             Dodge();
         }
         public void StunnedAnimation() {
-            PlayerAttacking = true;
+            //PlayerAttacking = true;
             var image = new BitmapImage();
             image.BeginInit();
             image.UriSource = AnimationSets["Stunned"];
@@ -292,6 +317,24 @@ namespace WitcherWPF {
             ImageBehavior.SetAnimatedSource(GIFSign, image);
             ImageBehavior.SetRepeatBehavior(GIFSign, new RepeatBehavior(1));
         }
+        public void QuenAnimation() {
+            GIFSelf.Visibility = Visibility.Visible;
+            var image = new BitmapImage();
+            image.BeginInit();
+            image.UriSource = AnimationSets["QuenFX"];
+            image.EndInit();
+            ImageBehavior.SetAnimatedSource(GIFSelf, image);
+            ImageBehavior.SetRepeatBehavior(GIFSelf, RepeatBehavior.Forever);
+        }
+        public void AxiiAnimation() {
+            var image = new BitmapImage();
+            image.BeginInit();
+            image.UriSource = AnimationSets["AxiiFX"];
+            image.EndInit();
+            ImageBehavior.SetAnimatedSource(GIFSign, image);
+            ImageBehavior.SetRepeatBehavior(GIFSign, new RepeatBehavior(1));
+            Aard();
+        }
         public void CastAardAnimation() {
             
             var image = new BitmapImage();
@@ -329,6 +372,7 @@ namespace WitcherWPF {
             image.EndInit();
             ImageBehavior.SetAnimatedSource(Geralt, image);
             ImageBehavior.SetRepeatBehavior(Geralt, new RepeatBehavior(1));
+            Quen();
         }
         public void CastYrdenAnimation() {
             var image = new BitmapImage();
@@ -378,9 +422,35 @@ namespace WitcherWPF {
             }
         }
         private void PlayerHit() {
-            int damage = enemy.Attack(EnemyStrong);
-            double PlayerHP = player.Hit(HealthBar.Value, damage);
+            int damage = 0;
+            int num = 0;
+            double PlayerHP = 0;
+            EnemyStrongAttackDuration.Stop();
+            EnemyFastAttackDuration.Stop();
+            EnemyTimeToAttack.Stop();
+            if (QuenActive == true) {
+                damage = enemy.Attack(EnemyStrong);
+                foreach(Player item in playerlist) {
+                    num = item.Quen.DamageReduction;
+                }
+                int decreaseddamage = damage * 1 - num;
+                if (decreaseddamage < 0) {
+                    decreaseddamage = 0;
+                }
+                PlayerHP = player.Hit(HealthBar.Value, decreaseddamage);
+                QuenActive = false;
+                QuenDuration.Stop();
+                GIFSelf.Visibility = Visibility.Hidden;
+                textb.Text += "Geralt dostává damage za " + decreaseddamage + "(" + damage + ")" + "\n";
+                
+            } else {
+                damage = enemy.Attack(EnemyStrong);
+                PlayerHP = player.Hit(HealthBar.Value, damage);
+                
+                
+            }
             HealthBar.Value = PlayerHP;
+            HealthBar.ToolTip = PlayerHP;
             EnemyCanAttack = true;
         }
         private void Deffend() {
@@ -398,22 +468,20 @@ namespace WitcherWPF {
             }
         }
         private void Igni() {
-            
-            bool Burn = false;
-            foreach(Player item in playerlist) {
-                
-                Burn = item.Igni.Burn();
-            }
-            
-            if (Burn == true) {
-                BurnDuration.Interval = new TimeSpan(0, 0, 0, 5);
-                BurnDuration.Tick += new EventHandler(Burn_Tick);
-                BurnDuration.Start();
-            } else {
-
-            }
             IgniAnim = true;
             EnemyHitAnimation();
+        }
+        private void Axii() {
+
+        }
+        private void Quen() {
+            QuenActive = true;
+            foreach(Player item in playerlist) {
+                QuenDurationTime = item.Quen.ShieldDuration;
+            }
+            
+            QuenAnimation();
+            QuenDuration.Start();
         }
         private void Aard() {
 
@@ -443,9 +511,7 @@ namespace WitcherWPF {
             image.EndInit();
             ImageBehavior.SetAnimatedSource(Enemy, image);
             ImageBehavior.SetRepeatBehavior(Enemy, RepeatBehavior.Forever);
-            if (EnemyCanAttack == true) {
-                EnemyTimeToAttack.Start();
-            }
+            
 
         }
         public void EnemyHitAnimation() {
@@ -520,25 +586,49 @@ namespace WitcherWPF {
             HitAnimation();
         }
 
-
+        public bool EnemyCheck() {
+            if (enemy.HP <= 0) {
+                return true;
+            }else {
+                return false;
+            }
+        }
         public void EnemyHit() {
+            EnemyStrongAttackDuration.Stop();
+            EnemyFastAttackDuration.Stop();
+            EnemyTimeToAttack.Stop();
             if (IgniAnim != true) {
                 int damage = player.Attack(SteelSword, Strong);
                 EnemyHP.Content = enemy.Hit(enemy.HP, damage);
                 textb.Text += "Geralt dává poškození za " + damage;
             }else {
+                bool Burn = false;
                 int damage = 0;
                 foreach(Player item in playerlist) {
                     damage = item.Igni.Damage;
                     
-                }
-
-                
-                int hp = enemy.HP -= damage;
+                }   
+                int hp = enemy.HP - damage;
+                enemy.HP -= damage;
                 EnemyHP.Content = hp;
                 IgniAnim = false;
                 textb.Text += "Geralt dává poškození";
+                foreach(Player item in playerlist) {
+                    Burn = item.Igni.Burn();
+                }
+                if (Burn == true) {
+                    
+                    BurnDuration.Start();
+                } else {
+
+                }
                 IgniAnimation();
+
+            }
+            
+            if (EnemyCheck() == true) {
+                EnemyDeathAnimation();
+            }else {
 
             }
         }
