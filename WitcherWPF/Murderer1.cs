@@ -27,10 +27,11 @@ namespace WitcherWPF {
             this.StunChance = 5;
             this.DodgeChance = 80;
             this.Bleedchance = 5;
-            this.StrongSpeed = 900;
-            this.FastSpeed = 350;
+            this.StrongSpeed = 800;
+            this.FastSpeed = 500;
             this.StrongDamage = 12;
             this.FastDamage = 5;
+            this.AttackInterval = 1000;
 
 
              

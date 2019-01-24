@@ -153,7 +153,8 @@ namespace WitcherWPF {
             quen.DamageReduction = 5;
             Axii axii = new Axii();
             axii.EnduranceCost = 50;
-            axii.DamageDecrease = 5;
+            axii.StunDuration = 5;
+            axii.ChannelingTime = 3;
             Yrden yrden = new Yrden();
             yrden.EnduranceCost = 50;
             yrden.Duration = 5;

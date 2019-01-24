@@ -32,7 +32,10 @@ namespace WitcherWPF {
         DispatcherTimer BurnDuration = new DispatcherTimer();
         DispatcherTimer QuenDuration = new DispatcherTimer();
         DispatcherTimer YrdenDuration = new DispatcherTimer();
-
+        DispatcherTimer AxiiDuration = new DispatcherTimer();
+        DispatcherTimer AxiiChannelingTime = new DispatcherTimer();
+        DispatcherTimer Stamina = new DispatcherTimer();
+        DispatcherTimer AfterParryTimer = new DispatcherTimer();
 
         private Frame parentFrame;
         FileManager manager = new FileManager();
@@ -51,8 +54,17 @@ namespace WitcherWPF {
         bool IgniAnim = false;
         bool QuenActive = false;
         bool YrdenActive = false;
+        bool AxiiActive = false;
         int QuenDurationTime = 0;
+        int AardEn = 0;
+        int IgniEn = 0;
+        int QuenEn = 0;
+        int YrdenEn = 0;
+        int AxiiEn = 0;
+        int stamina = 0;
+        int maxstamina = 0;
         bool PlayerAttacking = false;
+        bool Parry = false;
         bool EnemyAttacking = false;
         bool EnemyCanAttack = false;
         bool CanPlayerTouchSword = false;
@@ -75,9 +87,18 @@ namespace WitcherWPF {
         public void SetTimers() {
             int Yrdendur = 0;
             int Quendur = 0;
+            int Axiidur = 0;
+            int Channeldur = 0;
             foreach(Player item in playerlist) {
                 Yrdendur = item.Yrden.Duration;
                 Quendur = item.Quen.ShieldDuration;
+                Axiidur = item.Axii.StunDuration;
+                Channeldur = item.Axii.ChannelingTime;
+                YrdenEn = item.Yrden.EnduranceCost;
+                AardEn = item.Aard.EnduranceCost;
+                QuenEn = item.Quen.EnduranceCost;
+                IgniEn = item.Igni.EnduranceCost;
+                AxiiEn = item.Axii.EnduranceCost;
             }
             PlayerStrongAttackDuration.Interval = new TimeSpan(0, 0, 0, 0, 800);
             PlayerStrongAttackDuration.Tick += new EventHandler(PlayerStrongDuration_Tick);
@@ -85,13 +106,16 @@ namespace WitcherWPF {
             PlayerFastAttackDuration.Interval = new TimeSpan(0, 0, 0, 0, 500);
             PlayerFastAttackDuration.Tick += new EventHandler(PlayerFastDuration_Tick);
 
-            EnemyTimeToAttack.Interval = new TimeSpan(0, 0, 0, 0, 1000);
+            EnemyTimeToAttack.Interval = new TimeSpan(0, 0, 0, 0, enemy.AttackInterval);
             EnemyTimeToAttack.Tick += new EventHandler(EnemyToAttack_Tick);
 
-            EnemyStrongAttackDuration.Interval = new TimeSpan(0, 0, 0, 0, 800);
+            AfterParryTimer.Interval = new TimeSpan(0, 0, 0, 1000);
+            AfterParryTimer.Tick += new EventHandler(AfterParry_Tick);
+
+            EnemyStrongAttackDuration.Interval = new TimeSpan(0, 0, 0, 0, enemy.StrongSpeed);
             EnemyStrongAttackDuration.Tick += new EventHandler(EnemyStrongDuration_Tick);
 
-            EnemyFastAttackDuration.Interval = new TimeSpan(0, 0, 0, 0, 500);
+            EnemyFastAttackDuration.Interval = new TimeSpan(0, 0, 0, 0, enemy.FastSpeed);
             EnemyFastAttackDuration.Tick += new EventHandler(EnemyFastDuration_Tick);
 
             BurnDuration.Interval = TimeSpan.FromSeconds(1);
@@ -103,8 +127,20 @@ namespace WitcherWPF {
             YrdenDuration.Interval = new TimeSpan(0, 0, 0, Yrdendur);
             YrdenDuration.Tick += new EventHandler(YrdenDuration_Tick);
 
+            AxiiDuration.Interval = new TimeSpan(0, 0, 0, Axiidur);
+            AxiiDuration.Tick += new EventHandler(AxiiDuration_Tick);
+
+            AxiiChannelingTime.Interval = new TimeSpan(0, 0, 0, Channeldur);
+            AxiiChannelingTime.Tick += new EventHandler(AxiiChannel_Tick);
+
+            Stamina.Interval = TimeSpan.FromSeconds(1);
+            Stamina.Tick += new EventHandler(Stamina_tick);
 
 
+
+        }
+        void AfterParry_Tick(object sender, EventArgs e) {
+            EnemyTimeToAttack.Start();
         }
         void PlayerStrongDuration_Tick(object sender, EventArgs e) {
             PlayerStrongAttackDuration.Stop();
@@ -115,7 +151,7 @@ namespace WitcherWPF {
                 StaggerAnimation();
                 EnemyStaggerAnimation();
             }else {
-                if (enemy.Dodge() == true && YrdenActive == false) {
+                if (enemy.Dodge() == true && YrdenActive == false && AxiiActive == false) {
                     EnemyStrongAttackDuration.Stop();
                     EnemyFastAttackDuration.Stop();
                     EnemyTimeToAttack.Stop();
@@ -130,7 +166,7 @@ namespace WitcherWPF {
         void PlayerFastDuration_Tick(object sender, EventArgs e) {
             PlayerFastAttackDuration.Stop();
             EnemyStrongAttackDuration.Stop();
-            if (enemy.Dodge() == true && YrdenActive == false) {
+            if (enemy.Dodge() == true && YrdenActive == false && AxiiActive == false) {
                 EnemyStrongAttackDuration.Stop();
                 EnemyFastAttackDuration.Stop();
                 EnemyTimeToAttack.Stop();
@@ -142,6 +178,8 @@ namespace WitcherWPF {
         void EnemyStrongDuration_Tick(object sender, EventArgs e) {
             CanEnemyTouchSword = true;
             EnemyStrongAttackDuration.Stop();
+            AxiiDuration.Stop();
+            AxiiChannelingTime.Stop();
             PlayerStrongAttackDuration.Stop();
             PlayerFastAttackDuration.Stop();
             EnemyStrongAttack();
@@ -149,6 +187,8 @@ namespace WitcherWPF {
         void EnemyFastDuration_Tick(object sender, EventArgs e) {
             CanEnemyTouchSword = true;
             EnemyFastAttackDuration.Stop();
+            AxiiDuration.Stop();
+            AxiiChannelingTime.Stop();
             PlayerStrongAttackDuration.Stop();
             PlayerFastAttackDuration.Stop();
             EnemyFastAttack();
@@ -169,6 +209,18 @@ namespace WitcherWPF {
                 
             }
             
+        }
+        void Stamina_tick(object sender, EventArgs e) {
+            
+            
+            stamina += 1;
+            
+            if (stamina >= maxstamina) {
+                stamina = maxstamina;
+                Stamina.Stop();
+            }
+            EnduranceBar.Value = stamina;
+            EnduranceBar.ToolTip = stamina;
         }
         void Stun_Tick(object sender, EventArgs e ) {
             StunDuration.Stop();
@@ -197,10 +249,32 @@ namespace WitcherWPF {
             YrdenDuration.Stop();
             GIFBehind.Visibility = Visibility.Hidden;
             YrdenActive = false;
+
+        }
+        void AxiiDuration_Tick(object sender, EventArgs e) {
+            AxiiDuration.Stop();
+            AxiiActive = false;
+            GIFSign.Visibility = Visibility.Hidden;
+            
+        }
+        void AxiiChannel_Tick(object sender, EventArgs e) {
+            GIFSign.Visibility = Visibility.Visible;
+            AxiiActive = true;
+            EnemyFastAttackDuration.Stop();
+            EnemyTimeToAttack.Stop();
+            EnemyStrongAttackDuration.Stop();
+            AxiiChannelingTime.Stop();
+            IdleAnimation();
+            Axii();
         }
         public void LoadPlayer() {
-            player.LoadAttributes(HealthBar, EnduranceBar, ToxicityBar);
             playerlist = manager.LoadPlayer();
+            foreach (Player item in playerlist) {
+                stamina = item.endurance;
+                maxstamina = item.maxEndurance;
+            }
+            player.LoadAttributes(HealthBar, EnduranceBar, ToxicityBar);
+            
             NoSwordAnimation();
 
         }
@@ -219,18 +293,24 @@ namespace WitcherWPF {
                 } else if (e.Key == Key.E) {
                     SteelSword = false;
                     SwordAnims();
-                }else if (e.Key == Key.W) {
-                    DeffendAnimation();
-                }else if (e.Key == Key.A) {
-                    DodgeAnimation();
-                }else if (e.Key == Key.X) {
-                    CastAardAnimation();
-                }else if (e.Key == Key.C) {
-                    CastIgniAnimation();
-                }else if (e.Key == Key.V) {
-                    CastQuenAnimation();
-                }else if (e.Key == Key.B) {
-                    CastYrdenAnimation();
+
+                }
+                if (SwordChosen == true) {
+                    if (e.Key == Key.W) {
+                        DeffendAnimation();
+                    } else if (e.Key == Key.A) {
+                        DodgeAnimation();
+                    } else if (e.Key == Key.X && stamina >= AardEn) {
+                        CastAardAnimation();
+                    } else if (e.Key == Key.C && stamina >= IgniEn) {
+                        CastIgniAnimation();
+                    } else if (e.Key == Key.V && stamina >= QuenEn) {
+                        CastQuenAnimation();
+                    } else if (e.Key == Key.B && stamina >= YrdenEn) {
+                        CastYrdenAnimation();
+                    } else if (e.Key == Key.N && stamina >= AxiiEn) {
+                        CastAxiiAnimation();
+                    }
                 }
             }
         }
@@ -347,6 +427,7 @@ namespace WitcherWPF {
 
         }
         public void IgniAnimation() {
+            
             var image = new BitmapImage();
             image.BeginInit();
             image.UriSource = AnimationSets["IgniFX"];
@@ -369,20 +450,21 @@ namespace WitcherWPF {
             image.UriSource = AnimationSets["AxiiFX"];
             image.EndInit();
             ImageBehavior.SetAnimatedSource(GIFSign, image);
-            ImageBehavior.SetRepeatBehavior(GIFSign, new RepeatBehavior(1));
+            ImageBehavior.SetRepeatBehavior(GIFSign, RepeatBehavior.Forever);
             
         }
         public void YrdenAnimation() {
             GIFBehind.Visibility = Visibility.Visible;
+
             var image = new BitmapImage();
             image.BeginInit();
             image.UriSource = AnimationSets["YrdenFX"];
             image.EndInit();
-            ImageBehavior.SetAnimatedSource(GIFSign, image);
-            ImageBehavior.SetRepeatBehavior(GIFSign, RepeatBehavior.Forever);
+            ImageBehavior.SetAnimatedSource(GIFBehind, image);
+            ImageBehavior.SetRepeatBehavior(GIFBehind, RepeatBehavior.Forever);
         }
         public void CastAardAnimation() {
-            
+            PlayerAttacking = true;
             var image = new BitmapImage();
             image.BeginInit();
             image.UriSource = AnimationSets["Aard"];
@@ -392,6 +474,7 @@ namespace WitcherWPF {
             Aard();
         }
         public void CastIgniAnimation() {
+            PlayerAttacking = true;
             GIFSign.Visibility = Visibility.Visible;
             var image = new BitmapImage();
             image.BeginInit();
@@ -404,14 +487,17 @@ namespace WitcherWPF {
             Igni();
         }
         public void CastAxiiAnimation() {
+            PlayerAttacking = true;
             var image = new BitmapImage();
             image.BeginInit();
             image.UriSource = AnimationSets["Axii"];
             image.EndInit();
             ImageBehavior.SetAnimatedSource(Geralt, image);
-            ImageBehavior.SetRepeatBehavior(Geralt, new RepeatBehavior(1));
+            ImageBehavior.SetRepeatBehavior(Geralt, RepeatBehavior.Forever);
+            AxiiChannelingTime.Start();
         }
         public void CastQuenAnimation() {
+            PlayerAttacking = true;
             var image = new BitmapImage();
             image.BeginInit();
             image.UriSource = AnimationSets["Quen"];
@@ -421,6 +507,7 @@ namespace WitcherWPF {
             Quen();
         }
         public void CastYrdenAnimation() {
+            PlayerAttacking = true;
             var image = new BitmapImage();
             image.BeginInit();
             image.UriSource = AnimationSets["Yrden"];
@@ -437,7 +524,7 @@ namespace WitcherWPF {
             image.EndInit();
             ImageBehavior.SetAnimatedSource(Geralt, image);
             ImageBehavior.SetRepeatBehavior(Geralt, RepeatBehavior.Forever);
-            if (EnemyCanAttack == true) {
+            if (EnemyCanAttack == true && AxiiActive == false && Parry == false) {
                 EnemyTimeToAttack.Start();
             }
 
@@ -502,9 +589,9 @@ namespace WitcherWPF {
         }
         private void Deffend() {
             if (EnemyAttacking == true) {
-                EnemyStrongAttackDuration.Stop();
-                EnemyFastAttackDuration.Stop();
                 
+                EnemyFastAttackDuration.Stop();
+                EnemyHitAnimation();
             }
         }
         private void Dodge() {
@@ -516,24 +603,47 @@ namespace WitcherWPF {
         }
         private void Igni() {
             IgniAnim = true;
+            stamina -= IgniEn;
+            EnduranceBar.Value = stamina;
+            EnduranceBar.ToolTip = stamina;
+            Stamina.Start();
             EnemyHitAnimation();
         }
         private void Axii() {
-            
+            AxiiActive = true;
+            stamina -= AxiiEn;
+            EnduranceBar.Value = stamina;
+            EnduranceBar.ToolTip = stamina;
+            GIFSign.Visibility = Visibility.Visible;
+            Stamina.Start();
+            AxiiDuration.Start();
+            AxiiAnimation();
         }
         private void Yrden() {
             YrdenActive = true;
+            stamina -= YrdenEn;
+            EnduranceBar.Value = stamina;
+            EnduranceBar.ToolTip = stamina;
+            Stamina.Start();
             YrdenAnimation();
             YrdenDuration.Start();
         }
         private void Quen() {
             QuenActive = true;
+            stamina -= QuenEn;
+            EnduranceBar.Value = stamina;
+            EnduranceBar.ToolTip = stamina;
+            Stamina.Start();
             QuenAnimation();
             QuenDuration.Start();
         }
         private void Aard() {
 
             bool isStunned = false;
+            stamina -= AardEn;
+            EnduranceBar.Value = stamina;
+            EnduranceBar.ToolTip = stamina;
+            Stamina.Start();
             int StunDur = 0;
             foreach(Player item in playerlist) {
                 isStunned = item.Aard.Stun();
