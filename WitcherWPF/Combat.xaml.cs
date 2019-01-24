@@ -35,7 +35,6 @@ namespace WitcherWPF {
         DispatcherTimer AxiiDuration = new DispatcherTimer();
         DispatcherTimer AxiiChannelingTime = new DispatcherTimer();
         DispatcherTimer Stamina = new DispatcherTimer();
-        DispatcherTimer AfterParryTimer = new DispatcherTimer();
 
         private Frame parentFrame;
         FileManager manager = new FileManager();
@@ -62,6 +61,8 @@ namespace WitcherWPF {
         int YrdenEn = 0;
         int AxiiEn = 0;
         int stamina = 0;
+        int toxicity = 0;
+        int maxtoxicity = 0;
         int maxstamina = 0;
         bool PlayerAttacking = false;
         bool Parry = false;
@@ -107,10 +108,7 @@ namespace WitcherWPF {
             PlayerFastAttackDuration.Tick += new EventHandler(PlayerFastDuration_Tick);
 
             EnemyTimeToAttack.Interval = new TimeSpan(0, 0, 0, 0, enemy.AttackInterval);
-            EnemyTimeToAttack.Tick += new EventHandler(EnemyToAttack_Tick);
-
-            AfterParryTimer.Interval = new TimeSpan(0, 0, 0, 1000);
-            AfterParryTimer.Tick += new EventHandler(AfterParry_Tick);
+            EnemyTimeToAttack.Tick += new EventHandler(EnemyToAttack_Tick);     
 
             EnemyStrongAttackDuration.Interval = new TimeSpan(0, 0, 0, 0, enemy.StrongSpeed);
             EnemyStrongAttackDuration.Tick += new EventHandler(EnemyStrongDuration_Tick);
@@ -141,6 +139,7 @@ namespace WitcherWPF {
         }
         void AfterParry_Tick(object sender, EventArgs e) {
             EnemyTimeToAttack.Start();
+            Parry = false;
         }
         void PlayerStrongDuration_Tick(object sender, EventArgs e) {
             PlayerStrongAttackDuration.Stop();
@@ -204,7 +203,7 @@ namespace WitcherWPF {
                 EnemyFastAttackAnimation();
                 
             }else if (rn > 60) {
-
+                EnemyStrong = true;
                 EnemyStrongAttackAnimation();
                 
             }
@@ -237,7 +236,8 @@ namespace WitcherWPF {
                     dmg = item.Igni.BurnDamage;
                 }
                 enemy.HP = enemy.HP - dmg;
-                EnemyHP.Content = enemy.HP;
+                EnemyHP.Value = enemy.HP;
+                EnemyHP.ToolTip = enemy.HP;
             }
         }
         void QuenDuration_Tick(object sender, EventArgs e) {
@@ -272,6 +272,8 @@ namespace WitcherWPF {
             foreach (Player item in playerlist) {
                 stamina = item.endurance;
                 maxstamina = item.maxEndurance;
+                toxicity = item.toxicity;
+                maxtoxicity = item.maxToxicity;
             }
             player.LoadAttributes(HealthBar, EnduranceBar, ToxicityBar);
             
@@ -280,7 +282,9 @@ namespace WitcherWPF {
         }
         public void LoadEnemy() {
             enemy = new Murderer1();
-            EnemyHP.Content = enemy.MaxHP;
+            EnemyHP.Value = enemy.MaxHP;
+            EnemyHP.ToolTip = enemy.MaxHP;
+            EnemyName.Content = enemy.Name;
             EnemyAnimationSets = enemy.AnimationSet;
             EnemyIdleAnimation();
             
@@ -338,7 +342,8 @@ namespace WitcherWPF {
                 EnemyTimeToAttack.Stop();
                 EnemyStrongAttackDuration.Stop();
                 EnemyFastAttackDuration.Stop();
-                EnemyHP.Content = 0;
+                EnemyHP.Value = 0;
+                EnemyHP.ToolTip = 0;
             }else {
                 EnemyCanAttack = true;
                 EnemyIdleAnimation();
@@ -524,9 +529,7 @@ namespace WitcherWPF {
             image.EndInit();
             ImageBehavior.SetAnimatedSource(Geralt, image);
             ImageBehavior.SetRepeatBehavior(Geralt, RepeatBehavior.Forever);
-            if (EnemyCanAttack == true && AxiiActive == false && Parry == false) {
-                EnemyTimeToAttack.Start();
-            }
+            
 
 
         }
@@ -588,10 +591,9 @@ namespace WitcherWPF {
             EnemyCanAttack = true;
         }
         private void Deffend() {
-            if (EnemyAttacking == true) {
-                
+            if (EnemyAttacking == true && EnemyStrong == false) {
                 EnemyFastAttackDuration.Stop();
-                EnemyHitAnimation();
+                EnemyStaggerAnimation();
             }
         }
         private void Dodge() {
@@ -669,7 +671,10 @@ namespace WitcherWPF {
             image.EndInit();
             ImageBehavior.SetAnimatedSource(Enemy, image);
             ImageBehavior.SetRepeatBehavior(Enemy, RepeatBehavior.Forever);
-            
+            if (EnemyCanAttack == true && AxiiActive == false && Parry == false) {
+                EnemyTimeToAttack.Start();
+            }
+
 
         }
         public void EnemyHitAnimation() {
@@ -757,7 +762,8 @@ namespace WitcherWPF {
             EnemyTimeToAttack.Stop();
             if (IgniAnim != true) {
                 int damage = player.Attack(SteelSword, Strong);
-                EnemyHP.Content = enemy.Hit(enemy.HP, damage);
+                EnemyHP.Value = enemy.Hit(enemy.HP, damage);
+                EnemyHP.ToolTip = EnemyHP.Value;
                 textb.Text += "Geralt dává poškození za " + damage;
             }else {
                 bool Burn = false;
@@ -768,7 +774,8 @@ namespace WitcherWPF {
                 }   
                 int hp = enemy.HP - damage;
                 enemy.HP -= damage;
-                EnemyHP.Content = hp;
+                EnemyHP.Value = hp;
+                EnemyHP.ToolTip = EnemyHP.Value;
                 IgniAnim = false;
                 textb.Text += "Geralt dává poškození";
                 foreach(Player item in playerlist) {
