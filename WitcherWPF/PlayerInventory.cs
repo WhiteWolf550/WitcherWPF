@@ -14,6 +14,7 @@ namespace WitcherWPF
         public Item Item { get; set; }
         public int Count { get; set; }
 
+        FileManager manager = new FileManager();
         public PlayerInventory() {
 
         }
@@ -55,6 +56,10 @@ namespace WitcherWPF
             }
             string jsonToFile = JsonConvert.SerializeObject(inventory, settings);
             File.WriteAllText(playerinvpath, jsonToFile);
+        }
+        public void Read() {
+            List<PlayerInventory> inventory = manager.LoadPlayerInventory();
+
         }
     }
 }

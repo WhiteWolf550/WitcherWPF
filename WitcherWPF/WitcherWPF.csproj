@@ -385,6 +385,11 @@
     <Resource Include="gifs\Geralt\geralt_fight_stunned.gif" />
     <Resource Include="gifs\NPC\npc_fight_fastattack.gif" />
     <Resource Include="gifs\NPC\npc_fight_strongattack.gif" />
+    <Resource Include="img\Items\Book_Generic.png" />
+    <Resource Include="img\Items\Book_Bestiary.png" />
+    <Resource Include="img\UI\book_back.png" />
+    <Resource Include="img\UI\Sword_ico.png" />
+    <Resource Include="img\UI\Armor_ico.png" />
     <Content Include="sounds\music\The_Order.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

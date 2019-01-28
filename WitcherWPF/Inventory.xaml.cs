@@ -31,10 +31,13 @@ namespace WitcherWPF
         static string playerinvpath = @"../../saves/PlayerInventory.json";
         static string playergearpath = @"../../saves/Player.json";
         static string playerpath = @"../../saves/Player.json";
+        FileManager manager = new FileManager();
         static string jsonFromFile = File.ReadAllText(ipath);
         List<Item> items = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
         static string jsonFromFilepl = File.ReadAllText(playerpath);
         List<Player> playerinfo = JsonConvert.DeserializeObject<List<Player>>(jsonFromFilepl, settings);
+        PlayerInventory inventory = new PlayerInventory();
+        Dictionary<MenuItem, PlayerInventory> buttonitems = new Dictionary<MenuItem, PlayerInventory>();
 
         private Frame parentFrame;
         
@@ -118,7 +121,7 @@ namespace WitcherWPF
                 MenuItem use = new MenuItem();
                 use.Header = item.Item.Action;
                 use.Click += UseItem;
-                use.Tag = item.Item.Name;
+                use.Tag = item.Item.Action;
                 cm.Items.Add(use);
                 Button inventoryitem = new Button();
                 inventoryitem.Content = inventoryimage;
@@ -127,10 +130,10 @@ namespace WitcherWPF
                 inventoryitem.BorderBrush = Brushes.Transparent;
                 inventoryitem.ToolTip = item.Item.Name + "\n" + item.Count + "x" + "\n" + item.Item.Description + "\n" + "SUBSTANCE:" + "\n" + item.Item.Substance + "\n" + "Lze prodat za: " + sell + " " + orens;
                 inventoryitem.ContextMenu = cm;
-                inventoryitem.Tag = item.Item.Name;
+                inventoryitem.Tag = item.Item.Action;
                 inventoryitem.Background = Brushes.Transparent;
                 InventoryItems.Children.Add(inventoryitem);
-
+                buttonitems.Add(use, item);
             }
         }
         public void LoadGear() {
@@ -247,8 +250,19 @@ namespace WitcherWPF
         public void DropGear(object sender, RoutedEventArgs e) {
 
         }
-        public void UseItem(object sender, RoutedEventArgs e) {
-
+        private void UseItem(object sender, RoutedEventArgs e) {
+            MenuItem button = (sender as MenuItem);
+            
+            if (button.Tag.ToString() == "Číst") {
+                
+                Read(button);
+            }
+        }
+        public void Read(MenuItem book) {
+            PlayerInventory inv = buttonitems[book];
+            Book.Visibility = Visibility.Visible;
+            BookName.Text = inv.Item.Name;
+            BookContent.Text = inv.Item.Content;
         }
         public void StaminaRegen() {
             Stamina.Start();

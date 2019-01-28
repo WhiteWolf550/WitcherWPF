@@ -181,6 +181,63 @@
             <Label Name="Oren" FontSize="20" Style="{StaticResource MORPHEUS}" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Padding="0" Content="Orens" Background="{x:Null}" Foreground="#DDECECEC" Width="90"/>
             <Image Source="img/ui/oren.png" Width="44"></Image>
         </StackPanel>
+        <StackPanel Grid.ColumnSpan="2" Margin="24,108,947,301" Grid.Row="1" Grid.RowSpan="3" ScrollViewer.CanContentScroll="True">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF28241B" Offset="0"/>
+                    <GradientStop Color="#FF1D1C14" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <StackPanel Orientation="Horizontal">
+                <Button Background="#FF211D15" BorderBrush="{x:Null}" Height="66" Width="106">
+                    <Image Source="img/UI/Armor_ico.png"></Image>
+                </Button>
+                <Button Background="#FF211D15" BorderBrush="{x:Null}" Height="66" Width="103">
+                    <Image Source="img/UI/Sword_ico.png" Height="56" Width="81"></Image>
+                </Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="90" Width="69">
+                    <Image Source="img/Swords/Sword_Mahakam_Sihil.png"></Image>
+                </Button>
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Mahakamský sihil" Foreground="#DDFFFFFF"></Label>
+                    <Label Content="Level 1" Foreground="#DDFDFDFD"></Label>
+                    <Label Content="Síla 20" Foreground="#DDFDFDFD"></Label>
+                    <Label Content="Cena 200" Foreground="#DDFDFDFD"></Label>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="90" Width="69">
+                    <Image Source="img/Swords/Sword_Mahakam_Sihil.png"></Image>
+                </Button>
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Mahakamský sihil" Foreground="#DDFFFFFF"></Label>
+                    <Label Content="Level 1" Foreground="#DDFDFDFD"></Label>
+                    <Label Content="Síla 20" Foreground="#DDFDFDFD"></Label>
+                    <Label Content="Cena 200" Foreground="#DDFDFDFD"></Label>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="90" Width="69">
+                    <Image Source="img/Swords/Sword_Aerondight.png"></Image>
+                </Button>
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Aerondight" Foreground="#DDFFFFFF"></Label>
+                    <Label Content="Level 1" Foreground="#DDFDFDFD"></Label>
+                    <Label Content="Síla 20" Foreground="#DDFDFDFD"></Label>
+                    <Label Content="Cena 200" Foreground="#DDFDFDFD"></Label>
+                </StackPanel>
+            </StackPanel>
+            
+        </StackPanel>
+        <StackPanel Visibility="Hidden" Name="Book" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Width="300" Height="400" Margin="379,0,390,266">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="img/UI/book_back.png"/>
+            </StackPanel.Background>
+            <TextBlock Name="BookName" Text="BookName" FontSize="30" TextAlignment="Center"></TextBlock>
+            <TextBlock Name="BookContent" Text="Content" FontSize="20" Height="360" TextWrapping="Wrap" ScrollViewer.CanContentScroll="True"></TextBlock>
+        </StackPanel>
 
 
 
