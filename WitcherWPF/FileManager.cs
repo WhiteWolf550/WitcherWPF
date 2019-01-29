@@ -41,6 +41,26 @@ namespace WitcherWPF {
             return jsonread;
 
         }
+        public List<Item> LoadItems(string path) {
+            string jsonFromFile = File.ReadAllText(path);
+            List<Item> jsonread = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
+            return jsonread;
+
+        }
+        public List<Sword> LoadPlayerSwords() {
+            string path = @"../../saves/PlayerSwords.json";
+            string jsonFromFile = File.ReadAllText(path);
+            List<Sword> jsonread = JsonConvert.DeserializeObject<List<Sword>>(jsonFromFile, settings);
+            return jsonread;
+
+        }
+        public List<Armor> LoadPlayerArmors() {
+            string path = @"../../saves/PlayerArmors.json";
+            string jsonFromFile = File.ReadAllText(path);
+            List<Armor> jsonread = JsonConvert.DeserializeObject<List<Armor>>(jsonFromFile, settings);
+            return jsonread;
+
+        }
         public List<PlayerInventory> LoadPlayerInventory() {
             string path = @"../../saves/PlayerInventory.json";
             string jsonFromFile = File.ReadAllText(path);
@@ -69,6 +89,20 @@ namespace WitcherWPF {
         public void SaveSigns(List<Sign> Signs) {
             string path = @"../../saves/PlayerSigns.json";
             string jsonToFilet = JsonConvert.SerializeObject(Signs, settings);
+            File.WriteAllText(path, jsonToFilet);
+        }
+        public void SaveItems(List<Item> Items, string path) {           
+            string jsonToFilet = JsonConvert.SerializeObject(Items, settings);
+            File.WriteAllText(path, jsonToFilet);
+        }
+        public void SavePlayerSwords(List<Sword> PlayerSwords) {
+            string path = @"../../saves/PlayerSwords";
+            string jsonToFilet = JsonConvert.SerializeObject(PlayerSwords, settings);
+            File.WriteAllText(path, jsonToFilet);
+        }
+        public void SavePlayerArmor(List<Armor> PlayerArmors) {
+            string path = @"../../saves/PlayerArmors";
+            string jsonToFilet = JsonConvert.SerializeObject(PlayerArmors, settings);
             File.WriteAllText(path, jsonToFilet);
         }
     }

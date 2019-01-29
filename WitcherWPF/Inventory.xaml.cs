@@ -136,6 +136,38 @@ namespace WitcherWPF
                 buttonitems.Add(use, item);
             }
         }
+        public void LoadEquipSwords() {
+            List<Sword> playerswords = manager.LoadPlayerSwords();
+            foreach(Sword item in playerswords) {
+                StackPanel ItemWrap = new StackPanel();
+                ItemWrap.Orientation = Orientation.Horizontal;
+                Image ItemImage = new Image();
+                ItemImage.Source = new BitmapImage(new Uri(item.Source, UriKind.Relative));
+                Button ItemButton = new Button();
+                ItemButton.Content = ItemImage;
+                ItemButton.Height = 90;
+                ItemButton.Width = 69;
+                ItemButton.Background = Brushes.Transparent;
+                ItemButton.BorderBrush = Brushes.Transparent;
+                StackPanel ItemInfo = new StackPanel();
+                ItemInfo.Orientation = Orientation.Vertical;
+                Label SwordType = new Label();
+                SwordType.Content = item.Type;
+                Label SwordName = new Label();
+                SwordName.Content = item.Name;
+                Label SwordLevel = new Label();
+                SwordLevel.Content = item.Level;
+                Label SwordDMG = new Label();
+                SwordDMG.Content = item.Damage;
+
+                ItemInfo.Children.Add(SwordType);
+                ItemInfo.Children.Add(SwordName);
+                ItemInfo.Children.Add(SwordLevel);
+                ItemInfo.Children.Add(SwordDMG);
+                ItemWrap.Children.Add(ItemButton);
+                ItemWrap.Children.Add(ItemInfo);
+            }
+        }
         public void LoadGear() {
             string jsonFromFilein = File.ReadAllText(playergearpath);
             List<Player> gear = new List<Player>();

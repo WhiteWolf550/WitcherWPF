@@ -26,6 +26,8 @@ namespace WitcherWPF
         public string Content { get; set; }
         public int Price { get; set; }
 
+        FileManager manager = new FileManager();
+
         public Item() {
 
         }
@@ -51,13 +53,9 @@ namespace WitcherWPF
             TakeLoot.Visibility = Visibility.Visible;
             string ipath = @"../../gamefiles/GameItems.json";
             string lootpath = @"../../saves/Loot.json";
-            JsonSerializerSettings settings = new JsonSerializerSettings {
-                TypeNameHandling = TypeNameHandling.All
-            };
+            
             List<Item> loot = new List<Item>();
-            string jsonFromFileloot;
-            string jsonFromFile = File.ReadAllText(ipath);
-            List<Item> items = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
+            List<Item> items = manager.LoadItems(ipath);
             //Dictionary<Item, Button> lootitems = new Dictionary<Item, Button>();
             
             
@@ -95,11 +93,10 @@ namespace WitcherWPF
                     loot.Add(it);
                     
                 }
-                string jsonToFile = JsonConvert.SerializeObject(loot, settings);
-                File.WriteAllText(lootpath, jsonToFile);
+                manager.SaveItems(loot, lootpath);
             }else if (File.Exists(lootpath)) {
-                jsonFromFileloot = File.ReadAllText(lootpath);
-                loot = JsonConvert.DeserializeObject<List<Item>>(jsonFromFileloot, settings);
+
+                loot = manager.LoadItems(lootpath);
                 foreach (var item in loot) {
                     Image inventoryimage2 = new Image();
                     inventoryimage2.Width = 18;

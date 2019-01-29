@@ -181,7 +181,7 @@
             <Label Name="Oren" FontSize="20" Style="{StaticResource MORPHEUS}" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Padding="0" Content="Orens" Background="{x:Null}" Foreground="#DDECECEC" Width="90"/>
             <Image Source="img/ui/oren.png" Width="44"></Image>
         </StackPanel>
-        <StackPanel Grid.ColumnSpan="2" Margin="24,108,947,301" Grid.Row="1" Grid.RowSpan="3" ScrollViewer.CanContentScroll="True">
+        <StackPanel Grid.ColumnSpan="2" Margin="24,108,947,301" Grid.Row="1" Grid.RowSpan="3" ScrollViewer.CanContentScroll="True" MinHeight="300">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF28241B" Offset="0"/>
@@ -201,6 +201,7 @@
                     <Image Source="img/Swords/Sword_Mahakam_Sihil.png"></Image>
                 </Button>
                 <StackPanel Orientation="Vertical">
+                    <Label Content="Ocelový meč" Foreground="#DDFFFFFF" FontWeight="Bold"></Label>
                     <Label Content="Mahakamský sihil" Foreground="#DDFFFFFF"></Label>
                     <Label Content="Level 1" Foreground="#DDFDFDFD"></Label>
                     <Label Content="Síla 20" Foreground="#DDFDFDFD"></Label>

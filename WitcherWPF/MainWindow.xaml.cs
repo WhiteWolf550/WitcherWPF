@@ -23,6 +23,7 @@ namespace WitcherWPF {
         List<Item> items = new List<Item>();
         List<Armor> armors = new List<Armor>();
         List<Sword> swords = new List<Sword>();
+        List<Sword> playerswords = new List<Sword>();
         List<Sign> signs = new List<Sign>();
         List<Dialogues> dialog = new List<Dialogues>();
         List<Quest> qq = new List<Quest>();
@@ -54,7 +55,7 @@ namespace WitcherWPF {
             //CreateQuests();
             CreatePlayerQuests();
             //CreateArmors();
-            //CreateSwords();
+            CreateSwords();
             
             mainFrame.Navigate(new Inventory(mainFrame));
         }
@@ -67,8 +68,12 @@ namespace WitcherWPF {
             File.WriteAllText(armorpath, jsonToFile);
         }
         public void CreateSwords() {
+            swords.Add(new Sword("Ocelový meč", "Temerský ocelový meč", "Meč, který používají temerští vojáci", 1, 10, 0, 0, @"img/Swords/Sword_Mahakam_Sihil.png", 200, null, 10, "Loot"));
             swords.Add(new Sword("Ocelový meč", "Mahakamský sihil", "Meč ukován trpaslíky z té nejlepší oceli až z Mahakamu", 1, 10, 0 , 0, @"img/Swords/Sword_Mahakam_Sihil.png", 200, "Mahakam", 10, "Start"));
             swords.Add(new Sword("Stříbrný meč", "Aerondight", "Ostrý jako břitva, tento meč má svůj vlastní osud, jen čas ukáže jaký", 1, 10, 0, 0, @"img/Swords/Sword_Aerondight.png", 200, null, 0, "Start"));
+
+            playerswords.Add(swords[0]);
+            manager.SavePlayerSwords(playerswords);
             string jsonToFile = JsonConvert.SerializeObject(swords, settings);
             File.WriteAllText(swordpath, jsonToFile);
         }
