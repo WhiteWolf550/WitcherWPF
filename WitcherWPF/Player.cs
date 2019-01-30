@@ -53,6 +53,7 @@ namespace WitcherWPF {
             this.SteelAnimationSets.Add("Hit", new Uri("gifs/Geralt/geralt_fight_hit.gif", UriKind.Relative));
             this.SteelAnimationSets.Add("Finisher", new Uri("gifs/Geralt/geralt_fight_finish.gif", UriKind.Relative));
             this.SteelAnimationSets.Add("Stunned", new Uri("gifs/Geralt/geralt_fight_stunned.gif", UriKind.Relative));
+            this.SteelAnimationSets.Add("Death", new Uri("gifs/Geralt/geralt_fight_death.gif", UriKind.Relative));
             this.SteelAnimationSets.Add("Draw", new Uri("gifs/Geralt/geralt_fight_DrawSteel.gif", UriKind.Relative));
             this.SteelAnimationSets.Add("Stagger", new Uri("gifs/Geralt/geralt_fight_stagger.gif", UriKind.Relative));
             this.SteelAnimationSets.Add("Drink", new Uri("gifs/Geralt/geralt_fight_drink.gif", UriKind.Relative));
@@ -76,6 +77,7 @@ namespace WitcherWPF {
             this.SilverAnimationSets.Add("Hit", new Uri("gifs/Geralt/geralt_fight_Silverhit.gif", UriKind.Relative));
             this.SilverAnimationSets.Add("Finisher", new Uri("gifs/Geralt/geralt_fight_Silverfinish.gif", UriKind.Relative));
             this.SilverAnimationSets.Add("Stunned", new Uri("gifs/Geralt/geralt_fight_Silverstunned.gif", UriKind.Relative));
+            this.SilverAnimationSets.Add("Death", new Uri("gifs/Geralt/geralt_fight_Silverdeath.gif", UriKind.Relative));
             this.SilverAnimationSets.Add("Draw", new Uri("gifs/Geralt/geralt_fight_DrawSilver.gif", UriKind.Relative));
             this.SilverAnimationSets.Add("Dodge", new Uri("gifs/Geralt/geralt_fight_Silverdodge.gif", UriKind.Relative));
             this.SilverAnimationSets.Add("Drink", new Uri("gifs/Geralt/geralt_fight_Silverdrink.gif", UriKind.Relative));

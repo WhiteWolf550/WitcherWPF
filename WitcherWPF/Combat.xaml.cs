@@ -35,6 +35,7 @@ namespace WitcherWPF {
         DispatcherTimer AxiiDuration = new DispatcherTimer();
         DispatcherTimer AxiiChannelingTime = new DispatcherTimer();
         DispatcherTimer Stamina = new DispatcherTimer();
+        DispatcherTimer PlayerTired = new DispatcherTimer();
 
         private Frame parentFrame;
         FileManager manager = new FileManager();
@@ -45,6 +46,8 @@ namespace WitcherWPF {
         Yrden yrden = new Yrden();
         Dictionary<string, Uri> AnimationSets;
         Dictionary<string, Uri> EnemyAnimationSets = new Dictionary<string, Uri>();
+        bool AttackBlock = false;
+        int AttackCombo = 0;
         bool SteelSword;
         bool Strong;
         bool SwordChosen = false;
@@ -133,6 +136,9 @@ namespace WitcherWPF {
 
             Stamina.Interval = TimeSpan.FromSeconds(1);
             Stamina.Tick += new EventHandler(Stamina_tick);
+
+            PlayerTired.Interval = new TimeSpan(0, 0, 0, 10);
+            PlayerTired.Tick += new EventHandler(Tired_Tick);
 
 
 
@@ -267,6 +273,11 @@ namespace WitcherWPF {
             IdleAnimation();
             Axii();
         }
+        void Tired_Tick(object sender, EventArgs e) {
+            PlayerTired.Stop();
+            AttackBlock = false;
+            AttackCombo = 0;
+        }
         public void LoadPlayer() {
             playerlist = manager.LoadPlayer();
             foreach (Player item in playerlist) {
@@ -281,7 +292,7 @@ namespace WitcherWPF {
 
         }
         public void LoadEnemy() {
-            enemy = new Murderer1();
+            enemy = new Barghest();
             EnemyHP.Value = enemy.MaxHP;
             EnemyHP.ToolTip = enemy.MaxHP;
             EnemyName.Content = enemy.Name;
@@ -299,7 +310,7 @@ namespace WitcherWPF {
                     SwordAnims();
 
                 }
-                if (SwordChosen == true) {
+                if (SwordChosen == true && AttackBlock == false) {
                     if (e.Key == Key.W) {
                         DeffendAnimation();
                     } else if (e.Key == Key.A) {
@@ -543,22 +554,41 @@ namespace WitcherWPF {
         }
 
 
-        private void StrongAttack(object sender, RoutedEventArgs e) {
-            if (SwordChosen == true && PlayerAttacking == false) {
+        private void StrongAttack(object sender, RoutedEventArgs e) {           
+            if (SwordChosen == true && PlayerAttacking == false && AttackBlock == false) {
+                AttackCombo++;
+                ComboCheck();
                 StrongAttackAnimation();
                 Strong = true;
                 PlayerStrongAttackDuration.Start();
             }
             
         }
-        private void FastAttack(object sender, RoutedEventArgs e) {
-            if (SwordChosen == true && PlayerAttacking == false) {
+        private void FastAttack(object sender, RoutedEventArgs e) {           
+            if (SwordChosen == true && PlayerAttacking == false && AttackBlock == false) {
+                AttackCombo++;
+                ComboCheck();
                 FastAttackAnimation();
                 Strong = false;
                 PlayerFastAttackDuration.Start();
             }
         }
+        private void ComboCheck() {
+            if (AttackCombo >= 3) {
+                stamina -= 30;
+                EnduranceBar.Value = stamina;
+                EnduranceBar.ToolTip = EnduranceBar.Value;
+                if (stamina <= 0) {
+                    stamina = 0;
+                    AttackBlock = true;
+                    Stamina.Start();
+                    PlayerTired.Start();
+                }
+            }
+        }
+
         private void PlayerHit() {
+            AttackCombo = 0;
             int damage = 0;
             int num = 0;
             double PlayerHP = 0;
@@ -592,18 +622,21 @@ namespace WitcherWPF {
         }
         private void Deffend() {
             if (EnemyAttacking == true && EnemyStrong == false) {
+                AttackCombo = 0;
                 EnemyFastAttackDuration.Stop();
                 EnemyStaggerAnimation();
             }
         }
         private void Dodge() {
             if (EnemyAttacking == true) {
+                AttackCombo = 0;
                 EnemyStrongAttackDuration.Stop();
                 EnemyFastAttackDuration.Stop();
 
             }
         }
         private void Igni() {
+            AttackCombo = 0;
             IgniAnim = true;
             stamina -= IgniEn;
             EnduranceBar.Value = stamina;
@@ -612,6 +645,7 @@ namespace WitcherWPF {
             EnemyHitAnimation();
         }
         private void Axii() {
+            AttackCombo = 0;
             AxiiActive = true;
             stamina -= AxiiEn;
             EnduranceBar.Value = stamina;
@@ -622,6 +656,7 @@ namespace WitcherWPF {
             AxiiAnimation();
         }
         private void Yrden() {
+            AttackCombo = 0;
             YrdenActive = true;
             stamina -= YrdenEn;
             EnduranceBar.Value = stamina;
@@ -631,6 +666,7 @@ namespace WitcherWPF {
             YrdenDuration.Start();
         }
         private void Quen() {
+            AttackCombo = 0;
             QuenActive = true;
             stamina -= QuenEn;
             EnduranceBar.Value = stamina;
@@ -640,7 +676,7 @@ namespace WitcherWPF {
             QuenDuration.Start();
         }
         private void Aard() {
-
+            AttackCombo = 0;
             bool isStunned = false;
             stamina -= AardEn;
             EnduranceBar.Value = stamina;
@@ -762,22 +798,28 @@ namespace WitcherWPF {
             EnemyTimeToAttack.Stop();
             if (IgniAnim != true) {
                 int damage = player.Attack(SteelSword, Strong);
+                if (SteelSword != enemy.HurtSteelSword) {
+                    damage = damage / 3;
+                    textb.Text = "reduce!";
+                }
                 EnemyHP.Value = enemy.Hit(enemy.HP, damage);
                 EnemyHP.ToolTip = EnemyHP.Value;
-                textb.Text += "Geralt dává poškození za " + damage;
+                textb.Text = "Geralt dává poškození za " + damage;
             }else {
                 bool Burn = false;
                 int damage = 0;
                 foreach(Player item in playerlist) {
                     damage = item.Igni.Damage;
                     
-                }   
+
+                }
+                
                 int hp = enemy.HP - damage;
                 enemy.HP -= damage;
                 EnemyHP.Value = hp;
                 EnemyHP.ToolTip = EnemyHP.Value;
                 IgniAnim = false;
-                textb.Text += "Geralt dává poškození";
+                textb.Text = "Geralt dává poškození";
                 foreach(Player item in playerlist) {
                     Burn = item.Igni.Burn();
                 }

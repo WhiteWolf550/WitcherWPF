@@ -58,7 +58,7 @@ namespace WitcherWPF {
             //CreateArmors();
             //CreateSwords();
             
-            mainFrame.Navigate(new Inventory(mainFrame));
+            mainFrame.Navigate(new Combat(mainFrame));
         }
         public void CreateArmors() {
             armors.Add(new Armor("Středně těžká zbroj", "Zbroj wyzimské stráže", "Obnošená zbroj wyzimské stráže", 1, 30, 0, 0, @"img/Armors/Armor_Temeria2.png", 150, null, 10, "Loot"));

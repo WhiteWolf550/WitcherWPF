@@ -72,6 +72,7 @@
     <Compile Include="Aard.cs" />
     <Compile Include="Armor.cs" />
     <Compile Include="Axii.cs" />
+    <Compile Include="Barghest.cs" />
     <Compile Include="Character.xaml.cs">
       <DependentUpon>Character.xaml</DependentUpon>
     </Compile>
@@ -393,6 +394,15 @@
     <Resource Include="img\Armors\Armor_Temeria.png" />
     <Resource Include="img\Swords\Sword_Temeria.png" />
     <Resource Include="img\Armors\Armor_Temeria2.png" />
+    <Resource Include="gifs\Geralt\geralt_fight_death.gif" />
+    <Resource Include="gifs\Geralt\geralt_fight_Silverdeath.gif" />
+    <Resource Include="gifs\Barghest\barghest_fight_death.gif" />
+    <Resource Include="gifs\Barghest\barghest_fight_dodge.gif" />
+    <Resource Include="gifs\Barghest\barghest_fight_FastAttack.gif" />
+    <Resource Include="gifs\Barghest\barghest_fight_hit.gif" />
+    <Resource Include="gifs\Barghest\barghest_fight_idle.gif" />
+    <Resource Include="gifs\Barghest\barghest_fight_StrongAttack.gif" />
+    <Resource Include="gifs\Barghest\barghest_fight_stunned.gif" />
     <Content Include="sounds\music\The_Order.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
