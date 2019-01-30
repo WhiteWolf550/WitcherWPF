@@ -390,6 +390,9 @@
     <Resource Include="img\UI\book_back.png" />
     <Resource Include="img\UI\Sword_ico.png" />
     <Resource Include="img\UI\Armor_ico.png" />
+    <Resource Include="img\Armors\Armor_Temeria.png" />
+    <Resource Include="img\Swords\Sword_Temeria.png" />
+    <Resource Include="img\Armors\Armor_Temeria2.png" />
     <Content Include="sounds\music\The_Order.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

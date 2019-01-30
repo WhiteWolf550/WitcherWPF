@@ -56,9 +56,17 @@ namespace WitcherWPF {
         }
         public List<Armor> LoadPlayerArmors() {
             string path = @"../../saves/PlayerArmors.json";
-            string jsonFromFile = File.ReadAllText(path);
-            List<Armor> jsonread = JsonConvert.DeserializeObject<List<Armor>>(jsonFromFile, settings);
-            return jsonread;
+            try {
+                string jsonFromFile = File.ReadAllText(path);
+                List<Armor> jsonread = JsonConvert.DeserializeObject<List<Armor>>(jsonFromFile, settings);
+                return jsonread;
+            } catch {
+                File.Create(path);
+                List<Armor> jsonread = new List<Armor>();
+                return jsonread;
+            }
+            
+            
 
         }
         public List<PlayerInventory> LoadPlayerInventory() {
@@ -96,13 +104,18 @@ namespace WitcherWPF {
             File.WriteAllText(path, jsonToFilet);
         }
         public void SavePlayerSwords(List<Sword> PlayerSwords) {
-            string path = @"../../saves/PlayerSwords";
+            string path = @"../../saves/PlayerSwords.json";
             string jsonToFilet = JsonConvert.SerializeObject(PlayerSwords, settings);
             File.WriteAllText(path, jsonToFilet);
         }
         public void SavePlayerArmor(List<Armor> PlayerArmors) {
-            string path = @"../../saves/PlayerArmors";
+            string path = @"../../saves/PlayerArmors.json";
             string jsonToFilet = JsonConvert.SerializeObject(PlayerArmors, settings);
+            File.WriteAllText(path, jsonToFilet);
+        }
+        public void SavePlayer(List<Player> Player) {
+            string path = @"../../saves/Player.json";
+            string jsonToFilet = JsonConvert.SerializeObject(Player, settings);
             File.WriteAllText(path, jsonToFilet);
         }
     }

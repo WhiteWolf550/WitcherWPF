@@ -24,6 +24,7 @@ namespace WitcherWPF {
         List<Armor> armors = new List<Armor>();
         List<Sword> swords = new List<Sword>();
         List<Sword> playerswords = new List<Sword>();
+        List<Armor> playeramors = new List<Armor>();
         List<Sign> signs = new List<Sign>();
         List<Dialogues> dialog = new List<Dialogues>();
         List<Quest> qq = new List<Quest>();
@@ -55,20 +56,23 @@ namespace WitcherWPF {
             //CreateQuests();
             CreatePlayerQuests();
             //CreateArmors();
-            CreateSwords();
+            //CreateSwords();
             
             mainFrame.Navigate(new Inventory(mainFrame));
         }
         public void CreateArmors() {
+            armors.Add(new Armor("Středně těžká zbroj", "Zbroj wyzimské stráže", "Obnošená zbroj wyzimské stráže", 1, 30, 0, 0, @"img/Armors/Armor_Temeria2.png", 150, null, 10, "Loot"));
             armors.Add(new Armor("Středně těžká zbroj", "Mantikoří zbroj", "Kazajka používaná zaklínači ze školy Mantikory", 1, 50, 0, 0, @"img/Armors/Armor_Manticore.png", 200, "Manticore", 10, "Start"));
             armors.Add(new Armor("Středně těžká zbroj", "Mahakamská zbroj", "Zbroj vyrobená trpaslíky z Mahakamu", 5, 50, 0, 0, @"img/Armors/Armor_Manticore.png", 200, "Mahakam", 10, "Shop"));
             armors.Add(new Armor("Těžká zbroj", "Ocelová zbroj", "Ocelová zbroj s pevnou ocelovou hrudí a vyztuženými nárameníky", 10, 100, 2, 0, @"img/Armors/Armor_Manticore.png", 100, "None", 0, "HumanLoot"));
 
+            playeramors.Add(armors[0]);
+            manager.SavePlayerArmor(playeramors);
             string jsonToFile = JsonConvert.SerializeObject(armors, settings);
             File.WriteAllText(armorpath, jsonToFile);
         }
         public void CreateSwords() {
-            swords.Add(new Sword("Ocelový meč", "Temerský ocelový meč", "Meč, který používají temerští vojáci", 1, 10, 0, 0, @"img/Swords/Sword_Mahakam_Sihil.png", 200, null, 10, "Loot"));
+            swords.Add(new Sword("Ocelový meč", "Temerský ocelový meč", "Meč, který používají temerští vojáci", 1, 10, 0, 0, @"img/Swords/Sword_Temeria.png", 200, null, 10, "Loot"));
             swords.Add(new Sword("Ocelový meč", "Mahakamský sihil", "Meč ukován trpaslíky z té nejlepší oceli až z Mahakamu", 1, 10, 0 , 0, @"img/Swords/Sword_Mahakam_Sihil.png", 200, "Mahakam", 10, "Start"));
             swords.Add(new Sword("Stříbrný meč", "Aerondight", "Ostrý jako břitva, tento meč má svůj vlastní osud, jen čas ukáže jaký", 1, 10, 0, 0, @"img/Swords/Sword_Aerondight.png", 200, null, 0, "Start"));
 

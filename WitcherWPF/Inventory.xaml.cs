@@ -35,15 +35,24 @@ namespace WitcherWPF
         static string jsonFromFile = File.ReadAllText(ipath);
         List<Item> items = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
         static string jsonFromFilepl = File.ReadAllText(playerpath);
-        List<Player> playerinfo = JsonConvert.DeserializeObject<List<Player>>(jsonFromFilepl, settings);
+        List<Player> playerinfo = new List<Player>();
+        List<Sword> sword = new List<Sword>();
+        List<Armor> armor = new List<Armor>();
+        List<PlayerInventory> pinventory = new List<PlayerInventory>();
         PlayerInventory inventory = new PlayerInventory();
         Dictionary<MenuItem, PlayerInventory> buttonitems = new Dictionary<MenuItem, PlayerInventory>();
+        Dictionary<MenuItem, Sword> swordeq = new Dictionary<MenuItem, Sword>();
+        Dictionary<MenuItem, Armor> armoreq = new Dictionary<MenuItem, Armor>();
 
         private Frame parentFrame;
         
         public Inventory()
         {
             InitializeComponent();
+            playerinfo = manager.LoadPlayer();
+            sword = manager.LoadPlayerSwords();
+            armor = manager.LoadPlayerArmors();
+            pinventory = manager.LoadPlayerInventory();
             
         }
         public Inventory(Frame parentFrame) : this() {
@@ -55,48 +64,38 @@ namespace WitcherWPF
             player.LoadOrens(Oren);
             LoadInventory();
             LoadGear();
+            LoadEquipSwords();
             if (EnduranceBar.Value != EnduranceBar.Maximum ) {
                 StaminaRegen();
             }
         }
 
         public void GetMap(object sender, RoutedEventArgs e) {
-            string jsonToFile = JsonConvert.SerializeObject(playerinfo, settings);
-            File.WriteAllText(playerpath, jsonToFile);
+            
             parentFrame.Navigate(new Map(parentFrame));
         }
         public void GetQuests(object sender, RoutedEventArgs e) {
-            string jsonToFile = JsonConvert.SerializeObject(playerinfo, settings);
-            File.WriteAllText(playerpath, jsonToFile);
+            
             parentFrame.Navigate(new Quests(parentFrame));
         }
         public void GetJournal(object sender, RoutedEventArgs e) {
-            string jsonToFile = JsonConvert.SerializeObject(playerinfo, settings);
-            File.WriteAllText(playerpath, jsonToFile);
+            
             parentFrame.Navigate(new Journal(parentFrame));
         }
         public void GetCharacter(object sender, RoutedEventArgs e) {
-            string jsonToFile = JsonConvert.SerializeObject(playerinfo, settings);
-            File.WriteAllText(playerpath, jsonToFile);
+            
             parentFrame.Navigate(new Character(parentFrame));
         }
         public void GetAlchemy(object sender, RoutedEventArgs e) {
 
         }
         public void GetLocation(object sender, RoutedEventArgs e) {
-            string jsonToFile = JsonConvert.SerializeObject(playerinfo, settings);
-            File.WriteAllText(playerpath, jsonToFile);
+            
             parentFrame.Navigate(new Location(parentFrame));
         }
         public void LoadInventory() {
-            string jsonFromFilein = File.ReadAllText(playerinvpath);
-            List<PlayerInventory> inventory = new List<PlayerInventory>();
-            if (jsonFromFilein.Length > 0) {
-                inventory = JsonConvert.DeserializeObject<List<PlayerInventory>>(jsonFromFilein, settings);
-            } else {
-                
-            }
-            foreach (var item in inventory) {
+            
+            foreach (var item in pinventory) {
                 string orens = "";
                 int p = item.Item.Price;
                 int sell = p / 2;
@@ -137,14 +136,24 @@ namespace WitcherWPF
             }
         }
         public void LoadEquipSwords() {
-            List<Sword> playerswords = manager.LoadPlayerSwords();
-            foreach(Sword item in playerswords) {
+            
+            foreach(Sword item in sword) {
+                int sell = item.Price / 2;
+                string orens = inventory.Orens(sell);
                 StackPanel ItemWrap = new StackPanel();
                 ItemWrap.Orientation = Orientation.Horizontal;
                 Image ItemImage = new Image();
                 ItemImage.Source = new BitmapImage(new Uri(item.Source, UriKind.Relative));
+                ContextMenu cmenu = new ContextMenu();
+                MenuItem equip = new MenuItem();
+                equip.Header = "Vybavit předmět";
+                equip.Click += Equip;
+                equip.Tag = item.Type;
+                cmenu.Items.Add(equip);
                 Button ItemButton = new Button();
+                ItemButton.ContextMenu = cmenu;
                 ItemButton.Content = ItemImage;
+                ItemButton.ToolTip = item.Type + "\n" + "\n" + item.Name + "\n" + "\n" + item.Description + "\n" + "\n" + "Útočná síla: " + item.Damage + "\n" + "Šance na krvácení: " + item.Bleedingchance + "%" + "\n" + "Šance na otrávení: " + item.Poisonchance + "%" + "\n" + "\n" + "Lze prodat za: " + sell + orens;
                 ItemButton.Height = 90;
                 ItemButton.Width = 69;
                 ItemButton.Background = Brushes.Transparent;
@@ -153,11 +162,15 @@ namespace WitcherWPF
                 ItemInfo.Orientation = Orientation.Vertical;
                 Label SwordType = new Label();
                 SwordType.Content = item.Type;
+                SwordType.Foreground = Brushes.WhiteSmoke;
                 Label SwordName = new Label();
                 SwordName.Content = item.Name;
+                SwordName.Foreground = Brushes.WhiteSmoke;
                 Label SwordLevel = new Label();
+                SwordLevel.Foreground = Brushes.WhiteSmoke;
                 SwordLevel.Content = item.Level;
                 Label SwordDMG = new Label();
+                SwordDMG.Foreground = Brushes.WhiteSmoke;
                 SwordDMG.Content = item.Damage;
 
                 ItemInfo.Children.Add(SwordType);
@@ -166,29 +179,68 @@ namespace WitcherWPF
                 ItemInfo.Children.Add(SwordDMG);
                 ItemWrap.Children.Add(ItemButton);
                 ItemWrap.Children.Add(ItemInfo);
+                EquipWrap.Children.Add(ItemWrap);
+                swordeq.Add(equip, item);
+            }
+        }
+        public void LoadEquipArmor() {
+            
+            if (armor != null) {
+                foreach (Armor item in armor) {
+                    int sell = item.Price / 2;
+                    string orens = inventory.Orens(sell);
+                    StackPanel ItemWrap = new StackPanel();
+                    ItemWrap.Orientation = Orientation.Horizontal;
+                    Image ItemImage = new Image();
+                    ItemImage.Source = new BitmapImage(new Uri(item.Source, UriKind.Relative));
+                    ContextMenu cmenu = new ContextMenu();
+                    MenuItem equip = new MenuItem();
+                    equip.Header = "Vybavit předmět";
+                    equip.Click += Equip;
+                    equip.Tag = "Zbroj";
+                    cmenu.Items.Add(equip);
+                    Button ItemButton = new Button();
+                    ItemButton.ContextMenu = cmenu;
+                    ItemButton.Content = ItemImage;
+                    ItemButton.ToolTip = item.Type + "\n" + "\n" + item.Name + "\n" + "\n" + item.Description + "\n" + "\n" + "Zbroj: " + item.Armorvalue + "\n" + "Odolnost proti krvácení: " + item.Bleedingresistance + "%" + "\n" + "Odolnost proti otrávení: " + item.Poisonresistance + "%" + "\n" + "\n" + "Lze prodat za: " + sell + orens;
+                    ItemButton.Height = 90;
+                    ItemButton.Width = 69;
+                    ItemButton.Background = Brushes.Transparent;
+                    ItemButton.BorderBrush = Brushes.Transparent;
+                    StackPanel ItemInfo = new StackPanel();
+                    ItemInfo.Orientation = Orientation.Vertical;
+                    Label ArmorType = new Label();
+                    ArmorType.Content = item.Type;
+                    ArmorType.Foreground = Brushes.WhiteSmoke;
+                    Label ArmorName = new Label();
+                    ArmorName.Content = item.Name;
+                    ArmorName.Foreground = Brushes.WhiteSmoke;
+                    Label ArmorLevel = new Label();
+                    ArmorLevel.Foreground = Brushes.WhiteSmoke;
+                    ArmorLevel.Content = item.Level;
+                    Label ArmorValue = new Label();
+                    ArmorValue.Foreground = Brushes.WhiteSmoke;
+                    ArmorValue.Content = item.Armorvalue;
+
+                    ItemInfo.Children.Add(ArmorType);
+                    ItemInfo.Children.Add(ArmorName);
+                    ItemInfo.Children.Add(ArmorLevel);
+                    ItemInfo.Children.Add(ArmorValue);
+                    ItemWrap.Children.Add(ItemButton);
+                    ItemWrap.Children.Add(ItemInfo);
+                    EquipWrap.Children.Add(ItemWrap);
+                    armoreq.Add(equip, item);
+                }
             }
         }
         public void LoadGear() {
-            string jsonFromFilein = File.ReadAllText(playergearpath);
-            List<Player> gear = new List<Player>();
-            if (jsonFromFilein.Length > 0) {
-                gear = JsonConvert.DeserializeObject<List<Player>>(jsonFromFilein, settings);
-            } else {
-
-            }
-            var matches = gear.Where(s => s.SteelSword.Type == "Ocelový meč");
-            foreach (var item in gear) {
+            
+            var matches = playerinfo.Where(s => s.SteelSword.Type == "Ocelový meč");
+            foreach (var item in playerinfo) {
                 //-------------------STEEL SWORD----------------
-                string orens = "";
-                int p = item.SteelSword.Price;
-                int sell = p / 2;
-                if (sell == 1) {
-                    orens = "orén";
-                } else if (sell > 1 && sell < 5) {
-                    orens = "orény";
-                } else {
-                    orens = "orénů";
-                }
+                int sell = item.SteelSword.Price / 2;
+                string orens = inventory.Orens(sell);
+                
                 Image inventoryimage = new Image();
                 inventoryimage.Source = new BitmapImage(new Uri(item.SteelSword.Source, UriKind.Relative));
                 ContextMenu cm = new ContextMenu();
@@ -209,18 +261,10 @@ namespace WitcherWPF
                 
                 
             }
-            foreach (var item in gear) {
+            foreach (var item in playerinfo) {
                 //-------------------SILVER SWORD----------------
-                string orens = "";
-                int p = item.SilverSword.Price;
-                int sell = p / 2;
-                if (sell == 1) {
-                    orens = "orén";
-                } else if (sell > 1 && sell < 5) {
-                    orens = "orény";
-                } else {
-                    orens = "orénů";
-                }
+                int sell = item.SilverSword.Price / 2;
+                string orens = inventory.Orens(sell);
                 Image inventoryimage = new Image();
                 inventoryimage.Source = new BitmapImage(new Uri(item.SilverSword.Source, UriKind.Relative));
                 ContextMenu cm = new ContextMenu();
@@ -239,18 +283,10 @@ namespace WitcherWPF
                 silver.Background = Brushes.Transparent;
                 SilverSlot.Children.Add(silver);
             }
-            foreach(var item in gear) {
+            foreach(var item in playerinfo) {
                 //-------------------ARMOR----------------
-                string orens = "";
-                int p = item.Armor.Price;
-                int sell = p / 2;
-                if (sell == 1) {
-                    orens = "orén";
-                } else if (sell > 1 && sell < 5) {
-                    orens = "orény";
-                } else {
-                    orens = "orénů";
-                }
+                int sell = item.Armor.Price / 2;
+                string orens = inventory.Orens(sell);
                 Image inventoryimage = new Image();
                 inventoryimage.Source = new BitmapImage(new Uri(item.Armor.Source, UriKind.Relative));
                 ContextMenu cm = new ContextMenu();
@@ -296,6 +332,9 @@ namespace WitcherWPF
             BookName.Text = inv.Item.Name;
             BookContent.Text = inv.Item.Content;
         }
+        public void CloseBook(object sender, RoutedEventArgs e) {
+            Book.Visibility = Visibility.Hidden;
+        }
         public void StaminaRegen() {
             Stamina.Start();
         }
@@ -314,5 +353,70 @@ namespace WitcherWPF
             }
             
         }
+
+        private void LoadSwords_Click(object sender, RoutedEventArgs e) {
+            EquipWrap.Children.Clear();
+            LoadEquipSwords();
+        }
+        private void LoadArmors_Click(object sender, RoutedEventArgs e) {
+            EquipWrap.Children.Clear();
+            LoadEquipArmor();
+        }
+        private void Equip(object sender, RoutedEventArgs e) {
+            MenuItem menuitem = (sender as MenuItem);
+            if (menuitem.Tag.ToString() == "Stříbrný meč") {
+                EquipSilver(menuitem);
+            }else if (menuitem.Tag.ToString() == "Ocelový meč") {
+                EquipSteel(menuitem);
+            } else if (menuitem.Tag.ToString() == "Zbroj") {
+                EquipArmor(menuitem);
+            }
+            
+        }
+        public void EquipSteel(MenuItem itemq) {
+            //List<Player> player = manager.LoadPlayer();
+            //List<Sword> sword = manager.LoadPlayerSwords();
+            
+            foreach(Player item in playerinfo) {
+                sword.Add(item.SteelSword);
+                item.SteelSword = swordeq[itemq];
+            }
+            sword.Remove(swordeq[itemq]);
+            ReloadInventory();
+        }
+        public void EquipSilver(MenuItem itemq) {
+            //List<Player> player = manager.LoadPlayer();
+            //List<Sword> sword = manager.LoadPlayerSwords();
+
+            foreach (Player item in playerinfo) {
+                sword.Add(item.SilverSword);
+                item.SilverSword = swordeq[itemq];
+            }
+            sword.Remove(swordeq[itemq]);
+            ReloadInventory();
+        }
+        public void EquipArmor(MenuItem itemq) {
+            //List<Player> player = manager.LoadPlayer();
+            //List<Armor> armor = manager.LoadPlayerArmors();
+
+            foreach (Player item in playerinfo) {
+                armor.Add(item.Armor);
+                item.Armor = armoreq[itemq];
+            }
+            armor.Remove(armoreq[itemq]);
+            ReloadInventory();
+        }
+        private void ReloadInventory() {
+            //manager.SavePlayer(playerinfo);
+            //manager.SavePlayerArmor(armor);
+            //manager.SavePlayerSwords(sword);
+            EquipWrap.Children.Clear();
+            SilverSlot.Children.Clear();
+            ArmorSlot.Children.Clear();
+            SteelSlot.Children.Clear();
+            LoadGear();
+            
+        }
+
     }
 }

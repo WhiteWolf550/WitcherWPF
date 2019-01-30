@@ -61,5 +61,15 @@ namespace WitcherWPF
             List<PlayerInventory> inventory = manager.LoadPlayerInventory();
 
         }
+        public string Orens(int sell) {
+            List<Sword> inventory = manager.LoadPlayerSwords();           
+            if (sell == 1) {
+                return "orén";
+            } else if (sell > 1 && sell < 5) {
+                return "orény";
+            } else {
+                return "orénů";
+            }
+        }
     }
 }

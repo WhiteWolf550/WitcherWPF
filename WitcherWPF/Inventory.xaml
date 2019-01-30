@@ -189,55 +189,31 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
             <StackPanel Orientation="Horizontal">
-                <Button Background="#FF211D15" BorderBrush="{x:Null}" Height="66" Width="106">
+                <Button Click="LoadArmors_Click" Background="#FF211D15" BorderBrush="{x:Null}" Height="66" Width="106">
                     <Image Source="img/UI/Armor_ico.png"></Image>
                 </Button>
-                <Button Background="#FF211D15" BorderBrush="{x:Null}" Height="66" Width="103">
+                <Button Click="LoadSwords_Click" Background="#FF211D15" BorderBrush="{x:Null}" Height="66" Width="103">
                     <Image Source="img/UI/Sword_ico.png" Height="56" Width="81"></Image>
                 </Button>
+
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="90" Width="69">
-                    <Image Source="img/Swords/Sword_Mahakam_Sihil.png"></Image>
-                </Button>
-                <StackPanel Orientation="Vertical">
-                    <Label Content="Ocelový meč" Foreground="#DDFFFFFF" FontWeight="Bold"></Label>
-                    <Label Content="Mahakamský sihil" Foreground="#DDFFFFFF"></Label>
-                    <Label Content="Level 1" Foreground="#DDFDFDFD"></Label>
-                    <Label Content="Síla 20" Foreground="#DDFDFDFD"></Label>
-                    <Label Content="Cena 200" Foreground="#DDFDFDFD"></Label>
-                </StackPanel>
+            <StackPanel Orientation="Vertical" MinHeight="310" Name="EquipWrap">
+
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="90" Width="69">
-                    <Image Source="img/Swords/Sword_Mahakam_Sihil.png"></Image>
-                </Button>
-                <StackPanel Orientation="Vertical">
-                    <Label Content="Mahakamský sihil" Foreground="#DDFFFFFF"></Label>
-                    <Label Content="Level 1" Foreground="#DDFDFDFD"></Label>
-                    <Label Content="Síla 20" Foreground="#DDFDFDFD"></Label>
-                    <Label Content="Cena 200" Foreground="#DDFDFDFD"></Label>
-                </StackPanel>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="90" Width="69">
-                    <Image Source="img/Swords/Sword_Aerondight.png"></Image>
-                </Button>
-                <StackPanel Orientation="Vertical">
-                    <Label Content="Aerondight" Foreground="#DDFFFFFF"></Label>
-                    <Label Content="Level 1" Foreground="#DDFDFDFD"></Label>
-                    <Label Content="Síla 20" Foreground="#DDFDFDFD"></Label>
-                    <Label Content="Cena 200" Foreground="#DDFDFDFD"></Label>
-                </StackPanel>
-            </StackPanel>
-            
+
+
         </StackPanel>
-        <StackPanel Visibility="Hidden" Name="Book" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Width="300" Height="400" Margin="379,0,390,266">
+        <StackPanel Visibility="Visible" Name="Book" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2" Width="300" Height="400" Margin="379,0,390,266">
             <StackPanel.Background>
                 <ImageBrush ImageSource="img/UI/book_back.png"/>
             </StackPanel.Background>
             <TextBlock Name="BookName" Text="BookName" FontSize="30" TextAlignment="Center"></TextBlock>
-            <TextBlock Name="BookContent" Text="Content" FontSize="20" Height="360" TextWrapping="Wrap" ScrollViewer.CanContentScroll="True"></TextBlock>
+            <TextBlock ScrollViewer.VerticalScrollBarVisibility="Visible" Name="BookContent" Text="sfksoijeigjeiughshnhanieugnigb" FontSize="20" MinHeight="320" TextWrapping="Wrap" ScrollViewer.CanContentScroll="True" Margin="10,0"></TextBlock>
+            <Button Style="{StaticResource MORPHEUS}" FontWeight="Bold" Click="CloseBook" Content="Zavřít" FontSize="20" Foreground="Black" BorderBrush="{x:Null}" Height="36" Opacity="0.9">
+                <Button.Background>
+                    <ImageBrush ImageSource="img/UI/book_back.png"/>
+                </Button.Background>
+            </Button>
         </StackPanel>
 
 
