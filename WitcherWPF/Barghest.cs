@@ -19,6 +19,9 @@ namespace WitcherWPF
             this.AnimationSet.Add("Stun", new Uri(@"gifs/Barghest/barghest_fight_stunned.gif", UriKind.Relative));
             this.AnimationSet.Add("Death", new Uri("gifs/Barghest/barghest_fight_death.gif", UriKind.Relative));
 
+            this.SoundSet = new Dictionary<string, Uri>();
+            this.SoundSet.Add("Strong", new Uri(@"gifs\Barghest/barghest_fight_StrongAttack.gif", UriKind.Relative));
+
             this.HurtSteelSword = false;
             this.MaxHP = 100;
             this.HP = this.MaxHP;

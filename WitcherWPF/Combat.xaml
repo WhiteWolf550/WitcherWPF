@@ -15,21 +15,50 @@
         <Image gif:ImageBehavior.AnimatedSource="gifs/Geralt/geralt_fight_NoSword.gif"  RenderTransformOrigin="1.715,0.504" Margin="98,40,302,226" Name="Geralt"  gif:ImageBehavior.AnimationCompleted="PlayerAnimationEnd" Source="gifs/Geralt/geralt_fight_idle.gif" />
         <Image gif:ImageBehavior.AnimatedSource="gifs/Barghest/barghest_fight_idle.gif"  RenderTransformOrigin="1.715,0.504" Margin="310,0,60,254" Name="Enemy"  gif:ImageBehavior.AnimationCompleted="EnemyAnimationEnd" Source="gifs/NPC/npc_fight_idle.gif" />
         <Image RenderTransformOrigin="1.715,0.504" Margin="540,150,358,366" Name="GIFSign" Visibility="Hidden"  gif:ImageBehavior.AnimationCompleted="SignEnd" Source="gifs/FX/Aard.gif" />
+        <Image Panel.ZIndex="1" Source="img/UI/stat_ui.png" Margin="0,0,972,781"/>
+        <Image Panel.ZIndex="2" Source="img/UI/medallion.png" Margin="54,0,1217,797"></Image>
         <Image RenderTransformOrigin="1.715,0.504" Margin="72,33,372,174" Name="GIFSelf" Visibility="Hidden"  gif:ImageBehavior.AnimationCompleted="SignEnd" Source="gifs/FX/Quen.gif" />
         <Image RenderTransformOrigin="1.715,0.504" Margin="507,239,95,79" Name="GIFBehind" Visibility="Hidden"  gif:ImageBehavior.AnimationCompleted="SignEnd" Source="gifs/FX/Yrden.gif" />
-        
-        
+
+
         <Rectangle Fill="Black" Opacity="0.5" Name="Blackout" Visibility="Hidden" ></Rectangle>
-        <TextBox Background="Black" Foreground="Orange" TextAlignment="Left"  VerticalContentAlignment="Top"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Name="textb" Width="314" Height="138" Margin="0,0,0,756"></TextBox>
-        <Label HorizontalContentAlignment="Left" Content="Geralt" FontSize="40" Padding="0" Margin="310,612,815,226" Background="{x:Null}" Foreground="#DDFFFFFF"></Label>
+        <TextBox Background="Black" Foreground="Orange" TextAlignment="Left"  VerticalContentAlignment="Top"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Name="textb" Width="314" Height="138"/>
+
         <Label  HorizontalContentAlignment="Right" MinWidth="100" Name="EnemyName" Content="EnemyName" FontSize="40" Padding="0" Margin="876,607,255,231" Background="{x:Null}" Foreground="#DDFFFFFF"></Label>
-        <StackPanel Margin="261,668,766,136" MinWidth="400" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="100">
-            <ProgressBar Name="HealthBar" Margin="5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Minimum="0" Maximum="100" Value="30" Width="300" Height="20" Grid.Column="1" Grid.Row="3" Background="#FF919191" Foreground="#FFD21919"></ProgressBar>
-            <ProgressBar Name="EnduranceBar" Margin="5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Minimum="0" Maximum="100" Value="60" Width="300" Height="20" Grid.Column="1" Grid.Row="3" Background="#FF919191" Foreground="#FFE2C234"></ProgressBar>
-            <ProgressBar Name="ToxicityBar" Margin="5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Minimum="0" Maximum="100" Value="10" Width="300" Height="20" Grid.Column="1" Grid.Row="3" Background="#FF919191" Foreground="#FF2FAC13"></ProgressBar>
-        </StackPanel>
+
+        <ProgressBar Padding="0" Name="EnduranceBar" Margin="194,0,1046,813" VerticalAlignment="Bottom" HorizontalAlignment="Center" Minimum="0" Maximum="100" Value="100" Width="187" Height="12" Background="#FF303030">
+            <ProgressBar.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF929900" Offset="0"/>
+                    <GradientStop Color="#FFDCE611" Offset="0.993"/>
+                </LinearGradientBrush>
+            </ProgressBar.Foreground>
+        </ProgressBar>
+        <ProgressBar Panel.ZIndex="0" Padding="0" x:Name="HealthBar" Margin="194,0,1046,825" VerticalAlignment="Bottom" HorizontalAlignment="Center" Minimum="0" Maximum="100" Value="100" Width="187" Height="9" Background="#FF303030">
+            <ProgressBar.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF550000" Offset="0"/>
+                    <GradientStop Color="#FFF70000" Offset="1"/>
+                </LinearGradientBrush>
+            </ProgressBar.Foreground>
+        </ProgressBar>
+        <ProgressBar Padding="0" Name="ToxicityBar" Margin="192,0,1044,802" VerticalAlignment="Bottom" HorizontalAlignment="Center" Minimum="0" Maximum="100" Value="50" Width="191" Height="11" Background="#FF303030">
+            <ProgressBar.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF1B7800" Offset="0"/>
+                    <GradientStop Color="#FF42FF0B" Offset="1"/>
+                </LinearGradientBrush>
+            </ProgressBar.Foreground>
+        </ProgressBar>
         <StackPanel Margin="825,668,202,196" MinWidth="400" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <ProgressBar Padding="0" Name="EnemyHP" Margin="5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Minimum="0" Maximum="100" Value="30" Width="300" Height="20" Grid.Column="1" Grid.Row="3" Background="#FF919191" Foreground="#FFD21919"></ProgressBar>
+            <ProgressBar Padding="0" Name="EnemyHP" Margin="5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Minimum="0" Maximum="100" Value="30" Width="300" Height="20" Grid.Column="1" Grid.Row="3" Background="#FF4B4B4B">
+                <ProgressBar.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFA00E0E" Offset="0"/>
+                        <GradientStop Color="#FFD41717" Offset="1"/>
+                    </LinearGradientBrush>
+                </ProgressBar.Foreground>
+            </ProgressBar>
         </StackPanel>
         <StackPanel Name="Signs" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top" MinHeight="50" MinWidth="100">
             <StackPanel Orientation="Horizontal">
@@ -48,6 +77,18 @@
             </StackPanel>
 
         </StackPanel>
-        <Button Click="Inventory" Content="Inventory" Width="100" Margin="1072,10,255,852"></Button>
+        <Button Click="Inventory" Margin="1270,10,10,762" Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto">
+            <Image Source="img/UI/inventory_icon.png" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <local:DeathMenu Panel.ZIndex="5" Visibility="Hidden" Opacity="0" x:Name="Deathmenu"></local:DeathMenu>
     </Grid>
 </Page>

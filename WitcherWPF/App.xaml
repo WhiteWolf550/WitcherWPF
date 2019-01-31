@@ -9,6 +9,10 @@
                 <Setter Property="TextElement.FontFamily"
                 Value="pack://application:,,,/fonts/MORPHEUS.TTF#MORPHEUS"/>
             </Style>
+            <Style x:Key="MORPHEUS2">
+                <Setter Property="TextElement.FontFamily"
+                Value="pack://application:,,,/fonts/MORPHEUS2.TTF#MORPHEUS2"/>
+            </Style>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />

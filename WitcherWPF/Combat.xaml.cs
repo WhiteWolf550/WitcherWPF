@@ -89,10 +89,13 @@ namespace WitcherWPF {
         public Combat(Frame parentFrame, bool frominventory) : this() {
             this.parentFrame = parentFrame;
             this.frominventory = frominventory;
+            Deathmenu.Load.Click += new RoutedEventHandler(LoadGame);
+            Deathmenu.Exit.Click += new RoutedEventHandler(ExitGame);
             StaminaCheck();
             LoadEnemy();
             LoadPlayer();
             SetTimers();
+
         }
         public void SetTimers() {
             int Yrdendur = 0;
@@ -296,8 +299,12 @@ namespace WitcherWPF {
             if (frominventory == false) {
                 NoSwordAnimation();
             }else {
-                EnemyTimeToAttack.Start();
-                IdleAnimation();
+                if (SwordChosen == true) {
+                    EnemyTimeToAttack.Start();
+                    IdleAnimation();
+                }else {
+                    NoSwordAnimation();
+                }
             }
         }
         public void LoadEnemy() {
@@ -312,7 +319,14 @@ namespace WitcherWPF {
                 EnemyName.Content = EnemName;
             }
             EnemyAnimationSets = enemy.AnimationSet;
-            EnemyIdleAnimation();
+            if (EnemyCheck() != true) {
+                EnemyIdleAnimation();
+            }else {
+                Enemy.Visibility = Visibility.Hidden;
+                EnemyTimeToAttack.Stop();
+                EnemyFastAttackDuration.Stop();
+                EnemyStrongAttackDuration.Stop();
+            }
 
         }
         public void Crossway(object sender, KeyEventArgs e) {
@@ -356,7 +370,7 @@ namespace WitcherWPF {
             
             PlayerAttacking = false;
             CanPlayerTouchSword = false;
-            PlayerDeath();
+            PlayerDeath(true);
 
             
         }
@@ -364,7 +378,7 @@ namespace WitcherWPF {
             EnemyAttacking = false;
             CanEnemyTouchSword = false;
             EnemyDeath();
-            PlayerDeath();
+            PlayerDeath(false);
             
 
         }
@@ -383,17 +397,23 @@ namespace WitcherWPF {
 
             }
         }
-        public void PlayerDeath() {
+        public void PlayerDeath(bool hide) {
             if (PlayerCheck() == true) {
                 EnemyCanAttack = false;
-                Geralt.Visibility = Visibility.Hidden;
+                if (hide == true) {
+                    Geralt.Visibility = Visibility.Hidden;
+                    
+                }
                 EnemyTimeToAttack.Stop();
                 EnemyStrongAttackDuration.Stop();
                 EnemyFastAttackDuration.Stop();
                 HealthBar.Value = 0;
                 HealthBar.ToolTip = 0;
+                Stamina.Stop();
             } else {
-                IdleAnimation();
+                if (hide == true) {
+                    IdleAnimation();
+                }
             }
         }
         public void StrongAttackAnimation() {
@@ -591,7 +611,7 @@ namespace WitcherWPF {
             image.UriSource = AnimationSets["Death"];
             image.EndInit();
             ImageBehavior.SetAnimatedSource(Geralt, image);
-            ImageBehavior.SetRepeatBehavior(Geralt, RepeatBehavior.Forever);
+            ImageBehavior.SetRepeatBehavior(Geralt, new RepeatBehavior(1));
         }
 
 
@@ -619,6 +639,7 @@ namespace WitcherWPF {
                 stamina -= 30;
                 EnduranceBar.Value = stamina;
                 EnduranceBar.ToolTip = EnduranceBar.Value;
+                Stamina.Start();
                 if (stamina <= 0) {
                     stamina = 0;
                     AttackBlock = true;
@@ -659,6 +680,7 @@ namespace WitcherWPF {
             HealthBar.ToolTip = PlayerHP;
             if (PlayerCheck() == true) {
                 EnemyCanAttack = false;
+                DeathScreenShow();
                 DeathAnimation();
 
             }else {
@@ -915,12 +937,32 @@ namespace WitcherWPF {
             manager.SavePlayer(playerlist);
             EnemyHealthPoints = EnemyHP.Value;
             EnemName = enemy.Name;
+            Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Crossway);
             parentFrame.Navigate(new Inventory(parentFrame, true));
             
         }
         public void PotButClose(object sender, RoutedEventArgs e) {
 
         }
-        
+        public void DeathScreenShow() {
+            Deathmenu.Visibility = Visibility.Visible;
+            var animation = new DoubleAnimation {
+                To = 1,
+                BeginTime = TimeSpan.FromSeconds(1),
+                Duration = TimeSpan.FromSeconds(5),
+                FillBehavior = FillBehavior.Stop
+            };
+
+            animation.Completed += (s, a) => Deathmenu.Visibility = Visibility.Visible;
+            animation.Completed += (s, a) => Deathmenu.Opacity = 1;
+            Deathmenu.BeginAnimation(UIElement.OpacityProperty, animation);
+        }
+        private void LoadGame(object sender, RoutedEventArgs e) {
+            parentFrame.Navigate(new Combat(parentFrame, false));
+        }
+        private void ExitGame(object sender, RoutedEventArgs e) {
+            System.Windows.Application.Current.Shutdown();
+        }
+
     }
 }

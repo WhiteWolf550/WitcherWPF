@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace WitcherWPF {
     class Enemy {
         public Dictionary<string, Uri> AnimationSet { get; set; }
+        public Dictionary<string, Uri> SoundSet { get; set; }
         public int MaxHP { get; set; }
         public int HP { get; set; }
         public string Name { get; set; }

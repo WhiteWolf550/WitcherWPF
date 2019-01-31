@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="WitcherWPF.DeathMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WitcherWPF"
+             mc:Ignorable="d" 
+             Height="894" Width="1426.666">
+    <Grid>
+        <Rectangle Fill="Black"></Rectangle>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Image Source="img/UI/Skull.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="380"></Image>
+            <Label Style="{StaticResource MORPHEUS}" FontWeight="Bold" Content="JSI MRTVÝ" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="70" Foreground="#DDFFFFFF"></Label>
+            <Button Name="Load"  Content="Načíst hru" FontSize="60" Background="{x:Null}" BorderBrush="{x:Null}" Height="86" Foreground="White"></Button>
+            <Button Name="Exit"  Content="Ukončit hru" FontSize="60" Background="{x:Null}" BorderBrush="{x:Null}" Height="86"></Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

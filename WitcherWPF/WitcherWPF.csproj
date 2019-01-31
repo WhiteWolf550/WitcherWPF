@@ -79,6 +79,9 @@
     <Compile Include="Combat.xaml.cs">
       <DependentUpon>Combat.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DeathMenu.xaml.cs">
+      <DependentUpon>DeathMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogue.xaml.cs">
       <DependentUpon>Dialogue.xaml</DependentUpon>
     </Compile>
@@ -126,6 +129,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Combat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DeathMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -201,6 +208,7 @@
     </EmbeddedResource>
     <None Include="dialogues\DialoguePrologue.json" />
     <Resource Include="fonts\MORPHEUS.TTF" />
+    <Resource Include="fonts\MORPHEUS2.TTF" />
     <None Include="gamefiles\GameItems.json" />
     <None Include="gamefiles\Quests.json" />
     <None Include="packages.config" />
@@ -403,6 +411,10 @@
     <Resource Include="gifs\Barghest\barghest_fight_idle.gif" />
     <Resource Include="gifs\Barghest\barghest_fight_StrongAttack.gif" />
     <Resource Include="gifs\Barghest\barghest_fight_stunned.gif" />
+    <Resource Include="img\UI\Skull.png" />
+    <Resource Include="img\UI\inventory_icon.png" />
+    <Resource Include="img\UI\stat_ui.png" />
+    <Resource Include="img\UI\medallion.png" />
     <Content Include="sounds\music\The_Order.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WitcherWPF"
         mc:Ignorable="d"
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
-        Title="MainWindow" Height="894" Width="1426.666" ResizeMode="NoResize" >
+        Title="The Witcher: Witcher's Secrets" Height="894" Width="1426.666" ResizeMode="NoResize" Icon="img/UI/medallion.png" >
     <Grid>
         <Frame Name="mainFrame" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
