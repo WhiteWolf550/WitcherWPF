@@ -48,5 +48,6 @@
             </StackPanel>
 
         </StackPanel>
+        <Button Click="Inventory" Content="Inventory" Width="100" Margin="1072,10,255,852"></Button>
     </Grid>
 </Page>

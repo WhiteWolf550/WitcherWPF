@@ -52,7 +52,7 @@ namespace WitcherWPF {
             SetLocation();
         }
         public void GetInventory(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Inventory(parentFrame));
+            parentFrame.Navigate(new Inventory(parentFrame, false));
         }
         public void GetDialogue(object sender, RoutedEventArgs e) {
             Button button = (sender as Button);

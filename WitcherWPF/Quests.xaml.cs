@@ -37,7 +37,7 @@ namespace WitcherWPF
             LoadQuests();
         }
         public void GetInventory(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Inventory(parentFrame));
+            parentFrame.Navigate(new Inventory(parentFrame, false));
         }
         public void GetMap(object sender, RoutedEventArgs e) {
             parentFrame.Navigate(new Map(parentFrame));

@@ -27,6 +27,7 @@ namespace WitcherWPF
         static JsonSerializerSettings settings = new JsonSerializerSettings {
             TypeNameHandling = TypeNameHandling.All
         };
+        public bool Combat;
         static string ipath = @"../../gamefiles/GameItems.json";
         static string playerinvpath = @"../../saves/PlayerInventory.json";
         static string playergearpath = @"../../saves/Player.json";
@@ -35,7 +36,7 @@ namespace WitcherWPF
         static string jsonFromFile = File.ReadAllText(ipath);
         List<Item> items = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
         static string jsonFromFilepl = File.ReadAllText(playerpath);
-        List<Player> playerinfo = new List<Player>();
+        List<Player> playerinfo;
         List<Sword> sword = new List<Sword>();
         List<Armor> armor = new List<Armor>();
         List<PlayerInventory> pinventory = new List<PlayerInventory>();
@@ -55,8 +56,9 @@ namespace WitcherWPF
             pinventory = manager.LoadPlayerInventory();
             
         }
-        public Inventory(Frame parentFrame) : this() {
+        public Inventory(Frame parentFrame, bool Combat) : this() {
             this.parentFrame = parentFrame;
+            this.Combat = Combat;
             Stamina.Interval = TimeSpan.FromSeconds(1);
             Stamina.Tick += new EventHandler(Stamina_tick);
             Player player = new Player();
@@ -65,47 +67,49 @@ namespace WitcherWPF
             LoadInventory();
             LoadGear();
             LoadEquipSwords();
-            if (EnduranceBar.Value != EnduranceBar.Maximum ) {
+            if (EnduranceBar.Value != EnduranceBar.Maximum && Combat == false ) {
                 StaminaRegen();
             }
         }
 
         public void GetMap(object sender, RoutedEventArgs e) {
-            
-            parentFrame.Navigate(new Map(parentFrame));
+            if (Combat == false) {
+                parentFrame.Navigate(new Map(parentFrame));
+            }
         }
         public void GetQuests(object sender, RoutedEventArgs e) {
-            
-            parentFrame.Navigate(new Quests(parentFrame));
+            if (Combat == false) {
+                parentFrame.Navigate(new Quests(parentFrame));
+            }
         }
         public void GetJournal(object sender, RoutedEventArgs e) {
-            
-            parentFrame.Navigate(new Journal(parentFrame));
+            if (Combat == false) {
+                parentFrame.Navigate(new Journal(parentFrame));
+            }
         }
         public void GetCharacter(object sender, RoutedEventArgs e) {
-            
-            parentFrame.Navigate(new Character(parentFrame));
+            if (Combat == false) {
+                parentFrame.Navigate(new Character(parentFrame));
+            }
         }
         public void GetAlchemy(object sender, RoutedEventArgs e) {
+            if (Combat == false) {
 
+            }
         }
         public void GetLocation(object sender, RoutedEventArgs e) {
-            
-            parentFrame.Navigate(new Location(parentFrame));
+            if (Combat == false) {
+                parentFrame.Navigate(new Location(parentFrame));
+            }else {
+                parentFrame.Navigate(new Combat(parentFrame, true));
+            }
         }
         public void LoadInventory() {
             
             foreach (var item in pinventory) {
-                string orens = "";
                 int p = item.Item.Price;
                 int sell = p / 2;
-                if (sell == 1) {
-                    orens = "orén";
-                }else if (sell > 1 && sell < 5) {
-                    orens = "orény";
-                }else {
-                    orens = "orénů";
-                }
+                string orens = inventory.Orens(sell);
                 Image inventoryimage = new Image();
                 inventoryimage.Width = 18;
                 inventoryimage.Height = 18;

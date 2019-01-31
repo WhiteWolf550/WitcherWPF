@@ -121,12 +121,7 @@ namespace WitcherWPF {
             this.Quen = Quen;
         }
         public void LoadAttributes(ProgressBar HealthBar, ProgressBar EnduranceBar, ProgressBar ToxicityBar) {
-            string playerpath = @"../../saves/Player.json";
-            JsonSerializerSettings settings = new JsonSerializerSettings {
-                TypeNameHandling = TypeNameHandling.All
-            };
-            string jsonFromFile = File.ReadAllText(playerpath);
-            List<Player> playerinfo = JsonConvert.DeserializeObject<List<Player>>(jsonFromFile, settings);
+            List<Player> playerinfo = manager.LoadPlayer();
             foreach (var item in playerinfo) {
                 HealthBar.Maximum = item.maxHealth;
                 HealthBar.Value = item.health;

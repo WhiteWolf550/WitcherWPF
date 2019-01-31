@@ -51,14 +51,14 @@ namespace WitcherWPF {
             mediaPlayer.Open(uri);
             //mediaPlayer.Play();
             //CreateInv();
-            //CreatePlayer();
+            CreatePlayer();
             CreateDialogue();
             //CreateQuests();
             CreatePlayerQuests();
             //CreateArmors();
             //CreateSwords();
             
-            mainFrame.Navigate(new Combat(mainFrame));
+            mainFrame.Navigate(new Combat(mainFrame, false));
         }
         public void CreateArmors() {
             armors.Add(new Armor("Středně těžká zbroj", "Zbroj wyzimské stráže", "Obnošená zbroj wyzimské stráže", 1, 30, 0, 0, @"img/Armors/Armor_Temeria2.png", 150, null, 10, "Loot"));
@@ -186,7 +186,7 @@ namespace WitcherWPF {
             foreach (var aerondight in matches2) {
                 silver = aerondight;
             } 
-            player.Add(new Player(100, 100, 100, 100, 100, 100, 0, 1000, 50, 10, 5, 5, 2, steel, silver, ar, aard, igni, quen, axii, yrden));
+            player.Add(new Player(100, 100, 100, 100, 100, 0, 0, 1000, 50, 10, 5, 5, 2, steel, silver, ar, aard, igni, quen, axii, yrden));
             string jsonToFile = JsonConvert.SerializeObject(player, settings);
             File.WriteAllText(playerpath, jsonToFile);
         }

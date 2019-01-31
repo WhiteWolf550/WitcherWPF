@@ -38,19 +38,22 @@ namespace WitcherWPF {
         DispatcherTimer PlayerTired = new DispatcherTimer();
 
         private Frame parentFrame;
+        private bool frominventory;
         FileManager manager = new FileManager();
-        Player player = new Player();
+        static Player player = new Player();
         List<Player> playerlist;
         Aard aard = new Aard();
-        Enemy enemy;
+        static Enemy enemy;
         Yrden yrden = new Yrden();
-        Dictionary<string, Uri> AnimationSets;
-        Dictionary<string, Uri> EnemyAnimationSets = new Dictionary<string, Uri>();
+        static Dictionary<string, Uri> AnimationSets;
+        static Dictionary<string, Uri> EnemyAnimationSets = new Dictionary<string, Uri>();
+        static string EnemName;
+        static double EnemyHealthPoints;
         bool AttackBlock = false;
         int AttackCombo = 0;
         bool SteelSword;
         bool Strong;
-        bool SwordChosen = false;
+        static bool SwordChosen = false;
         bool EnemyStrong;
         int i = 0;
         bool IgniAnim = false;
@@ -77,16 +80,19 @@ namespace WitcherWPF {
         public Combat() {
             InitializeComponent();
 
-            LoadEnemy();
-            LoadPlayer();
-            SetTimers();
+            
 
         }
         public void PageLoaded(object sender, RoutedEventArgs e) {
             Application.Current.MainWindow.KeyDown += new KeyEventHandler(Crossway);
         }
-        public Combat(Frame parentFrame) : this() {
+        public Combat(Frame parentFrame, bool frominventory) : this() {
             this.parentFrame = parentFrame;
+            this.frominventory = frominventory;
+            StaminaCheck();
+            LoadEnemy();
+            LoadPlayer();
+            SetTimers();
         }
         public void SetTimers() {
             int Yrdendur = 0;
@@ -287,18 +293,27 @@ namespace WitcherWPF {
                 maxtoxicity = item.maxToxicity;
             }
             player.LoadAttributes(HealthBar, EnduranceBar, ToxicityBar);
-            
-            NoSwordAnimation();
-
+            if (frominventory == false) {
+                NoSwordAnimation();
+            }else {
+                EnemyTimeToAttack.Start();
+                IdleAnimation();
+            }
         }
         public void LoadEnemy() {
-            enemy = new Barghest();
-            EnemyHP.Value = enemy.MaxHP;
-            EnemyHP.ToolTip = enemy.MaxHP;
-            EnemyName.Content = enemy.Name;
+            if (frominventory == false) {
+                enemy = new Barghest();
+                EnemyHP.Value = enemy.MaxHP;
+                EnemyHP.ToolTip = enemy.MaxHP;
+                EnemyName.Content = enemy.Name;            
+            }else {
+                EnemyHP.Value = EnemyHealthPoints;
+                EnemyHP.ToolTip = EnemyHealthPoints;
+                EnemyName.Content = EnemName;
+            }
             EnemyAnimationSets = enemy.AnimationSet;
             EnemyIdleAnimation();
-            
+
         }
         public void Crossway(object sender, KeyEventArgs e) {
             if (PlayerAttacking == false) {
@@ -341,12 +356,19 @@ namespace WitcherWPF {
             
             PlayerAttacking = false;
             CanPlayerTouchSword = false;
+            PlayerDeath();
+
             
-            IdleAnimation();
         }
         private void EnemyAnimationEnd(object sender, RoutedEventArgs e) {
             EnemyAttacking = false;
             CanEnemyTouchSword = false;
+            EnemyDeath();
+            PlayerDeath();
+            
+
+        }
+        public void EnemyDeath() {
             if (EnemyCheck() == true) {
                 Enemy.Visibility = Visibility.Hidden;
                 EnemyCanAttack = false;
@@ -355,13 +377,24 @@ namespace WitcherWPF {
                 EnemyFastAttackDuration.Stop();
                 EnemyHP.Value = 0;
                 EnemyHP.ToolTip = 0;
-            }else {
+            } else {
                 EnemyCanAttack = true;
                 EnemyIdleAnimation();
 
             }
-            
-
+        }
+        public void PlayerDeath() {
+            if (PlayerCheck() == true) {
+                EnemyCanAttack = false;
+                Geralt.Visibility = Visibility.Hidden;
+                EnemyTimeToAttack.Stop();
+                EnemyStrongAttackDuration.Stop();
+                EnemyFastAttackDuration.Stop();
+                HealthBar.Value = 0;
+                HealthBar.ToolTip = 0;
+            } else {
+                IdleAnimation();
+            }
         }
         public void StrongAttackAnimation() {
             PlayerAttacking = true;
@@ -552,6 +585,14 @@ namespace WitcherWPF {
             ImageBehavior.SetAnimatedSource(Geralt, image);
             ImageBehavior.SetRepeatBehavior(Geralt, RepeatBehavior.Forever);
         }
+        public void DeathAnimation() {
+            var image = new BitmapImage();
+            image.BeginInit();
+            image.UriSource = AnimationSets["Death"];
+            image.EndInit();
+            ImageBehavior.SetAnimatedSource(Geralt, image);
+            ImageBehavior.SetRepeatBehavior(Geralt, RepeatBehavior.Forever);
+        }
 
 
         private void StrongAttack(object sender, RoutedEventArgs e) {           
@@ -612,13 +653,20 @@ namespace WitcherWPF {
                 
             } else {
                 damage = enemy.Attack(EnemyStrong);
-                PlayerHP = player.Hit(HealthBar.Value, damage);
-                
-                
+                PlayerHP = player.Hit(HealthBar.Value, damage);             
             }
             HealthBar.Value = PlayerHP;
             HealthBar.ToolTip = PlayerHP;
-            EnemyCanAttack = true;
+            if (PlayerCheck() == true) {
+                EnemyCanAttack = false;
+                DeathAnimation();
+
+            }else {
+                EnemyCanAttack = true;
+            }
+            
+            
+
         }
         private void Deffend() {
             if (EnemyAttacking == true && EnemyStrong == false) {
@@ -792,6 +840,13 @@ namespace WitcherWPF {
                 return false;
             }
         }
+        public bool PlayerCheck() {
+            if (HealthBar.Value <= 0) {
+                return true;
+            }else {
+                return false;
+            }
+        }
         public void EnemyHit() {
             EnemyStrongAttackDuration.Stop();
             EnemyFastAttackDuration.Stop();
@@ -842,11 +897,30 @@ namespace WitcherWPF {
         public void SignEnd(object sender, RoutedEventArgs e) {
 
         }
-        public void PotBut(object sender, RoutedEventArgs e) {
-
+        private void PlayerLoad() {
+            foreach(Player item in playerlist) {
+                
+                item.health = (int) HealthBar.Value;
+                item.endurance = (int) EnduranceBar.Value;
+                item.toxicity = (int)ToxicityBar.Value;
+            }
+        }
+        public void StaminaCheck() {
+            if(stamina < 100) {
+                Stamina.Start();
+            }
+        }
+        private void Inventory(object sender, RoutedEventArgs e) {
+            PlayerLoad();
+            manager.SavePlayer(playerlist);
+            EnemyHealthPoints = EnemyHP.Value;
+            EnemName = enemy.Name;
+            parentFrame.Navigate(new Inventory(parentFrame, true));
+            
         }
         public void PotButClose(object sender, RoutedEventArgs e) {
 
         }
+        
     }
 }
