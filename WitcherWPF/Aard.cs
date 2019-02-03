@@ -17,7 +17,6 @@ namespace WitcherWPF {
 
         }
         public bool Stun() {
-            
             Random rand = new Random();
             int rn = rand.Next(0, 100);
             if (rn < this.StunChance) {

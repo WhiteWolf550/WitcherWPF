@@ -17,6 +17,8 @@ namespace WitcherWPF {
 
         public Dictionary<string, Uri> SteelAnimationSets { get; set; }
         public Dictionary<string, Uri> SilverAnimationSets { get; set; }
+        public Dictionary<string, Uri> SoundsSet { get; set; }
+        public List<string> Effects = new List<string>();
         public int maxHealth { get; set; }
         public int health { get; set; }
         public int maxEndurance { get; set; }
@@ -44,6 +46,7 @@ namespace WitcherWPF {
         public Player() {
             this.SteelAnimationSets = new Dictionary<string, Uri>();
             this.SteelAnimationSets.Add("NoSword", new Uri("gifs/Geralt/geralt_fight_NoSword.gif", UriKind.Relative));
+
             //------------------------STEEL SWORD COMBAT ANIMATIONS----------------------------------------------
             this.SteelAnimationSets.Add("Idle", new Uri("gifs/Geralt/geralt_fight_idle.gif", UriKind.Relative));
             this.SteelAnimationSets.Add("StrongAttack", new Uri("gifs/Geralt/geralt_fight_attackSteel1.gif", UriKind.Relative));
@@ -92,8 +95,21 @@ namespace WitcherWPF {
             this.SilverAnimationSets.Add("AxiiFX", new Uri("gifs/FX/Axii.gif", UriKind.Relative));
             this.SilverAnimationSets.Add("QuenFX", new Uri("gifs/FX/Quen.gif", UriKind.Relative));
             this.SilverAnimationSets.Add("YrdenFX", new Uri("gifs/FX/Yrden.gif", UriKind.Relative));
-
-
+            //------------------------COMBAT SOUNDS----------------------------------------------
+            this.SoundsSet = new Dictionary<string, Uri>();
+            this.SoundsSet.Add("Strong", new Uri("sounds/geralt/ger_Strong.wav", UriKind.Relative));
+            this.SoundsSet.Add("Strongm", new Uri("sounds/geralt/ger_Strongm.wav", UriKind.Relative));
+            this.SoundsSet.Add("Fast", new Uri("sounds/geralt/ger_Fast.wav", UriKind.Relative));
+            this.SoundsSet.Add("Fastm", new Uri("sounds/geralt/ger_Fastm.wav", UriKind.Relative));
+            this.SoundsSet.Add("Hit", new Uri("sounds/geralt/ger_hit.wav", UriKind.Relative));
+            this.SoundsSet.Add("Parry", new Uri("sounds/geralt/ger_parry.wav", UriKind.Relative));
+            this.SoundsSet.Add("Aard", new Uri("sounds/geralt/ger_aard.wav", UriKind.Relative));
+            this.SoundsSet.Add("Igni", new Uri("sounds/geralt/ger_igni.wav", UriKind.Relative));
+            this.SoundsSet.Add("Axii", new Uri("sounds/geralt/ger_axii.wav", UriKind.Relative));
+            this.SoundsSet.Add("QuenA", new Uri("sounds/geralt/ger_quena.wav", UriKind.Relative));
+            this.SoundsSet.Add("QuenI", new Uri("sounds/geralt/ger_queni.wav", UriKind.Relative));
+            this.SoundsSet.Add("QuenB", new Uri("sounds/geralt/ger_quenb.wav", UriKind.Relative));
+            this.SoundsSet.Add("Yrden", new Uri("sounds/geralt/ger_yrden.wav", UriKind.Relative));
 
         }
 

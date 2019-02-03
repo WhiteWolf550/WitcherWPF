@@ -16,7 +16,7 @@
         <Image gif:ImageBehavior.AnimatedSource="gifs/Barghest/barghest_fight_idle.gif"  RenderTransformOrigin="1.715,0.504" Margin="310,0,60,254" Name="Enemy"  gif:ImageBehavior.AnimationCompleted="EnemyAnimationEnd" Source="gifs/NPC/npc_fight_idle.gif" />
         <Image RenderTransformOrigin="1.715,0.504" Margin="540,150,358,366" Name="GIFSign" Visibility="Hidden"  gif:ImageBehavior.AnimationCompleted="SignEnd" Source="gifs/FX/Aard.gif" />
         <Image Panel.ZIndex="1" Source="img/UI/stat_ui.png" Margin="0,0,972,781"/>
-        <Image Panel.ZIndex="2" Source="img/UI/medallion.png" Margin="54,0,1217,797"></Image>
+        <Image Panel.ZIndex="2" Source="img/UI/medallion.png" Margin="39,0,1206,781"></Image>
         <Image RenderTransformOrigin="1.715,0.504" Margin="72,33,372,174" Name="GIFSelf" Visibility="Hidden"  gif:ImageBehavior.AnimationCompleted="SignEnd" Source="gifs/FX/Quen.gif" />
         <Image RenderTransformOrigin="1.715,0.504" Margin="507,239,95,79" Name="GIFBehind" Visibility="Hidden"  gif:ImageBehavior.AnimationCompleted="SignEnd" Source="gifs/FX/Yrden.gif" />
 
