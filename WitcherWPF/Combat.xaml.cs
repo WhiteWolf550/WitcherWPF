@@ -36,6 +36,8 @@ namespace WitcherWPF {
         DispatcherTimer AxiiChannelingTime = new DispatcherTimer();
         DispatcherTimer Stamina = new DispatcherTimer();
         DispatcherTimer PlayerTired = new DispatcherTimer();
+        DispatcherTimer ParryDuration = new DispatcherTimer();
+        DispatcherTimer SignChecker = new DispatcherTimer();
 
         MediaPlayer backgroundmedia = new MediaPlayer();
         MediaPlayer Enemymedia = new MediaPlayer();
@@ -103,7 +105,11 @@ namespace WitcherWPF {
             LoadEnemy();
             LoadPlayer();
             SetTimers();
-            SetMusic();
+            SignChecker.Start();
+            if (frominventory == false) {
+                SetMusic();
+            }
+
 
         }
         public void SetMusic() {
@@ -176,10 +182,14 @@ namespace WitcherWPF {
             PlayerTired.Interval = new TimeSpan(0, 0, 0, 10);
             PlayerTired.Tick += new EventHandler(Tired_Tick);
 
+            ParryDuration.Interval = new TimeSpan(0, 0, 0, 2);
+            ParryDuration.Tick += new EventHandler(Parry_Tick);
+
             StunDuration.Interval = new TimeSpan(0, 0, 0, Aarddur);
             StunDuration.Tick += new EventHandler(Stun_tick);
 
-
+            SignChecker.Interval = TimeSpan.FromSeconds(1);
+            SignChecker.Tick += new EventHandler(Sign_tick);
 
         }
         void Stun_tick(object sender, EventArgs e) {
@@ -187,9 +197,44 @@ namespace WitcherWPF {
             EnemyIdleAnimation();
 
         }
-        void AfterParry_Tick(object sender, EventArgs e) {
-            EnemyTimeToAttack.Start();
+        void Parry_Tick(object sender, EventArgs e) {
+            ParryDuration.Stop();
             Parry = false;
+            EnemyCanAttack = true;
+            EnemyMain();
+        }
+        void Sign_tick(object sender, EventArgs e) {
+            foreach(Player item in playerlist) {
+                if (stamina >= item.Aard.EnduranceCost) {
+                    Aard_ico.Visibility = Visibility.Visible;
+                }else {
+                    Aard_ico.Visibility = Visibility.Hidden;
+                }
+
+                if(stamina >= item.Igni.EnduranceCost) {
+                    Igni_ico.Visibility = Visibility.Visible;
+                }else {
+                    Igni_ico.Visibility = Visibility.Hidden;
+                }
+
+                if (stamina >= item.Axii.EnduranceCost) {
+                    Axii_ico.Visibility = Visibility.Visible;
+                } else {
+                    Axii_ico.Visibility = Visibility.Hidden;
+                }
+
+                if (stamina >= item.Quen.EnduranceCost) {
+                    Quen_ico.Visibility = Visibility.Visible;
+                } else {
+                    Quen_ico.Visibility = Visibility.Hidden;
+                }
+
+                if (stamina >= item.Yrden.EnduranceCost) {
+                    Yrden_ico.Visibility = Visibility.Visible;
+                } else {
+                    Yrden_ico.Visibility = Visibility.Hidden;
+                }
+            }
         }
         void PlayerStrongDuration_Tick(object sender, EventArgs e) {
             PlayerStrongAttackDuration.Stop();
@@ -342,7 +387,7 @@ namespace WitcherWPF {
             if (frominventory == false) {
                 NoSwordAnimation();
             }else {
-                if (SwordChosen == true) {
+                if (SwordChosen == true && EnemyCheck() == false) {
                     EnemyTimeToAttack.Start();
                     
                     IdleAnimation();
@@ -361,6 +406,7 @@ namespace WitcherWPF {
                 EnemyHP.Value = EnemyHealthPoints;
                 EnemyHP.ToolTip = EnemyHealthPoints;
                 EnemyName.Content = EnemName;
+                enemy.HP = Convert.ToInt32(EnemyHealthPoints);
             }
             EnemyAnimationSets = enemy.AnimationSet;
             EnemySoundsSet = enemy.SoundSet;
@@ -425,12 +471,15 @@ namespace WitcherWPF {
             
         }
         private void EnemyAnimationEnd(object sender, RoutedEventArgs e) {
+            EnemyMain();
+            
+
+        }
+        private void EnemyMain() {
             EnemyAttacking = false;
             CanEnemyTouchSword = false;
             EnemyDeath();
             PlayerDeath(false);
-            
-
         }
         public void EnemyDeath() {
             if (EnemyCheck() == true) {
@@ -441,8 +490,13 @@ namespace WitcherWPF {
                 EnemyFastAttackDuration.Stop();
                 EnemyHP.Value = 0;
                 EnemyHP.ToolTip = 0;
+                AttackBlock = true;
             } else {
-                EnemyCanAttack = true;
+                if (Parry == false) {
+                    EnemyCanAttack = true;
+                }else {
+                    EnemyCanAttack = false;
+                }
                 EnemyIdleAnimation();
 
             }
@@ -615,6 +669,9 @@ namespace WitcherWPF {
             if (EnemyAttacking == true && EnemyStrong == false) {
                 
                 AttackCombo = 0;
+                EnemyCanAttack = false;
+                Parry = true;
+                ParryDuration.Start();
                 EnemyFastAttackDuration.Stop();
                 EnemyAnimations("Stagger");
             }
@@ -720,7 +777,7 @@ namespace WitcherWPF {
             image.EndInit();
             ImageBehavior.SetAnimatedSource(Enemy, image);
             ImageBehavior.SetRepeatBehavior(Enemy, RepeatBehavior.Forever);
-            if (EnemyCanAttack == true && AxiiActive == false && Parry == false) {
+            if (EnemyCanAttack == true && AxiiActive == false && Parry == false && EnemyCheck() == false) {
                 EnemyTimeToAttack.Start();
             }
         }

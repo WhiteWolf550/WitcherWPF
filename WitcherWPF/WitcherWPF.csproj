@@ -415,6 +415,7 @@
     <Resource Include="img\UI\inventory_icon.png" />
     <Resource Include="img\UI\stat_ui.png" />
     <Resource Include="img\UI\medallion.png" />
+    <Resource Include="img\UI\dungeon.png" />
     <Content Include="sounds\barghest\bar_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

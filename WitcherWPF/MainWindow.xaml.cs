@@ -154,9 +154,9 @@ namespace WitcherWPF {
             aard.StunChance = 10;
             aard.StunDuration = 3;
             Igni igni = new Igni();
-            igni.EnduranceCost = 60;
-            igni.Damage = 5;
-            igni.BurnChance = 5;
+            igni.EnduranceCost = 50;
+            igni.Damage = 15;
+            igni.BurnChance = 10;
             igni.BurnDamage = 1;
             Quen quen = new Quen();
             quen.EnduranceCost = 50;

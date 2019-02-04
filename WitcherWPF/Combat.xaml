@@ -8,10 +8,10 @@
       mc:Ignorable="d" 
       KeyDown="Crossway"
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Combat" Height="894" Width="1426.666" MouseLeftButtonDown="StrongAttack" MouseRightButtonDown="FastAttack" Loaded="PageLoaded">
+      Title="Combat" Background="Black" Height="894" Width="1426.666" MouseLeftButtonDown="StrongAttack" MouseRightButtonDown="FastAttack" Loaded="PageLoaded">
 
     <Grid>
-        <Image Name="forest" Source="img/ui/back.jpg" Margin="-35,-675,-1022,-512"/>
+        <Image Name="forest" Source="img/ui/dungeon.png" Margin="-239,-825,-818,-362"/>
         <Image gif:ImageBehavior.AnimatedSource="gifs/Geralt/geralt_fight_NoSword.gif"  RenderTransformOrigin="1.715,0.504" Margin="98,40,302,226" Name="Geralt"  gif:ImageBehavior.AnimationCompleted="PlayerAnimationEnd" Source="gifs/Geralt/geralt_fight_idle.gif" />
         <Image gif:ImageBehavior.AnimatedSource="gifs/Barghest/barghest_fight_idle.gif"  RenderTransformOrigin="1.715,0.504" Margin="310,0,60,254" Name="Enemy"  gif:ImageBehavior.AnimationCompleted="EnemyAnimationEnd" Source="gifs/NPC/npc_fight_idle.gif" />
         <Image RenderTransformOrigin="1.715,0.504" Margin="540,150,358,366" Name="GIFSign" Visibility="Hidden"  gif:ImageBehavior.AnimationCompleted="SignEnd" Source="gifs/FX/Aard.gif" />
