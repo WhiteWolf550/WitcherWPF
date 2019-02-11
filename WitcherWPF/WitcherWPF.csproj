@@ -86,6 +86,7 @@
       <DependentUpon>Dialogue.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dialogues.cs" />
+    <Compile Include="Effect.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Equipment.cs" />
     <Compile Include="FileManager.cs" />
@@ -416,6 +417,7 @@
     <Resource Include="img\UI\stat_ui.png" />
     <Resource Include="img\UI\medallion.png" />
     <Resource Include="img\UI\dungeon.png" />
+    <Resource Include="img\UI\Effect_Swallow.png" />
     <Content Include="sounds\barghest\bar_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

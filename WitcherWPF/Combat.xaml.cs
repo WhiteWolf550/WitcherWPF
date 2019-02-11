@@ -47,7 +47,9 @@ namespace WitcherWPF {
         private bool frominventory;
         FileManager manager = new FileManager();
         static Player player = new Player();
+
         List<Player> playerlist;
+        List<Effect> Effects;
         Aard aard = new Aard();
         static Enemy enemy;
         Yrden yrden = new Yrden();
@@ -394,6 +396,14 @@ namespace WitcherWPF {
                 }else {
                     NoSwordAnimation();
                 }
+            }
+        }
+        public void LoadEffects() {
+            foreach(Effect item in Effects) {
+                Image img = new Image();
+                img.Source = new BitmapImage(item.EffectIco[item.Name]);
+                img.ToolTip = "Efekt";
+                EffectBar.Children.Add(img);
             }
         }
         public void LoadEnemy() {

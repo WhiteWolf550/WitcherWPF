@@ -37,10 +37,12 @@ namespace WitcherWPF
         List<Item> items = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
         static string jsonFromFilepl = File.ReadAllText(playerpath);
         List<Player> playerinfo;
+        List<Effect> effects;
         List<Sword> sword = new List<Sword>();
         List<Armor> armor = new List<Armor>();
         List<PlayerInventory> pinventory = new List<PlayerInventory>();
         PlayerInventory inventory = new PlayerInventory();
+        Game game = new Game();
         Dictionary<MenuItem, PlayerInventory> buttonitems = new Dictionary<MenuItem, PlayerInventory>();
         Dictionary<MenuItem, Sword> swordeq = new Dictionary<MenuItem, Sword>();
         Dictionary<MenuItem, Armor> armoreq = new Dictionary<MenuItem, Armor>();
@@ -54,6 +56,7 @@ namespace WitcherWPF
             sword = manager.LoadPlayerSwords();
             armor = manager.LoadPlayerArmors();
             pinventory = manager.LoadPlayerInventory();
+            effects = manager.LoadEffects();
             
         }
         public Inventory(Frame parentFrame, bool Combat) : this() {
@@ -71,7 +74,7 @@ namespace WitcherWPF
                 StaminaRegen();
             }
         }
-
+        
         public void GetMap(object sender, RoutedEventArgs e) {
             if (Combat == false) {
                 parentFrame.Navigate(new Map(parentFrame));
@@ -101,6 +104,7 @@ namespace WitcherWPF
             if (Combat == false) {
                 parentFrame.Navigate(new Location(parentFrame));
             }else {
+                game.SaveGame(playerinfo, pinventory, armor, sword, effects);
                 parentFrame.Navigate(new Combat(parentFrame, true));
             }
         }
@@ -328,7 +332,12 @@ namespace WitcherWPF
             if (button.Tag.ToString() == "Číst") {
                 
                 Read(button);
+            }else if (button.Tag.ToString() == "Vypít") {
+                Drink(button);
             }
+        }public void Drink(MenuItem drink) {
+            PlayerInventory inv = buttonitems[drink];
+            effects.Add(new Effect(inv.Item.Name));
         }
         public void Read(MenuItem book) {
             PlayerInventory inv = buttonitems[book];

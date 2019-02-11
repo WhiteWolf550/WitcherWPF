@@ -87,7 +87,7 @@ namespace WitcherWPF {
             items.Add(new Item("Fisstech", "Silná droga, lze prodat", "Loot", @"img/Items/Potion_Fisstech.png", "žádné", "Drug", "Použít",0, null, 150));
             items.Add(new Item("Víno", "Alkohol, lze prodat kupcům nebo použít", "Loot", @"img/Items/Alcohol_Winered.png", "žádné", "Alcohol", "Vypít", 0, null, 50));
             items.Add(new Item("Vlaštovka", "Elixír, Pomalu doplňuje zdraví po určitou dobu", "Loot", @"img/Items/Potion_Full_Moon.png", null, "Potion", "Vypít", 30, null, 80));
-            items.Add(new Item("Barghesti", "Kniha o barghestech", "Loot", @"img/Items/Book_Bestiary.png", null, "Barghest", "Read", 30, "Barghesti jsou fakt svině...", 100));
+            items.Add(new Item("Barghesti", "Kniha o barghestech", "Loot", @"img/Items/Book_Bestiary.png", null, "Barghest", "Číst", 0, "Barghesti jsou fakt svině...", 100));
             string jsonToFile = JsonConvert.SerializeObject(items, settings);
             File.WriteAllText(ipath, jsonToFile);
         }
