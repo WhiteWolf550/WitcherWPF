@@ -51,7 +51,7 @@ namespace WitcherWPF {
             mediaPlayer.Open(uri);
             time.Timer();
             //mediaPlayer.Play();
-            //CreateInv();
+            CreateInv();
             CreatePlayer();
             CreateDialogue();
             //CreateQuests();
@@ -59,7 +59,7 @@ namespace WitcherWPF {
             //CreateArmors();
             //CreateSwords();
             
-            mainFrame.Navigate(new Inventory(mainFrame, false, time));
+            mainFrame.Navigate(new Combat(mainFrame, false, time));
         }
         public void CreateArmors() {
             armors.Add(new Armor("Středně těžká zbroj", "Zbroj wyzimské stráže", "Obnošená zbroj wyzimské stráže", 1, 30, 0, 0, @"img/Armors/Armor_Temeria2.png", 150, null, 10, "Loot"));
@@ -83,12 +83,12 @@ namespace WitcherWPF {
             File.WriteAllText(swordpath, jsonToFile);
         }
         public void CreateInv() {
-            items.Add(new Item("Kuře", "Jídlo,Po snězení doplní malou část zdraví", "Loot", @"img/Items/Food_Chicken.png", "žádné", "Food", "Sníst", 0, null, 20));
-            items.Add(new Item("Jablečný Džus", "Nápoj, lze vypít pro doplňení malé části zdraví", "Loot", @"img/Items/Drink_Apple_Juice.png", "žádné", "Drink", "Vypít",0, null, 15));
-            items.Add(new Item("Fisstech", "Silná droga, lze prodat", "Loot", @"img/Items/Potion_Fisstech.png", "žádné", "Drug", "Použít",0, null, 150));
-            items.Add(new Item("Víno", "Alkohol, lze prodat kupcům nebo použít", "Loot", @"img/Items/Alcohol_Winered.png", "žádné", "Alcohol", "Vypít", 0, null, 50));
-            items.Add(new Item("Vlaštovka", "Elixír, Pomalu doplňuje zdraví po určitou dobu", "Loot", @"img/Items/Potion_Full_Moon.png", null, "Potion", "Vypít", 30, null, 80));
-            items.Add(new Item("Barghesti", "Kniha o barghestech", "Loot", @"img/Items/Book_Bestiary.png", null, "Barghest", "Číst", 0, "Barghesti jsou fakt svině...", 100));
+            items.Add(new Item("Kuře", "Jídlo,Po snězení doplní malou část zdraví", "Loot", @"img/Items/Food_Chicken.png", "žádné", "Food", "Sníst", 0, 0, null, 20));
+            items.Add(new Item("Jablečný Džus", "Nápoj, lze vypít pro doplňení malé části zdraví", "Loot", @"img/Items/Drink_Apple_Juice.png", "žádné", "Drink", "Vypít",0, 0, null, 15));
+            items.Add(new Item("Fisstech", "Silná droga, lze prodat", "Loot", @"img/Items/Potion_Fisstech.png", "žádné", "Drug", "Použít",0, 0, null, 150));
+            items.Add(new Item("Víno", "Alkohol, lze prodat kupcům nebo použít", "Loot", @"img/Items/Alcohol_Winered.png", "žádné", "Alcohol", "Vypít", 0, 0, null, 50));
+            items.Add(new Item("Vlaštovka", "Elixír, Pomalu doplňuje zdraví po určitou dobu", "Loot", @"img/Items/Potion_Full_Moon.png", null, "Potion", "Vypít", 30, 2, null, 80));
+            items.Add(new Item("Barghesti", "Kniha o barghestech", "Loot", @"img/Items/Book_Bestiary.png", null, "Barghest", "Číst", 0, 0, "Barghesti jsou fakt svině...", 100));
             string jsonToFile = JsonConvert.SerializeObject(items, settings);
             File.WriteAllText(ipath, jsonToFile);
         }
@@ -187,15 +187,15 @@ namespace WitcherWPF {
             foreach (var aerondight in matches2) {
                 silver = aerondight;
             } 
-            player.Add(new Player(100, 100, 100, 100, 100, 0, 0, 1000, 50, 10, 5, 5, 2, steel, silver, ar, aard, igni, quen, axii, yrden));
+            player.Add(new Player(100, 100, 100, 100, 100, 0, 0, 1000, 0, 1, 50, 10, 5, 5, 2, steel, silver, ar, aard, igni, quen, axii, yrden));
             string jsonToFile = JsonConvert.SerializeObject(player, settings);
             File.WriteAllText(playerpath, jsonToFile);
         }
         public void CreateQuests() {
-            qq.Add(new Quest (1, "Primary", "Něco končí, něco začíná", "Foltest si předvolal Geralta hned druhý den potom co krála zachránil.", "Zajdi za Foltestem", 1, true, "Něco končí, něco začíná", null));
-            qq.Add(new Quest(2, "Primary", "Něco končí, něco začíná", "Foltest si předvolal Geralta hned druhý den potom co krále zachránil. Foltest Geraltovi oznámil, že by měl něco zjistit o vrahovi s pomocí Triss", "Zajdi za Triss a zjisti něco o vrahovi", 1, true, "Něco končí, něco začíná", "Zjistila jsi něco nového o tom vrahovi?"));
-            qq.Add(new Quest(3, "Primary", "Něco končí, něco začíná", "Foltest si předvolal Geralta hned druhý den potom co krále zachránil. Foltest Geraltovi oznámil, že by měl něco zjistit o vrahovi s pomocí Triss. Triss Geraltovi sdělila, že na to, aby zjistila, kdo byl vrah, tak potřebuje více času", "Počkej až se Triss dozví více o vrahovi", 1, true, "Něco končí, něco začíná", null));
-            qq.Add(new Quest(1, "Primary", "Kovářova zrůda", "Triss řekla Geraltovi, aby pomohl svému starému známému Yavenovi Briggsovi", "Zajdi za kovářem do staré wyzimy a zjisti jaký má problém", 1, true, "Kovářova zrůda", null));
+            qq.Add(new Quest (1, "Primary", "Něco končí, něco začíná", "Foltest si předvolal Geralta hned druhý den potom co krála zachránil.", "Zajdi za Foltestem", 1, true, "Něco končí, něco začíná", null, 0));
+            qq.Add(new Quest(2, "Primary", "Něco končí, něco začíná", "Foltest si předvolal Geralta hned druhý den potom co krále zachránil. Foltest Geraltovi oznámil, že by měl něco zjistit o vrahovi s pomocí Triss", "Zajdi za Triss a zjisti něco o vrahovi", 1, true, "Něco končí, něco začíná", "Zjistila jsi něco nového o tom vrahovi?", 0));
+            qq.Add(new Quest(3, "Primary", "Něco končí, něco začíná", "Foltest si předvolal Geralta hned druhý den potom co krále zachránil. Foltest Geraltovi oznámil, že by měl něco zjistit o vrahovi s pomocí Triss. Triss Geraltovi sdělila, že na to, aby zjistila, kdo byl vrah, tak potřebuje více času", "Počkej až se Triss dozví více o vrahovi", 1, true, "Něco končí, něco začíná", null, 0));
+            qq.Add(new Quest(1, "Primary", "Kovářova zrůda", "Triss řekla Geraltovi, aby pomohl svému starému známému Yavenovi Briggsovi", "Zajdi za kovářem do staré wyzimy a zjisti jaký má problém", 1, true, "Kovářova zrůda", null, 0));
 
             string jsonToFilet = JsonConvert.SerializeObject(qq, settings);
             File.WriteAllText(qpath, jsonToFilet);

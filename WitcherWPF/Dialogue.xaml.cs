@@ -36,6 +36,7 @@ namespace WitcherWPF
         //static List<Quest> Questlist = JsonConvert.DeserializeObject<List<Quest>>(jsonFromQuests, settings);
 
         private Frame parentFrame;
+        private Time time;
         public string Character;
         DispatcherTimer timer = new DispatcherTimer();
         string jsonFromFileinv = File.ReadAllText(prolog);
@@ -48,8 +49,9 @@ namespace WitcherWPF
             
             
         }
-        public Dialogue(Frame parentFrame, string Char) : this() {
+        public Dialogue(Frame parentFrame, string Char, Time time) : this() {
             this.parentFrame = parentFrame;
+            this.time = time;
             Character = Char;
             dialogues.DialogueGreet(PersonName, PersonText, Character);
             DialogueCharacter.Source = new BitmapImage(new Uri(@"img/Characters/" + Character + ".png", UriKind.Relative));
@@ -60,6 +62,7 @@ namespace WitcherWPF
 
             dialogues.MainDialogue(PersonName, PersonText, button, QueName, QueGoal, QuestPop, DialogueOptions, Character);
             DialogueOptions.Children.Clear();
+            LoadOptions();
             
    
         }
@@ -107,7 +110,7 @@ namespace WitcherWPF
             DialogueOptions.Visibility = Visibility.Hidden;
             Button button = (Button)sender;
             if (button.Content.ToString() == "Nashle") {
-                dialogues.DialogueLeave(PersonName, PersonText, parentFrame, Character);
+                dialogues.DialogueLeave(PersonName, PersonText, parentFrame, Character, time);
                 
             }
             else {

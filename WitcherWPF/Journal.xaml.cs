@@ -21,30 +21,32 @@ namespace WitcherWPF
     public partial class Journal : Page
     {
         private Frame parentFrame;
+        private Time time;
         public Journal()
         {
             InitializeComponent();
         }
-        public Journal(Frame parentFrame) : this() {
+        public Journal(Frame parentFrame, Time time) : this() {
             this.parentFrame = parentFrame;
+            this.time = time;
         }
         public void GetInventory(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Inventory(parentFrame, false));
+            parentFrame.Navigate(new Inventory(parentFrame, false, time));
         }
         public void GetQuests(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Quests(parentFrame));
+            parentFrame.Navigate(new Quests(parentFrame, time));
         }
         public void GetMap(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Map(parentFrame));
+            parentFrame.Navigate(new Map(parentFrame, time));
         }
         public void GetCharacter(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Character(parentFrame));
+            parentFrame.Navigate(new Character(parentFrame, time));
         }
         public void GetAlchemy(object sender, RoutedEventArgs e) {
             
         }
         public void GetLocation(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Location(parentFrame));
+            parentFrame.Navigate(new Location(parentFrame, time));
         }
     }
 }

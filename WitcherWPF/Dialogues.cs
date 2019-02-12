@@ -59,7 +59,7 @@ namespace WitcherWPF
             }
         }
         //---------------------DIALOGUE EXIT---------------------------
-        public async void DialogueLeave(Label Name, TextBlock Text, Frame parentFrame, string Character) {
+        public async void DialogueLeave(Label Name, TextBlock Text, Frame parentFrame, string Character, Time time) {
             JsonSerializerSettings settings = new JsonSerializerSettings {
                 TypeNameHandling = TypeNameHandling.All
             };
@@ -77,7 +77,7 @@ namespace WitcherWPF
 
 
             }
-            parentFrame.Navigate(new Location(parentFrame));
+            parentFrame.Navigate(new Location(parentFrame, time));
 
         }
         

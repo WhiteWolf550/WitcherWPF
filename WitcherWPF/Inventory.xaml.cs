@@ -69,6 +69,7 @@ namespace WitcherWPF
             Stamina.Tick += new EventHandler(Stamina_tick);
             Player player = new Player();
             player.LoadAttributes(HealthBar, EnduranceBar, ToxicityBar);
+            player.LoadXP(XPBar, Level);
             player.LoadOrens(Oren);
             LoadInventory();
             LoadGear();
@@ -80,22 +81,22 @@ namespace WitcherWPF
         
         public void GetMap(object sender, RoutedEventArgs e) {
             if (Combat == false) {
-                parentFrame.Navigate(new Map(parentFrame));
+                parentFrame.Navigate(new Map(parentFrame, time));
             }
         }
         public void GetQuests(object sender, RoutedEventArgs e) {
             if (Combat == false) {
-                parentFrame.Navigate(new Quests(parentFrame));
+                parentFrame.Navigate(new Quests(parentFrame, time));
             }
         }
         public void GetJournal(object sender, RoutedEventArgs e) {
             if (Combat == false) {
-                parentFrame.Navigate(new Journal(parentFrame));
+                parentFrame.Navigate(new Journal(parentFrame, time));
             }
         }
         public void GetCharacter(object sender, RoutedEventArgs e) {
             if (Combat == false) {
-                parentFrame.Navigate(new Character(parentFrame));
+                parentFrame.Navigate(new Character(parentFrame, time));
             }
         }
         public void GetAlchemy(object sender, RoutedEventArgs e) {
@@ -105,10 +106,10 @@ namespace WitcherWPF
         }
         public void GetLocation(object sender, RoutedEventArgs e) {
             if (Combat == false) {
-                parentFrame.Navigate(new Location(parentFrame, "Old_wyzima1" ,time));
+                parentFrame.Navigate(new Location(parentFrame, time));
             }else {
                 game.SaveGame(playerinfo, pinventory, armor, sword, effects);
-                parentFrame.Navigate(new Combat(parentFrame, true));
+                parentFrame.Navigate(new Combat(parentFrame, true, time));
             }
         }
         public void LoadInventory() {
@@ -352,6 +353,8 @@ namespace WitcherWPF
                     item.toxicity += buttonitems[drink].Item.Toxicity;
                 }               
                 manager.SaveEffects(effects);
+                
+
                 
             }
             

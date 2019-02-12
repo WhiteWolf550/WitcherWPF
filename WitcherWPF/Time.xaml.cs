@@ -19,10 +19,15 @@ namespace WitcherWPF {
     /// Interakční logika pro Time.xaml
     /// </summary>
     public partial class Time : UserControl {
-        DispatcherTimer time = new DispatcherTimer();
-        static int hour = 14;
-        static int minute = 20;
-        static int second = 5;
+        public DispatcherTimer time = new DispatcherTimer();
+        
+        Location location = new Location();
+        FileManager manager = new FileManager();
+        List<Effect> effect = new List<Effect>();
+        public int hour = 10;
+        public  int minute = 38;
+        public int second = 22;
+        
         public Time() {
             InitializeComponent();
             Clock.Text = hour + ":" + minute + ":" + second;
@@ -32,6 +37,9 @@ namespace WitcherWPF {
         public void Timer() {
             time.Interval = TimeSpan.FromSeconds(1);
             time.Tick += new EventHandler(Time_tick);
+
+            
+
         }
         void Time_tick(object sender, EventArgs e) {
             second++;
@@ -46,7 +54,16 @@ namespace WitcherWPF {
                     }
                 }
             }
+            if (hour >= 18 || hour < 9) {
+                location.Music(false);
+            }else if(hour >= 9 && hour < 18) {
+                location.Music(true);
+            }
             Clock.Text = hour + ":" + minute + ":" + second;
         }
+        
+        
+
+
     }
 }

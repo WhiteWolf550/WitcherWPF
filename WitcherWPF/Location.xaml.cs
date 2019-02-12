@@ -26,6 +26,7 @@ namespace WitcherWPF {
         static public string loc;
         static public bool LootLock;
         Item it = new Item();
+        Music media = new Music();
         public Location() {
             InitializeComponent();
             Wyzima_Castle.Foltest.Click += new RoutedEventHandler(GetDialogue);
@@ -40,7 +41,8 @@ namespace WitcherWPF {
             this.parentFrame = parentFrame;
             this.time = time;
             loc = location;
-            time.Visibility = Visibility.Hidden;
+            //time.Visibility = Visibility.Hidden;
+            //Music();
             SetLocation();
         }
         public void SetLocation() {
@@ -50,17 +52,18 @@ namespace WitcherWPF {
                 Wyzima_Castle.Visibility = Visibility.Visible;
             }
         }
-        public Location(Frame parentFrame) : this() {
+        public Location(Frame parentFrame, Time time) : this() {
             this.parentFrame = parentFrame;
+            this.time = time;
             SetLocation();
         }
         public void GetInventory(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Inventory(parentFrame, false));
+            parentFrame.Navigate(new Inventory(parentFrame, false, time));
         }
         public void GetDialogue(object sender, RoutedEventArgs e) {
             Button button = (sender as Button);
             string charworld = button.Name.ToString();
-            parentFrame.Navigate(new Dialogue(parentFrame, charworld));
+            parentFrame.Navigate(new Dialogue(parentFrame, charworld, time));
              
         }
         public void GetLoot(object sender, RoutedEventArgs e) {
@@ -80,5 +83,20 @@ namespace WitcherWPF {
             Wyzima_Castle.Flower.Visibility = Visibility.Visible;
             LootInventory.Children.Clear();
         }
+        public void Music(bool day) {
+            if (loc != null) {
+                media.AmbientMusic(day, loc);
+            }else {
+                media.AmbientMusic(day, "Old_wyzima1");
+            }
+        }
+        private bool CheckTime() {
+            if (time.hour >= 18 && time.hour <= 9) {
+                return false;
+            }else {
+                return true;
+            }
+        }
+
     }
 }

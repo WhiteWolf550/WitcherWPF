@@ -23,6 +23,7 @@ namespace WitcherWPF
         public string Effect { get; set; }
         public string Action { get; set; }
         public int Toxicity { get; set; }
+        public int Duration { get; set; }
         public string Content { get; set; }
         public int Price { get; set; }
 
@@ -32,7 +33,7 @@ namespace WitcherWPF
 
         }
 
-        public Item(string Name, string Description, string Type, string Source, string Substance, string Effect, string Action, int Toxicity, string Content,  int Price) {
+        public Item(string Name, string Description, string Type, string Source, string Substance, string Effect, string Action, int Toxicity, int Duration, string Content,  int Price) {
             this.Name = Name;
             this.Description = Description;
             this.Type = Type;
@@ -41,6 +42,7 @@ namespace WitcherWPF
             this.Effect = Effect;
             this.Action = Action;
             this.Toxicity = Toxicity;
+            this.Duration = Duration;
             this.Content = Content;
             this.Price = Price;
         }

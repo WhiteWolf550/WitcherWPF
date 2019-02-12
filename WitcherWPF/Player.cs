@@ -27,6 +27,8 @@ namespace WitcherWPF {
         public int toxicity { get; set; }
         public int experience { get; set; }
         public int experiencetolevelup { get; set; }
+        public int skillpoints { get; set; }
+        public int level { get; set; }
         public int money { get; set; }
         public int strongStunChance { get; set; }
         public int signIntensity { get; set; }
@@ -113,7 +115,7 @@ namespace WitcherWPF {
 
         }
 
-        public Player(int MaxHealth, int Health, int MaxEndurance, int Endurance, int MaxToxicity, int Toxicity, int experience, int experiencetolevelup, int Money, int StrongStunChance, int SignIntensity, int strongstyledamage, int faststyledamage, Sword SteelSword, Sword SilverSword, Armor Armor, Aard Aard, Igni Igni, Quen Quen, Axii Axii, Yrden Yrden ) {
+        public Player(int MaxHealth, int Health, int MaxEndurance, int Endurance, int MaxToxicity, int Toxicity, int experience, int experiencetolevelup, int skillpoints, int level, int Money, int StrongStunChance, int SignIntensity, int strongstyledamage, int faststyledamage, Sword SteelSword, Sword SilverSword, Armor Armor, Aard Aard, Igni Igni, Quen Quen, Axii Axii, Yrden Yrden ) {
             this.maxHealth = MaxHealth;
             this.health = Health;
             this.maxEndurance = MaxEndurance;
@@ -122,6 +124,8 @@ namespace WitcherWPF {
             this.toxicity = Toxicity;
             this.experience = experience;
             this.experiencetolevelup = experiencetolevelup;
+            this.skillpoints = skillpoints;
+            this.level = level;
             this.money = Money;
             this.strongStunChance = StrongStunChance;
             this.signIntensity = SignIntensity;
@@ -152,6 +156,18 @@ namespace WitcherWPF {
                 ToxicityBar.ToolTip = item.toxicity + "/" + item.maxToxicity;
 
                 
+
+                
+            }
+        }
+        public void LoadXP(ProgressBar XPBar, Label Level) {
+            List<Player> playerinfo = manager.LoadPlayer();
+            foreach (var item in playerinfo) {
+                XPBar.Maximum = item.experiencetolevelup;
+                XPBar.Value = item.experience;
+                XPBar.ToolTip = item.experience + "/" + item.experiencetolevelup;
+
+                Level.Content = item.level;
             }
         }
         public void LoadOrens(Label Orens) {

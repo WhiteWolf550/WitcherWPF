@@ -44,9 +44,12 @@ namespace WitcherWPF {
         MediaPlayer Playermedia = new MediaPlayer();
 
         private Frame parentFrame;
+        private Time time;
+        
         private bool frominventory;
         FileManager manager = new FileManager();
         static Player player = new Player();
+        static int CombatCount;
 
         List<Player> playerlist;
         List<Effect> Effects;
@@ -98,9 +101,10 @@ namespace WitcherWPF {
         public void PageLoaded(object sender, RoutedEventArgs e) {
             Application.Current.MainWindow.KeyDown += new KeyEventHandler(Crossway);
         }
-        public Combat(Frame parentFrame, bool frominventory) : this() {
+        public Combat(Frame parentFrame, bool frominventory, Time time) : this() {
             this.parentFrame = parentFrame;
             this.frominventory = frominventory;
+            this.time = time;
             Deathmenu.Load.Click += new RoutedEventHandler(LoadGame);
             Deathmenu.Exit.Click += new RoutedEventHandler(ExitGame);
             StaminaCheck();
@@ -237,6 +241,8 @@ namespace WitcherWPF {
                 } else {
                     Yrden_ico.Visibility = Visibility.Hidden;
                 }
+
+
             }
         }
         void PlayerStrongDuration_Tick(object sender, EventArgs e) {
@@ -916,7 +922,7 @@ namespace WitcherWPF {
             EnemyHealthPoints = EnemyHP.Value;
             EnemName = enemy.Name;
             Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Crossway);
-            parentFrame.Navigate(new Inventory(parentFrame, true));
+            parentFrame.Navigate(new Inventory(parentFrame, true, time));
             
         }
         public void UsePotion(Effect effect) {
@@ -941,7 +947,7 @@ namespace WitcherWPF {
             Deathmenu.BeginAnimation(UIElement.OpacityProperty, animation);
         }
         private void LoadGame(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Combat(parentFrame, false));
+            parentFrame.Navigate(new Combat(parentFrame, false, time));
         }
         private void ExitGame(object sender, RoutedEventArgs e) {
             System.Windows.Application.Current.Shutdown();

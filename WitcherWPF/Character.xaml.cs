@@ -23,8 +23,10 @@ namespace WitcherWPF {
         public Character() {
             InitializeComponent();
         }
-        public Character(Frame parentFrame) : this() {
+        public Character(Frame parentFrame, Time time) : this() {
             this.parentFrame = parentFrame;
+            this.time = time;
+            this.time = time;
         }
         public void GetInventory(object sender, RoutedEventArgs e) {
             parentFrame.Navigate(new Inventory(parentFrame, false, time));

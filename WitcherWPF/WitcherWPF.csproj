@@ -106,8 +106,10 @@
     <Compile Include="Map_WyzimaCastle.xaml.cs">
       <DependentUpon>Map_WyzimaCastle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Monologue.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="Murderer1.cs" />
+    <Compile Include="Music.cs" />
     <Compile Include="Old_wyzima2.xaml.cs">
       <DependentUpon>Old_wyzima2.xaml</DependentUpon>
     </Compile>
@@ -485,6 +487,8 @@
     <Content Include="sounds\misc\gameover.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="sounds\music\Peacefull.mp3" />
+    <Content Include="sounds\music\Fortress.mp3" />
     <Content Include="sounds\music\Mighty.mp3" />
     <Content Include="sounds\music\The_Order.mp3" />
   </ItemGroup>
