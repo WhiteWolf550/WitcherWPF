@@ -215,6 +215,7 @@
                 </Button.Background>
             </Button>
         </StackPanel>
+        <local:Time Margin="206,349,99,80" Grid.Column="1" Grid.Row="3"/>
 
 
 

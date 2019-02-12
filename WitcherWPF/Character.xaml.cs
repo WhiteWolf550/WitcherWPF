@@ -19,6 +19,7 @@ namespace WitcherWPF {
     /// </summary>
     public partial class Character : Page {
         private Frame parentFrame;
+        private Time time;
         public Character() {
             InitializeComponent();
         }
@@ -26,22 +27,22 @@ namespace WitcherWPF {
             this.parentFrame = parentFrame;
         }
         public void GetInventory(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Inventory(parentFrame, false));
+            parentFrame.Navigate(new Inventory(parentFrame, false, time));
         }
         public void GetQuests(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Quests(parentFrame));
+            parentFrame.Navigate(new Quests(parentFrame, time));
         }
         public void GetMap(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Map(parentFrame));
+            parentFrame.Navigate(new Map(parentFrame, time));
         }
         public void GetJournal(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Journal(parentFrame));
+            parentFrame.Navigate(new Journal(parentFrame, time));
         }
         public void GetAlchemy(object sender, RoutedEventArgs e) {
             //parentFrame.Navigate(new (parentFrame));
         }
         public void GetLocation(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Location(parentFrame));
+            parentFrame.Navigate(new Location(parentFrame, time));
         }
     }
 }

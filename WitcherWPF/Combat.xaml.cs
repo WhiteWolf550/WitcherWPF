@@ -106,6 +106,7 @@ namespace WitcherWPF {
             StaminaCheck();
             LoadEnemy();
             LoadPlayer();
+            LoadEffects();
             SetTimers();
             SignChecker.Start();
             if (frominventory == false) {
@@ -378,6 +379,7 @@ namespace WitcherWPF {
         }
         public void LoadPlayer() {
             playerlist = manager.LoadPlayer();
+            Effects = manager.LoadEffects();
             SoundsSet = player.SoundsSet;
             foreach (Player item in playerlist) {
                 stamina = item.endurance;
@@ -385,6 +387,7 @@ namespace WitcherWPF {
                 toxicity = item.toxicity;
                 maxtoxicity = item.maxToxicity;
             }
+            
             player.LoadAttributes(HealthBar, EnduranceBar, ToxicityBar);
             if (frominventory == false) {
                 NoSwordAnimation();
@@ -402,9 +405,12 @@ namespace WitcherWPF {
             foreach(Effect item in Effects) {
                 Image img = new Image();
                 img.Source = new BitmapImage(item.EffectIco[item.Name]);
-                img.ToolTip = "Efekt";
+                img.ToolTip = item.Name;
                 EffectBar.Children.Add(img);
+                UsePotion(item);
+
             }
+            
         }
         public void LoadEnemy() {
             if (frominventory == false) {
@@ -913,7 +919,12 @@ namespace WitcherWPF {
             parentFrame.Navigate(new Inventory(parentFrame, true));
             
         }
-        public void PotButClose(object sender, RoutedEventArgs e) {
+        public void UsePotion(Effect effect) {
+            if (effect.Name == "Vlaštovka") {
+                Heal();
+            }
+        }
+        public void Heal() {
 
         }
         public void DeathScreenShow() {

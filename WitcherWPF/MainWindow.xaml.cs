@@ -49,6 +49,7 @@ namespace WitcherWPF {
             
             InitializeComponent();
             mediaPlayer.Open(uri);
+            time.Timer();
             //mediaPlayer.Play();
             //CreateInv();
             CreatePlayer();
@@ -58,7 +59,7 @@ namespace WitcherWPF {
             //CreateArmors();
             //CreateSwords();
             
-            mainFrame.Navigate(new Combat(mainFrame, false));
+            mainFrame.Navigate(new Inventory(mainFrame, false, time));
         }
         public void CreateArmors() {
             armors.Add(new Armor("Středně těžká zbroj", "Zbroj wyzimské stráže", "Obnošená zbroj wyzimské stráže", 1, 30, 0, 0, @"img/Armors/Armor_Temeria2.png", 150, null, 10, "Loot"));

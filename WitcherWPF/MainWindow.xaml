@@ -8,6 +8,9 @@
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         Title="The Witcher: Witcher's Secrets" Height="894" Width="1426.666" ResizeMode="NoResize" Icon="img/UI/medallion.png" >
     <Grid>
+        
         <Frame Name="mainFrame" NavigationUIVisibility="Hidden"></Frame>
+        <local:Time x:Name="time" Margin="808,761,0,0"></local:Time>
+        
     </Grid>
 </Window>

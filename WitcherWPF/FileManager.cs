@@ -23,12 +23,18 @@ namespace WitcherWPF {
             string jsonFromFile = "";
             try {
                 jsonFromFile = File.ReadAllText(path);
-            }catch {
-                SaveEffects(new List<Effect>());
-                jsonFromFile = File.ReadAllText(path);
+                if (jsonFromFile != null) {
+                    return JsonConvert.DeserializeObject<List<Effect>>(jsonFromFile, settings);
+                }else {
+                    return new List<Effect>();
+                }
+                
+            } catch {
+
+                return new List<Effect>();
             }
             
-            return JsonConvert.DeserializeObject<List<Effect>>(jsonFromFile, settings);
+            
 
 
         }

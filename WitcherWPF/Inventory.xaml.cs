@@ -48,6 +48,7 @@ namespace WitcherWPF
         Dictionary<MenuItem, Armor> armoreq = new Dictionary<MenuItem, Armor>();
 
         private Frame parentFrame;
+        private Time time;
         
         public Inventory()
         {
@@ -59,8 +60,10 @@ namespace WitcherWPF
             effects = manager.LoadEffects();
             
         }
-        public Inventory(Frame parentFrame, bool Combat) : this() {
+        public Inventory(Frame parentFrame, bool Combat, Time time) : this() {
+            
             this.parentFrame = parentFrame;
+            this.time = time;
             this.Combat = Combat;
             Stamina.Interval = TimeSpan.FromSeconds(1);
             Stamina.Tick += new EventHandler(Stamina_tick);
@@ -102,14 +105,14 @@ namespace WitcherWPF
         }
         public void GetLocation(object sender, RoutedEventArgs e) {
             if (Combat == false) {
-                parentFrame.Navigate(new Location(parentFrame));
+                parentFrame.Navigate(new Location(parentFrame, "Old_wyzima1" ,time));
             }else {
                 game.SaveGame(playerinfo, pinventory, armor, sword, effects);
                 parentFrame.Navigate(new Combat(parentFrame, true));
             }
         }
         public void LoadInventory() {
-            
+            InventoryItems.Children.Clear();
             foreach (var item in pinventory) {
                 int p = item.Item.Price;
                 int sell = p / 2;
@@ -336,8 +339,34 @@ namespace WitcherWPF
                 Drink(button);
             }
         }public void Drink(MenuItem drink) {
-            PlayerInventory inv = buttonitems[drink];
-            effects.Add(new Effect(inv.Item.Name));
+            Effect e = new Effect();
+            e.Name = buttonitems[drink].Item.Name;
+            
+            List<Effect> matches = effects.Where(s => s.Name == buttonitems[drink].Item.Name).ToList();
+            if (matches.Count > 0) {
+                MessageBox.Show("Tento Elixír jsi už použil!");
+            }else {
+                effects.Add(e);
+                RemoveItem(buttonitems[drink].Item.Name);
+                foreach (Player item in playerinfo) {
+                    item.toxicity += buttonitems[drink].Item.Toxicity;
+                }               
+                manager.SaveEffects(effects);
+                
+            }
+            
+        }
+        public void RemoveItem(string name) {
+            List<PlayerInventory> matches = pinventory.Where(s => s.Item.Name == name).ToList();
+            foreach(PlayerInventory item in matches) {
+                if (item.Count > 1) {
+                    item.Count -= 1;
+                }else if(item.Count == 1) {
+                    pinventory.Remove(item);
+                }
+                LoadInventory();
+                
+            }
         }
         public void Read(MenuItem book) {
             PlayerInventory inv = buttonitems[book];

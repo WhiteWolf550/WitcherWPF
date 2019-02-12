@@ -22,6 +22,7 @@ namespace WitcherWPF {
     /// </summary>
     public partial class Location : Page {
         private Frame parentFrame;
+        private Time time;
         static public string loc;
         static public bool LootLock;
         Item it = new Item();
@@ -35,9 +36,11 @@ namespace WitcherWPF {
             }
 
         }
-        public Location(Frame parentFrame, string location) : this() {
+        public Location(Frame parentFrame, string location, Time time) : this() {
             this.parentFrame = parentFrame;
+            this.time = time;
             loc = location;
+            time.Visibility = Visibility.Hidden;
             SetLocation();
         }
         public void SetLocation() {
