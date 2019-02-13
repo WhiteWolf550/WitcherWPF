@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="742" d:DesignWidth="800">
     <Grid>
-        <Image Source="img/Maps/Map_Foltest.png" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
+        <Image Source="img/Maps/Map_Old_wyzima_castle.png" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
         <Button Name="WyzimaCastle1" ToolTip="Královská místnost"  Tag="Old_wyzima1" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="599,229,126,470" Height="Auto">
             <Image Source="img/UI/map/map_npc.png"></Image>
         </Button>

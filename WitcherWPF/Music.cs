@@ -53,6 +53,9 @@ namespace WitcherWPF {
             music.Pause();
             
         }
+        public void StopBattleMusic() {
+            combat = false;
+        }
         private void Music_Ended(object sender, EventArgs e) {
             isplayingday = false;
             isplayingnight = false;

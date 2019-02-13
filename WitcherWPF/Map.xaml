@@ -121,7 +121,8 @@
                 </Image>
             </Button>
         </StackPanel>
-        
-        <local:Map_WyzimaCastle x:Name="WyzimaCastle" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"></local:Map_WyzimaCastle>
+
+        <local:Map_WyzimaCastle Visibility="Hidden" x:Name="WyzimaCastle" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"></local:Map_WyzimaCastle>
+        <local:Map_Old_Wyzima Visibility="Hidden" x:Name="Old_Wyzima" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1"></local:Map_Old_Wyzima>
     </Grid>
 </Page>

@@ -91,6 +91,7 @@
     <Compile Include="Equipment.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Globals.cs" />
     <Compile Include="Human.cs" />
     <Compile Include="Igni.cs" />
     <Compile Include="Item.cs" />
@@ -102,6 +103,9 @@
     </Compile>
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Map_Old_Wyzima.xaml.cs">
+      <DependentUpon>Map_Old_Wyzima.xaml</DependentUpon>
     </Compile>
     <Compile Include="Map_WyzimaCastle.xaml.cs">
       <DependentUpon>Map_WyzimaCastle.xaml</DependentUpon>
@@ -174,6 +178,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Map.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Map_Old_Wyzima.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -319,9 +327,6 @@
     <Resource Include="img\UI\exit_c.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\Maps\Map_Foltest.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="saves\" />
   </ItemGroup>
   <ItemGroup>
@@ -427,6 +432,9 @@
     <Resource Include="img\Items\Monster_DeathDust.png" />
     <Resource Include="img\Items\Monster_Ectoplasm.png" />
     <Resource Include="img\Items\Monster_Fang.png" />
+    <Resource Include="img\UI\Map_ico.png" />
+    <Resource Include="img\Maps\Map_Old_wyzima_castle.png" />
+    <Resource Include="img\Maps\Map_Old_Wyzima.png" />
     <Content Include="sounds\barghest\bar_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

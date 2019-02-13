@@ -22,15 +22,29 @@ namespace WitcherWPF
     {
         private Frame parentFrame;
         private Time time;
+        static public string map;
         public Map()
         {
             InitializeComponent();
+            Clicks();
+            SetMap();
+        }
+        public void Clicks() {
             WyzimaCastle.WyzimaCastle1.Click += new RoutedEventHandler(Travel);
             WyzimaCastle.WyzimaCastle2.Click += new RoutedEventHandler(Travel);
+            
         }
         public Map(Frame parentFrame, Time time) : this() {
             this.parentFrame = parentFrame;
             this.time = time;
+        }
+        public void SetMap() {
+            map = Globals.location;
+            if (map == "Old_wyzima2" || map == "Old_wyzima1") {
+                WyzimaCastle.Visibility = Visibility.Visible;
+            } else if(map == "Old_wyzima") {
+                Old_Wyzima.Visibility = Visibility.Visible;
+            }
         }
         public void GetInventory(object sender, RoutedEventArgs e) {
             parentFrame.Navigate(new Inventory(parentFrame, false, time));
@@ -56,5 +70,6 @@ namespace WitcherWPF
             parentFrame.Navigate(new Location(parentFrame, tag, time));
 
         }
+        
     }
 }

@@ -37,8 +37,8 @@ namespace WitcherWPF
             this.Poisonchance = 0;
             this.StrongSpeed = 700;
             this.FastSpeed = 300;
-            this.StrongDamage = 12;
-            this.FastDamage = 5;
+            this.StrongDamage = 23;
+            this.FastDamage = 16;
             this.AttackInterval = 1000;
 
 

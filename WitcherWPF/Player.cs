@@ -261,7 +261,13 @@ namespace WitcherWPF {
 
         }
         public double Hit(double Health, int Damage) {
-            Health = Health - Damage;
+            List<Player> player = manager.LoadPlayer();
+            int armor = 0;
+            foreach(Player item in player) {
+                armor = item.Armor.Armorvalue;
+            }
+            int blocked = Damage - armor;
+            Health -= blocked;
             return Health;
         }
         public void CastAard() {

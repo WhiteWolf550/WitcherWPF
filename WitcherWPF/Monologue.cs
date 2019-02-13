@@ -9,6 +9,6 @@ namespace WitcherWPF {
 
         public string MonologueLine { get; set; }
         public bool isActive { get; set; }
-        public string ItemName;
+        public string ItemName { get; set; }
     }
 }

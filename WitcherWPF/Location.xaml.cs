@@ -23,12 +23,13 @@ namespace WitcherWPF {
     public partial class Location : Page {
         private Frame parentFrame;
         private Time time;
-        static public string loc;
+        static public string loc = "Old_wyzima1";
         static public bool LootLock;
         Item it = new Item();
         Music media = new Music();
         public Location() {
             InitializeComponent();
+            Globals.location = loc;
             Wyzima_Castle.Foltest.Click += new RoutedEventHandler(GetDialogue);
             Wyzima_Castle.Flower.Click += new RoutedEventHandler(GetLoot);
             Wyzima_Castle2.Triss.Click += new RoutedEventHandler(GetDialogue);
@@ -93,12 +94,12 @@ namespace WitcherWPF {
         public void BattleMusic() {
             media.BattleMusic();
         }
-        private bool CheckTime() {
-            if (time.hour >= 18 && time.hour <= 9) {
-                return false;
-            }else {
-                return true;
-            }
+        public void StopBattleMusic() {
+            media.StopBattleMusic();
+        }
+        public string GetLocation() {
+            string location = loc;
+            return location;
         }
 
     }

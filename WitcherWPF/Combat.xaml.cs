@@ -973,6 +973,8 @@ namespace WitcherWPF {
         }
         private void ExitCombat(object sender, RoutedEventArgs e) {
             Save();
+            backgroundmedia.Stop();
+            time.location.StopBattleMusic();
             Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Crossway);
             parentFrame.Navigate(new Location(parentFrame, time));
         }
