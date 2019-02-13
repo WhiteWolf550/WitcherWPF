@@ -516,6 +516,8 @@ namespace WitcherWPF {
                 EnemyHP.ToolTip = 0;
                 AttackBlock = true;
                 SkullLoot.Visibility = Visibility.Visible;
+                CombatExit.Visibility = Visibility.Visible;
+                player.AddXP(enemy.XP, playerlist);
             } else {
                 if (Parry == false) {
                     EnemyCanAttack = true;
@@ -530,10 +532,15 @@ namespace WitcherWPF {
             item.GenerateLoot(LootInventory, SkullLoot, LootBack, TakeLoot, CloseBut, enemy.Name);
         }
         private void CloseLoot(object sender, RoutedEventArgs e) {
-
+            TakeLoot.Visibility = Visibility.Hidden;
+            LootInventory.Visibility = Visibility.Hidden;
+            LootBack.Visibility = Visibility.Hidden;
+            CloseBut.Visibility = Visibility.Hidden;
+            SkullLoot.Visibility = Visibility.Visible;
+            LootInventory.Children.Clear();
         }
         private void LootToInventory(object sender, RoutedEventArgs e) {
-
+            item.LootToInventory(LootInventory, TakeLoot, LootBack, CloseBut);
         }
         public void PlayerDeath(bool hide) {
             if (PlayerCheck() == true) {
@@ -963,6 +970,15 @@ namespace WitcherWPF {
         }
         private void ExitGame(object sender, RoutedEventArgs e) {
             System.Windows.Application.Current.Shutdown();
+        }
+        private void ExitCombat(object sender, RoutedEventArgs e) {
+            Save();
+            Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Crossway);
+            parentFrame.Navigate(new Location(parentFrame, time));
+        }
+        private void Save() {
+            manager.SavePlayer(playerlist);
+            manager.SaveEffects(Effects);
         }
 
     }

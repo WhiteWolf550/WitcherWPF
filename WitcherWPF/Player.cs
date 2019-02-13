@@ -153,11 +153,7 @@ namespace WitcherWPF {
 
                 ToxicityBar.Maximum = item.maxToxicity;
                 ToxicityBar.Value = item.toxicity;
-                ToxicityBar.ToolTip = item.toxicity + "/" + item.maxToxicity;
-
-                
-
-                
+                ToxicityBar.ToolTip = item.toxicity + "/" + item.maxToxicity;         
             }
         }
         public void LoadXP(ProgressBar XPBar, Label Level) {
@@ -168,6 +164,11 @@ namespace WitcherWPF {
                 XPBar.ToolTip = item.experience + "/" + item.experiencetolevelup;
 
                 Level.Content = item.level;
+            }
+        }
+        public void AddXP(int XP, List<Player> playerlist) {           
+            foreach(Player item in playerlist) {
+                item.experience += XP;
             }
         }
         public void LoadOrens(Label Orens) {

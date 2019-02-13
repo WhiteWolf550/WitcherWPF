@@ -80,11 +80,11 @@
                 <Image x:Name="Yrden_ico" Source="img/ui/sign_yrden.png" Width="55" Height="55"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Label Content="A" Foreground="#FF84E2EC" Width="50" HorizontalContentAlignment="Center" Background="{x:Null}"></Label>
-                <Label Content="S" Foreground="#FFE02323" Width="55" HorizontalContentAlignment="Center"></Label>
-                <Label Content="D" Foreground="#FF57EE36" Width="55" HorizontalContentAlignment="Center"></Label>
-                <Label Content="F" Foreground="#FFE6DD19" Width="55" HorizontalContentAlignment="Center"></Label>
-                <Label Content="G" Foreground="#FFBB0FD6" Width="55" HorizontalContentAlignment="Center"/>
+                <Label Content="X" Foreground="#FF84E2EC" Width="50" HorizontalContentAlignment="Center" Background="{x:Null}"></Label>
+                <Label Content="C" Foreground="#FFE02323" Width="55" HorizontalContentAlignment="Center"></Label>
+                <Label Content="N" Foreground="#FF57EE36" Width="55" HorizontalContentAlignment="Center"></Label>
+                <Label Content="V" Foreground="#FFE6DD19" Width="55" HorizontalContentAlignment="Center"></Label>
+                <Label Content="B" Foreground="#FFBB0FD6" Width="55" HorizontalContentAlignment="Center"/>
             </StackPanel>
 
         </StackPanel>
@@ -100,7 +100,12 @@
                 </Image.RenderTransform>
             </Image>
         </Button>
-        <Button Name="SkullLoot" Visibility="Hidden" Click="EnemyLoot" Margin="876,420,430,366" Height="Auto">
+        <Button Visibility="Hidden" Name="CombatExit" Click="ExitCombat" Margin="1159,239,154,523" Height="Auto" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="img/UI/door.png"/>
+            </Button.Background>
+        </Button>
+        <Button Name="SkullLoot" Visibility="Hidden" Click="EnemyLoot" Margin="876,420,430,366" Height="Auto" BorderBrush="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="img/UI/Skull.png"/>
             </Button.Background>

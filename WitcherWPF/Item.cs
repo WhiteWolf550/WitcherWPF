@@ -74,7 +74,7 @@ namespace WitcherWPF
             var matches = items.Where(s => s.LootType == LootType).ToList();
             int itc = matches.Count();
             Random rand = new Random();
-            int lootcount = rand.Next(1, 2);
+            int lootcount = rand.Next(1, 3);
             if (!File.Exists(lootpath)) {
 
                 for (int i = 0;i <= lootcount;i++) {

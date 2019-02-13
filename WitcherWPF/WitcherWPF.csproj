@@ -386,9 +386,6 @@
     <Resource Include="img\UI\oren.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\UI\back.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="gifs\NPC\npc_fight_attack.gif" />
   </ItemGroup>
   <ItemGroup>
