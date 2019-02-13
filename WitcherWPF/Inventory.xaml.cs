@@ -114,37 +114,39 @@ namespace WitcherWPF
         }
         public void LoadInventory() {
             InventoryItems.Children.Clear();
-            foreach (var item in pinventory) {
-                int p = item.Item.Price;
-                int sell = p / 2;
-                string orens = inventory.Orens(sell);
-                Image inventoryimage = new Image();
-                inventoryimage.Width = 18;
-                inventoryimage.Height = 18;
-                inventoryimage.Source = new BitmapImage(new Uri(item.Item.Source, UriKind.Relative));
-                inventoryimage.Margin = new Thickness(-15,-3,-3,-3);
-                ContextMenu cm = new ContextMenu();
-                MenuItem drop = new MenuItem();
-                drop.Header = "Zahodit předmět";
-                drop.Click += DropItem;
-                drop.Tag = item.Item.Name;
-                cm.Items.Add(drop);
-                MenuItem use = new MenuItem();
-                use.Header = item.Item.Action;
-                use.Click += UseItem;
-                use.Tag = item.Item.Action;
-                cm.Items.Add(use);
-                Button inventoryitem = new Button();
-                inventoryitem.Content = inventoryimage;
-                inventoryitem.Height = 20;
-                inventoryitem.Width = 20;
-                inventoryitem.BorderBrush = Brushes.Transparent;
-                inventoryitem.ToolTip = item.Item.Name + "\n" + item.Count + "x" + "\n" + item.Item.Description + "\n" + "SUBSTANCE:" + "\n" + item.Item.Substance + "\n" + "Lze prodat za: " + sell + " " + orens;
-                inventoryitem.ContextMenu = cm;
-                inventoryitem.Tag = item.Item.Action;
-                inventoryitem.Background = Brushes.Transparent;
-                InventoryItems.Children.Add(inventoryitem);
-                buttonitems.Add(use, item);
+            if (pinventory != null) {
+                foreach (var item in pinventory) {
+                    int p = item.Item.Price;
+                    int sell = p / 2;
+                    string orens = inventory.Orens(sell);
+                    Image inventoryimage = new Image();
+                    inventoryimage.Width = 18;
+                    inventoryimage.Height = 18;
+                    inventoryimage.Source = new BitmapImage(new Uri(item.Item.Source, UriKind.Relative));
+                    inventoryimage.Margin = new Thickness(-15, -3, -3, -3);
+                    ContextMenu cm = new ContextMenu();
+                    MenuItem drop = new MenuItem();
+                    drop.Header = "Zahodit předmět";
+                    drop.Click += DropItem;
+                    drop.Tag = item.Item.Name;
+                    cm.Items.Add(drop);
+                    MenuItem use = new MenuItem();
+                    use.Header = item.Item.Action;
+                    use.Click += UseItem;
+                    use.Tag = item.Item.Action;
+                    cm.Items.Add(use);
+                    Button inventoryitem = new Button();
+                    inventoryitem.Content = inventoryimage;
+                    inventoryitem.Height = 20;
+                    inventoryitem.Width = 20;
+                    inventoryitem.BorderBrush = Brushes.Transparent;
+                    inventoryitem.ToolTip = item.Item.Name + "\n" + item.Count + "x" + "\n" + item.Item.Description + "\n" + "SUBSTANCE:" + "\n" + item.Item.Substance + "\n" + "Lze prodat za: " + sell + " " + orens;
+                    inventoryitem.ContextMenu = cm;
+                    inventoryitem.Tag = item.Item.Action;
+                    inventoryitem.Background = Brushes.Transparent;
+                    InventoryItems.Children.Add(inventoryitem);
+                    buttonitems.Add(use, item);
+                }
             }
         }
         public void LoadEquipSwords() {
@@ -342,7 +344,9 @@ namespace WitcherWPF
         }public void Drink(MenuItem drink) {
             Effect e = new Effect();
             e.Name = buttonitems[drink].Item.Name;
-            
+            e.Duration = buttonitems[drink].Item.Duration;
+            e.Toxicity = buttonitems[drink].Item.Toxicity;
+
             List<Effect> matches = effects.Where(s => s.Name == buttonitems[drink].Item.Name).ToList();
             if (matches.Count > 0) {
                 MessageBox.Show("Tento Elixír jsi už použil!");

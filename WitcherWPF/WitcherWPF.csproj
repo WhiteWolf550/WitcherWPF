@@ -427,6 +427,9 @@
     <Resource Include="img\UI\medallion.png" />
     <Resource Include="img\UI\dungeon.png" />
     <Resource Include="img\UI\Effect_Swallow.png" />
+    <Resource Include="img\Items\Monster_DeathDust.png" />
+    <Resource Include="img\Items\Monster_Ectoplasm.png" />
+    <Resource Include="img\Items\Monster_Fang.png" />
     <Content Include="sounds\barghest\bar_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -17,6 +17,7 @@ namespace WitcherWPF
     {
         public string Name { get; set; }
         public string Description { get; set; }
+        public string LootType { get; set; }
         public string Type { get; set; }
         public string Source { get; set; }
         public string Substance { get; set; }
@@ -33,9 +34,10 @@ namespace WitcherWPF
 
         }
 
-        public Item(string Name, string Description, string Type, string Source, string Substance, string Effect, string Action, int Toxicity, int Duration, string Content,  int Price) {
+        public Item(string Name, string Description, string Type, string LootType, string Source, string Substance, string Effect, string Action, int Toxicity, int Duration, string Content,  int Price) {
             this.Name = Name;
             this.Description = Description;
+            this.LootType = LootType;
             this.Type = Type;
             this.Source = Source;
             this.Substance = Substance;
@@ -46,7 +48,15 @@ namespace WitcherWPF
             this.Content = Content;
             this.Price = Price;
         }
-        public void GenerateLoot(WrapPanel LootInventory, Button Hide, Image LootBack, Button TakeLoot, Button CloseBut) {
+        public void EnemyLoot(string Monster, WrapPanel LootInventory) {
+            List<Item> items = manager.LoadItems();
+            List<Item> matches = items.Where(s => s.Type == Monster).ToList();
+            foreach(Item item in matches) {
+                
+            }
+            
+        }
+        public void GenerateLoot(WrapPanel LootInventory, Button Hide, Image LootBack, Button TakeLoot, Button CloseBut, string LootType) {
             bool pass = true;
             Hide.Visibility = Visibility.Hidden;
             LootInventory.Visibility = Visibility.Visible;
@@ -57,14 +67,14 @@ namespace WitcherWPF
             string lootpath = @"../../saves/Loot.json";
             
             List<Item> loot = new List<Item>();
-            List<Item> items = manager.LoadItems(ipath);
+            List<Item> items = manager.LoadItems();
             //Dictionary<Item, Button> lootitems = new Dictionary<Item, Button>();
             
             
-            var matches = items.Where(s => s.Type == "Loot").ToList();
+            var matches = items.Where(s => s.LootType == LootType).ToList();
             int itc = matches.Count();
             Random rand = new Random();
-            int lootcount = rand.Next(1, 4);
+            int lootcount = rand.Next(1, 2);
             if (!File.Exists(lootpath)) {
 
                 for (int i = 0;i <= lootcount;i++) {
@@ -85,9 +95,11 @@ namespace WitcherWPF
                     it.Name = matches[rn].Name;
                     it.Description = matches[rn].Description;
                     it.Type = matches[rn].Type;
+                    it.LootType = matches[rn].LootType;
                     it.Source = matches[rn].Source;
                     it.Substance = matches[rn].Substance;
                     it.Effect = matches[rn].Effect;
+                    it.Duration = matches[rn].Duration;
                     it.Action = matches[rn].Action;
                     it.Toxicity = matches[rn].Toxicity;
                     it.Content = matches[rn].Content;
@@ -98,7 +110,7 @@ namespace WitcherWPF
                 manager.SaveItems(loot, lootpath);
             }else if (File.Exists(lootpath)) {
 
-                loot = manager.LoadItems(lootpath);
+                loot = manager.LoadItems();
                 foreach (var item in loot) {
                     Image inventoryimage2 = new Image();
                     inventoryimage2.Width = 18;

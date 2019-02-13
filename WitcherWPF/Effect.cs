@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace WitcherWPF {
     public class Effect {
         public string Name { get; set; }
+        public int Duration { get; set; }
+        public int Toxicity { get; set; }
         public Dictionary<string, Uri> EffectIco = new Dictionary<string, Uri>();
         
         public Effect() {

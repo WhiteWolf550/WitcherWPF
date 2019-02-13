@@ -11,8 +11,10 @@ namespace WitcherWPF {
         public Dictionary<string, Uri> musicday = new Dictionary<string, Uri>();
         public Dictionary<string, Uri> musicnight = new Dictionary<string, Uri>();
         MediaPlayer music = new MediaPlayer();
+        MediaPlayer battle = new MediaPlayer();
         bool isplayingday = false;
         bool isplayingnight = false;
+        bool combat = false;
 
         public Music() {
             this.music.MediaEnded += new EventHandler(Music_Ended);
@@ -24,30 +26,37 @@ namespace WitcherWPF {
         }
 
         public void AmbientMusic(bool day, string location) {
-            
-            if (day == true) {
-                if (isplayingday == false) {
-                    music.Open(musicday[location]);
-                    music.Play();
-                    isplayingday = true;
-                    isplayingnight = false;
-                }else {
+            if (combat == false) {
+                if (day == true) {
+                    if (isplayingday == false) {
+                        music.Open(musicday[location]);
+                        music.Play();
+                        isplayingday = true;
+                        isplayingnight = false;
+                    } else {
 
-                }
-            }else {
-                if (isplayingnight == false) {
-                    music.Open(musicnight[location]);
-                    music.Play();
-                    isplayingnight = true;
-                    isplayingday = false;
-                }else {
+                    }
+                } else {
+                    if (isplayingnight == false) {
+                        music.Open(musicnight[location]);
+                        music.Play();
+                        isplayingnight = true;
+                        isplayingday = false;
+                    } else {
 
+                    }
                 }
             }
+        }
+        public void BattleMusic() {
+            combat = true;
+            music.Pause();
+            
         }
         private void Music_Ended(object sender, EventArgs e) {
             isplayingday = false;
             isplayingnight = false;
         }
+        
     }
 }

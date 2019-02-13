@@ -83,12 +83,15 @@ namespace WitcherWPF {
             File.WriteAllText(swordpath, jsonToFile);
         }
         public void CreateInv() {
-            items.Add(new Item("Kuře", "Jídlo,Po snězení doplní malou část zdraví", "Loot", @"img/Items/Food_Chicken.png", "žádné", "Food", "Sníst", 0, 0, null, 20));
-            items.Add(new Item("Jablečný Džus", "Nápoj, lze vypít pro doplňení malé části zdraví", "Loot", @"img/Items/Drink_Apple_Juice.png", "žádné", "Drink", "Vypít",0, 0, null, 15));
-            items.Add(new Item("Fisstech", "Silná droga, lze prodat", "Loot", @"img/Items/Potion_Fisstech.png", "žádné", "Drug", "Použít",0, 0, null, 150));
-            items.Add(new Item("Víno", "Alkohol, lze prodat kupcům nebo použít", "Loot", @"img/Items/Alcohol_Winered.png", "žádné", "Alcohol", "Vypít", 0, 0, null, 50));
-            items.Add(new Item("Vlaštovka", "Elixír, Pomalu doplňuje zdraví po určitou dobu", "Loot", @"img/Items/Potion_Full_Moon.png", null, "Potion", "Vypít", 30, 2, null, 80));
-            items.Add(new Item("Barghesti", "Kniha o barghestech", "Loot", @"img/Items/Book_Bestiary.png", null, "Barghest", "Číst", 0, 0, "Barghesti jsou fakt svině...", 100));
+            items.Add(new Item("Kuře", "Jídlo,Po snězení doplní malou část zdraví", "Loot", "Loot", @"img/Items/Food_Chicken.png", "žádné", "Food", "Sníst", 0, 0, null, 20));
+            items.Add(new Item("Jablečný Džus", "Nápoj, lze vypít pro doplňení malé části zdraví", "Loot", "Loot", @"img/Items/Drink_Apple_Juice.png", "žádné", "Drink", "Vypít",0, 0, null, 15));
+            items.Add(new Item("Fisstech", "Silná droga, lze prodat", "Loot", "Loot", @"img/Items/Potion_Fisstech.png", "žádné", "Drug", "Použít",0, 0, null, 150));
+            items.Add(new Item("Víno", "Alkohol, lze prodat kupcům nebo použít", "Loot", "Loot", @"img/Items/Alcohol_Winered.png", "žádné", "Alcohol", "Vypít", 0, 0, null, 50));
+            items.Add(new Item("Vlaštovka", "Elixír, Pomalu doplňuje zdraví po určitou dobu", "Loot", "Loot", @"img/Items/Potion_Full_Moon.png", null, "Potion", "Vypít", 30, 2, null, 80));
+            items.Add(new Item("Barghesti", "Kniha o barghestech", "Loot","Loot", @"img/Items/Book_Bestiary.png", null, "Barghest", "Číst", 0, 0, "Barghesti jsou fakt svině...", 100));
+            items.Add(new Item("Tesáky z příšery", "Tesáky sebrané z příšery", "Alchemy", "Barghest", @"img/Items/Monster_Fang.png", "Vitriol", "Alchemy", null, 0, 0, null, 10));
+            items.Add(new Item("Prach smrti", "Prach, který se většinou dá získat z přeludů, nebo z jiných příšer", "Alchemy", "Barghest", @"img/Items/Monster_DeathDust.png", "Rebis", "Alchemy", null, 0, 0, null, 10));
+            items.Add(new Item("Ektoplasma", "Ektoplasma z přeludů", "Alchemy", "Barghest", @"img/Items/Monster_Ectoplasm.png", "Nigredo", "Alchemy", null, 0, 0, null, 10));
             string jsonToFile = JsonConvert.SerializeObject(items, settings);
             File.WriteAllText(ipath, jsonToFile);
         }

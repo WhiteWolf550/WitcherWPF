@@ -54,6 +54,7 @@ namespace WitcherWPF {
         List<Player> playerlist;
         List<Effect> Effects;
         Aard aard = new Aard();
+        Item item = new Item();
         static Enemy enemy;
         Yrden yrden = new Yrden();
         static Dictionary<string, Uri> AnimationSets;
@@ -120,6 +121,7 @@ namespace WitcherWPF {
 
         }
         public void SetMusic() {
+            time.location.BattleMusic();
             backgroundmedia.Open(new Uri(@"../../sounds/music/Mighty.mp3", UriKind.Relative));
             backgroundmedia.Volume = 0.1;
             backgroundmedia.MediaEnded += new EventHandler(Music_Ended);
@@ -513,6 +515,7 @@ namespace WitcherWPF {
                 EnemyHP.Value = 0;
                 EnemyHP.ToolTip = 0;
                 AttackBlock = true;
+                SkullLoot.Visibility = Visibility.Visible;
             } else {
                 if (Parry == false) {
                     EnemyCanAttack = true;
@@ -522,6 +525,15 @@ namespace WitcherWPF {
                 EnemyIdleAnimation();
 
             }
+        }
+        private void EnemyLoot(object sender, RoutedEventArgs e) {
+            item.GenerateLoot(LootInventory, SkullLoot, LootBack, TakeLoot, CloseBut, enemy.Name);
+        }
+        private void CloseLoot(object sender, RoutedEventArgs e) {
+
+        }
+        private void LootToInventory(object sender, RoutedEventArgs e) {
+
         }
         public void PlayerDeath(bool hide) {
             if (PlayerCheck() == true) {

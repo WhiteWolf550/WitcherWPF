@@ -61,7 +61,8 @@ namespace WitcherWPF {
             return jsonread;
 
         }
-        public List<Item> LoadItems(string path) {
+        public List<Item> LoadItems() {
+            string path = @"../../gamefiles/GameItems.json";
             string jsonFromFile = File.ReadAllText(path);
             List<Item> jsonread = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
             return jsonread;
@@ -91,9 +92,14 @@ namespace WitcherWPF {
         }
         public List<PlayerInventory> LoadPlayerInventory() {
             string path = @"../../saves/PlayerInventory.json";
-            string jsonFromFile = File.ReadAllText(path);
-            List<PlayerInventory> jsonread = JsonConvert.DeserializeObject<List<PlayerInventory>>(jsonFromFile, settings);
-            return jsonread;
+            try {
+                string jsonFromFile = File.ReadAllText(path);
+                List<PlayerInventory> jsonread = JsonConvert.DeserializeObject<List<PlayerInventory>>(jsonFromFile, settings);
+                return jsonread;
+            }catch {
+                List<PlayerInventory> jsonread = new List<PlayerInventory>();
+                return jsonread;
+            }
 
         }
         public List<Sign> LoadSigns() {

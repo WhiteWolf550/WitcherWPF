@@ -21,11 +21,11 @@ namespace WitcherWPF {
     public partial class Time : UserControl {
         public DispatcherTimer time = new DispatcherTimer();
         
-        Location location = new Location();
+        public Location location = new Location();
         FileManager manager = new FileManager();
         List<Effect> effect = new List<Effect>();
-        public int hour = 10;
-        public  int minute = 38;
+        public int hour = 17;
+        public  int minute = 59;
         public int second = 22;
         
         public Time() {

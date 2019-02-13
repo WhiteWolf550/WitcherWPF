@@ -68,7 +68,7 @@ namespace WitcherWPF {
         }
         public void GetLoot(object sender, RoutedEventArgs e) {
             
-            it.GenerateLoot(LootInventory, Wyzima_Castle.Flower, LootBack, TakeLoot, CloseBut);
+            it.GenerateLoot(LootInventory, Wyzima_Castle.Flower, LootBack, TakeLoot, CloseBut, "Loot");
         }
         public void LootToInventory(object sender, RoutedEventArgs e) {
             it.LootToInventory(LootInventory, TakeLoot, LootBack, CloseBut);
@@ -89,6 +89,9 @@ namespace WitcherWPF {
             }else {
                 media.AmbientMusic(day, "Old_wyzima1");
             }
+        }
+        public void BattleMusic() {
+            media.BattleMusic();
         }
         private bool CheckTime() {
             if (time.hour >= 18 && time.hour <= 9) {

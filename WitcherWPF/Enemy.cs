@@ -46,7 +46,6 @@ namespace WitcherWPF {
                 return false;
             }
         }
-
-
     }
+    
 }
