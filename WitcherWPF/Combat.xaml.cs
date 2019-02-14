@@ -307,12 +307,12 @@ namespace WitcherWPF {
             
             Random rand = new Random();
             int rn = rand.Next(0, 100);
-            if (rn < 60) {
-                //fast
-                EnemySound("Strong");
+            if (rn < enemy.FastChance) {
+                
+                EnemySound("Fast");
                 EnemyFastAttack();
                 
-            }else if (rn > 60) {
+            }else if (rn > enemy.FastChance) {
                 EnemySound("Strong");
                 EnemyStrong = true;
                 EnemyStrongAttack();
@@ -410,10 +410,11 @@ namespace WitcherWPF {
             }
         }
         public void LoadEffects() {
+            EffectBar.Children.Clear();
             foreach(Effect item in Effects) {
                 Image img = new Image();
                 img.Source = new BitmapImage(item.EffectIco[item.Name]);
-                img.ToolTip = item.Name;
+                img.ToolTip = item.Name + "\n" + "Doba trvání: " + item.Duration;
                 EffectBar.Children.Add(img);
                 UsePotion(item);
 
@@ -518,13 +519,34 @@ namespace WitcherWPF {
                 SkullLoot.Visibility = Visibility.Visible;
                 CombatExit.Visibility = Visibility.Visible;
                 player.AddXP(enemy.XP, playerlist);
+                CombatCount++;
             } else {
                 if (Parry == false) {
                     EnemyCanAttack = true;
                 }else {
                     EnemyCanAttack = false;
                 }
+                EnemyBehavior();
                 EnemyIdleAnimation();
+
+            }
+        }
+        private void PotionCheck() {
+            List<Effect> copy = Effects;
+            foreach(Effect item in Effects) {
+                item.Duration -= 1;
+                
+            }
+            foreach(Effect item2 in copy) {
+                RemoveEffect(item2);
+            }
+            LoadEffects();
+        }
+        private void RemoveEffect(Effect item) {
+            if (item.Duration <= 0) {
+                Effects.Remove(item);
+
+            } else {
 
             }
         }
@@ -569,7 +591,19 @@ namespace WitcherWPF {
             Playermedia.Open(SoundsSet[Key]);
             Playermedia.Play();
         }
-
+        public void EnemyBehavior() {
+            if (enemy.HP < enemy.MaxHP / 2 ) {
+                enemy.DodgeChance = 60;
+                if (enemy.HP < enemy.MaxHP / 4) {
+                    enemy.DodgeChance = 20;
+                    enemy.FastChance = 20;
+                    enemy.StrongDamage = 40;
+                }
+            }
+            if (HealthBar.Value < HealthBar.Maximum / 2) {
+                enemy.FastChance = 30;
+            }
+        }
         public void PlayerAnimations(string Key, Image GIF) {
             var image = new BitmapImage();
             image.BeginInit();
@@ -972,8 +1006,9 @@ namespace WitcherWPF {
             System.Windows.Application.Current.Shutdown();
         }
         private void ExitCombat(object sender, RoutedEventArgs e) {
-            Save();
             backgroundmedia.Stop();
+            PotionCheck();
+            Save();          
             time.location.StopBattleMusic();
             Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Crossway);
             parentFrame.Navigate(new Location(parentFrame, time));

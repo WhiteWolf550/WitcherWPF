@@ -93,6 +93,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="Human.cs" />
+    <Compile Include="IBehavior.cs" />
     <Compile Include="Igni.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Journal.xaml.cs">

@@ -41,6 +41,13 @@ namespace WitcherWPF {
             
 
         }
+        public string Zero(int num) {
+            if(num < 10) {
+                return "0" + num;
+            }else {
+                return num.ToString();
+            }
+        }
         void Time_tick(object sender, EventArgs e) {
             second++;
             if (second > 59) {
@@ -59,7 +66,7 @@ namespace WitcherWPF {
             }else if(hour >= 9 && hour < 18) {
                 location.Music(true);
             }
-            Clock.Text = hour + ":" + minute + ":" + second;
+            Clock.Text = hour + ":" + Zero(minute) + ":" + Zero(second);
         }
         
         

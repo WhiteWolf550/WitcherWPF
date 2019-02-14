@@ -33,14 +33,14 @@ namespace WitcherWPF
             this.XP = 30;
 
             this.StunChance = 5;
-            this.DodgeChance = 50;
+            this.DodgeChance = 30;
             this.Poisonchance = 0;
             this.StrongSpeed = 700;
             this.FastSpeed = 300;
             this.StrongDamage = 23;
+            this.FastChance = 60;
             this.FastDamage = 16;
             this.AttackInterval = 1000;
-
 
 
         }

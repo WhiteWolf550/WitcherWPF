@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace WitcherWPF {
-    class Enemy {
+    class Enemy : IBehavior {
         public Dictionary<string, Uri> AnimationSet { get; set; }
         public Dictionary<string, Uri> SoundSet { get; set; }
         public int MaxHP { get; set; }
@@ -16,6 +16,7 @@ namespace WitcherWPF {
         public bool HurtSteelSword { get; set; }
         public int StrongDamage { get; set; }
         public int FastDamage { get; set; }
+        public int FastChance { get; set; }
         public int XP { get; set; }
         public int StunChance { get; set; }
         public string ResistanceTo { get; set; }
@@ -45,6 +46,9 @@ namespace WitcherWPF {
             }else {
                 return false;
             }
+        }
+        public void EnemyBehavior() {
+
         }
     }
     
