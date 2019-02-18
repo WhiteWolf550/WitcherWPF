@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace WitcherWPF
 {
-    class Barghest : Monster {
+    class Barghest : Enemy {
 
+        
         public Barghest() {
             this.AnimationSet = new Dictionary<string, Uri>();
             this.AnimationSet.Add("Strong", new Uri(@"gifs\Barghest/barghest_fight_StrongAttack.gif", UriKind.Relative));
@@ -34,7 +35,7 @@ namespace WitcherWPF
 
             this.StunChance = 5;
             this.DodgeChance = 30;
-            this.Poisonchance = 0;
+            this.BleedChance = 30;
             this.StrongSpeed = 700;
             this.FastSpeed = 300;
             this.StrongDamage = 23;
@@ -43,6 +44,20 @@ namespace WitcherWPF
             this.AttackInterval = 1000;
 
 
+        }
+
+        public override void EnemyBehavior(double PlayerHP, double PlayerHPMax) {
+            if (this.HP < this.MaxHP / 2) {
+                this.DodgeChance = 60;
+                if (this.HP < this.MaxHP / 4) {
+                    this.DodgeChance = 20;
+                    this.FastChance = 20;
+                    this.StrongDamage = 40;
+                }
+            }
+            if (PlayerHP < PlayerHPMax / 2) {
+                this.FastChance = 40;
+            }
         }
     }
 }

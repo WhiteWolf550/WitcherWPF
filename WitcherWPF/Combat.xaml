@@ -14,7 +14,7 @@
         <Image Name="forest" Source="img/ui/dungeon.png" Margin="-239,-825,-818,-362"/>
         <Image gif:ImageBehavior.AnimatedSource="gifs/Geralt/geralt_fight_NoSword.gif"  RenderTransformOrigin="1.715,0.504" Margin="98,40,302,226" Name="Geralt"  gif:ImageBehavior.AnimationCompleted="PlayerAnimationEnd" Source="gifs/Geralt/geralt_fight_idle.gif" />
         <Image gif:ImageBehavior.AnimatedSource="gifs/Barghest/barghest_fight_idle.gif"  RenderTransformOrigin="1.715,0.504" Margin="310,0,60,254" Name="Enemy"  gif:ImageBehavior.AnimationCompleted="EnemyAnimationEnd" Source="gifs/NPC/npc_fight_idle.gif" />
-        <Image RenderTransformOrigin="1.715,0.504" Margin="540,150,358,366" Name="GIFSign" Visibility="Hidden"  gif:ImageBehavior.AnimationCompleted="SignEnd" Source="gifs/FX/Aard.gif" />
+        <Image RenderTransformOrigin="1.715,0.504" Margin="540,150,358,366" Name="GIFSign" Visibility="Hidden"  Source="gifs/FX/Aard.gif" />
         <Image Panel.ZIndex="1" Source="img/UI/stat_ui.png" Margin="0,0,972,781"/>
         <Image Panel.ZIndex="2" Source="img/UI/medallion.png" Margin="39,0,1206,781"></Image>
         <StackPanel Name="EffectBar" Orientation="Horizontal" Margin="72,118,1044,746">
@@ -28,8 +28,8 @@
                 </LinearGradientBrush>
             </StackPanel.Background>
         </StackPanel>
-        <Image RenderTransformOrigin="1.715,0.504" Margin="72,33,372,174" Name="GIFSelf" Visibility="Hidden"  gif:ImageBehavior.AnimationCompleted="SignEnd" Source="gifs/FX/Quen.gif" />
-        <Image RenderTransformOrigin="1.715,0.504" Margin="507,239,95,79" Name="GIFBehind" Visibility="Hidden"  gif:ImageBehavior.AnimationCompleted="SignEnd" Source="gifs/FX/Yrden.gif" />
+        <Image RenderTransformOrigin="1.715,0.504" Margin="72,33,372,174" Name="GIFSelf" Visibility="Hidden"   Source="gifs/FX/Quen.gif" />
+        <Image RenderTransformOrigin="1.715,0.504" Margin="507,239,95,79" Name="GIFBehind" Visibility="Hidden"   Source="gifs/FX/Yrden.gif" />
 
 
         <Rectangle Fill="Black" Opacity="0.5" Name="Blackout" Visibility="Hidden" ></Rectangle>

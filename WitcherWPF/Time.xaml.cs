@@ -24,7 +24,7 @@ namespace WitcherWPF {
         public Location location = new Location();
         FileManager manager = new FileManager();
         List<Effect> effect = new List<Effect>();
-        public int hour = 17;
+        public int hour = 16;
         public  int minute = 59;
         public int second = 22;
         

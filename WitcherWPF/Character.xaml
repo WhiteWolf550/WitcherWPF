@@ -11,14 +11,30 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="108*"/>
-            <ColumnDefinition Width="1319*"/>
+            <ColumnDefinition Width="218*"/>
+            <ColumnDefinition Width="1080*"/>
+            <ColumnDefinition Width="21*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="49*"/>
-            <RowDefinition Height="376*"/>
+            <RowDefinition Height="53*"/>
+            <RowDefinition Height="372*"/>
         </Grid.RowDefinitions>
-        <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63" Grid.RowSpan="2" Grid.ColumnSpan="2"></Image>
-        <Button Background="{x:Null}" BorderBrush="{x:Null}" MinWidth="50" MinHeight="80" Click="GetLocation">
+        <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63" Grid.RowSpan="2" Grid.ColumnSpan="4"></Image>
+
+        <local:AardSkills x:Name="Aard" Width="1324" Height="856" Grid.ColumnSpan="3" Margin="32,57,49,-63" Grid.RowSpan="2" Visibility="Hidden"/>
+        <local:IgniSkills x:Name="Igni" Width="1324" Height="856" Grid.ColumnSpan="3" Margin="32,57,49,-63" Grid.RowSpan="2" Visibility="Hidden"/>
+        <local:QuenSkills x:Name="Quen" Width="1324" Height="856" Grid.ColumnSpan="3" Margin="32,57,49,-63" Grid.RowSpan="2" Visibility="Hidden"/>
+        <local:AxiiSkills x:Name="Axii" Width="1324" Height="856" Grid.ColumnSpan="3" Margin="32,57,49,-63" Grid.RowSpan="2" Visibility="Hidden"/>
+        <local:YrdenSkills x:Name="Yrden" Width="1324" Height="856" Grid.ColumnSpan="3" Margin="32,57,49,-63" Grid.RowSpan="2" Visibility="Hidden"/>
+        <local:StrongSkills x:Name="Strength" Width="1324" Height="856" Grid.ColumnSpan="3" Margin="32,57,49,-63" Grid.RowSpan="2" Visibility="Hidden"/>
+        <local:EnduranceSkills x:Name="Endurance" Width="1324" Height="856" Grid.ColumnSpan="3" Margin="32,57,49,-63" Grid.RowSpan="2" Visibility="Hidden"/>
+
+        <StackPanel Grid.Column="2" Margin="648,28,30,643" Grid.Row="1" Orientation="Horizontal">
+            <Label Content="Dovednostní body:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40"   Background="{x:Null}" Foreground="#DDFFFFFF" Grid.Column="2" Grid.Row="1"/>
+            <Label Name="SkillPoints" Content="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" Background="{x:Null}" Foreground="#DDFFFFFF" Grid.Column="2" Grid.Row="1" Width="58"/>
+        </StackPanel>
+
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" MinWidth="50" MinHeight="80" Click="GetLocation" Margin="0,9" Height="Auto">
             <Image Width="60" Height="60">
                 <Image.Resources>
                     <Style TargetType="{x:Type Image}">
@@ -34,7 +50,7 @@
                 </Image.Resources>
             </Image>
         </Button>
-        <StackPanel Background="Black" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="8,0,111,0" Height="100" Width="1200" Grid.RowSpan="2" Grid.Column="1">
+        <StackPanel Background="Black" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="12,0,86,0" Height="100" Width="1200" Grid.Column="1" Grid.ColumnSpan="2">
             <Button Name="Maps" Click="GetMap" Width="200" Height="100" Background="Transparent"  BorderBrush="{x:Null}">
                 <Image Name="MapIMG">
                     <Image.Resources>
@@ -121,7 +137,8 @@
                 </Image>
             </Button>
         </StackPanel>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Height="740" MinWidth="300" MinHeight="739" Width="300" Grid.Row="1" Margin="0,14,0,-2" Grid.ColumnSpan="2">
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Height="740" MinWidth="300" MinHeight="739" Width="300" Grid.Row="1" Margin="0,6,0,-2" Grid.ColumnSpan="2">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF232C1B"/>
@@ -131,30 +148,23 @@
             <Border Name="B1" BorderBrush="Black" BorderThickness="0,0,0,3">
                 <StackPanel Orientation="Vertical" MinHeight="800">
                     <StackPanel.Background>
-                        <ImageBrush ImageSource="img/UI/in.png"/>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF232B1B" Offset="0"/>
+                            <GradientStop Color="#FF232B1B" Offset="1"/>
+                        </LinearGradientBrush>
                     </StackPanel.Background>
 
-                    <Button Style="{StaticResource MORPHEUS}" Content="Aard" FontSize="30" Background="#FF20341C" BorderBrush="Black" Foreground="White" HorizontalContentAlignment="Center" Width="300"></Button>
-                    <Button Style="{StaticResource MORPHEUS}" Content="Igni" FontSize="30" Background="#FF20341C" BorderBrush="Black" Foreground="White" HorizontalContentAlignment="Center" Width="300"></Button>
-                    <Button Style="{StaticResource MORPHEUS}" Content="Quen" FontSize="30" Background="#FF20341C" BorderBrush="Black" Foreground="White" HorizontalContentAlignment="Center" Width="300"></Button>
-                    <Button Style="{StaticResource MORPHEUS}" Content="Axii" FontSize="30" Background="#FF20341C" BorderBrush="Black" Foreground="White" HorizontalContentAlignment="Center" Width="300"></Button>
-                    <Button Style="{StaticResource MORPHEUS}" Content="Yrden" FontSize="30" Background="#FF20341C" BorderBrush="Black" Foreground="White" HorizontalContentAlignment="Center" Width="300"></Button>
-                    <Button Style="{StaticResource MORPHEUS}" Content="Steel Sword" FontSize="30" Background="#FF20341C" BorderBrush="Black" Foreground="White" HorizontalContentAlignment="Center" Width="300"></Button>
-                    <Button Style="{StaticResource MORPHEUS}" Content="Silver Sword" FontSize="30" Background="#FF20341C" BorderBrush="Black" Foreground="White" HorizontalContentAlignment="Center" Width="300"></Button>
+                    <Button Click="AardClick" Content="Aard" FontSize="30" Background="{x:Null}" BorderBrush="Black" BorderThickness="1" Foreground="White" HorizontalContentAlignment="Center" Width="300" Height="50"></Button>
+                    <Button Click="IgniClick"  Content="Igni" FontSize="30" Background="{x:Null}" BorderBrush="Black" BorderThickness="1" Foreground="White" HorizontalContentAlignment="Center" Width="300" Height="50"></Button>
+                    <Button Click="QuenClick"  Content="Quen" FontSize="30" Background="{x:Null}" BorderBrush="Black" BorderThickness="1" Foreground="White" HorizontalContentAlignment="Center" Width="300" Height="50"></Button>
+                    <Button Click="AxiiClick"  Content="Axii" FontSize="30" Background="{x:Null}" BorderBrush="Black" BorderThickness="1" Foreground="White" HorizontalContentAlignment="Center" Width="300" Height="50"></Button>
+                    <Button Click="YrdenClick" Content="Yrden" FontSize="30" Background="{x:Null}" BorderBrush="Black" BorderThickness="1" Foreground="White" HorizontalContentAlignment="Center" Width="300" Height="50"></Button>
+                    <Button Click="StrongClick"  Content="Síla" FontSize="30" Background="{x:Null}" BorderBrush="Black" BorderThickness="1" Foreground="White" HorizontalContentAlignment="Center" Width="300" Height="50"></Button>
+                    <Button Click="FastClick"  Content="Rychlost" FontSize="30" Background="{x:Null}" BorderBrush="Black" BorderThickness="1" Foreground="White" HorizontalContentAlignment="Center" Width="300" Height="50"></Button>
                 </StackPanel>
             </Border>
 
         </StackPanel>
-        <Rectangle  HorizontalAlignment="Right" Width="1100" Height="740" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="1">
-            <Rectangle.Effect>
-                <DropShadowEffect BlurRadius="10"/>
-            </Rectangle.Effect>
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF232C1B"/>
-                    <GradientStop Color="#FF1E2218" Offset="0.996"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
+
     </Grid>
 </Page>

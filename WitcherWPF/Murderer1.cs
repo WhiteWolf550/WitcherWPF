@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace WitcherWPF {
-    class Murderer1 : Human {
+    class Murderer1 : Enemy {
 
         public Murderer1() {
             this.AnimationSet = new Dictionary<string, Uri>();
@@ -26,7 +26,7 @@ namespace WitcherWPF {
 
             this.StunChance = 5;
             this.DodgeChance = 80;
-            this.Bleedchance = 5;
+            this.BleedChance = 5;
             this.StrongSpeed = 800;
             this.FastSpeed = 500;
             this.StrongDamage = 12;
@@ -35,6 +35,10 @@ namespace WitcherWPF {
 
 
              
+        }
+
+        public override void EnemyBehavior(double PlayerHP, double PlayerHPMax) {
+            throw new NotImplementedException();
         }
     }
 }

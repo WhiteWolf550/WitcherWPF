@@ -109,7 +109,7 @@ namespace WitcherWPF
                 parentFrame.Navigate(new Location(parentFrame, time));
             }else {
                 game.SaveGame(playerinfo, pinventory, armor, sword, effects);
-                parentFrame.Navigate(new Combat(parentFrame, true, time));
+                parentFrame.Navigate(new Combat(parentFrame, true, time, false));
             }
         }
         public void LoadInventory() {
@@ -167,7 +167,7 @@ namespace WitcherWPF
                 Button ItemButton = new Button();
                 ItemButton.ContextMenu = cmenu;
                 ItemButton.Content = ItemImage;
-                ItemButton.ToolTip = item.Type + "\n" + "\n" + item.Name + "\n" + "\n" + item.Description + "\n" + "\n" + "Útočná síla: " + item.Damage + "\n" + "Šance na krvácení: " + item.Bleedingchance + "%" + "\n" + "Šance na otrávení: " + item.Poisonchance + "%" + "\n" + "\n" + "Lze prodat za: " + sell + orens;
+                ItemButton.ToolTip = item.Type + "\n" + "\n" + item.Name + "\n" + "\n" + item.Description + "\n" + "\n" + "Útočná síla: " + item.Damage + "\n" + "Šance na kritický zásah: " + item.CriticalHit + "%" +  "\n" + "\n" + "Lze prodat za: " + sell + orens;
                 ItemButton.Height = 90;
                 ItemButton.Width = 69;
                 ItemButton.Background = Brushes.Transparent;
@@ -267,7 +267,7 @@ namespace WitcherWPF
                 steel.Content = inventoryimage;
                 steel.Height = 200;
                 steel.BorderBrush = Brushes.Transparent;
-                steel.ToolTip = item.SteelSword.Type + "\n" + "\n" + item.SteelSword.Name +"\n" + "\n" + item.SteelSword.Description + "\n" + "\n" + "Útočná síla: " + item.SteelSword.Damage + "\n" + "Šance na krvácení: " + item.SteelSword.Bleedingchance + "%" + "\n" + "Šance na otrávení: " + item.SteelSword.Poisonchance + "%" + "\n" + "\n" + "Lze prodat za: " + sell + orens;
+                steel.ToolTip = item.SteelSword.Type + "\n" + "\n" + item.SteelSword.Name +"\n" + "\n" + item.SteelSword.Description + "\n" + "\n" + "Útočná síla: " + item.SteelSword.Damage + "\n" + "Šance na kritický zásah: " + item.SteelSword.CriticalHit + "%" + "\n" + "\n" + "Lze prodat za: " + sell + orens;
                 steel.ContextMenu = cm;
                 steel.Tag = item.SteelSword.Name;
                 steel.Background = Brushes.Transparent;
@@ -291,7 +291,7 @@ namespace WitcherWPF
                 silver.Content = inventoryimage;
                 silver.Height = 200;
                 silver.BorderBrush = Brushes.Transparent;
-                silver.ToolTip = item.SilverSword.Type + "\n" + "\n" + item.SilverSword.Name + "\n" + "\n" + item.SilverSword.Description + "\n" + "\n" + "Útočná síla: " + item.SilverSword.Damage + "\n" + "Šance na krvácení: " + item.SilverSword.Bleedingchance + "%" + "\n" + "Šance na otrávení: " + item.SilverSword.Poisonchance + "%" + "\n" + "\n" + "Lze prodat za: " + sell + orens;
+                silver.ToolTip = item.SilverSword.Type + "\n" + "\n" + item.SilverSword.Name + "\n" + "\n" + item.SilverSword.Description + "\n" + "\n" + "Útočná síla: " + item.SilverSword.Damage + "\n" + "Šance na kritický zásah: " + item.SilverSword.CriticalHit + "%" + "\n" + "\n" + "Lze prodat za: " + sell + orens;
                 silver.ContextMenu = cm;
                 silver.Tag = item.SilverSword.Name;
                 silver.Background = Brushes.Transparent;
@@ -355,11 +355,11 @@ namespace WitcherWPF
                 RemoveItem(buttonitems[drink].Item.Name);
                 foreach (Player item in playerinfo) {
                     item.toxicity += buttonitems[drink].Item.Toxicity;
-                }               
-                manager.SaveEffects(effects);
-                
+                }
+                game.SaveGame(playerinfo, pinventory, armor, sword, effects);
+                parentFrame.Navigate(new Combat(parentFrame, true, time, true));
 
-                
+
             }
             
         }

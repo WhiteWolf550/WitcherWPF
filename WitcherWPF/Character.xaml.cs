@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace WitcherWPF {
     /// <summary>
@@ -20,31 +21,94 @@ namespace WitcherWPF {
     public partial class Character : Page {
         private Frame parentFrame;
         private Time time;
+        Player player = new Player();
+        public DispatcherTimer skilltimer = new DispatcherTimer();
         public Character() {
             InitializeComponent();
+            
         }
         public Character(Frame parentFrame, Time time) : this() {
             this.parentFrame = parentFrame;
             this.time = time;
             this.time = time;
+            SetTimer();
+            skilltimer.Start();
+        }
+        public void SetTimer() {
+            skilltimer.Interval = TimeSpan.FromSeconds(1);
+            skilltimer.Tick += new EventHandler(Timer_tick);
         }
         public void GetInventory(object sender, RoutedEventArgs e) {
             parentFrame.Navigate(new Inventory(parentFrame, false, time));
+            skilltimer.Stop();
         }
         public void GetQuests(object sender, RoutedEventArgs e) {
             parentFrame.Navigate(new Quests(parentFrame, time));
+            skilltimer.Stop();
         }
         public void GetMap(object sender, RoutedEventArgs e) {
             parentFrame.Navigate(new Map(parentFrame, time));
+            skilltimer.Stop();
         }
         public void GetJournal(object sender, RoutedEventArgs e) {
             parentFrame.Navigate(new Journal(parentFrame, time));
+            skilltimer.Stop();
         }
         public void GetAlchemy(object sender, RoutedEventArgs e) {
-            //parentFrame.Navigate(new (parentFrame));
+            parentFrame.Navigate(new Alchemy(parentFrame, time));
+            skilltimer.Stop();
         }
         public void GetLocation(object sender, RoutedEventArgs e) {
             parentFrame.Navigate(new Location(parentFrame, time));
+            skilltimer.Stop();
+        }
+
+        private void AardClick(object sender, RoutedEventArgs e) {
+            HideAll();
+            Aard.Load();
+            Aard.Visibility = Visibility.Visible;
+        }
+        private void IgniClick(object sender, RoutedEventArgs e) {
+            HideAll();
+            Igni.Load();
+            Igni.Visibility = Visibility.Visible;
+        }
+        private void QuenClick(object sender, RoutedEventArgs e) {
+            HideAll();
+            Quen.Load();
+            Quen.Visibility = Visibility.Visible;
+        }
+        private void YrdenClick(object sender, RoutedEventArgs e) {
+            HideAll();
+            Yrden.Load();
+            Yrden.Visibility = Visibility.Visible;           
+        }
+        private void AxiiClick(object sender, RoutedEventArgs e) {
+            HideAll();
+            Axii.Load();
+            Axii.Visibility = Visibility.Visible;
+        }
+        private void StrongClick(object sender, RoutedEventArgs e) {
+            HideAll();
+            Strength.Load();
+            Strength.Visibility = Visibility.Visible;
+        }
+        private void FastClick(object sender, RoutedEventArgs e) {
+            HideAll();
+            Endurance.Load();
+            Endurance.Visibility = Visibility.Visible;
+        }
+        private void HideAll() {
+            Endurance.Visibility = Visibility.Hidden;
+            Strength.Visibility = Visibility.Hidden;
+            Yrden.Visibility = Visibility.Hidden;
+            Axii.Visibility = Visibility.Hidden;
+            Quen.Visibility = Visibility.Hidden;
+            Aard.Visibility = Visibility.Hidden;
+            Igni.Visibility = Visibility.Hidden;
+        }
+        void Timer_tick(object sender, EventArgs e) {
+            SkillPoints.Content = player.GetSkillPoints();
         }
     }
 }

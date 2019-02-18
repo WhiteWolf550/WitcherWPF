@@ -53,6 +53,13 @@ namespace WitcherWPF {
             return jsonread;
 
         }
+        public List<Skills> LoadSkills() {
+            string path = @"../../saves/Skills.json";
+            string jsonFromFile = File.ReadAllText(path);
+            List<Skills> jsonread = JsonConvert.DeserializeObject<List<Skills>>(jsonFromFile, settings);
+            return jsonread;
+
+        }
 
         public List<PlayerQuest> LoadPlayerQuests() {
             string path = @"../../saves/PlayerQuests.json";
@@ -152,6 +159,11 @@ namespace WitcherWPF {
         public void SaveEffects(List<Effect> Effects) {
             string path = @"../../saves/Effects.json";
             string jsonToFilet = JsonConvert.SerializeObject(Effects, settings);
+            File.WriteAllText(path, jsonToFilet);
+        }
+        public void SaveSkills(List<Skills> Skills) {
+            string path = @"../../saves/Skills.json";
+            string jsonToFilet = JsonConvert.SerializeObject(Skills, settings);
             File.WriteAllText(path, jsonToFilet);
         }
     }

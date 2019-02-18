@@ -8,18 +8,16 @@ namespace WitcherWPF {
     class Sword : Equipment {
         
         public int Damage { get; set; }
-        public int Bleedingchance { get; set; }
-        public int Poisonchance { get; set; }
+        public int CriticalHit { get; set; }
        
 
-        public Sword(string Type, string Name, string Description, int Level, int Damage, int Bleedingchance, int Poisonchance, string Source, int Price, string SetName, int SetBonus, string LootType) {
+        public Sword(string Type, string Name, string Description, int Level, int Damage, int CriticalHit, string Source, int Price, string SetName, int SetBonus, string LootType) {
             this.Type = Type;
             this.Name = Name;
             this.Description = Description;
             this.Level = Level;
             this.Damage = Damage;
-            this.Bleedingchance = Bleedingchance;
-            this.Poisonchance = Poisonchance;
+            this.CriticalHit = CriticalHit;
             this.Source = Source;
             this.Price = Price;
             this.SetName = SetName;

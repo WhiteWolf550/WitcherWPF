@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace WitcherWPF {
-    class Monster : Enemy {
+    class Monster  {
         public int Poisonchance { get; set; }
+
         
     }
 }

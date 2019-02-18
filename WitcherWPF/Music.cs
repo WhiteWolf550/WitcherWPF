@@ -18,8 +18,8 @@ namespace WitcherWPF {
 
         public Music() {
             this.music.MediaEnded += new EventHandler(Music_Ended);
-            this.musicday.Add("Old_wyzima1", new Uri(@"../../sounds/music/Peacefull.mp3", UriKind.Relative));
-            this.musicday.Add("Old_wyzima2", new Uri(@"../../sounds/music/Peacefull.mp3", UriKind.Relative));
+            this.musicday.Add("Old_wyzima1", new Uri(@"../../sounds/music/Castle.mp3", UriKind.Relative));
+            this.musicday.Add("Old_wyzima2", new Uri(@"../../sounds/music/Castle.mp3", UriKind.Relative));
 
             this.musicnight.Add("Old_wyzima1", new Uri(@"../../sounds/music/The_Order.mp3", UriKind.Relative));
             this.musicnight.Add("Old_wyzima2", new Uri(@"../../sounds/music/The_Order.mp3", UriKind.Relative));

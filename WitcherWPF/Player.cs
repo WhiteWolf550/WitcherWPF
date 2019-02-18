@@ -23,6 +23,7 @@ namespace WitcherWPF {
         public int health { get; set; }
         public int maxEndurance { get; set; }
         public int endurance { get; set; }
+        public double EnduranceRegenSpeed { get; set; }
         public int maxToxicity { get; set; }
         public int toxicity { get; set; }
         public int experience { get; set; }
@@ -31,9 +32,15 @@ namespace WitcherWPF {
         public int level { get; set; }
         public int money { get; set; }
         public int strongStunChance { get; set; }
-        public int signIntensity { get; set; }
         public int strongstyledamage { get; set; }
         public int faststyledamage { get; set; }
+
+        public int StunResistance { get; set; }
+        public int ParryStunDuration { get; set; }
+
+        public int VitalityperLevel { get; set; }
+        public int PotionToxicityDebuf { get; set; }
+
         public Sword SteelSword { get; set; }
         public Sword SilverSword { get; set; }
         public Armor Armor { get; set; }
@@ -115,7 +122,7 @@ namespace WitcherWPF {
 
         }
 
-        public Player(int MaxHealth, int Health, int MaxEndurance, int Endurance, int MaxToxicity, int Toxicity, int experience, int experiencetolevelup, int skillpoints, int level, int Money, int StrongStunChance, int SignIntensity, int strongstyledamage, int faststyledamage, Sword SteelSword, Sword SilverSword, Armor Armor, Aard Aard, Igni Igni, Quen Quen, Axii Axii, Yrden Yrden ) {
+        public Player(int MaxHealth, int Health, int MaxEndurance, int Endurance, int MaxToxicity, int Toxicity, int experience, int experiencetolevelup, int skillpoints, int level, int Money, int StrongStunChance, int strongstyledamage, int faststyledamage, int StunResistance, int ParryStunDuration, int VitalityperLevel, double EnduranceRegenSpeed, Sword SteelSword, Sword SilverSword, Armor Armor, Aard Aard, Igni Igni, Quen Quen, Axii Axii, Yrden Yrden ) {
             this.maxHealth = MaxHealth;
             this.health = Health;
             this.maxEndurance = MaxEndurance;
@@ -128,9 +135,12 @@ namespace WitcherWPF {
             this.level = level;
             this.money = Money;
             this.strongStunChance = StrongStunChance;
-            this.signIntensity = SignIntensity;
             this.strongstyledamage = strongstyledamage;
+            this.StunResistance = StunResistance;
+            this.ParryStunDuration = ParryStunDuration;
             this.faststyledamage = faststyledamage;
+            this.VitalityperLevel = VitalityperLevel;
+            this.EnduranceRegenSpeed = EnduranceRegenSpeed;
             this.SteelSword = SteelSword;
             this.SilverSword = SilverSword;
             this.Armor = Armor;
@@ -199,42 +209,25 @@ namespace WitcherWPF {
             }
             return stun;
         }
-        public bool Bleed(bool SteelSword) {
+        public bool Critical(bool SteelSword) {
             List<Player> player = manager.LoadPlayer();
-            int bleedchance = 0;
+            int critical = 0;
             foreach (Player item in player) {
                 if (SteelSword == true) {
-                    bleedchance = item.SteelSword.Bleedingchance;
+                    critical = item.SteelSword.CriticalHit;
                 } else {
-                    bleedchance = item.SilverSword.Bleedingchance;
+                    critical = item.SilverSword.CriticalHit;
                 }
             }
             Random rand = new Random();
             int rn = rand.Next(0, 100);
-            if (rn < bleedchance) {
+            if (rn < critical) {
                 return true;
             } else {
                 return false;
             }
         }
-        public bool Poison(bool SteelSword) {
-            List<Player> player = manager.LoadPlayer();
-            int poisonchance = 0;
-            foreach(Player item in player) {
-                if (SteelSword == true) {
-                    poisonchance = item.SteelSword.Poisonchance;
-                }else {
-                    poisonchance = item.SilverSword.Poisonchance;
-                }
-            }
-            Random rand = new Random();
-            int rn = rand.Next(0, 100);
-            if (rn < poisonchance) {
-                return true;
-            } else {
-                return false;
-            }
-        }
+        
         public int Attack(bool SteelSword, bool StrongAttack) {
             List<Player> player = manager.LoadPlayer();
             int sworddamage = 0;
@@ -251,8 +244,12 @@ namespace WitcherWPF {
                     style = item.faststyledamage;
                 }
             }
+            
             Random rand = new Random();
             int damage = rand.Next(sworddamage + style - 5, sworddamage + style);
+            if (Critical(SteelSword) == true) {
+                damage = damage * 1 + 15;
+            }
             return damage;
             
         }
@@ -284,6 +281,14 @@ namespace WitcherWPF {
         }
         public void CastYrden() {
 
+        }
+        public int GetSkillPoints() {
+            List<Player> player = manager.LoadPlayer();
+            int skill = 0;
+            foreach(Player item in player) {
+                skill = item.skillpoints;
+            }
+            return skill;
         }
         
     }

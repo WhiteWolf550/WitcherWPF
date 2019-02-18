@@ -1,0 +1,159 @@
+﻿<UserControl x:Class="WitcherWPF.IgniSkills"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WitcherWPF"
+             mc:Ignorable="d" 
+             Height="856" Width="1324">
+    <Grid>
+        <Image Source="img/UI/skills_back.png" Margin="-483,-7,261,-1" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+
+        <Button Click="SkillClick"  Name="IgniSkill1" Width="60" Height="60" BorderBrush="{x:Null}" Margin="450,486,814,310" OpacityMask="Red">
+            <Button.Background>
+                <ImageBrush ImageSource="img/UI/IgniSkills/Igni_lvl1_1.png"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <TextBlock> IGNI (Level 1) <LineBreak/> <LineBreak/> Nároky na výdrž: 15  <LineBreak/> Šance na podpálení nepřítele: 5% <LineBreak/> Délka podpálení: 3s <LineBreak/> Poškození: +10% <LineBreak/> Poškození podpálením: 1 </TextBlock>
+            </Button.ToolTip>
+        </Button>
+        <Button Click="SkillClick" Name="IgniSkill3" Width="60" Height="60" BorderBrush="{x:Null}" Margin="461,621,803,175">
+            <Button.Background>
+                <ImageBrush ImageSource="img/UI/IgniSkills/Igni_lvl1_3.png"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <TextBlock> PLAMEN <LineBreak/> <LineBreak/> Poškození: +15%</TextBlock>
+            </Button.ToolTip>
+        </Button>
+        <Button Click="SkillClick" Name="IgniSkill2" Width="60" Height="60" BorderBrush="{x:Null}" Margin="446,551,818,245">
+            <Button.Background>
+                <ImageBrush ImageSource="img/UI/IgniSkills/Igni_lvl1_2.png"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <TextBlock> ZAČÁTEČNÍK <LineBreak/> <LineBreak/> Intenzita znamení: +10%</TextBlock>
+            </Button.ToolTip>
+        </Button>
+        <Button  Click="SkillClick" Name="IgniSkill14" Width="60" Height="60" BorderBrush="{x:Null}" Margin="790,376,474,420">
+            <Button.Background>
+                <ImageBrush ImageSource="img/UI/IgniSkills/Igni_lvl4_4.png"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <TextBlock> ZVÝŠENÁ EFEKTIVITA <LineBreak/> <LineBreak/> Cena vržení znamení: -20% </TextBlock>
+            </Button.ToolTip>
+        </Button>
+        <Button Click="SkillClick" Name="IgniSkill4" Width="60" Height="60" BorderBrush="{x:Null}" Margin="555,503,709,293">
+            <Button.Background>
+                <ImageBrush ImageSource="img/UI/IgniSkills/Igni_lvl2_1.png"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <TextBlock> IGNI (Level 2) <LineBreak/> <LineBreak/> Nároky na výdrž: 15</TextBlock>
+            </Button.ToolTip>
+        </Button>
+        <Button Click="SkillClick" Name="IgniSkill6" Width="60" Height="60" BorderBrush="{x:Null}" Margin="672,581,592,215">
+            <Button.Background>
+                <ImageBrush ImageSource="img/UI/IgniSkills/Igni_lvl2_3.png"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <TextBlock> PODPÁLENÍ <LineBreak/> <LineBreak/> Šance na podpálení nepřítele: 10% <LineBreak/> Délka podpálení: 4s</TextBlock>
+            </Button.ToolTip>
+        </Button>
+        <Button Click="SkillClick" Name="IgniSkill7" Width="60" Height="60" BorderBrush="{x:Null}" Margin="748,621,516,175">
+            <Button.Background>
+                <ImageBrush ImageSource="img/UI/IgniSkills/Igni_lvl2_4.png"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <TextBlock> PLAMEN II <LineBreak/> <LineBreak/> Poškození: +25%</TextBlock>
+            </Button.ToolTip>
+        </Button>
+        <Button  Click="SkillClick" Name="IgniSkill5" Width="60" Height="60" BorderBrush="{x:Null}" Margin="591,551,673,245">
+            <Button.Background>
+                <ImageBrush ImageSource="img/UI/IgniSkills/Igni_lvl2_2.png"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <TextBlock> POKROČILÝ <LineBreak/> <LineBreak/> Intenzita znamení: +30%</TextBlock>
+            </Button.ToolTip>
+        </Button>
+        <Button Click="SkillClick" Name="IgniSkill8" Width="60" Height="60" BorderBrush="{x:Null}" Margin="638,445,626,351">
+            <Button.Background>
+                <ImageBrush ImageSource="img/UI/IgniSkills/Igni_lvl3_1.png"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <TextBlock>IGNI (Level 3) <LineBreak/> <LineBreak/> Nároky na výdrž: 20</TextBlock>
+            </Button.ToolTip>
+        </Button>
+        <Button Click="SkillClick" Name="IgniSkill10" Width="60" Height="60" BorderBrush="{x:Null}" Margin="757,503,507,293">
+            <Button.Background>
+                <ImageBrush ImageSource="img/UI/IgniSkills/Igni_lvl3_3.png"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <TextBlock> OHEŇ STRACHU <LineBreak/> <LineBreak/> Poškození podpálením: 3</TextBlock>
+            </Button.ToolTip>
+        </Button>
+        <Button Click="SkillClick" Name="IgniSkill11" Width="60" Height="60" BorderBrush="{x:Null}" Margin="841,539,423,257">
+            <Button.Background>
+                <ImageBrush ImageSource="img/UI/IgniSkills/Igni_lvl4_3.png"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <TextBlock> PODPÁLENÍ II <LineBreak/> <LineBreak/> Šance na podpálení nepřítele: 20%</TextBlock>
+            </Button.ToolTip>
+        </Button>
+        <Button Click="SkillClick" Name="IgniSkill9" Width="60" Height="60" BorderBrush="{x:Null}" Margin="676,490,588,306">
+            <Button.Background>
+                <ImageBrush ImageSource="img/UI/IgniSkills/Igni_lvl3_2.png"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <TextBlock> PROFESIONÁL <LineBreak/> <LineBreak/> Intenzita znamení: +50%</TextBlock>
+            </Button.ToolTip>
+        </Button>
+        <Button Click="SkillClick" Name="IgniSkill12" Width="60" Height="60" BorderBrush="{x:Null}" Margin="653,344,611,452">
+            <Button.Background>
+                <ImageBrush ImageSource="img/UI/IgniSkills/Igni_lvl4_1.png"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <TextBlock>IGNI (Level 4) <LineBreak/> <LineBreak/> Nároky na výdrž: 20</TextBlock>
+            </Button.ToolTip>
+        </Button>
+        <Button Click="SkillClick" Name="IgniSkill13" Width="60" Height="60" BorderBrush="{x:Null}" Margin="708,376,556,420">
+            <Button.Background>
+                <ImageBrush ImageSource="img/UI/IgniSkills/Igni_lvl4_2.png"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <TextBlock> EXPERT <LineBreak/> <LineBreak/> Intenzita znamení: +80%</TextBlock>
+            </Button.ToolTip>
+        </Button>
+        <Button Click="SkillClick" Name="IgniSkill15" Width="60" Height="60" BorderBrush="{x:Null}" Margin="872,396,392,400">
+            <Button.Background>
+                <ImageBrush ImageSource="img/UI/IgniSkills/Igni_lvl3_4.png"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <TextBlock> PRODLOUŽENÉ TRVÁNÍ <LineBreak/> <LineBreak/> Délka podpálení: 8s</TextBlock>
+            </Button.ToolTip>
+        </Button>
+        <Button Click="SkillClick" Name="IgniSkill16" Width="60" Height="60" BorderBrush="{x:Null}" Margin="609,279,655,517">
+            <Button.Background>
+                <ImageBrush ImageSource="img/UI/IgniSkills/Igni_lvl5_1.png"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <TextBlock>IGNI (Level 5) <LineBreak/> <LineBreak/> Nároky na výdrž: 25</TextBlock>
+            </Button.ToolTip>
+        </Button>
+        <Button Click="SkillClick" Name="IgniSkill17" Width="60" Height="60" BorderBrush="{x:Null}" Margin="676,266,588,530">
+            <Button.Background>
+                <ImageBrush ImageSource="img/UI/IgniSkills/Igni_lvl5_2.png"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <TextBlock> MISTR <LineBreak/> <LineBreak/> Intenzita znamení: +100% <LineBreak/> Poškození: +30% <LineBreak/> Šance na podpálení nepřítele: 30%</TextBlock>
+            </Button.ToolTip>
+        </Button>
+
+    </Grid>
+</UserControl>

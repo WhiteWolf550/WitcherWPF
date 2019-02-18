@@ -70,8 +70,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Aard.cs" />
+    <Compile Include="AardSkills.xaml.cs">
+      <DependentUpon>AardSkills.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Alchemy.xaml.cs">
+      <DependentUpon>Alchemy.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Armor.cs" />
     <Compile Include="Axii.cs" />
+    <Compile Include="AxiiSkills.xaml.cs">
+      <DependentUpon>AxiiSkills.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Barghest.cs" />
     <Compile Include="Character.xaml.cs">
       <DependentUpon>Character.xaml</DependentUpon>
@@ -87,14 +96,19 @@
     </Compile>
     <Compile Include="Dialogues.cs" />
     <Compile Include="Effect.cs" />
+    <Compile Include="EnduranceSkills.xaml.cs">
+      <DependentUpon>EnduranceSkills.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Enemy.cs" />
     <Compile Include="Equipment.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="Human.cs" />
-    <Compile Include="IBehavior.cs" />
     <Compile Include="Igni.cs" />
+    <Compile Include="IgniSkills.xaml.cs">
+      <DependentUpon>IgniSkills.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Item.cs" />
     <Compile Include="Journal.xaml.cs">
       <DependentUpon>Journal.xaml</DependentUpon>
@@ -122,11 +136,18 @@
     <Compile Include="PlayerInventory.cs" />
     <Compile Include="PlayerQuest.cs" />
     <Compile Include="Quen.cs" />
+    <Compile Include="QuenSkills.xaml.cs">
+      <DependentUpon>QuenSkills.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Quest.cs" />
     <Compile Include="Quests.xaml.cs">
       <DependentUpon>Quests.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sign.cs" />
+    <Compile Include="Skills.cs" />
+    <Compile Include="StrongSkills.xaml.cs">
+      <DependentUpon>StrongSkills.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sword.cs" />
     <Compile Include="Old_wyzima1.xaml.cs">
       <DependentUpon>Old_wyzima1.xaml</DependentUpon>
@@ -135,6 +156,21 @@
       <DependentUpon>Time.xaml</DependentUpon>
     </Compile>
     <Compile Include="Yrden.cs" />
+    <Compile Include="YrdenSkills.xaml.cs">
+      <DependentUpon>YrdenSkills.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AardSkills.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Alchemy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AxiiSkills.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Character.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -148,6 +184,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialogue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EnduranceSkills.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="IgniSkills.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -194,6 +238,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="QuenSkills.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Quests.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -202,7 +250,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="StrongSkills.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Time.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="YrdenSkills.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -436,6 +492,128 @@
     <Resource Include="img\UI\Map_ico.png" />
     <Resource Include="img\Maps\Map_Old_wyzima_castle.png" />
     <Resource Include="img\Maps\Map_Old_Wyzima.png" />
+    <Resource Include="img\UI\skills_back.png" />
+    <Resource Include="img\UI\AardSkills\Aard_lvl1_1.png" />
+    <Resource Include="img\UI\AardSkills\Aard_lvl1_2.png" />
+    <Resource Include="img\UI\AardSkills\Aard_lvl1_3.png" />
+    <Resource Include="img\UI\AardSkills\Aard_lvl1_4.png" />
+    <Resource Include="img\UI\AardSkills\Aard_lvl2_1.png" />
+    <Resource Include="img\UI\AardSkills\Aard_lvl2_2.png" />
+    <Resource Include="img\UI\AardSkills\Aard_lvl2_3.png" />
+    <Resource Include="img\UI\AardSkills\Aard_lvl2_4.png" />
+    <Resource Include="img\UI\AardSkills\Aard_lvl3_1.png" />
+    <Resource Include="img\UI\AardSkills\Aard_lvl3_2.png" />
+    <Resource Include="img\UI\AardSkills\Aard_lvl3_3.png" />
+    <Resource Include="img\UI\AardSkills\Aard_lvl3_4.png" />
+    <Resource Include="img\UI\AardSkills\Aard_lvl4_1.png" />
+    <Resource Include="img\UI\AardSkills\Aard_lvl4_2.png" />
+    <Resource Include="img\UI\AardSkills\Aard_lvl4_3.png" />
+    <Resource Include="img\UI\AardSkills\Aard_lvl5_1.png" />
+    <Resource Include="img\UI\AardSkills\Aard_lvl5_2.png" />
+    <Resource Include="img\UI\IgniSkills\Igni_lvl1_1.png" />
+    <Resource Include="img\UI\IgniSkills\Igni_lvl1_3.png" />
+    <Resource Include="img\UI\IgniSkills\Igni_lvl2_1.png" />
+    <Resource Include="img\UI\IgniSkills\Igni_lvl2_3.png" />
+    <Resource Include="img\UI\IgniSkills\Igni_lvl2_4.png" />
+    <Resource Include="img\UI\IgniSkills\Igni_lvl3_1.png" />
+    <Resource Include="img\UI\IgniSkills\Igni_lvl3_2.png" />
+    <Resource Include="img\UI\IgniSkills\Igni_lvl3_3.png" />
+    <Resource Include="img\UI\IgniSkills\Igni_lvl3_4.png" />
+    <Resource Include="img\UI\IgniSkills\Igni_lvl4_1.png" />
+    <Resource Include="img\UI\IgniSkills\Igni_lvl4_2.png" />
+    <Resource Include="img\UI\IgniSkills\Igni_lvl4_3.png" />
+    <Resource Include="img\UI\IgniSkills\Igni_lvl4_4.png" />
+    <Resource Include="img\UI\IgniSkills\Igni_lvl5_1.png" />
+    <Resource Include="img\UI\IgniSkills\Igni_lvl5_2.png" />
+    <Resource Include="img\UI\IgniSkills\Igni_lvl1_2.png" />
+    <Resource Include="img\UI\IgniSkills\Igni_lvl2_2.png" />
+    <Resource Include="img\UI\QuenSkills\Quen_lvl1_1.png" />
+    <Resource Include="img\UI\QuenSkills\Quen_lvl1_2.png" />
+    <Resource Include="img\UI\QuenSkills\Quen_lvl1_3.png" />
+    <Resource Include="img\UI\QuenSkills\Quen_lvl2_1.png" />
+    <Resource Include="img\UI\QuenSkills\Quen_lvl2_2.png" />
+    <Resource Include="img\UI\QuenSkills\Quen_lvl2_3.png" />
+    <Resource Include="img\UI\QuenSkills\Quen_lvl2_4.png" />
+    <Resource Include="img\UI\QuenSkills\Quen_lvl3_1.png" />
+    <Resource Include="img\UI\QuenSkills\Quen_lvl3_2.png" />
+    <Resource Include="img\UI\QuenSkills\Quen_lvl3_3.png" />
+    <Resource Include="img\UI\QuenSkills\Quen_lvl3_4.png" />
+    <Resource Include="img\UI\QuenSkills\Quen_lvl4_1.png" />
+    <Resource Include="img\UI\QuenSkills\Quen_lvl4_2.png" />
+    <Resource Include="img\UI\QuenSkills\Quen_lvl4_3.png" />
+    <Resource Include="img\UI\QuenSkills\Quen_lvl4_4.png" />
+    <Resource Include="img\UI\QuenSkills\Quen_lvl5_1.png" />
+    <Resource Include="img\UI\QuenSkills\Quen_lvl5_2.png" />
+    <Resource Include="img\UI\YrdenSkills\Yrden_lvl1_1.png" />
+    <Resource Include="img\UI\YrdenSkills\Yrden_lvl1_2.png" />
+    <Resource Include="img\UI\YrdenSkills\Yrden_lvl1_3.png" />
+    <Resource Include="img\UI\YrdenSkills\Yrden_lvl2_1.png" />
+    <Resource Include="img\UI\YrdenSkills\Yrden_lvl2_2.png" />
+    <Resource Include="img\UI\YrdenSkills\Yrden_lvl2_3.png" />
+    <Resource Include="img\UI\YrdenSkills\Yrden_lvl2_4.png" />
+    <Resource Include="img\UI\YrdenSkills\Yrden_lvl3_1.png" />
+    <Resource Include="img\UI\YrdenSkills\Yrden_lvl3_2.png" />
+    <Resource Include="img\UI\YrdenSkills\Yrden_lvl3_3.png" />
+    <Resource Include="img\UI\YrdenSkills\Yrden_lvl3_4.png" />
+    <Resource Include="img\UI\YrdenSkills\Yrden_lvl4_1.png" />
+    <Resource Include="img\UI\YrdenSkills\Yrden_lvl4_2.png" />
+    <Resource Include="img\UI\YrdenSkills\Yrden_lvl4_3.png" />
+    <Resource Include="img\UI\YrdenSkills\Yrden_lvl4_4.png" />
+    <Resource Include="img\UI\YrdenSkills\Yrden_lvl5_1.png" />
+    <Resource Include="img\UI\YrdenSkills\Yrden_lvl5_2.png" />
+    <Resource Include="img\UI\AxiiSkills\Axii_lvl1_1.png" />
+    <Resource Include="img\UI\AxiiSkills\Axii_lvl1_2.png" />
+    <Resource Include="img\UI\AxiiSkills\Axii_lvl1_3.png" />
+    <Resource Include="img\UI\AxiiSkills\Axii_lvl2_1.png" />
+    <Resource Include="img\UI\AxiiSkills\Axii_lvl2_2.png" />
+    <Resource Include="img\UI\AxiiSkills\Axii_lvl2_3.png" />
+    <Resource Include="img\UI\AxiiSkills\Axii_lvl2_4.png" />
+    <Resource Include="img\UI\AxiiSkills\Axii_lvl3_1.png" />
+    <Resource Include="img\UI\AxiiSkills\Axii_lvl3_2.png" />
+    <Resource Include="img\UI\AxiiSkills\Axii_lvl3_3.png" />
+    <Resource Include="img\UI\AxiiSkills\Axii_lvl3_4.png" />
+    <Resource Include="img\UI\AxiiSkills\Axii_lvl4_1.png" />
+    <Resource Include="img\UI\AxiiSkills\Axii_lvl4_2.png" />
+    <Resource Include="img\UI\AxiiSkills\Axii_lvl4_3.png" />
+    <Resource Include="img\UI\AxiiSkills\Axii_lvl4_4.png" />
+    <Resource Include="img\UI\AxiiSkills\Axii_lvl5_1.png" />
+    <Resource Include="img\UI\AxiiSkills\Axii_lvl5_2.png" />
+    <Resource Include="img\UI\StrengthSkills\Strength_lvl1_1.png" />
+    <Resource Include="img\UI\StrengthSkills\Strength_lvl1_2.png" />
+    <Resource Include="img\UI\StrengthSkills\Strength_lvl1_3.png" />
+    <Resource Include="img\UI\StrengthSkills\Strength_lvl2_1.png" />
+    <Resource Include="img\UI\StrengthSkills\Strength_lvl2_2.png" />
+    <Resource Include="img\UI\StrengthSkills\Strength_lvl2_3.png" />
+    <Resource Include="img\UI\StrengthSkills\Strength_lvl2_4.png" />
+    <Resource Include="img\UI\StrengthSkills\Strength_lvl3_1.png" />
+    <Resource Include="img\UI\StrengthSkills\Strength_lvl3_2.png" />
+    <Resource Include="img\UI\StrengthSkills\Strength_lvl3_3.png" />
+    <Resource Include="img\UI\StrengthSkills\Strength_lvl3_4.png" />
+    <Resource Include="img\UI\StrengthSkills\Strength_lvl4_1.png" />
+    <Resource Include="img\UI\StrengthSkills\Strength_lvl4_2.png" />
+    <Resource Include="img\UI\StrengthSkills\Strength_lvl4_3.png" />
+    <Resource Include="img\UI\StrengthSkills\Strength_lvl4_4.png" />
+    <Resource Include="img\UI\StrengthSkills\Strength_lvl5_1.png" />
+    <Resource Include="img\UI\EnduranceSkills\Endurance_lvl1_1.png" />
+    <Resource Include="img\UI\EnduranceSkills\Endurance_lvl1_2.png" />
+    <Resource Include="img\UI\EnduranceSkills\Endurance_lvl1_3.png" />
+    <Resource Include="img\UI\EnduranceSkills\Endurance_lvl2_1.png" />
+    <Resource Include="img\UI\EnduranceSkills\Endurance_lvl2_2.png" />
+    <Resource Include="img\UI\EnduranceSkills\Endurance_lvl2_3.png" />
+    <Resource Include="img\UI\EnduranceSkills\Endurance_lvl2_4.png" />
+    <Resource Include="img\UI\EnduranceSkills\Endurance_lvl3_1.png" />
+    <Resource Include="img\UI\EnduranceSkills\Endurance_lvl3_2.png" />
+    <Resource Include="img\UI\EnduranceSkills\Endurance_lvl3_3.png" />
+    <Resource Include="img\UI\EnduranceSkills\Endurance_lvl3_4.png" />
+    <Resource Include="img\UI\EnduranceSkills\Endurance_lvl4_1.png" />
+    <Resource Include="img\UI\EnduranceSkills\Endurance_lvl4_2.png" />
+    <Resource Include="img\UI\EnduranceSkills\Endurance_lvl4_3.png" />
+    <Resource Include="img\UI\EnduranceSkills\Endurance_lvl4_4.png" />
+    <Resource Include="img\UI\EnduranceSkills\Endurance_lvl5_1.png" />
+    <Resource Include="img\UI\EnduranceSkills\Endurance_lvl5_2.png" />
+    <Resource Include="img\UI\EnduranceSkills\Endurance_lvl5_3.png" />
+    <Resource Include="img\UI\Effect_Bleeding.png" />
+    <Resource Include="img\UI\Effect_Poison.png" />
     <Content Include="sounds\barghest\bar_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -499,6 +677,7 @@
     <Content Include="sounds\music\Peacefull.mp3" />
     <Content Include="sounds\music\Fortress.mp3" />
     <Content Include="sounds\music\Mighty.mp3" />
+    <Content Include="sounds\music\Castle.mp3" />
     <Content Include="sounds\music\The_Order.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
