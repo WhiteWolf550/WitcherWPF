@@ -75,6 +75,15 @@ namespace WitcherWPF {
                 return false;
             }
         }
+        public bool Stun() {
+            Random rand = new Random();
+            int rn = rand.Next(0, 100);
+            if (rn < this.StunChance) {
+                return true;
+            } else {
+                return false;
+            }
+        }
 
         public abstract void EnemyBehavior(double PlayerHP, double PlayerHPMax);
     }

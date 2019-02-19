@@ -82,30 +82,36 @@ namespace WitcherWPF
         public void GetMap(object sender, RoutedEventArgs e) {
             if (Combat == false) {
                 parentFrame.Navigate(new Map(parentFrame, time));
+                game.SaveGame(playerinfo, pinventory, armor, sword, effects);
             }
         }
         public void GetQuests(object sender, RoutedEventArgs e) {
             if (Combat == false) {
                 parentFrame.Navigate(new Quests(parentFrame, time));
+                game.SaveGame(playerinfo, pinventory, armor, sword, effects);
             }
         }
         public void GetJournal(object sender, RoutedEventArgs e) {
             if (Combat == false) {
                 parentFrame.Navigate(new Journal(parentFrame, time));
+                game.SaveGame(playerinfo, pinventory, armor, sword, effects);
             }
         }
         public void GetCharacter(object sender, RoutedEventArgs e) {
             if (Combat == false) {
                 parentFrame.Navigate(new Character(parentFrame, time));
+                game.SaveGame(playerinfo, pinventory, armor, sword, effects);
             }
         }
         public void GetAlchemy(object sender, RoutedEventArgs e) {
             if (Combat == false) {
-
+                parentFrame.Navigate(new Combat(parentFrame, false, time, false));
+                game.SaveGame(playerinfo, pinventory, armor, sword, effects);
             }
         }
         public void GetLocation(object sender, RoutedEventArgs e) {
             if (Combat == false) {
+                game.SaveGame(playerinfo, pinventory, armor, sword, effects);
                 parentFrame.Navigate(new Location(parentFrame, time));
             }else {
                 game.SaveGame(playerinfo, pinventory, armor, sword, effects);
@@ -324,9 +330,10 @@ namespace WitcherWPF
         public void DropItem(object sender, RoutedEventArgs e) {
             PlayerInventory invent = new PlayerInventory();
             MenuItem button = (sender as MenuItem);
-            invent.DropItem(button);
+            pinventory = invent.DropItem(button, pinventory);
             InventoryItems.Children.Clear();
             LoadInventory();
+            manager.SavePlayerInventory(pinventory);
 
         }
         public void DropGear(object sender, RoutedEventArgs e) {

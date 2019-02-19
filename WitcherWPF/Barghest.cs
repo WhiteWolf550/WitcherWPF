@@ -33,8 +33,8 @@ namespace WitcherWPF
             this.Name = "Barghest";
             this.XP = 30;
 
-            this.StunChance = 5;
-            this.DodgeChance = 30;
+            this.StunChance = 10;
+            this.DodgeChance = 40;
             this.BleedChance = 30;
             this.StrongSpeed = 700;
             this.FastSpeed = 300;
@@ -51,8 +51,8 @@ namespace WitcherWPF
                 this.DodgeChance = 60;
                 if (this.HP < this.MaxHP / 4) {
                     this.DodgeChance = 20;
-                    this.FastChance = 20;
-                    this.StrongDamage = 40;
+                    this.FastChance = 10;
+                    this.StrongDamage = 80;
                 }
             }
             if (PlayerHP < PlayerHPMax / 2) {

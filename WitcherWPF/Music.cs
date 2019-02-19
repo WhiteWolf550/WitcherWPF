@@ -14,7 +14,7 @@ namespace WitcherWPF {
         MediaPlayer battle = new MediaPlayer();
         bool isplayingday = false;
         bool isplayingnight = false;
-        bool combat = false;
+        
 
         public Music() {
             this.music.MediaEnded += new EventHandler(Music_Ended);
@@ -26,7 +26,7 @@ namespace WitcherWPF {
         }
 
         public void AmbientMusic(bool day, string location) {
-            if (combat == false) {
+            if (Globals.Combat == false) {
                 if (day == true) {
                     if (isplayingday == false) {
                         music.Open(musicday[location]);
@@ -49,12 +49,14 @@ namespace WitcherWPF {
             }
         }
         public void BattleMusic() {
-            combat = true;
+            //combat = true;
             music.Pause();
+            isplayingday = false;
+            isplayingnight = false;
             
         }
         public void StopBattleMusic() {
-            combat = false;
+            //combat = false;
         }
         private void Music_Ended(object sender, EventArgs e) {
             isplayingday = false;

@@ -109,10 +109,11 @@ namespace WitcherWPF {
             }
 
         }
-        public List<Sign> LoadSigns() {
-            string path = @"../../saves/PlayerSigns.json";
+        
+        public List<Potion> LoadPotions() {
+            string path = @"../../gamefiles/Potions.json";
             string jsonFromFile = File.ReadAllText(path);
-            List<Sign> jsonread = JsonConvert.DeserializeObject<List<Sign>>(jsonFromFile, settings);
+            List<Potion> jsonread = JsonConvert.DeserializeObject<List<Potion>>(jsonFromFile, settings);
             return jsonread;
         }
 
@@ -164,6 +165,11 @@ namespace WitcherWPF {
         public void SaveSkills(List<Skills> Skills) {
             string path = @"../../saves/Skills.json";
             string jsonToFilet = JsonConvert.SerializeObject(Skills, settings);
+            File.WriteAllText(path, jsonToFilet);
+        }
+        public void SavePotions(List<Potion> Potions) {
+            string path = @"../../gamefiles/Potions.json";
+            string jsonToFilet = JsonConvert.SerializeObject(Potions, settings);
             File.WriteAllText(path, jsonToFilet);
         }
     }

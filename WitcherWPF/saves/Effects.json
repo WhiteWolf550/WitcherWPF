@@ -1,1 +1,1 @@
-{"$type":"System.Collections.Generic.List`1[[WitcherWPF.Effect, WitcherWPF]], mscorlib","$values":[{"$type":"WitcherWPF.Effect, WitcherWPF","EffectIco":{"$type":"System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Uri, System]], mscorlib","Vlaštovka":"img/UI/Effect_Swallow.png"},"Name":"Vlaštovka","Duration":1,"Toxicity":30}]}
+{"$type":"System.Collections.Generic.List`1[[WitcherWPF.Effect, WitcherWPF]], mscorlib","$values":[]}

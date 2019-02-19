@@ -10,6 +10,16 @@
 
     <Grid>
         <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63" Grid.RowSpan="2" Grid.ColumnSpan="4"></Image>
+        <Image Source="img/UI/alchemy_back.png" Margin="-271,-2,-3,2" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
         <Button Background="{x:Null}" BorderBrush="{x:Null}" MinWidth="50" MinHeight="80" Click="GetLocation" Margin="-9,20,1344,750" Height="Auto">
             <Image Width="60" Height="60">
                 <Image.Resources>
@@ -107,11 +117,70 @@
                     </Image.Resources>
                 </Image>
             </Button>
-            <Button Name="Alchemy" Width="200" Height="100" Background="Transparent" BorderBrush="Transparent">
+            <Button Name="Alch" Width="200" Height="100" Background="Transparent" BorderBrush="Transparent">
                 <Image Name="AlchIMG" Source="img/UI/alch_back_c.png">
 
                 </Image>
             </Button>
-        </StackPanel>    
+        </StackPanel>
+
+
+        <StackPanel Orientation="Vertical" Width="200" Height="400" HorizontalAlignment="Left" VerticalAlignment="Center" Name="PotionPanel" Margin="571,235,0,215"/>
+        
+        
+        <Image Source="img/UI/alc_sphere.png" Margin="625,204,166,160" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <StackPanel Name="Substances" Orientation="Horizontal" Width="300" Height="40" Margin="817,615,310,185"></StackPanel>
+        <Image Source="img/UI/Potion_slot.png" Width="60" Margin="805,323,558,466" RenderTransformOrigin="5.558,-3.433"></Image>
+        <Image Source="img/UI/Potion_slot.png"  Width="60" Margin="910,276,453,513" RenderTransformOrigin="5.558,-3.433"></Image>
+        <Image Source="img/UI/Potion_slot.png"  Width="60" Margin="1017,316,346,473" RenderTransformOrigin="5.558,-3.433"></Image>
+        <Image Source="img/UI/Potion_slot.png"  Width="70" Margin="910,457,443,322" RenderTransformOrigin="5.558,-3.433"></Image>
+
+        <Button ToolTip="Vytvořit elixír" Click="CreatePotionClick"  Name="PotionBrew" Height="Auto" Background="Transparent" BorderBrush="Transparent" Margin="996,666,303,68" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="180"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Image Name="Brew" RenderTransformOrigin="0.5,0.5" Width="99">
+                <Image.Resources>
+                    <Style TargetType="{x:Type Image}">
+                        <!-- Default image -->
+                        <Setter Property="Source" Value="img/UI/brew_button.png"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <!-- Hover image -->
+                                <Setter Property="Source" Value="img/UI/brew_button_a.png"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Resources>
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+
+        <StackPanel Name="Ingredient1" Width="40" Height="40" Margin="817,334,570,476" />
+        <StackPanel Name="Ingredient2" Width="40" Height="40" Margin="922,286,465,524" />
+        <StackPanel Name="Ingredient3" Width="40" Height="40" Margin="1029,326,358,484" />
+        <StackPanel Name="AlchemicalBase" Margin="923,471,455,334" />
+
     </Grid>
 </Page>

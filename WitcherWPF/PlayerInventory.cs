@@ -43,21 +43,15 @@ namespace WitcherWPF
             string jsonToFile = JsonConvert.SerializeObject(inventory, settings);
             File.WriteAllText(playerinvpath, jsonToFile);
         }
-        public void DropItem(MenuItem button) {
-            JsonSerializerSettings settings = new JsonSerializerSettings {
-                TypeNameHandling = TypeNameHandling.All
-            };
-            string playerinvpath = @"../../saves/PlayerInventory.json";
-            string jsonFromFileinv = File.ReadAllText(playerinvpath);
-            List<PlayerInventory> inventory = JsonConvert.DeserializeObject<List<PlayerInventory>>(jsonFromFileinv, settings);
+        public List<PlayerInventory> DropItem(MenuItem button, List<PlayerInventory> inventory) {
+            
             foreach(var item in inventory) {
                 if (item.Item.Name == button.Tag.ToString()) {
                     inventory.Remove(item);
                     break;
                 }
             }
-            string jsonToFile = JsonConvert.SerializeObject(inventory, settings);
-            File.WriteAllText(playerinvpath, jsonToFile);
+            return inventory;
         }
         public void Read() {
             List<PlayerInventory> inventory = manager.LoadPlayerInventory();

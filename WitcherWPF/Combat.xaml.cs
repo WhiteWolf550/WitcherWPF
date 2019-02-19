@@ -29,6 +29,8 @@ namespace WitcherWPF {
         DispatcherTimer EnemyStrongAttackDuration = new DispatcherTimer();
         DispatcherTimer EnemyFastAttackDuration = new DispatcherTimer();
         DispatcherTimer StunDuration = new DispatcherTimer();
+        DispatcherTimer EnemyStunDuration = new DispatcherTimer();
+        DispatcherTimer StunStrongDuration = new DispatcherTimer();
         DispatcherTimer BurnDuration = new DispatcherTimer();
         DispatcherTimer QuenDuration = new DispatcherTimer();
         DispatcherTimer YrdenDuration = new DispatcherTimer();
@@ -74,6 +76,7 @@ namespace WitcherWPF {
         int AttackCombo = 0;
         bool SteelSword;
         bool Strong;
+        bool EffectStart = true;
         static bool Poisoned = false;
         static bool BleedB  = false;
         int BConfusion = 0;
@@ -109,10 +112,11 @@ namespace WitcherWPF {
         bool CanEnemyTouchSword = false;
         bool EnemyDodge = false;
         bool Stunned = false;
+        bool PlayerStunned = false;
 
         public Combat() {
             InitializeComponent();
-
+            Globals.Combat = true;
             
 
         }
@@ -161,6 +165,7 @@ namespace WitcherWPF {
             int Axiidur = 0;
             int Aarddur = 0;
             int Channeldur = 0;
+            int Parrydur = 0;
             foreach(Player item in playerlist) {
                 Yrdendur = item.Yrden.Duration;
                 Quendur = item.Quen.ShieldDuration;
@@ -172,6 +177,7 @@ namespace WitcherWPF {
                 QuenEn = item.Quen.EndurCost();
                 IgniEn = item.Igni.EndurCost();
                 AxiiEn = item.Axii.EndurCost();
+                Parrydur = item.ParryStunDuration;
             }
             PlayerStrongAttackDuration.Interval = new TimeSpan(0, 0, 0, 0, 800);
             PlayerStrongAttackDuration.Tick += new EventHandler(PlayerStrongDuration_Tick);
@@ -224,11 +230,17 @@ namespace WitcherWPF {
             PlayerTired.Interval = new TimeSpan(0, 0, 0, 10);
             PlayerTired.Tick += new EventHandler(Tired_Tick);
 
-            ParryDuration.Interval = new TimeSpan(0, 0, 0, 2);
+            ParryDuration.Interval = new TimeSpan(0, 0, 0, Parrydur);
             ParryDuration.Tick += new EventHandler(Parry_Tick);
 
             StunDuration.Interval = new TimeSpan(0, 0, 0, Aarddur);
             StunDuration.Tick += new EventHandler(Stun_tick);
+
+            StunStrongDuration.Interval = new TimeSpan(0, 0, 0, 5);
+            StunStrongDuration.Tick += new EventHandler(Stun_tick);
+
+            EnemyStunDuration.Interval = new TimeSpan(0, 0, 0, 4);
+            EnemyStunDuration.Tick += new EventHandler(EnemyStun_tick);
 
             SignChecker.Interval = TimeSpan.FromSeconds(1);
             SignChecker.Tick += new EventHandler(Sign_tick);
@@ -238,6 +250,16 @@ namespace WitcherWPF {
             StunDuration.Stop();
             EnemyIdleAnimation();
 
+        }
+        void EnemyStun_tick(object sender, EventArgs e) {
+            EnemyStunDuration.Stop();
+            AttackBlock = false;
+            PlayerStunned = false;
+            if (PlayerCheck() == true) {
+                IdleAnimation();
+            }
+            LoadEffects();
+            
         }
         void Bleeding_tick(object sender, EventArgs e) {
             BleedT++;
@@ -308,7 +330,13 @@ namespace WitcherWPF {
                 } else {
                     Yrden_ico.Visibility = Visibility.Hidden;
                 }
-
+                if(PlayerCheck() == true) {
+                    EnemyTimeToAttack.Stop();
+                    EnemyStrongAttackDuration.Stop();
+                    EnemyFastAttackDuration.Stop();
+                    Healing.Stop();
+                    HealthBar.Value = 0;
+                }
 
             }
         }
@@ -500,18 +528,30 @@ namespace WitcherWPF {
                 img.Source = new BitmapImage(item.EffectIco[item.Name]);
                 img.ToolTip = item.Name + "\n" + "Doba trvání: " + item.Duration + " soubojů";
                 EffectBar.Children.Add(img);
+                if (EffectStart == true) {
+                    ToxicityBar.Value += item.Toxicity;
+                }
                 UsePotion(item);
-
+            }
+            if (EffectStart == true) {
+                EffectStart = false;
             }
             if (BleedB == true) {
                 Image img = new Image();
                 img.Source = new BitmapImage(new Uri("img/UI/Effect_Bleeding.png", UriKind.Relative));
                 img.ToolTip = "Krvácení";
                 EffectBar.Children.Add(img); 
-            }else if (Poisoned == true) {
+            }
+            if (Poisoned == true) {
                 Image img = new Image();
                 img.Source = new BitmapImage(new Uri("img/UI/Effect_Poison.png", UriKind.Relative));
                 img.ToolTip = "Otrávení";
+                EffectBar.Children.Add(img);
+            }
+            if (PlayerStunned == true) {
+                Image img = new Image();
+                img.Source = new BitmapImage(new Uri("img/UI/Effect_Stun.png", UriKind.Relative));
+                img.ToolTip = "Omráčení";
                 EffectBar.Children.Add(img);
             }
 
@@ -597,6 +637,7 @@ namespace WitcherWPF {
 
         }
         private void EnemyMain() {
+            enemy.EnemyBehavior(HealthBar.Value, HealthBar.Maximum);
             EnemyAttacking = false;
             CanEnemyTouchSword = false;
             EnemyDeath();
@@ -622,7 +663,7 @@ namespace WitcherWPF {
                 }else {
                     EnemyCanAttack = false;
                 }
-                enemy.EnemyBehavior(HealthBar.Value, HealthBar.Maximum);
+                
                 EnemyIdleAnimation();
 
             }
@@ -669,6 +710,12 @@ namespace WitcherWPF {
                 EnemyTimeToAttack.Stop();
                 EnemyStrongAttackDuration.Stop();
                 EnemyFastAttackDuration.Stop();
+                EnemyStunDuration.Stop();
+                Bleeding.Stop();
+                Poisoning.Stop();
+                Healing.Stop();
+                BleedB = false;
+                Poisoned = false;
                 HealthBar.Value = 0;
                 HealthBar.ToolTip = 0;
                 Stamina.Stop();
@@ -836,6 +883,13 @@ namespace WitcherWPF {
 
             }else {
                 EnemyCanAttack = true;
+                if (enemy.Stun() == true && PlayerStunned == false) {         
+                    AttackBlock = true;
+                    PlayerStunned = true;
+                    LoadEffects();
+                    EnemyStunDuration.Start();
+                    PlayerAnimationsRepeat("Stunned", Geralt);
+                }
             }
             
             
@@ -1060,7 +1114,7 @@ namespace WitcherWPF {
         }
         public void Poison(int ArmorPoison, int QuenEffect) {
             int combine = 0;
-            if (enemy.BleedChanc() == true) {
+            if (enemy.PoisonChanc() == true) {
                 if (QuenEffect == 1) {
                     combine += ArmorPoison + 50;
                 } else {
@@ -1093,6 +1147,13 @@ namespace WitcherWPF {
                 EnemyHP.Value = enemy.Hit(enemy.HP, damage);
                 EnemyHP.ToolTip = EnemyHP.Value;
                 textb.Text = "Geralt dává poškození za " + damage;
+                if (player.Stun(Strong) == true) {
+                    Stunned = true;
+                    StunDuration.Start();
+                    EnemyAnimationsRepeat("Stun");
+                } else {
+
+                }
             }else {
                 bool Burn = false;
                 int damage = 0;
@@ -1191,8 +1252,9 @@ namespace WitcherWPF {
         private void ExitCombat(object sender, RoutedEventArgs e) {
             backgroundmedia.Stop();
             PotionCheck();
-            Save();          
-            time.location.StopBattleMusic();
+            Save();
+            //time.location.StopBattleMusic();
+            Globals.Combat = false;
             Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Crossway);
             parentFrame.Navigate(new Location(parentFrame, time));
         }

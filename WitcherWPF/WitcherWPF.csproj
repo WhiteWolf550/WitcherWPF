@@ -135,6 +135,7 @@
     <Compile Include="Player.cs" />
     <Compile Include="PlayerInventory.cs" />
     <Compile Include="PlayerQuest.cs" />
+    <Compile Include="Potion.cs" />
     <Compile Include="Quen.cs" />
     <Compile Include="QuenSkills.xaml.cs">
       <DependentUpon>QuenSkills.xaml</DependentUpon>
@@ -614,6 +615,27 @@
     <Resource Include="img\UI\EnduranceSkills\Endurance_lvl5_3.png" />
     <Resource Include="img\UI\Effect_Bleeding.png" />
     <Resource Include="img\UI\Effect_Poison.png" />
+    <Resource Include="img\UI\Effect_Stun.png" />
+    <Resource Include="img\Items\Potion_Black_Blood.png" />
+    <Resource Include="img\Items\Potion_Petris_Philter.png" />
+    <Resource Include="img\Items\Potion_Swallow.png" />
+    <Resource Include="img\Items\Potion_Tawny_Owl.png" />
+    <Resource Include="img\Items\Potion_Thunderbolt.png" />
+    <Resource Include="img\Items\Alcohol_Temerian_Rye.png" />
+    <Resource Include="img\Items\Alcohol_Dwarven_Spirit.png" />
+    <Resource Include="img\UI\alchemy_back.png" />
+    <Resource Include="img\UI\brew_button.png" />
+    <Resource Include="img\UI\brew_button_a.png" />
+    <Resource Include="img\UI\alc_sphere.png" />
+    <Resource Include="img\UI\potion_slot.png" />
+    <Resource Include="img\Items\Food_Wyvern_Meat.png" />
+    <Resource Include="img\Items\Wood.png" />
+    <Resource Include="img\UI\Aether.png" />
+    <Resource Include="img\UI\Hydragenum.png" />
+    <Resource Include="img\UI\Quebirth.png" />
+    <Resource Include="img\UI\Rebis.png" />
+    <Resource Include="img\UI\Vermilion.png" />
+    <Resource Include="img\UI\Vitriol.png" />
     <Content Include="sounds\barghest\bar_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

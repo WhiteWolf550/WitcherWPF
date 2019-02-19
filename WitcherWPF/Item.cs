@@ -88,6 +88,7 @@ namespace WitcherWPF
                     inventoryitem.Content = inventoryimage;
                     inventoryitem.Height = 20;
                     inventoryitem.Width = 20;
+                    inventoryitem.ToolTip = matches[rn].Name + "\n" + matches[rn].Description + "\n" + "SUBSTANCE:" + "\n" + matches[rn].Substance;
                     inventoryitem.BorderBrush = Brushes.Transparent;
                     inventoryitem.Background = Brushes.Transparent;
                     LootInventory.Children.Add(inventoryitem);
@@ -121,6 +122,7 @@ namespace WitcherWPF
                     inventoryitem.Content = inventoryimage2;
                     inventoryitem.Height = 20;
                     inventoryitem.Width = 20;
+                    inventoryitem.ToolTip = item.Name + "\n" + item.Description + "\n" + "SUBSTANCE:" + "\n" + item.Substance;
                     inventoryitem.BorderBrush = Brushes.Transparent;
                     inventoryitem.Background = Brushes.Transparent;
                     LootInventory.Children.Add(inventoryitem);
