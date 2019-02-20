@@ -8,5 +8,7 @@ namespace WitcherWPF {
     static class Globals {
         public static string location;
         public static bool Combat;
+        public static int Hour;
+        public static string daytime;
     }
 }

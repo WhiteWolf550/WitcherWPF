@@ -22,6 +22,7 @@ namespace WitcherWPF
     {
         private Frame parentFrame;
         private Time time;
+        private bool meditation;
         FileManager manager = new FileManager();
         List<Potion> potions = new List<Potion>();
         List<Item> items = new List<Item>();
@@ -29,15 +30,17 @@ namespace WitcherWPF
         Dictionary<Button, Potion> potiondict = new Dictionary<Button, Potion>();
         Dictionary<Image, PlayerInventory> itemsdict = new Dictionary<Image, PlayerInventory>();
         Potion potion = new Potion();
+        Music sound = new Music();
         Button CurrentPotion = new Button();
         public Alchemy()
         {
             InitializeComponent();
+            sound.PlaySound("NewPage");
         }
-        public Alchemy(Frame parentFrame, Time time) : this() {
+        public Alchemy(Frame parentFrame, Time time, bool meditation) : this() {
             this.parentFrame = parentFrame;
             this.time = time;
-
+            this.meditation = meditation;
             potions = manager.LoadPotions();
             playerinventory = manager.LoadPlayerInventory();
             items = manager.LoadItems();
@@ -170,7 +173,11 @@ namespace WitcherWPF
         }
         private void CreatePotionClick(object sender, RoutedEventArgs e) {
             if (PotionBrew.Opacity == 1) {
-                CreatePotion();
+                if (meditation == true) {
+                    CreatePotion();
+                }else {
+                    MessageBox.Show("Musíš začít meditovat, aby jsi mohl elixír vytvořit!");
+                }
             }
         }
         private PlayerInventory GetItem(PlayerInventory Ing, StackPanel Ingredient) {

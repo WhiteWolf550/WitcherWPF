@@ -138,6 +138,7 @@ namespace WitcherWPF
                 
                 var match = PlayerQuests.Where(s => s.Quest.QuestSeries == Activate);
                 if (match.Count() == 0) {
+                    
                     c = Brushes.Yellow;
                     var match2 = Quests.Where(s => s.QuestSeries == Activate);
                     
@@ -157,6 +158,7 @@ namespace WitcherWPF
                     
                     
                 } else {
+                   
                     c = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFB8A917"));
                     int id = 0;
                     

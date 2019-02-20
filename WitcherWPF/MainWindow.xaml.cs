@@ -55,7 +55,7 @@ namespace WitcherWPF {
             //mediaPlayer.Play();
             CreateInv();
             CreateDialogue();
-            //CreateQuests();
+            CreateQuests();
             CreatePlayerQuests();
             CreateSkills();
             CreateArmors();
@@ -63,10 +63,11 @@ namespace WitcherWPF {
             CreatePlayer();
             CreatePotions();
             Globals.Combat = false;
+            Globals.location = "Old_wyzima1";
             mainFrame.Navigate(new Inventory(mainFrame, false, time));
         }
         public void CreatePotions() {
-            potions.Add(new Potion("Vlaštovka", 20, "Vitriol", "Vitriol", "Rebis", @"img/Items/Potion_Swallow.png", "Elixír, který rychle doplňuje Geraltovo zdraví", 2, "MediumAlcohol"));
+            potions.Add(new Potion("Vlaštovka", 20, "Vitriol", "Aether", "Rebis", @"img/Items/Potion_Swallow.png", "Elixír, který rychle doplňuje Geraltovo zdraví", 2, "MediumAlcohol"));
             potions.Add(new Potion("Hrom", 25, "Vermilion", "Rebis", "Vitriol", @"img/Items/Potion_Thunderbolt.png", "Elixír, který značně zvýší sílu útoků", 2, "StrongAlcohol"));
             potions.Add(new Potion("Puštík", 20, "Rebis", "Aether", "Vermilion", @"img/Items/Potion_Tawny_Owl.png", "Elixír, který rychle doplňuje Geraltovu výdrž", 3, "MediumAlcohol"));
             potions.Add(new Potion("Petriho filtr", 30, "Quebirth", "Vermilion", "Hydragenum", @"img/Items/Potion_Petris_Philter.png", "Elixír, který značně zvýší intenzitu všech znamení", 1, "StrongAlcohol"));
@@ -247,7 +248,7 @@ namespace WitcherWPF {
             //MONSTER LOOT
             items.Add(new Item("Tesáky z příšery", "Tesáky sebrané z příšery", "Alchemy", "Barghest", @"img/Items/Monster_Fang.png", "Rebis", "Alchemy", null, 0, 0, null, 10));
             items.Add(new Item("Prach smrti", "Prach, který se většinou dá získat z přeludů, nebo z jiných příšer", "Alchemy", "Barghest", @"img/Items/Monster_DeathDust.png", "Vitriol", "Alchemy", null, 0, 0, null, 10));
-            items.Add(new Item("Ektoplasma", "Ektoplasma z přeludů", "Alchemy", "Barghest", @"img/Items/Monster_Ectoplasm.png", "Hydragenum", "Alchemy", null, 0, 0, null, 10));
+            items.Add(new Item("Ektoplasma", "Ektoplasma z přeludů", "Alchemy", "Barghest", @"img/Items/Monster_Ectoplasm.png", "Aether", "Alchemy", null, 0, 0, null, 10));
             //BUILDING
             items.Add(new Item("Dřevo", "Dřevo lze použít jako stavební materiál a nebo ho lze prodat", "Build", "Loot", @"img/Items/Wood.png", "žádné", "Build", null, 0, 0, null, 10));
             string jsonToFile = JsonConvert.SerializeObject(items, settings);
@@ -289,11 +290,42 @@ namespace WitcherWPF {
             dialog.Add(new Dialogues("Triss", "Až něco zjistím, tak uvidíme. Mezitím by jsi mohl pomoct místnímu kováři Yavenovi Briggsovi. Toho znáš ne?", 1, "Zjistila jsi něco nového o tom vrahovi?", "Talk", "Triss", false, "Něco končí, něco začíná"));
             dialog.Add(new Dialogues("Geralt", "Znám ho potkali jsme se v lese poblíž Brokilonu. To už je tak dlouho, jako kdyby to bylo v minulém životě. Pomůžu mu", 1, "Zjistila jsi něco nového o tom vrahovi?", "Talk", "Triss", false, "Kovářova zrůda"));
 
-
-
             //leave
             dialog.Add(new Dialogues("Geralt", "Měj se Triss", 2, "Nashle", "Talk", "Triss", true, null));
             dialog.Add(new Dialogues("Triss", "Dávej na sebe pozor Geralte", 2, "Nashle", "Talk", "Triss", true, null));
+
+            //----------------------YAVEN(BLACKSMITH)----------------
+            //greet
+            dialog.Add(new Dialogues("Yaven", "Vítaj Vědmáku", 1, "Pozdrav", "Greet", "Yaven", true, null));
+
+            //1
+            dialog.Add(new Dialogues("Geralt", "Slyšel jsem, že máš problém s příšerou", 1, "Problém s příšerou", "Talk", "Yaven", false, "Kovářova zrůda"));
+            dialog.Add(new Dialogues("Yaven", "Geralt? Tož si to ty? To jest překvapení teba som tak dlho neviděl! Kde ty sa tu bereš.", 1, "Problém s příšerou", "Talk", "Yaven", false, "Kovářova zrůda"));
+            dialog.Add(new Dialogues("Geralt", "To je na delší povídání a na to teď není čas. Mám tu práci", 1, "Problém s příšerou", "Talk", "Yaven", false, "Kovářova zrůda"));
+            dialog.Add(new Dialogues("Yaven", "Jasně jasně, Tak co o tej krásce chceš vědět? Velká hnusná hlava, několik ostrejch zubisek a tož pařáty má taky skvostný", 1, "Problém s příšerou", "Talk", "Yaven", false, "Kovářova zrůda"));
+            dialog.Add(new Dialogues("Geralt", "Takže by to mohl být Ghůl", 1, "Problém s příšerou", "Talk", "Yaven", false, "Kovářova zrůda"));
+            dialog.Add(new Dialogues("Yaven", "Geralt, co já sakra vím. Jsem snad jakejsi vědmák či co? To by si mal vědět ty ne?", 1, "Problém s příšerou", "Talk", "Yaven", false, "Kovářova zrůda"));
+            dialog.Add(new Dialogues("Geralt", "Ano já vím, to jsem si říkal jen pro sebe.", 1, "Problém s příšerou", "Talk", "Yaven", false, "Kovářova zrůda"));
+            dialog.Add(new Dialogues("Geralt", "80", 1, "Problém s příšerou", "Talk", "Yaven", false, "Kovářova zrůda"));
+            dialog.Add(new Dialogues("Yaven", "80? čeho sakra, zas tak starej nejsem", 1, "Problém s příšerou", "Talk", "Yaven", false, "Kovářova zrůda"));
+            dialog.Add(new Dialogues("Geralt", "80 orénů", 1, "Problém s příšerou", "Talk", "Yaven", false, "Kovářova zrůda"));
+            dialog.Add(new Dialogues("Yaven", "Ach tak, no víš Geralte tož já nejsem zrovna při penězích a po tom všem co se tu ve Wyzimě přihodilo. To taky moc nepomáhá. 50 by šlo?", 1, "Problém s příšerou", "Talk", "Yaven", false, "Kovářova zrůda"));
+            dialog.Add(new Dialogues("Geralt", "Dobře, souhlasím. Tak, kde že je ta tvoje 'stvůra'? ", 1, "Problém s příšerou", "Talk", "Yaven", false, "Kovářova zrůda"));
+            dialog.Add(new Dialogues("Geralt", "Tož tadydhlenc ve sklepě, když dáš pryč ty bedny a to harampádí", 1, "Problém s příšerou", "Talk", "Yaven", false, "Kovářova zrůda"));
+            dialog.Add(new Dialogues("Geralt", "Dobře, ale peníze měj připravené, protože přežiju. Zachvíli jsem zpět. Pokud by jsem se však po 5 minutách nevrátil, tak ty bedny dej radši zpátky", 1, "Problém s příšerou", "Talk", "Yaven", false, "Kovářova zrůda"));
+
+            //2
+            dialog.Add(new Dialogues("Geralt", "Prodáváš tu stále ještě něco?", 2, "Obchod", "Talk", "Yaven", true, null));
+            dialog.Add(new Dialogues("Yaven", "No tož Geralt... Ono není komu prodávat hehe.", 2, "Obchod", "Talk", "Yaven", true, null));
+            dialog.Add(new Dialogues("Yaven", "Tož občas tedy někdo přivalcuje, ale to spíš chtějí jen mít kde přespat.", 2, "Obchod", "Talk", "Yaven", true, null));
+            dialog.Add(new Dialogues("Yaven", "Já už sa tu chystám na odjezd, jako každý. Tož nemá tu cenu zůstat.", 2, "Obchod", "Talk", "Yaven", true, null));
+            dialog.Add(new Dialogues("Yaven", "Ale Geralt pokud bys měl o jakejsi nástroj zájem, tak mi to pořád něco zbylo. ", 2, "Obchod", "Talk", "Yaven", true, null));
+            dialog.Add(new Dialogues("Geralt", "Dobře, rád se někdy podívám", 2, "Obchod", "Talk", "Yaven", true, null));
+
+            //leave
+            dialog.Add(new Dialogues("Geralt", "Měj se Yavene", 2, "Nashle", "Talk", "Yaven", true, null));
+            dialog.Add(new Dialogues("Yaven", "Tož dávaj na seba pozor Geralt!", 2, "Nashle", "Talk", "Yaven", true, null));
+
             string jsonToFile = JsonConvert.SerializeObject(dialog, settings);
             File.WriteAllText(prologue, jsonToFile);
         }
@@ -373,7 +405,7 @@ namespace WitcherWPF {
             qq.Add(new Quest (1, "Primary", "Něco končí, něco začíná", "Foltest si předvolal Geralta hned druhý den potom co krála zachránil.", "Zajdi za Foltestem", 1, true, "Něco končí, něco začíná", null, 0));
             qq.Add(new Quest(2, "Primary", "Něco končí, něco začíná", "Foltest si předvolal Geralta hned druhý den potom co krále zachránil. Foltest Geraltovi oznámil, že by měl něco zjistit o vrahovi s pomocí Triss", "Zajdi za Triss a zjisti něco o vrahovi", 1, true, "Něco končí, něco začíná", "Zjistila jsi něco nového o tom vrahovi?", 0));
             qq.Add(new Quest(3, "Primary", "Něco končí, něco začíná", "Foltest si předvolal Geralta hned druhý den potom co krále zachránil. Foltest Geraltovi oznámil, že by měl něco zjistit o vrahovi s pomocí Triss. Triss Geraltovi sdělila, že na to, aby zjistila, kdo byl vrah, tak potřebuje více času", "Počkej až se Triss dozví více o vrahovi", 1, true, "Něco končí, něco začíná", null, 0));
-            qq.Add(new Quest(1, "Primary", "Kovářova zrůda", "Triss řekla Geraltovi, aby pomohl svému starému známému Yavenovi Briggsovi", "Zajdi za kovářem do staré wyzimy a zjisti jaký má problém", 1, true, "Kovářova zrůda", null, 0));
+            qq.Add(new Quest(1, "Primary", "Kovářova zrůda", "Triss řekla Geraltovi, aby pomohl svému starému známému Yavenovi Briggsovi", "Zajdi za kovářem do staré wyzimy a zjisti jaký má problém", 1, true, "Kovářova zrůda", "Problém s příšerou", 0));
 
             string jsonToFilet = JsonConvert.SerializeObject(qq, settings);
             File.WriteAllText(qpath, jsonToFilet);

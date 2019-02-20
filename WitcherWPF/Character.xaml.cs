@@ -22,10 +22,11 @@ namespace WitcherWPF {
         private Frame parentFrame;
         private Time time;
         Player player = new Player();
+        Music sound = new Music();
         public DispatcherTimer skilltimer = new DispatcherTimer();
         public Character() {
             InitializeComponent();
-            
+            sound.PlaySound("NewPage");
         }
         public Character(Frame parentFrame, Time time) : this() {
             this.parentFrame = parentFrame;
@@ -55,7 +56,7 @@ namespace WitcherWPF {
             skilltimer.Stop();
         }
         public void GetAlchemy(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Alchemy(parentFrame, time));
+            parentFrame.Navigate(new Alchemy(parentFrame, time, false));
             skilltimer.Stop();
         }
         public void GetLocation(object sender, RoutedEventArgs e) {

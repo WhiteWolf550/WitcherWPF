@@ -559,7 +559,7 @@ namespace WitcherWPF {
         }
         public void LoadEnemy() {
             if (frominventory == false) {
-                enemy = new Barghest();
+                enemy = new Ghoul();
                 EnemyHP.Value = enemy.MaxHP;
                 EnemyHP.ToolTip = enemy.MaxHP;
                 EnemyName.Content = enemy.Name;            

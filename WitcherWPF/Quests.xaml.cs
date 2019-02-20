@@ -25,9 +25,11 @@ namespace WitcherWPF
         
         private Frame parentFrame;
         private Time time;
+        Music sound = new Music();
         public Quests()
         {
             InitializeComponent();
+            sound.PlaySound("NewPage");
             QuestBackground.Visibility = Visibility.Hidden;
             NameQ.Visibility = Visibility.Hidden;
             DescQ.Visibility = Visibility.Hidden;
@@ -51,7 +53,7 @@ namespace WitcherWPF
             parentFrame.Navigate(new Character(parentFrame, time));
         }
         public void GetAlchemy(object sender, RoutedEventArgs e) {
-
+            parentFrame.Navigate(new Alchemy(parentFrame, time, false));
         }
         public void GetLocation(object sender, RoutedEventArgs e) {
             parentFrame.Navigate(new Location(parentFrame, time));

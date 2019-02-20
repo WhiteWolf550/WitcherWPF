@@ -43,6 +43,7 @@ namespace WitcherWPF
         List<PlayerInventory> pinventory = new List<PlayerInventory>();
         PlayerInventory inventory = new PlayerInventory();
         Game game = new Game();
+        Music sound = new Music();
         Dictionary<MenuItem, PlayerInventory> buttonitems = new Dictionary<MenuItem, PlayerInventory>();
         Dictionary<MenuItem, Sword> swordeq = new Dictionary<MenuItem, Sword>();
         Dictionary<MenuItem, Armor> armoreq = new Dictionary<MenuItem, Armor>();
@@ -53,6 +54,7 @@ namespace WitcherWPF
         public Inventory()
         {
             InitializeComponent();
+            sound.PlaySound("NewPage");
             playerinfo = manager.LoadPlayer();
             sword = manager.LoadPlayerSwords();
             armor = manager.LoadPlayerArmors();

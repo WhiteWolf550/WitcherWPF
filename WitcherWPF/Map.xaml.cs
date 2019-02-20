@@ -22,16 +22,18 @@ namespace WitcherWPF
     {
         private Frame parentFrame;
         private Time time;
+        Music sound = new Music();
         static public string map;
         public Map()
         {
             InitializeComponent();
+            sound.PlaySound("NewPage");
             Clicks();
             SetMap();
         }
         public void Clicks() {
-            WyzimaCastle.WyzimaCastle1.Click += new RoutedEventHandler(Travel);
-            WyzimaCastle.WyzimaCastle2.Click += new RoutedEventHandler(Travel);
+            
+            
             
         }
         public Map(Frame parentFrame, Time time) : this() {
@@ -42,7 +44,7 @@ namespace WitcherWPF
             map = Globals.location;
             if (map == "Old_wyzima2" || map == "Old_wyzima1") {
                 WyzimaCastle.Visibility = Visibility.Visible;
-            } else if(map == "Old_wyzima") {
+            } else if(map == "Old_wyzima3") {
                 Old_Wyzima.Visibility = Visibility.Visible;
             }
         }
@@ -59,7 +61,7 @@ namespace WitcherWPF
             parentFrame.Navigate(new Character(parentFrame, time));
         }
         public void GetAlchemy(object sender, RoutedEventArgs e) {
-
+            parentFrame.Navigate(new Alchemy(parentFrame, time, false));
         }
         public void GetLocation(object sender, RoutedEventArgs e) {
             parentFrame.Navigate(new Location(parentFrame, time));

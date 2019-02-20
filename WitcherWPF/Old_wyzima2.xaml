@@ -11,5 +11,20 @@
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Triss" ToolTip="Triss Ranuncul" Margin="694,404,625,289">
             <Image Source="img/Characters/Triss.png"></Image>
         </Button>
+
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Tag="Old_wyzima3" Height="Auto"  Name="Door" ToolTip="Do města" Margin="1088,431,277,424">
+            <Image Source="img/UI/ui_door.png"></Image>
+        </Button>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Tag="Old_wyzima1" Height="Auto"  Name="Steps" ToolTip="Jít do jiné místnosti" Margin="80,536,1262,288" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-88.007"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Image Source="img/UI/ui_steps.png"></Image>
+        </Button>
     </Grid>
 </UserControl>

@@ -93,7 +93,7 @@ namespace WitcherWPF
                     option.HorizontalAlignment = HorizontalAlignment.Center;
                     option.BorderBrush = Brushes.Transparent;
                     option.Background = Brushes.Transparent;
-                    option.Foreground = Brushes.Black;
+                    option.Foreground = Brushes.WhiteSmoke;
                     option.Click += new RoutedEventHandler(Dialogue_Click);
                     DialogueOptions.Children.Add(option);
                     option.ToolTip = item.Enabled;

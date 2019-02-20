@@ -9,13 +9,17 @@
       Title="Location"  Height="894" Width="1426.666">
 
     <Grid>
+
         <local:Old_wyzima1 x:Name="Wyzima_Castle" Visibility="Hidden"/>
         <local:Old_wyzima2 x:Name="Wyzima_Castle2" Visibility="Hidden"/>
-        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Click="GetInventory" Content="Inventory" Name="Inv" Background="#FF22551D" BorderBrush="{x:Null}"></Button>
-        <Image Name="LootBack" Visibility="Hidden" Source="img/UI/inventory.png" HorizontalAlignment="Left" Margin="200,0,0,0"></Image>
-        <WrapPanel Visibility="Hidden" Margin="294,290,853,381" Name="LootInventory"></WrapPanel>
-        <Button Visibility="Hidden" Click="LootToInventory" Name="TakeLoot" Content="Vzít vše" Margin="236,750,1053,101" Height="Auto" Background="#FF1E4F19" BorderBrush="{x:Null}"></Button>
-        <Button Visibility="Hidden" Click="CloseLoot" Name="CloseBut" Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" Margin="210,207,1128,621">
+        <local:Old_wyzima3 x:Name="Wyzima_Outside" Visibility="Hidden"/>
+        <local:Old_wyzima4 x:Name="Wyzima_Smith" Visibility="Hidden"/>
+
+        <Button HorizontalAlignment="Left" VerticalAlignment="Top" Click="GetInventory" Content="Inventory" x:Name="Inv" Background="#FF22551D" BorderBrush="{x:Null}"/>
+        <Image x:Name="LootBack" Visibility="Hidden" Source="img/UI/inventory.png" HorizontalAlignment="Left" Margin="200,0,0,0"/>
+        <WrapPanel Visibility="Hidden" Margin="294,290,853,381" x:Name="LootInventory"/>
+        <Button Visibility="Hidden" Click="LootToInventory" x:Name="TakeLoot" Content="Vzít vše" Margin="236,750,1053,101" Height="Auto" Background="#FF1E4F19" BorderBrush="{x:Null}"/>
+        <Button Visibility="Hidden" Click="CloseLoot" x:Name="CloseBut" Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" Margin="210,207,1128,621">
             <Image Width="52" Height="58">
                 <Image.Resources>
                     <Style TargetType="{x:Type Image}">
@@ -31,7 +35,7 @@
                 </Image.Resources>
             </Image>
         </Button>
-        
+        <Rectangle HorizontalAlignment="Left" Height="894" Stroke="Black" VerticalAlignment="Top" Width="1427" Fill="Black" Name="BlackScreen" Visibility="Hidden" Opacity="0"/>
 
     </Grid>
 </Page>

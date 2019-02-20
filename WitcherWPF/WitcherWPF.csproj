@@ -103,6 +103,7 @@
     <Compile Include="Equipment.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Ghoul.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="Human.cs" />
     <Compile Include="Igni.cs" />
@@ -131,6 +132,12 @@
     <Compile Include="Music.cs" />
     <Compile Include="Old_wyzima2.xaml.cs">
       <DependentUpon>Old_wyzima2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Old_wyzima3.xaml.cs">
+      <DependentUpon>Old_wyzima3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Old_wyzima4.xaml.cs">
+      <DependentUpon>Old_wyzima4.xaml</DependentUpon>
     </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="PlayerInventory.cs" />
@@ -236,6 +243,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Old_wyzima2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Old_wyzima3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Old_wyzima4.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -452,6 +467,40 @@
     <Resource Include="gifs\NPC\npc_fight_attack.gif" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="img\UI\ui_steps.png" />
+    <Resource Include="img\UI\dialog_back.png" />
+    <Resource Include="gifs\Ghoul\ghoul_fight_death.gif" />
+    <Resource Include="gifs\Ghoul\ghoul_fight_dodge.gif" />
+    <Resource Include="gifs\Ghoul\ghoul_fight_FastAttack.gif" />
+    <Resource Include="gifs\Ghoul\ghoul_fight_hit.gif" />
+    <Resource Include="gifs\Ghoul\ghoul_fight_idle.gif" />
+    <Resource Include="gifs\Ghoul\ghoul_fight_StrongAttack.gif" />
+    <Resource Include="gifs\Ghoul\ghoul_fight_stunned.gif" />
+    <Content Include="sounds\ghoul\ghoul_death.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sounds\ghoul\ghoul_dodge.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sounds\ghoul\ghoul_Fast.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sounds\ghoul\ghoul_hit.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sounds\ghoul\ghoul_Strong.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sounds\UI\footsteps.wav" />
+    <Content Include="sounds\UI\newpage.wav" />
+    <Content Include="sounds\UI\opendoor.wav" />
+    <Resource Include="img\Locations\Old_wyzima4.png" />
+    <Resource Include="img\UI\ui_fire.png" />
+    <Resource Include="img\UI\ui_look.png" />
+    <Resource Include="img\UI\ui_loot.png" />
+    <Resource Include="img\Characters\Yaven.png" />
+    <Content Include="sounds\music\wyzima_day.mp3" />
+    <Content Include="sounds\music\wyzima_night.mp3" />
     <Resource Include="gifs\Geralt\geralt_fight_dodge.gif" />
     <Resource Include="gifs\Geralt\geralt_fight_SilvercastAard.gif" />
     <Resource Include="gifs\Geralt\geralt_fight_SilvercastAxii.gif" />
@@ -636,6 +685,9 @@
     <Resource Include="img\UI\Rebis.png" />
     <Resource Include="img\UI\Vermilion.png" />
     <Resource Include="img\UI\Vitriol.png" />
+    <Resource Include="img\UI\ui_door.png" />
+    <Resource Include="img\Locations\Old_wyzima3_day.png" />
+    <Resource Include="img\Locations\Old_wyzima3_night.png" />
     <Content Include="sounds\barghest\bar_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

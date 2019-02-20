@@ -8,7 +8,7 @@
             d:DesignHeight="742" d:DesignWidth="800">
     <Grid>
         <Image Source="img/Maps/Map_Old_Wyzima.png" HorizontalAlignment="Center" VerticalAlignment="Center"></Image>
-        <Button Name="ToWyzimaCastleMap" ToolTip="Foltestův hrad"  Tag="Old_wyzima" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="505,307,226,392" Height="Auto">
+        <Button Name="ToWyzimaCastleMap" ToolTip="Foltestův hrad" Tag="Old_wyzima" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="505,307,226,392" Height="Auto">
             <Image Source="img/UI/map/map_npc.png"></Image>
         </Button>       
     </Grid>

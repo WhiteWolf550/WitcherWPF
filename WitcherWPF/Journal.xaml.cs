@@ -22,9 +22,11 @@ namespace WitcherWPF
     {
         private Frame parentFrame;
         private Time time;
+        Music sound = new Music();
         public Journal()
         {
             InitializeComponent();
+            sound.PlaySound("NewPage");
         }
         public Journal(Frame parentFrame, Time time) : this() {
             this.parentFrame = parentFrame;
@@ -43,7 +45,7 @@ namespace WitcherWPF
             parentFrame.Navigate(new Character(parentFrame, time));
         }
         public void GetAlchemy(object sender, RoutedEventArgs e) {
-            
+            parentFrame.Navigate(new Alchemy(parentFrame, time, false));
         }
         public void GetLocation(object sender, RoutedEventArgs e) {
             parentFrame.Navigate(new Location(parentFrame, time));

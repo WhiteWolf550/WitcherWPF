@@ -22,9 +22,10 @@ namespace WitcherWPF {
         public DispatcherTimer time = new DispatcherTimer();
         
         public Location location = new Location();
+        Music music = new Music();
         FileManager manager = new FileManager();
         List<Effect> effect = new List<Effect>();
-        public int hour = 16;
+        public int hour = 8;
         public  int minute = 59;
         public int second = 22;
         
@@ -62,11 +63,14 @@ namespace WitcherWPF {
                 }
             }
             if (hour >= 18 || hour < 9) {
-                location.Music(false);
+                music.AmbientMusic(false);
+                Globals.daytime = "night";
             }else if(hour >= 9 && hour < 18) {
-                location.Music(true);
+                music.AmbientMusic(true);
+                Globals.daytime = "day";
             }
             Clock.Text = hour + ":" + Zero(minute) + ":" + Zero(second);
+            
         }
         
         
