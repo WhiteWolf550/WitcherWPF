@@ -32,8 +32,8 @@ namespace WitcherWPF {
             this.parentFrame = parentFrame;
             this.time = time;
             this.time = time;
-            SetTimer();
-            skilltimer.Start();
+            //SetTimer();
+            //skilltimer.Start();
         }
         public void SetTimer() {
             skilltimer.Interval = TimeSpan.FromSeconds(1);
@@ -64,40 +64,53 @@ namespace WitcherWPF {
             skilltimer.Stop();
         }
 
-        private void AardClick(object sender, RoutedEventArgs e) {
+        private void AardClick(object sender, RoutedEventArgs e) {   
             HideAll();
             Aard.Load();
             Aard.Visibility = Visibility.Visible;
+            //sound.PlaySound("ChooseTree");
         }
         private void IgniClick(object sender, RoutedEventArgs e) {
+            
             HideAll();
             Igni.Load();
             Igni.Visibility = Visibility.Visible;
+            sound.PlaySound("ChooseTree");
         }
         private void QuenClick(object sender, RoutedEventArgs e) {
+            
             HideAll();
             Quen.Load();
             Quen.Visibility = Visibility.Visible;
+            sound.PlaySound("ChooseTree");
         }
         private void YrdenClick(object sender, RoutedEventArgs e) {
+            
             HideAll();
             Yrden.Load();
-            Yrden.Visibility = Visibility.Visible;           
+            Yrden.Visibility = Visibility.Visible;
+            sound.PlaySound("ChooseTree");
         }
         private void AxiiClick(object sender, RoutedEventArgs e) {
+           
             HideAll();
             Axii.Load();
             Axii.Visibility = Visibility.Visible;
+            sound.PlaySound("ChooseTree");
         }
         private void StrongClick(object sender, RoutedEventArgs e) {
+            
             HideAll();
             Strength.Load();
             Strength.Visibility = Visibility.Visible;
+            sound.PlaySound("ChooseTree");
         }
         private void FastClick(object sender, RoutedEventArgs e) {
+            
             HideAll();
             Endurance.Load();
             Endurance.Visibility = Visibility.Visible;
+            sound.PlaySound("ChooseTree");
         }
         private void HideAll() {
             Endurance.Visibility = Visibility.Hidden;

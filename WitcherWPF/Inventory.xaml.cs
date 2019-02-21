@@ -107,7 +107,7 @@ namespace WitcherWPF
         }
         public void GetAlchemy(object sender, RoutedEventArgs e) {
             if (Combat == false) {
-                parentFrame.Navigate(new Combat(parentFrame, false, time, false));
+                parentFrame.Navigate(new Combat(parentFrame, false, time, false, null));
                 game.SaveGame(playerinfo, pinventory, armor, sword, effects);
             }
         }
@@ -117,7 +117,7 @@ namespace WitcherWPF
                 parentFrame.Navigate(new Location(parentFrame, time));
             }else {
                 game.SaveGame(playerinfo, pinventory, armor, sword, effects);
-                parentFrame.Navigate(new Combat(parentFrame, true, time, false));
+                parentFrame.Navigate(new Combat(parentFrame, true, time, false, null));
             }
         }
         public void LoadInventory() {
@@ -366,7 +366,7 @@ namespace WitcherWPF
                     item.toxicity += buttonitems[drink].Item.Toxicity;
                 }
                 game.SaveGame(playerinfo, pinventory, armor, sword, effects);
-                parentFrame.Navigate(new Combat(parentFrame, true, time, true));
+                parentFrame.Navigate(new Combat(parentFrame, true, time, true, null));
 
 
             }
@@ -440,6 +440,7 @@ namespace WitcherWPF
                 item.SteelSword = swordeq[itemq];
             }
             sword.Remove(swordeq[itemq]);
+            sound.PlaySound("GrabSword");
             ReloadInventory();
         }
         public void EquipSilver(MenuItem itemq) {
@@ -451,6 +452,7 @@ namespace WitcherWPF
                 item.SilverSword = swordeq[itemq];
             }
             sword.Remove(swordeq[itemq]);
+            sound.PlaySound("GrabSword");
             ReloadInventory();
         }
         public void EquipArmor(MenuItem itemq) {
@@ -462,6 +464,7 @@ namespace WitcherWPF
                 item.Armor = armoreq[itemq];
             }
             armor.Remove(armoreq[itemq]);
+            sound.PlaySound("GrabArmor");
             ReloadInventory();
         }
         private void ReloadInventory() {

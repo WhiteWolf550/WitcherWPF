@@ -129,6 +129,10 @@
                 </Image.Resources>
             </Image>
         </Button>
+        <StackPanel Visibility="Hidden" Opacity="0"  Name="QuestPop" HorizontalAlignment="Center" VerticalAlignment="Top" MinHeight="100" MinWidth="100" Margin="210,172,190,0" Width="1027">
+            <Label Style="{StaticResource MORPHEUS}" HorizontalContentAlignment="Center" Name="QueName" Content="New Quest" FontSize="55" Foreground="#DDE82323"></Label>
+            <TextBlock Style="{StaticResource MORPHEUS}" TextWrapping="Wrap" Name="QueGoal" Text="New Goal" FontSize="35" Background="{x:Null}" Foreground="#DDE82323" HorizontalAlignment="Center"></TextBlock>
+        </StackPanel>
         <local:DeathMenu Panel.ZIndex="5" Visibility="Hidden" Opacity="0" x:Name="Deathmenu"></local:DeathMenu>
     </Grid>
 </Page>

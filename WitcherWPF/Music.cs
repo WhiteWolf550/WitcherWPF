@@ -16,6 +16,7 @@ namespace WitcherWPF {
         bool isplayingday = false;
         bool isplayingnight = false;
         string locationmusic = "";
+        bool musicstopped = false;
         Uri currentlocationmusic;
         
 
@@ -35,15 +36,25 @@ namespace WitcherWPF {
             this.sounds.Add("NewPage", new Uri(@"../../sounds/UI/newpage.wav", UriKind.Relative));
             this.sounds.Add("OpenDoor", new Uri(@"../../sounds/UI/opendoor.wav", UriKind.Relative));
             this.sounds.Add("Steps", new Uri(@"../../sounds/UI/footsteps.wav", UriKind.Relative));
+            this.sounds.Add("LevelUP", new Uri(@"../../sounds/misc/levelup.wav", UriKind.Relative));
+            this.sounds.Add("QuestUpdate", new Uri(@"../../sounds/misc/questupdate.wav", UriKind.Relative));
+            this.sounds.Add("QuestComplete", new Uri(@"../../sounds/misc/questcomplete.wav", UriKind.Relative));
+            this.sounds.Add("GrabArmor", new Uri(@"../../sounds/UI/armor_grab.wav", UriKind.Relative));
+            this.sounds.Add("GrabSword", new Uri(@"../../sounds/UI/sword_grab.wav", UriKind.Relative));
+            this.sounds.Add("BuySkill", new Uri(@"../../sounds/UI/buyskill.wav", UriKind.Relative));
+            this.sounds.Add("Alchemy", new Uri(@"../../sounds/UI/enteralchemy.wav", UriKind.Relative));
+            this.sounds.Add("Inventory", new Uri(@"../../sounds/UI/enterinventory.wav", UriKind.Relative));
+            this.sounds.Add("ChooseTree", new Uri(@"../../sounds/UI/tree.wav", UriKind.Relative));
         }
 
         public void AmbientMusic(bool day) {
             if (Globals.Combat == false) {
                 if (day == true) {
-                    if (isplayingday == false || locationmusic != Globals.location) {
-                        if (musicday[Globals.location] != currentlocationmusic) {
+                    if (isplayingday == false || locationmusic != Globals.location || musicstopped == true) {
+                        if (musicday[Globals.location] != currentlocationmusic || musicstopped == true) {
                             music.Open(musicday[Globals.location]);
                             music.Play();
+                            musicstopped = false;
                             isplayingday = true;
                             isplayingnight = false;
                             currentlocationmusic = musicday[Globals.location];
@@ -52,10 +63,11 @@ namespace WitcherWPF {
 
                     }
                 } else {
-                    if (isplayingnight == false || locationmusic != Globals.location) {
-                        if (musicnight[Globals.location] != currentlocationmusic) {
+                    if (isplayingnight == false || locationmusic != Globals.location || musicstopped == true) {
+                        if (musicnight[Globals.location] != currentlocationmusic || musicstopped == true) {
                             music.Open(musicnight[Globals.location]);
                             music.Play();
+                            musicstopped = false;
                             isplayingnight = true;
                             isplayingday = false;
                             currentlocationmusic = musicnight[Globals.location];
@@ -67,6 +79,7 @@ namespace WitcherWPF {
                 locationmusic = Globals.location;
             }else {
                 music.Pause();
+                musicstopped = true;
             }
         }
         public void BattleMusic() {
@@ -77,7 +90,7 @@ namespace WitcherWPF {
             
         }
         public void StopBattleMusic() {
-            //combat = false;
+            //music.Play;
         }
         private void Music_Ended(object sender, EventArgs e) {
             isplayingday = false;

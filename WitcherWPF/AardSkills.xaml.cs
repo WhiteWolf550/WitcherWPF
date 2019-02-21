@@ -26,13 +26,13 @@ namespace WitcherWPF {
         List<Skills> skills = new List<Skills>();
         List<Player> player = new List<Player>();
         List<Button> buttonlist = new List<Button>();
-        
+        Music sound = new Music();
         public AardSkills() {
             InitializeComponent();
 
         }
         public void Load() {
-            
+            sound.PlaySound("ChooseTree");
             skills = manager.LoadSkills();
             player = manager.LoadPlayer();
             ButtonList();

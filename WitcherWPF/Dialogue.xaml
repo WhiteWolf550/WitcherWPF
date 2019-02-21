@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:WitcherWPF"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Dialogue" Height="894" Width="1426.666">
+      Title="Dialogue" Height="894" Width="1426.666" Loaded="PageLoaded">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -33,5 +33,7 @@
             <Label Style="{StaticResource MORPHEUS}" HorizontalContentAlignment="Center" Name="QueName" Content="New Quest" FontSize="55" Foreground="#DDE82323"></Label>
             <TextBlock Style="{StaticResource MORPHEUS}" TextWrapping="Wrap" Name="QueGoal" Text="New Goal" FontSize="35" Background="{x:Null}" Foreground="#DDE82323" HorizontalAlignment="Center"></TextBlock>
         </StackPanel>
+
+        <Rectangle HorizontalAlignment="Left" Height="894" Stroke="Black" VerticalAlignment="Top" Width="1427" Fill="Black" Name="BlackScreen" Visibility="Visible" Opacity="1" Grid.ColumnSpan="3" Grid.RowSpan="4"/>
     </Grid>
 </Page>

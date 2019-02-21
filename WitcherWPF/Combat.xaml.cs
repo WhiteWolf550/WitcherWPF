@@ -54,14 +54,18 @@ namespace WitcherWPF {
         private Frame parentFrame;
         private Time time;
         private bool Potion;
-        
+        private string quest;
         private bool frominventory;
         FileManager manager = new FileManager();
         static Player player = new Player();
-        
+        PlayerQuest playerquest = new PlayerQuest();
 
         List<Player> playerlist;
         List<Effect> Effects;
+        List<PlayerQuest> playerQuests;
+        List<Quest> Quests;
+
+
         Aard aard = new Aard();
         Item item = new Item();
         static Enemy enemy;
@@ -81,9 +85,11 @@ namespace WitcherWPF {
         static bool BleedB  = false;
         int BConfusion = 0;
         bool Confused = false;
+        bool CanLoadQuest = true;
         static bool SwordChosen = false;
         bool EnemyStrong;
         int i = 0;
+
         int BleedT = 0;
         int PoisonT = 0;
         int PainD = 0;
@@ -123,11 +129,12 @@ namespace WitcherWPF {
         public void PageLoaded(object sender, RoutedEventArgs e) {
             Application.Current.MainWindow.KeyDown += new KeyEventHandler(Crossway);
         }
-        public Combat(Frame parentFrame, bool frominventory, Time time, bool Potion) : this() {
+        public Combat(Frame parentFrame, bool frominventory, Time time, bool Potion, string Quest) : this() {
             this.parentFrame = parentFrame;
             this.frominventory = frominventory;
             this.Potion = Potion;
             this.time = time;
+            this.quest = Quest;
             Deathmenu.Load.Click += new RoutedEventHandler(LoadGame);
             Deathmenu.Exit.Click += new RoutedEventHandler(ExitGame);
             StaminaCheck();
@@ -656,6 +663,7 @@ namespace WitcherWPF {
                 SkullLoot.Visibility = Visibility.Visible;
                 CombatExit.Visibility = Visibility.Visible;
                 player.AddXP(enemy.XP, playerlist);
+                QuestUpdate();
                 
             } else {
                 if (Parry == false) {
@@ -1244,7 +1252,7 @@ namespace WitcherWPF {
             Deathmenu.BeginAnimation(UIElement.OpacityProperty, animation);
         }
         private void LoadGame(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Combat(parentFrame, false, time, false));
+            parentFrame.Navigate(new Combat(parentFrame, false, time, false, quest));
         }
         private void ExitGame(object sender, RoutedEventArgs e) {
             System.Windows.Application.Current.Shutdown();
@@ -1258,10 +1266,18 @@ namespace WitcherWPF {
             Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Crossway);
             parentFrame.Navigate(new Location(parentFrame, time));
         }
+        private void QuestUpdate() {
+            if (quest != null && CanLoadQuest == true) {
+                CanLoadQuest = false;
+                playerquest.UpdateQuest(quest, QuestPop, QueName, QueGoal);
+            }
+            
+        }
         private void Save() {
             manager.SavePlayer(playerlist);
             manager.SaveEffects(Effects);
         }
+        
 
     }
 }

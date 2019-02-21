@@ -80,6 +80,7 @@ namespace WitcherWPF {
             SetLocation();
         }
         public void GetInventory(object sender, RoutedEventArgs e) {
+            media.PlaySound("Inventory");
             parentFrame.Navigate(new Inventory(parentFrame, false, time));
         }
         public void GetDialogue(object sender, RoutedEventArgs e) {

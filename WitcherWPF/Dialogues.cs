@@ -21,11 +21,13 @@ namespace WitcherWPF
         public string Dialogue { get; set; }
         public bool Enabled { get; set; }
         public string QuestActivate { get; set; }
+        public string Decision { get; set; }
+        public bool IsChoice { get; set; }
 
         public Dialogues() {
 
         }
-        public Dialogues(string charName, string charSay, int dialogueID, string choice, string type, string dialogue, bool enabled, string QuestActivate) {
+        public Dialogues(string charName, string charSay, int dialogueID, string choice, string type, string dialogue, bool enabled, string QuestActivate, string Decision, bool IsChoice) {
             this.CharName = charName;
             this.CharSay = charSay;
             this.DialogueID = dialogueID;
@@ -34,6 +36,8 @@ namespace WitcherWPF
             this.Dialogue = dialogue;
             this.Enabled = enabled;
             this.QuestActivate = QuestActivate;
+            this.Decision = Decision;
+            this.IsChoice = IsChoice;
         }
         private FileManager manager = new FileManager();
         
@@ -83,7 +87,7 @@ namespace WitcherWPF
         
         //--
         //---------------------MAIN DIALOGUE FUNCTION (LOADS DIALOGUE JSON AND WRITES TO USER) ACTIVATES QUESTS BASED ON DIALOGUE---------------------------
-        public async void MainDialogue(Label Name, TextBlock Text, Button button, Label QueName, TextBlock QueGoal, StackPanel Pop, StackPanel DialogueOptions, string Character) {
+        public async void MainDialogue(Label Name, TextBlock Text, Button button, Label QueName, TextBlock QueGoal, StackPanel Pop, StackPanel DialogueOptions, string Character, Frame parentFrame, Time time) {
             Text.Text = "";
             //---------------------VARIABLES---------------------------
             Brush c;
@@ -219,6 +223,7 @@ namespace WitcherWPF
 
                 manager.SavePlayerQuests(PlayerQuests);
                 manager.SaveDialogues(dialog, prolog);
+                //ScriptedEvents(diadis, parentFrame);
 
             }
             DialogueOptions.Visibility = Visibility.Visible;
@@ -230,7 +235,12 @@ namespace WitcherWPF
 
 
 
-    }
+        }
+        public void ScriptedEvents(string DialogueChoice, Frame parentFrame, Time time) {
+            if (DialogueChoice == "Problém s příšerou") {
+                //parentFrame.Navigate(new Combat(parentFrame, time));
+            }
+        }
         
 
     }

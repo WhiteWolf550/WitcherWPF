@@ -51,7 +51,7 @@ namespace WitcherWPF {
         public Axii Axii { get; set; }
 
         public FileManager manager = new FileManager();
-
+        public Music sound = new Music();
         public Player() {
             this.SteelAnimationSets = new Dictionary<string, Uri>();
             this.SteelAnimationSets.Add("NoSword", new Uri("gifs/Geralt/geralt_fight_NoSword.gif", UriKind.Relative));
@@ -169,6 +169,7 @@ namespace WitcherWPF {
         public void LoadXP(ProgressBar XPBar, Label Level) {
             List<Player> playerinfo = manager.LoadPlayer();
             foreach (var item in playerinfo) {
+                XPBar.Minimum = item.experiencetolevelup - 1000;
                 XPBar.Maximum = item.experiencetolevelup;
                 XPBar.Value = item.experience;
                 XPBar.ToolTip = item.experience + "/" + item.experiencetolevelup;
@@ -179,6 +180,22 @@ namespace WitcherWPF {
         public void AddXP(int XP, List<Player> playerlist) {           
             foreach(Player item in playerlist) {
                 item.experience += XP;
+            }
+            
+        }
+        public void LevelUP(List<Player> playerlist) {
+            foreach (Player item in playerlist) {
+                if (item.experience >= item.experiencetolevelup) {
+                    item.level += 1;
+                    item.skillpoints += 1;
+                    item.experiencetolevelup += 1000;
+                    sound.PlaySound("LevelUP");
+                }
+            }
+        }
+        public void AddMoney(int money, List<Player> playerlist) {
+            foreach (Player item in playerlist) {
+                item.money += money;
             }
         }
         public void LoadOrens(Label Orens) {

@@ -35,7 +35,7 @@ namespace WitcherWPF
         public Alchemy()
         {
             InitializeComponent();
-            sound.PlaySound("NewPage");
+            sound.PlaySound("Alchemy");
         }
         public Alchemy(Frame parentFrame, Time time, bool meditation) : this() {
             this.parentFrame = parentFrame;

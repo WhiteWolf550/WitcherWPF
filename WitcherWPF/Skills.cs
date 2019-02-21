@@ -19,6 +19,7 @@ namespace WitcherWPF
         public bool UnlockNext { get; set; }
 
         FileManager manager = new FileManager();
+        Music sound = new Music();
         public Skills(int ID, string Type, string Name, int Intensity, int Effectivity, int Endurance, int Value4, int Value5, int Value6, int Value7, int Required, bool IsActive, bool UnlockNext) {
             this.ID = ID;
             this.Type = Type;
@@ -100,6 +101,7 @@ namespace WitcherWPF
                         foreach(Player item in player) {
                             item.skillpoints -= 1;
                         }
+                        sound.PlaySound("BuySkill");
                         manager.SavePlayer(player);
                         manager.SaveSkills(skills);
                     }else {

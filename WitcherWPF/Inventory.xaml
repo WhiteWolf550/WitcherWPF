@@ -191,8 +191,8 @@
         <Rectangle Grid.Column="1" Margin="835,21,99,71" Grid.Row="1" Stroke="#FF080808">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                    <GradientStop Color="#FF28241B" Offset="0"/>
-                    <GradientStop Color="#FF1D1C14" Offset="1"/>
+                    <GradientStop Color="#FF1B2511" Offset="0"/>
+                    <GradientStop Color="#FF192114" Offset="1"/>
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
