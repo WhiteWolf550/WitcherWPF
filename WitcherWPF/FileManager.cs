@@ -33,10 +33,6 @@ namespace WitcherWPF {
 
                 return new List<Effect>();
             }
-            
-            
-
-
         }
 
         public List<Dialogues> LoadDialogue(string path) {
@@ -50,6 +46,13 @@ namespace WitcherWPF {
             string path = @"../../gamefiles/Quests.json";
             string jsonFromFile = File.ReadAllText(path);
             List<Quest> jsonread = JsonConvert.DeserializeObject<List<Quest>>(jsonFromFile, settings);
+            return jsonread;
+
+        }
+        public List<Monologue> LoadMonologues() {
+            string path = @"../../gamefiles/Monologue.json";
+            string jsonFromFile = File.ReadAllText(path);
+            List<Monologue> jsonread = JsonConvert.DeserializeObject<List<Monologue>>(jsonFromFile, settings);
             return jsonread;
 
         }
@@ -145,6 +148,11 @@ namespace WitcherWPF {
         public void SavePlayerArmor(List<Armor> PlayerArmors) {
             string path = @"../../saves/PlayerArmors.json";
             string jsonToFilet = JsonConvert.SerializeObject(PlayerArmors, settings);
+            File.WriteAllText(path, jsonToFilet);
+        }
+        public void SavePlayerArmor(List<Monologue> Monologue) {
+            string path = @"../../gamefiles/Monologue.json";
+            string jsonToFilet = JsonConvert.SerializeObject(Monologue, settings);
             File.WriteAllText(path, jsonToFilet);
         }
         public void SavePlayer(List<Player> Player) {

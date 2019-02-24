@@ -26,17 +26,17 @@ namespace WitcherWPF {
         FileManager manager = new FileManager();
         List<Effect> effect = new List<Effect>();
         public int hour = 8;
-        public  int minute = 59;
-        public int second = 22;
+        public  int minute = 0;
+        public int second = 0;
         
         public Time() {
             InitializeComponent();
-            Clock.Text = hour + ":" + minute + ":" + second;
+            Clock.Text = hour + ":" + minute;
             time.Start();
             
         }
         public void Timer() {
-            time.Interval = TimeSpan.FromSeconds(1);
+            time.Interval = TimeSpan.FromMilliseconds(50);
             time.Tick += new EventHandler(Time_tick);
 
             
@@ -69,7 +69,7 @@ namespace WitcherWPF {
                 music.AmbientMusic(true);
                 Globals.daytime = "day";
             }
-            Clock.Text = hour + ":" + Zero(minute) + ":" + Zero(second);
+            Clock.Text = hour + ":" + Zero(minute);
             
         }
         

@@ -32,7 +32,6 @@ namespace WitcherWPF {
 
         }
         public void Load() {
-            sound.PlaySound("ChooseTree");
             skills = manager.LoadSkills();
             player = manager.LoadPlayer();
             ButtonList();

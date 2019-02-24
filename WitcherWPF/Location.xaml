@@ -35,6 +35,9 @@
                 </Image.Resources>
             </Image>
         </Button>
+        <Image Visibility="Hidden" Name="MonologueBack" Source="img/UI/dialog_back.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1000" Margin="210,606,217,101" Height="187"/>
+        <Label Visibility="Hidden" Style="{StaticResource MORPHEUS}" Content="PersonName" FontWeight="Bold" Name="PersonName" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Background="{x:Null}" Foreground="LightGray" Margin="263,618,968,242" Width="196"/>
+        <TextBlock Visibility="Hidden" TextWrapping="Wrap" Text="Text"  Name="PersonText" MinWidth="100" MinHeight="30" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Width="908" Margin="263,657,256,137" Height="100" />
         <Rectangle HorizontalAlignment="Left" Height="894" Stroke="Black" VerticalAlignment="Top" Width="1427" Fill="Black" Name="BlackScreen" Visibility="Hidden" Opacity="0"/>
 
     </Grid>

@@ -117,6 +117,9 @@
     <Compile Include="Location.xaml.cs">
       <DependentUpon>Location.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
@@ -151,6 +154,7 @@
     <Compile Include="Quests.xaml.cs">
       <DependentUpon>Quests.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Shop.cs" />
     <Compile Include="Sign.cs" />
     <Compile Include="Skills.cs" />
     <Compile Include="StrongSkills.xaml.cs">
@@ -212,6 +216,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Location.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -476,6 +484,7 @@
     <Resource Include="gifs\Ghoul\ghoul_fight_idle.gif" />
     <Resource Include="gifs\Ghoul\ghoul_fight_StrongAttack.gif" />
     <Resource Include="gifs\Ghoul\ghoul_fight_stunned.gif" />
+    <Resource Include="img\UI\MenuBackground.jpg" />
     <Content Include="sounds\ghoul\ghoul_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

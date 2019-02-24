@@ -16,6 +16,7 @@ namespace WitcherWPF {
         public Quest Quest { get; set; }
 
         FileManager manager = new FileManager();
+        Music sound = new Music();
         public PlayerQuest(Quest Quest) {
             this.Quest = Quest;
         }
@@ -102,6 +103,7 @@ namespace WitcherWPF {
                 QuestHide(QuestPop);
                 manager.SavePlayerQuests(playerQuests);
                 manager.SaveDialogues(dialogues, prolog);
+                sound.PlaySound("QuestUpdate");
             }
             
 

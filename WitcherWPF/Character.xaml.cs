@@ -68,7 +68,7 @@ namespace WitcherWPF {
             HideAll();
             Aard.Load();
             Aard.Visibility = Visibility.Visible;
-            //sound.PlaySound("ChooseTree");
+            sound.PlaySound("ChooseTree");
         }
         private void IgniClick(object sender, RoutedEventArgs e) {
             

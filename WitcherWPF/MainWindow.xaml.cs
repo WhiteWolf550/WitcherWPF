@@ -28,6 +28,7 @@ namespace WitcherWPF {
         List<Sign> signs = new List<Sign>();
         List<Potion> potions = new List<Potion>();
         List<Dialogues> dialog = new List<Dialogues>();
+        List<Monologue> monologue = new List<Monologue>();
         List<Quest> qq = new List<Quest>();
         List<Skills> skills = new List<Skills>();
         private MediaPlayer mediaPlayer = new MediaPlayer();
@@ -392,6 +393,9 @@ namespace WitcherWPF {
 
             string jsonToFile = JsonConvert.SerializeObject(dialog, settings);
             File.WriteAllText(prologue, jsonToFile);
+        }
+        public void CreateMonologue() {
+            //monologue.Add(new Monologue(""));
         }
         public void CreatePlayer() {
 

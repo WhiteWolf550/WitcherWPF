@@ -43,7 +43,7 @@ namespace WitcherWPF
         bool skip = false;
         int delay = 1000;
         Player player = new Player();
-
+        Music sound = new Music();
         string prolog = @"../../dialogues/DialoguePrologue.json";
         string QuestName = "";
 
@@ -209,6 +209,7 @@ namespace WitcherWPF
             string diadis = "";
             string Activate = "";
             string Activate2 = "";
+            string QuestSound = "QuestUpdate";
             string Decision = null;
             string Choice = null;
             PlayerQuest que = new PlayerQuest();
@@ -362,6 +363,7 @@ namespace WitcherWPF
                         player.LevelUP(playerlist);
                         PlayerQuests.Remove(playerquest);
                         c = Brushes.Green;
+                        QuestSound = "QuestComplete";
                     }
                     if (questreward != 0) {
                         player.AddMoney(questreward, playerlist);
@@ -375,6 +377,7 @@ namespace WitcherWPF
 
                     QuestName = qname;
                     que.QuestShow(QuestPop);
+                    sound.PlaySound(QuestSound);
                     await Task.Delay(10000);
                     que.QuestHide(QuestPop);
                     que.QuestSave(PlayerQuests);
@@ -388,8 +391,10 @@ namespace WitcherWPF
                     
 
                 }
+                
                 LoadOptions(false, null);
                 DialogueOptions.Visibility = Visibility.Visible;
+                
             } else {
                 DialogueOptions.Children.Clear();
                 DialogueOptions.Visibility = Visibility.Visible;
