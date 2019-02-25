@@ -130,39 +130,16 @@
             <Button Click="GetChar" Height="50" FontSize="25" Content="Postavy" Background="#FF222B1B" BorderBrush="{x:Null}" Padding="5" Margin="0"></Button>
             <Button Click="GetBestiary" Height="50" FontSize="25" Content="Bestiář" Background="#FF222B1B" BorderBrush="{x:Null}" Padding="5"></Button>
         </StackPanel>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="1" Height="686" MinWidth="300" MinHeight="739" Width="300" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="0,53,0,0">
+        <StackPanel Name="CharPanel" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="1" Height="686" MinWidth="300" MinHeight="739" Width="300" Grid.RowSpan="2" Grid.ColumnSpan="2" Margin="0,53,0,0">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF232C1B"/>
                     <GradientStop Color="#FF1E2218" Offset="1"/>
                 </LinearGradientBrush>
             </StackPanel.Background>
-            <Border Name="B1" BorderBrush="Black" BorderThickness="0,0,0,3">
-                <StackPanel Orientation="Vertical">
-                    <StackPanel.Background>
-                        <ImageBrush ImageSource="img/UI/in.png"/>
-                    </StackPanel.Background>
-                    <StackPanel Orientation="Horizontal">
 
-                        <Button Content="MonsterName" FontSize="20" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White"></Button>
-                    </StackPanel>
-                    <Label Content="Type" FontSize="15" Foreground="#DDFFFFFF"></Label>
-                </StackPanel>
-            </Border>
 
         </StackPanel>
-        <Rectangle Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" Height="690" Margin="0,53,0,4" Grid.RowSpan="2" Grid.ColumnSpan="3">
-            <Rectangle.Effect>
-                <DropShadowEffect BlurRadius="10"/>
-            </Rectangle.Effect>
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF232C1B"/>
-                    <GradientStop Color="#FF1E2218" Offset="0.996"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
-        <Label Content="Name" FontSize="25" Grid.Column="3" Grid.Row="1" Foreground="#DDFFFFFF" HorizontalAlignment="Center" VerticalAlignment="Center" Height="43"  Width="168" Margin="75,73,81,631" Grid.RowSpan="2"></Label>
-        <Image gif:ImageBehavior.AnimatedSource="gifs/Characters/Geralt.gif" gif:ImageBehavior.RepeatBehavior="Forever"  RenderTransformOrigin="1.715,0.504"  Name="Enemy" Source="gifs/Characters/Geralt.gif" Grid.Column="3" Margin="286,121,0,174" Grid.Row="2" Grid.ColumnSpan="2" />
+        <local:CharJournal x:Name="CharInfo" Visibility="Hidden" Grid.ColumnSpan="4" Grid.Column="2" Margin="36,53,347,4" Grid.Row="1" Grid.RowSpan="2"></local:CharJournal>
     </Grid>
 </Page>

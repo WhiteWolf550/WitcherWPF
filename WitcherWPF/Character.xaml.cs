@@ -32,8 +32,9 @@ namespace WitcherWPF {
             this.parentFrame = parentFrame;
             this.time = time;
             this.time = time;
-            //SetTimer();
-            //skilltimer.Start();
+            SkillPoints.Content = player.GetSkillPoints();
+            SetTimer();
+            skilltimer.Start();
         }
         public void SetTimer() {
             skilltimer.Interval = TimeSpan.FromSeconds(1);
