@@ -9,5 +9,11 @@ namespace WitcherWPF {
         public string Name { get; set; }
         public string Description { get; set; }
         public string Source { get; set; }
+
+        public Characters(string Name, string Description, string Source) {
+            this.Name = Name;
+            this.Description = Description;
+            this.Source = Source;
+        }
     }
 }

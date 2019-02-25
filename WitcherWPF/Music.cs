@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Media;
 
 namespace WitcherWPF {
-    class Music {
+    public class Music {
 
         public Dictionary<string, Uri> musicday = new Dictionary<string, Uri>();
         public Dictionary<string, Uri> musicnight = new Dictionary<string, Uri>();
@@ -89,8 +89,8 @@ namespace WitcherWPF {
             isplayingnight = false;
             
         }
-        public void StopBattleMusic() {
-            //music.Play;
+        public void StopMusic() {
+            music.Stop();
         }
         private void Music_Ended(object sender, EventArgs e) {
             isplayingday = false;
@@ -98,6 +98,10 @@ namespace WitcherWPF {
         }
         public void PlaySound(string Key) {
             music.Open(sounds[Key]);
+            music.Play();
+        }
+        public void MainMenuMusic() {
+            music.Open(new Uri("sounds/music/menu.mp3", UriKind.Relative));
             music.Play();
         }
         

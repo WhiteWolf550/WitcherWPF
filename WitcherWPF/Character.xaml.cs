@@ -68,49 +68,49 @@ namespace WitcherWPF {
             HideAll();
             Aard.Load();
             Aard.Visibility = Visibility.Visible;
-            sound.PlaySound("ChooseTree");
+            //sound.PlaySound("ChooseTree");
         }
         private void IgniClick(object sender, RoutedEventArgs e) {
             
             HideAll();
             Igni.Load();
             Igni.Visibility = Visibility.Visible;
-            sound.PlaySound("ChooseTree");
+            //sound.PlaySound("ChooseTree");
         }
         private void QuenClick(object sender, RoutedEventArgs e) {
             
             HideAll();
             Quen.Load();
             Quen.Visibility = Visibility.Visible;
-            sound.PlaySound("ChooseTree");
+            //sound.PlaySound("ChooseTree");
         }
         private void YrdenClick(object sender, RoutedEventArgs e) {
             
             HideAll();
             Yrden.Load();
             Yrden.Visibility = Visibility.Visible;
-            sound.PlaySound("ChooseTree");
+            //sound.PlaySound("ChooseTree");
         }
         private void AxiiClick(object sender, RoutedEventArgs e) {
            
             HideAll();
             Axii.Load();
             Axii.Visibility = Visibility.Visible;
-            sound.PlaySound("ChooseTree");
+            //sound.PlaySound("ChooseTree");
         }
         private void StrongClick(object sender, RoutedEventArgs e) {
             
             HideAll();
             Strength.Load();
             Strength.Visibility = Visibility.Visible;
-            sound.PlaySound("ChooseTree");
+            //sound.PlaySound("ChooseTree");
         }
         private void FastClick(object sender, RoutedEventArgs e) {
             
             HideAll();
             Endurance.Load();
             Endurance.Visibility = Visibility.Visible;
-            sound.PlaySound("ChooseTree");
+            //sound.PlaySound("ChooseTree");
         }
         private void HideAll() {
             Endurance.Visibility = Visibility.Hidden;

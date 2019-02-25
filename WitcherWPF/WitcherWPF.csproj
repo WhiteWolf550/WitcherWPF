@@ -115,6 +115,9 @@
     <Compile Include="Journal.xaml.cs">
       <DependentUpon>Journal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LoadScreen.xaml.cs">
+      <DependentUpon>LoadScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Location.xaml.cs">
       <DependentUpon>Location.xaml</DependentUpon>
     </Compile>
@@ -213,6 +216,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Journal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoadScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -494,6 +501,7 @@
     <Resource Include="gifs\Characters\Triss.gif" />
     <Resource Include="gifs\Characters\Vesemir.gif" />
     <Resource Include="gifs\Characters\Yennefer.gif" />
+    <Resource Include="img\LoadingScreens\LoadingImage1.jpg" />
     <Content Include="sounds\ghoul\ghoul_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -507,6 +515,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="sounds\ghoul\ghoul_Strong.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sounds\music\menu.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="sounds\UI\buyskill.wav">

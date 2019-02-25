@@ -116,9 +116,6 @@ namespace WitcherWPF {
         public void BattleMusic() {
             media.BattleMusic();
         }
-        public void StopBattleMusic() {
-            media.StopBattleMusic();
-        }
         public string GetLocation() {
             string location = loc;
             return location;

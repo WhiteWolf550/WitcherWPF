@@ -50,5 +50,12 @@ namespace WitcherWPF
         public void GetLocation(object sender, RoutedEventArgs e) {
             parentFrame.Navigate(new Location(parentFrame, time));
         }
+
+        private void GetChar(object sender, RoutedEventArgs e) {
+
+        }
+        private void GetBestiary(object sender, RoutedEventArgs e) {
+
+        }
     }
 }

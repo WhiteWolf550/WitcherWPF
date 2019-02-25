@@ -18,8 +18,39 @@ namespace WitcherWPF {
     /// Interakční logika pro MainMenu.xaml
     /// </summary>
     public partial class MainMenu : Page {
+        private Frame parentFrame;
+        private Time time;
+        Music sound = new Music();
         public MainMenu() {
             InitializeComponent();
+            MainMenuMusic();
+        }
+
+        public MainMenu (Frame parentFrame, Time time) : this() {
+            this.parentFrame = parentFrame;
+            this.time = time;
+            
+        }
+        private void MainMenuMusic() {
+            Globals.Combat = true;
+            sound.MainMenuMusic();
+        }
+
+
+        private void NewGameClick(object sender, RoutedEventArgs e) {
+
+        }
+        private void LoadGameClick(object sender, RoutedEventArgs e) {
+            LoadGame();
+        }
+        private void ExitGameClick(object sender, RoutedEventArgs e) {
+
+        }
+        public void NewGame() {
+
+        }
+        public void LoadGame() {
+            parentFrame.Navigate(new LoadScreen(parentFrame, time, sound));
         }
     }
 }

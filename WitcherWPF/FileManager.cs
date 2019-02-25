@@ -119,6 +119,12 @@ namespace WitcherWPF {
             List<Potion> jsonread = JsonConvert.DeserializeObject<List<Potion>>(jsonFromFile, settings);
             return jsonread;
         }
+        public List<Characters> LoadCharacters() {
+            string path = @"../../gamefiles/Characters.json";
+            string jsonFromFile = File.ReadAllText(path);
+            List<Characters> jsonread = JsonConvert.DeserializeObject<List<Characters>>(jsonFromFile, settings);
+            return jsonread;
+        }
 
 
         public void SavePlayerQuests(List<PlayerQuest> PlayerQuests) {
@@ -153,6 +159,11 @@ namespace WitcherWPF {
         public void SavePlayerArmor(List<Monologue> Monologue) {
             string path = @"../../gamefiles/Monologue.json";
             string jsonToFilet = JsonConvert.SerializeObject(Monologue, settings);
+            File.WriteAllText(path, jsonToFilet);
+        }
+        public void SaveCharacters(List<Characters> Char) {
+            string path = @"../../gamefiles/Characters.json";
+            string jsonToFilet = JsonConvert.SerializeObject(Char, settings);
             File.WriteAllText(path, jsonToFilet);
         }
         public void SavePlayer(List<Player> Player) {
