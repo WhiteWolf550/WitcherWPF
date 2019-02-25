@@ -104,6 +104,7 @@
     <Compile Include="FileManager.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Ghoul.cs" />
+    <Compile Include="Characters.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="Human.cs" />
     <Compile Include="Igni.cs" />
@@ -485,6 +486,14 @@
     <Resource Include="gifs\Ghoul\ghoul_fight_StrongAttack.gif" />
     <Resource Include="gifs\Ghoul\ghoul_fight_stunned.gif" />
     <Resource Include="img\UI\MenuBackground.jpg" />
+    <Resource Include="gifs\Characters\Dandelion.gif" />
+    <Resource Include="gifs\Characters\Eskel.gif" />
+    <Resource Include="gifs\Characters\Foltest.gif" />
+    <Resource Include="gifs\Characters\Geralt.gif" />
+    <Resource Include="gifs\Characters\Lambert.gif" />
+    <Resource Include="gifs\Characters\Triss.gif" />
+    <Resource Include="gifs\Characters\Vesemir.gif" />
+    <Resource Include="gifs\Characters\Yennefer.gif" />
     <Content Include="sounds\ghoul\ghoul_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
