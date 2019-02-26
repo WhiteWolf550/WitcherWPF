@@ -706,7 +706,7 @@ namespace WitcherWPF {
             LootInventory.Children.Clear();
         }
         private void LootToInventory(object sender, RoutedEventArgs e) {
-            item.LootToInventory(LootInventory, TakeLoot, LootBack, CloseBut);
+            item.LootToInventory(LootInventory, TakeLoot, LootBack, CloseBut, QuestPop, QueName, QueGoal);
         }
         public void PlayerDeath(bool hide) {
             if (PlayerCheck() == true) {

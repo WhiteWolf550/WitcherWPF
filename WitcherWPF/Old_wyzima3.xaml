@@ -8,7 +8,7 @@
               d:DesignHeight="894" d:DesignWidth="1426.666">
     <Grid>
         <Image x:Name="LocationImage" Source="img/Locations/Old_wyzima3_day.png" Margin="-99,-42,-80,-48" Grid.ColumnSpan="3" Grid.RowSpan="3"></Image>
-        
+
 
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO" Margin="1166,475,183,358" Tag="Old_wyzima4">
             <Image Source="img/UI/ui_door.png"></Image>
@@ -16,6 +16,11 @@
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" ToolTip="Do Wyzimského zámku" Tag="Old_wyzima2"  Name="ToCastle" Margin="385,431,964,402">
             <Image Source="img/UI/ui_door.png"></Image>
         </Button>
-        
+        <Button Visibility="Hidden" Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" ToolTip="Do Wyzimského zámku" Tag="Old_wyzima5"  Name="ToHouse" Margin="721,519,628,314">
+            <Image Source="img/UI/ui_door.png"></Image>
+        </Button>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Přeživší" ToolTip="Přeživší" Margin="170,431,1116,138">
+            <Image Source="img/Characters/Přeživší.png" Grid.Column="1" Grid.Row="1"></Image>
+        </Button>
     </Grid>
 </UserControl>

@@ -36,7 +36,7 @@ namespace WitcherWPF {
             
         }
         public void Timer() {
-            time.Interval = TimeSpan.FromSeconds(5);
+            time.Interval = TimeSpan.FromSeconds(1);
             time.Tick += new EventHandler(Time_tick);
 
             
@@ -50,7 +50,7 @@ namespace WitcherWPF {
             }
         }
         void Time_tick(object sender, EventArgs e) {
-            second += 50;
+            second += 20;
             if (second > 59) {
                 second = 0;
                 minute++;

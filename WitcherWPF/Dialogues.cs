@@ -374,6 +374,44 @@ namespace WitcherWPF
             //leave
             dialog.Add(new Dialogues("Geralt", "Měj se Yavene", 2, "Nashle", "Talk", "Yaven", true, null, null, false));
             dialog.Add(new Dialogues("Yaven", "Tož dávaj na seba pozor Geralt!", 2, "Nashle", "Talk", "Yaven", true, null, null, false));
+
+            //----------------------PŘEŽÍVŠÍ1----------------
+
+            //greet
+            dialog.Add(new Dialogues("Přeživší", "Zdravím", 1, "Pozdrav", "Greet", "Přeživší", true, null, null, false));
+
+            //1
+            dialog.Add(new Dialogues("Geralt", "Ve městě není bezpečno. Měl byste odsud co nejrychleji odjet", 1, "Co tu děláte?", "Talk", "Přeživší", true, "Strašidelný dům", null, false));
+            dialog.Add(new Dialogues("Přeživší", "No neříkejte! Už bych tu dávno nebyl, kdyby mi do domu nezačali lézt příšery!", 1, "Co tu děláte?", "Talk", "Přeživší", true, "Strašidelný dům", null, false));
+            dialog.Add(new Dialogues("Přeživší", "Poslyšte...", 1, "Co tu děláte?", "Talk", "Přeživší", true, "Strašidelný dům", null, false));
+            dialog.Add(new Dialogues("Přeživší", "Vy vypadáte jako někdo, kdo se s tou ocelí na zádech umí ohánět..", 1, "Co tu děláte?", "Talk", "Přeživší", true, "Strašidelný dům", null, false));
+            dialog.Add(new Dialogues("Přeživší", "Dokázal byste mi pomoct?", 1, "Co tu děláte?", "Talk", "Přeživší", true, "Strašidelný dům", null, false));
+            dialog.Add(new Dialogues("Geralt", "Nevím", 1, "Co tu děláte?", "Talk", "Přeživší", true, "Strašidelný dům", null, false));
+            dialog.Add(new Dialogues("Geralt", "Nemám moc času, takže by se mi to muselo vyplatit", 1, "Co tu děláte?", "Talk", "Přeživší", true, "Strašidelný dům", null, false));
+            dialog.Add(new Dialogues("Přeživší", "A za 60 orénů, byste mi pomohl?", 1, "Co tu děláte?", "Talk", "Přeživší", true, "Strašidelný dům", null, false));
+
+            dialog.Add(new Dialogues("Geralt", "Dobře pomůžu vám", 1, "Co tu děláte?", "Talk", "Přeživší", true, "Strašidelný dům", "Přijmout", true));
+            dialog.Add(new Dialogues("Přeživší", "Děkuji vám moc!", 1, "Co tu děláte?", "Talk", "Přeživší", true, "Strašidelný dům", "Přijmout", false));
+            dialog.Add(new Dialogues("Přeživší", "Můj dům je hned naproti. Vedle kovářova", 1, "Co tu děláte?", "Talk", "Přeživší", true, "Strašidelný dům", "Přijmout", false));
+            dialog.Add(new Dialogues("Přeživší", "Ani nemusíte zabíjet tu příšeru. Stačí mi když mi donesete prsten ze skříně", 1, "Co tu děláte?", "Talk", "Přeživší", true, "Strašidelný dům", "Přijmout", false));
+            dialog.Add(new Dialogues("Geralt", "Dobře, podívam se po tom prstenu", 1, "Co tu děláte?", "Talk", "Přeživší", true, "Strašidelný dům", "Přijmout", false));
+
+            dialog.Add(new Dialogues("Geralt", "Jak jsem řekl nemohu si dovolit ztrácet čas.", 1, "Co tu děláte?", "Talk", "Přeživší", true, null, "Odejít", true));
+            dialog.Add(new Dialogues("Přeživší", "A k čemu tedy máte ty meče?! To mě tu opravdu necháte?", 1, "Co tu děláte?", "Talk", "Přeživší", true, null, "Odejít", true));
+            dialog.Add(new Dialogues("Geralt", "Nemohu si dovolit ztrácet čas", 1, "Co tu děláte?", "Talk", "Přeživší", true, null, "Odejít", true));
+
+            //2
+            dialog.Add(new Dialogues("Geralt", "Našel jsem ten prsten, který jste chtěl", 1, "Našel jsem prsten", "Talk", "Přeživší", false, "Strašidelný dům", null, false));
+            dialog.Add(new Dialogues("Geralt", "A taky zabil tu příšeru", 1, "Našel jsem prsten", "Talk", "Přeživší", false, "Strašidelný dům", null, false));
+            dialog.Add(new Dialogues("Geralt", "Byl to Ghůl, ale to bylo jasné, protože je jich tu hodně", 1, "Našel jsem prsten", "Talk", "Přeživší", false, "Strašidelný dům", null, false));
+            dialog.Add(new Dialogues("Přeživší", "Ghůl!?", 1, "Našel jsem prsten", "Talk", "Přeživší", false, "Strašidelný dům", null, false));
+            dialog.Add(new Dialogues("Přeživší", "u svaté melitelé. Děkuji vám moc za pomoc tady máte těch slíbených 40 orénů a ještě 20 za to že jste se postaral o tu příšernost", 1, "Našel jsem prsten", "Talk", "Přeživší", false, "Strašidelný dům", null, false));
+
+            //leave
+            dialog.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Přeživší", true, null, null, false));
+            dialog.Add(new Dialogues("Přeživší", "Nashle", 2, "Nashle", "Talk", "Přeživší", true, null, null, false));
+
+
             manager.SaveDialogues(dialog, path);
         }
         

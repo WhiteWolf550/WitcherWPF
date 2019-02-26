@@ -149,6 +149,9 @@
     <Compile Include="Old_wyzima4.xaml.cs">
       <DependentUpon>Old_wyzima4.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Old_wyzima5.xaml.cs">
+      <DependentUpon>Old_wyzima5.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="PlayerInventory.cs" />
     <Compile Include="PlayerQuest.cs" />
@@ -274,6 +277,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Old_wyzima4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Old_wyzima5.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -514,6 +521,11 @@
     <Resource Include="img\Items\Monster_Ghoul_Blood.png" />
     <Resource Include="img\Items\Monster_White_vinegar.png" />
     <Resource Include="img\Items\Monster_Abomination_Lymph.png" />
+    <Content Include="gifs\Characters\Geralt.mp4" />
+    <Resource Include="img\Char\Geralt.png" />
+    <Resource Include="img\Char\Triss.png" />
+    <Resource Include="img\Characters\Přeživší.png" />
+    <Resource Include="img\Monsters\Ghoul.png" />
     <Content Include="sounds\ghoul\ghoul_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

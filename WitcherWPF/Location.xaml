@@ -14,6 +14,7 @@
         <local:Old_wyzima2 x:Name="Wyzima_Castle2" Visibility="Hidden"/>
         <local:Old_wyzima3 x:Name="Wyzima_Outside" Visibility="Hidden"/>
         <local:Old_wyzima4 x:Name="Wyzima_Smith" Visibility="Hidden"/>
+        <local:Old_wyzima5 x:Name="Wyzima_House" Visibility="Hidden"/>
 
         <Button HorizontalAlignment="Left" VerticalAlignment="Top" Click="GetInventory" Content="Inventory" x:Name="Inv" Background="#FF22551D" BorderBrush="{x:Null}"/>
         <Image x:Name="LootBack" Visibility="Hidden" Source="img/UI/inventory.png" HorizontalAlignment="Left" Margin="200,0,0,0"/>
@@ -38,6 +39,10 @@
         <Image Visibility="Hidden" Name="MonologueBack" Source="img/UI/dialog_back.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1000" Margin="210,606,217,101" Height="187"/>
         <Label Visibility="Hidden" Style="{StaticResource MORPHEUS}" Content="PersonName" FontWeight="Bold" Name="PersonName" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Background="{x:Null}" Foreground="LightGray" Margin="263,618,968,242" Width="196"/>
         <TextBlock Visibility="Hidden" TextWrapping="Wrap" Text="Text"  Name="PersonText" MinWidth="100" MinHeight="30" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Width="908" Margin="263,657,256,137" Height="100" />
+        <StackPanel Visibility="Hidden" Opacity="0"  Name="QuestPop" HorizontalAlignment="Center" VerticalAlignment="Top" MinHeight="100" MinWidth="100" Grid.Column="1" Grid.Row="2">
+            <Label Style="{StaticResource MORPHEUS}" HorizontalContentAlignment="Center" Name="QueName" Content="New Quest" FontSize="55" Foreground="#DDE82323"></Label>
+            <TextBlock Style="{StaticResource MORPHEUS}" TextWrapping="Wrap" Name="QueGoal" Text="New Goal" FontSize="35" Background="{x:Null}" Foreground="#DDE82323" HorizontalAlignment="Center"></TextBlock>
+        </StackPanel>
         <Rectangle HorizontalAlignment="Left" Height="894" Stroke="Black" VerticalAlignment="Top" Width="1427" Fill="Black" Name="BlackScreen" Visibility="Hidden" Opacity="0"/>
 
     </Grid>

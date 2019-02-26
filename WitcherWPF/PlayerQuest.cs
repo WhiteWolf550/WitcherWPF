@@ -112,7 +112,7 @@ namespace WitcherWPF {
         public void CreatePlayerQuests() {
 
             List<Quest> qust = manager.LoadQuests();
-            List <PlayerQuest> qqq = manager.LoadPlayerQuests();
+            List <PlayerQuest> qqq = new List<PlayerQuest>();
             var matches = qust.Where(s => s.QuestID == 1);
             var matches1 = matches.Where(s => s.QuestSeries == "Něco končí, něco začíná");
 

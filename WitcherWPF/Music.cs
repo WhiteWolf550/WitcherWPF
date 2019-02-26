@@ -27,11 +27,13 @@ namespace WitcherWPF {
             this.musicday.Add("Old_wyzima2", new Uri(@"../../sounds/music/Castle.mp3", UriKind.Relative));
             this.musicday.Add("Old_wyzima3", new Uri(@"../../sounds/music/wyzima_day.mp3", UriKind.Relative));
             this.musicday.Add("Old_wyzima4", new Uri(@"../../sounds/music/wyzima_day.mp3", UriKind.Relative));
+            this.musicday.Add("Old_wyzima5", new Uri(@"../../sounds/music/wyzima_day.mp3", UriKind.Relative));
 
             this.musicnight.Add("Old_wyzima1", new Uri(@"../../sounds/music/The_Order.mp3", UriKind.Relative));
             this.musicnight.Add("Old_wyzima2", new Uri(@"../../sounds/music/The_Order.mp3", UriKind.Relative));
             this.musicnight.Add("Old_wyzima3", new Uri(@"../../sounds/music/wyzima_night.mp3", UriKind.Relative));
             this.musicnight.Add("Old_wyzima4", new Uri(@"../../sounds/music/wyzima_night.mp3", UriKind.Relative));
+            this.musicnight.Add("Old_wyzima5", new Uri(@"../../sounds/music/wyzima_night.mp3", UriKind.Relative));
 
             this.sounds.Add("NewPage", new Uri(@"../../sounds/UI/newpage.wav", UriKind.Relative));
             this.sounds.Add("OpenDoor", new Uri(@"../../sounds/UI/opendoor.wav", UriKind.Relative));
@@ -95,6 +97,7 @@ namespace WitcherWPF {
         private void Music_Ended(object sender, EventArgs e) {
             isplayingday = false;
             isplayingnight = false;
+            musicstopped = true;
         }
         public void PlaySound(string Key) {
             music.Open(sounds[Key]);

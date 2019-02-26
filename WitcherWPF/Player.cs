@@ -369,7 +369,7 @@ namespace WitcherWPF {
             foreach (var aerondight in matches2) {
                 silver = aerondight;
             }
-            player.Add(new Player(100, 100, 25, 25, 50, 0, 0, 1000, 1, 1, 50, 0, 5, 2, 0, 0, 0, 0.5, steel, silver, ar, aard, igni, quen, axii, yrden));
+            player.Add(new Player(100, 100, 25, 25, 50, 0, 0, 1000, 50, 1, 50, 0, 5, 2, 0, 0, 0, 0.5, steel, silver, ar, aard, igni, quen, axii, yrden));
             manager.SavePlayer(player);
         }
         

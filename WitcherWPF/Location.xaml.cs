@@ -24,11 +24,12 @@ namespace WitcherWPF {
     public partial class Location : Page {
         private Frame parentFrame;
         private Time time;
-        static public string loc = "Old_wyzima1";
+        static public string loc = "Old_wyzima3";
         static public bool LootLock;
         Item it = new Item();
         Music media = new Music();
         Button butclick = new Button();
+        Button Loot = new Button();
         public bool Steps = false;
         public Location() {
             InitializeComponent();
@@ -49,10 +50,15 @@ namespace WitcherWPF {
             Wyzima_Castle2.Steps.Click += new RoutedEventHandler(Switch_Click);
             Wyzima_Outside.ToCastle.Click += new RoutedEventHandler(Switch_Click);
             Wyzima_Outside.DoorO.Click += new RoutedEventHandler(Switch_Click);
+            Wyzima_Outside.Přeživší.Click += new RoutedEventHandler(GetDialogue);
+            Wyzima_Outside.ToHouse.Click += new RoutedEventHandler(Switch_Click);
             Wyzima_Smith.Outside.Click += new RoutedEventHandler(Switch_Click);
             Wyzima_Smith.Shelf.Click += new RoutedEventHandler(GetLoot);
             Wyzima_Smith.Yaven.Click += new RoutedEventHandler(GetDialogue);
             Wyzima_Smith.FirePlace.Click += new RoutedEventHandler(Meditation);
+            Wyzima_House.Shelf.Click += new RoutedEventHandler(GetLoot);
+            Wyzima_House.Ghoul.Click += new RoutedEventHandler(EnterCombat);
+            Wyzima_House.Outside.Click += new RoutedEventHandler(Switch_Click);
         }
         public Location(Frame parentFrame, string location, Time time) : this() {
             this.parentFrame = parentFrame;
@@ -71,6 +77,8 @@ namespace WitcherWPF {
                 Wyzima_Outside.Visibility = Visibility.Visible;
             } else if (loc == "Old_wyzima4") {
                 Wyzima_Smith.Visibility = Visibility.Visible;
+            }else if (loc == "Old_wyzima5") {
+                Wyzima_House.Visibility = Visibility.Visible;
             }
         }
         public Location(Frame parentFrame, Time time) : this() {
@@ -90,11 +98,21 @@ namespace WitcherWPF {
              
         }
         public void GetLoot(object sender, RoutedEventArgs e) {
-            
-            it.GenerateLoot(LootInventory, Wyzima_Castle.Flower, LootBack, TakeLoot, CloseBut, "Loot");
+            Button button = (sender as Button);
+            string loottype = "Loot";
+            if (button.Tag.ToString().Length > 0) {
+                loottype = button.Tag.ToString();
+            }
+            Loot = button;
+            it.GenerateLoot(LootInventory, Wyzima_Castle.Flower, LootBack, TakeLoot, CloseBut, loottype);
         }
         public void LootToInventory(object sender, RoutedEventArgs e) {
-            it.LootToInventory(LootInventory, TakeLoot, LootBack, CloseBut);
+            it.LootToInventory(LootInventory, TakeLoot, LootBack, CloseBut, QuestPop, QueName, QueGoal);
+            if (Loot.Tag.ToString() == "Strašidelný dům") {
+                Wyzima_House.Ghoul.Visibility = Visibility.Visible;
+                Wyzima_House.Outside.Visibility = Visibility.Hidden;
+            }
+            
             LootLock = true;
 
         }
@@ -151,6 +169,7 @@ namespace WitcherWPF {
             Wyzima_Castle.Visibility = Visibility.Hidden;
             Wyzima_Outside.Visibility = Visibility.Hidden;
             Wyzima_Smith.Visibility = Visibility.Hidden;
+            Wyzima_House.Visibility = Visibility.Hidden;
         }
         public void LocationSwitch(string loca) {
             if (loca == "Old_wyzima2") {
@@ -161,6 +180,8 @@ namespace WitcherWPF {
                 Wyzima_Outside.Visibility = Visibility.Visible;
             }else if (loca == "Old_wyzima4") {
                 Wyzima_Smith.Visibility = Visibility.Visible;
+            }else if (loca == "Old_wyzima5") {
+                Wyzima_House.Visibility = Visibility.Visible;
             }
         }
         public void Meditation(object sender, RoutedEventArgs e) {
@@ -194,6 +215,26 @@ namespace WitcherWPF {
             animation.Completed += (s, a) => BlackScreen.Opacity = 1;
             animation.Completed += new EventHandler(TravelHide);
             BlackScreen.BeginAnimation(UIElement.OpacityProperty, animation);
+        }
+        private void EnterCombat(object sender, RoutedEventArgs e) {
+            CombatTransitionShow();
+        }
+        public void CombatTransitionShow() {
+            BlackScreen.Visibility = Visibility.Visible;
+            var animation = new DoubleAnimation {
+                To = 1,
+                BeginTime = TimeSpan.FromSeconds(0),
+                Duration = TimeSpan.FromSeconds(1),
+                FillBehavior = FillBehavior.Stop
+            };
+
+            animation.Completed += (s, a) => BlackScreen.Visibility = Visibility.Visible;
+            animation.Completed += (s, a) => BlackScreen.Opacity = 1;
+            animation.Completed += new EventHandler(GoToCombat);
+            BlackScreen.BeginAnimation(UIElement.OpacityProperty, animation);
+        }
+        public void GoToCombat(object sender, EventArgs e) {
+            parentFrame.Navigate(new Combat(parentFrame, false, time, false, Loot.Tag.ToString()));
         }
     }
 }

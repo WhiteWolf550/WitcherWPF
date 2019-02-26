@@ -26,6 +26,7 @@ namespace WitcherWPF
         private Frame parentFrame;
         private Time time;
         Music sound = new Music();
+        FileManager manager = new FileManager();
         public Quests()
         {
             InitializeComponent();
@@ -59,12 +60,7 @@ namespace WitcherWPF
             parentFrame.Navigate(new Location(parentFrame, time));
         }
         public void LoadQuests() {
-            JsonSerializerSettings settings = new JsonSerializerSettings {
-                TypeNameHandling = TypeNameHandling.All
-            };
-            string questpath = @"../../saves/PlayerQuests.json";
-            string jsonFromFile = File.ReadAllText(questpath);
-            List<PlayerQuest> quests = JsonConvert.DeserializeObject<List<PlayerQuest>>(jsonFromFile, settings);
+            List<PlayerQuest> quests = manager.LoadPlayerQuests();
             var matches = quests.Where(s => s.Quest.QuestActive == true);
             foreach (var item in matches) {
                 Border border = new Border();
@@ -74,7 +70,11 @@ namespace WitcherWPF
                 
 
                 Image img = new Image();
-                img.Source = new BitmapImage(new Uri(@"img/UI/Primary_quests.png", UriKind.Relative));
+                if (item.Quest.QuestType == "Primary") {
+                    img.Source = new BitmapImage(new Uri(@"img/UI/Primary_quests.png", UriKind.Relative));
+                }else {
+                    img.Source = new BitmapImage(new Uri(@"img/UI/Secondary_quests.png", UriKind.Relative));
+                }
                 img.Width = 32;
                 img.Height = 32;
 
@@ -98,12 +98,7 @@ namespace WitcherWPF
             NameQ.Visibility = Visibility.Visible;
             DescQ.Visibility = Visibility.Visible;
             GoalQ.Visibility = Visibility.Visible;
-            JsonSerializerSettings settings = new JsonSerializerSettings {
-                TypeNameHandling = TypeNameHandling.All
-            };
-            string questpath = @"../../saves/PlayerQuests.json";
-            string jsonFromFile = File.ReadAllText(questpath);
-            List<PlayerQuest> quests = JsonConvert.DeserializeObject<List<PlayerQuest>>(jsonFromFile, settings);
+            List<PlayerQuest> quests = manager.LoadPlayerQuests();
             Button button = (Button)sender;
             var matches = quests.Where(s => s.Quest.QuestName == button.Tag.ToString());
             foreach (var item in matches ) {

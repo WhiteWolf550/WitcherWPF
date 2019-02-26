@@ -29,7 +29,7 @@ namespace WitcherWPF
             this.HurtSteelSword = false;
             this.MaxHP = 100;
             this.HP = this.MaxHP;
-            this.Name = "Ghoul";
+            this.Name = "Ghůl";
             this.XP = 50;
 
             this.StunChance = 10;
@@ -52,11 +52,14 @@ namespace WitcherWPF
                 if (this.HP < this.MaxHP / 4) {
                     this.DodgeChance = 40;
                     this.FastChance = 10;
-                    this.StrongDamage = 80;
+                    this.StrongDamage = 40;
                 }
             }
             if (PlayerHP < PlayerHPMax / 2) {
                 this.FastChance = 20;
+                if (PlayerHP < PlayerHPMax / 4) {
+                    this.StrongDamage = 80;
+                }
             }
         }
     }

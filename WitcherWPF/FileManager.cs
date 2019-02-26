@@ -170,6 +170,11 @@ namespace WitcherWPF {
             File.WriteAllText(path, jsonToFilet);
 
         }
+        public void SaveItems(List<Item> Items, string path) {
+            string jsonToFilet = JsonConvert.SerializeObject(Items, settings);
+            File.WriteAllText(path, jsonToFilet);
+
+        }
         public void SaveQuests(List<Quest> Items) {
             string path = @"../../gamefiles/Quests.json";
             string jsonToFilet = JsonConvert.SerializeObject(Items, settings);

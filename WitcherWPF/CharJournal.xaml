@@ -20,9 +20,10 @@
             </Rectangle.Fill>
         </Rectangle>
         <Label Name="CharName" HorizontalContentAlignment="Center" Content="Name" FontSize="25" Foreground="#DDFFFFFF" HorizontalAlignment="Center" VerticalAlignment="Center" Height="43"  Width="168" Margin="253,29,279,618"/>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="29,94,300,76">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="29,94,279,76">
             <TextBlock Padding="7" TextWrapping="Wrap" FontSize="18" Name="CharDesc" Text="Text..." Foreground="White" Width="369"/>
         </ScrollViewer>
-        <Image  gif:ImageBehavior.RepeatBehavior="Forever"  RenderTransformOrigin="1.715,0.504"  Name="CharGif" Source="gifs/Characters/Geralt.gif" Margin="429,129,0,166" />
+        <Image Name="CharIMG" Margin="463,135,0,157"></Image>
+
     </Grid>
 </UserControl>

@@ -74,7 +74,9 @@ namespace WitcherWPF
             var matches = items.Where(s => s.LootType == LootType).ToList();
             int itc = matches.Count();
             Random rand = new Random();
+
             int lootcount = rand.Next(1, 3);
+            
             if (!File.Exists(lootpath)) {
 
                 for (int i = 0;i <= lootcount;i++) {
@@ -106,9 +108,12 @@ namespace WitcherWPF
                     it.Content = matches[rn].Content;
                     it.Price = matches[rn].Price;
                     loot.Add(it);
+                    if (matches[rn].Type == "Quest") {
+                        i = lootcount + 1;
+                    }
                     
                 }
-                manager.SaveItems(loot);
+                manager.SaveItems(loot, lootpath);
             }else if (File.Exists(lootpath)) {
 
                 loot = manager.LoadItems();
@@ -131,7 +136,7 @@ namespace WitcherWPF
             
 
         }
-        public void LootToInventory(WrapPanel LootInventory, Button LootButton, Image LootBack, Button CloseBut) {
+        public void LootToInventory(WrapPanel LootInventory, Button LootButton, Image LootBack, Button CloseBut, StackPanel QuestPop, Label QueName, TextBlock QueGoal) {
             string lootpath = @"../../saves/Loot.json";
             string invpath = @"../../saves/PlayerInventory.json";
             JsonSerializerSettings settings = new JsonSerializerSettings {
@@ -145,17 +150,15 @@ namespace WitcherWPF
                 jsonFromFile = File.ReadAllText(lootpath);
             }
             List<Item> loot = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
-            string jsonFromFileinv = File.ReadAllText(invpath);
-            List<PlayerInventory> inventory = new List<PlayerInventory>();
-            if (jsonFromFileinv.Length > 0) {
-                inventory = JsonConvert.DeserializeObject<List<PlayerInventory>>(jsonFromFileinv, settings);
-            }
-            else {
-
-            }
+            List<PlayerInventory> inventory = manager.LoadPlayerInventory(); 
             foreach (var item1 in loot) {
                 var match = loot.Where(s => s.Name == item1.Name).ToList();
-                var match2 = inventory.Where(s => s.Item.Name == item1.Name).ToList();
+                var match2 = new List<PlayerInventory>();
+                try {
+                    match2 = inventory.Where(s => s.Item.Name == item1.Name).ToList();
+                }catch {
+                    match2 = new List<PlayerInventory>();
+                }
                 var match3 = match2.Where(s => s.Count < 10).ToList();
                 if (match2.Count() > 0) {
                     foreach (var item2 in inventory) {
@@ -179,6 +182,10 @@ namespace WitcherWPF
                         }
                     }
                 }else {
+                    if (item1.Type == "Quest") {
+                        PlayerQuest quest = new PlayerQuest();
+                        quest.UpdateQuest(item1.LootType, QuestPop, QueName, QueGoal);
+                    }
                     PlayerInventory inv = new PlayerInventory(item1, 1);
                     inventory.Add(inv);
                 }
@@ -225,11 +232,14 @@ namespace WitcherWPF
 
 
 
-            items.Add(new Item("Krev z Ghůla", "Krev, která se dá získat z Ghůla", "Alchemy", "Ghoul", @"img/Items/Monster_Ghoul_Blood.png", "Aether", "Alchemy", null, 0, 0, null, 10));
-            items.Add(new Item("Bílý Ocet", "Bílý Ocet, který se dá použít v Alchymii", "Alchemy", "Ghoul", @"img/Items/Monster_White_vinegar.png", "Vitriol", "Alchemy", null, 0, 0, null, 10));
-            items.Add(new Item("Žluč", "Žluč, která se dá použít v Alchymii", "Alchemy", "Ghoul", @"img/Items/Monster_Abomination_Lymph.png", "Rebis", "Alchemy", null, 0, 0, null, 10));
+            items.Add(new Item("Krev z Ghůla", "Krev, která se dá získat z Ghůla", "Alchemy", "Ghůl", @"img/Items/Monster_Ghoul_Blood.png", "Aether", "Alchemy", null, 0, 0, null, 10));
+            items.Add(new Item("Bílý Ocet", "Bílý Ocet, který se dá použít v Alchymii", "Alchemy", "Ghůl", @"img/Items/Monster_White_vinegar.png", "Vitriol", "Alchemy", null, 0, 0, null, 10));
+            items.Add(new Item("Žluč", "Žluč, která se dá použít v Alchymii", "Alchemy", "Ghůl", @"img/Items/Monster_Abomination_Lymph.png", "Rebis", "Alchemy", null, 0, 0, null, 10));
             //BUILDING
             items.Add(new Item("Dřevo", "Dřevo lze použít jako stavební materiál a nebo ho lze prodat", "Build", "Loot", @"img/Items/Wood.png", "žádné", "Build", null, 0, 0, null, 10));
+
+            //QUEST ITEMS
+            items.Add(new Item("Zlatý prsten", "Zlatý prsten, který vypadá hodně staře", "Quest", "Strašidelný dům", @"img/Items/Wood.png", "žádné", null, null, 0, 0, null, 0));
             manager.SaveItems(items);
         }
 

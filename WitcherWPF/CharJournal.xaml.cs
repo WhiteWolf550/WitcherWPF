@@ -26,12 +26,7 @@ namespace WitcherWPF {
         public void LoadInfo(string Name, string Description, string GIF) {
             CharName.Content = Name;
             CharDesc.Text = Description;
-            var image = new BitmapImage();
-            image.BeginInit();
-            image.UriSource = new Uri(GIF, UriKind.Relative);
-            image.EndInit();
-            ImageBehavior.SetAnimatedSource(CharGif, image);
-            ImageBehavior.SetRepeatBehavior(CharGif, RepeatBehavior.Forever);
+            CharIMG.Source = new BitmapImage(new Uri(GIF, UriKind.Relative));
         }
     }
 }

@@ -22,11 +22,13 @@ namespace WitcherWPF
     public partial class Old_wyzima3 : UserControl
     {
         public DispatcherTimer time = new DispatcherTimer();
-        
+        List<PlayerQuest> qq = new List<PlayerQuest>();
+        FileManager manager = new FileManager();
         public Old_wyzima3()
         {
             InitializeComponent();
             LoadBackground();
+            QuestDoor();
             Timer();
             time.Start();
            
@@ -48,6 +50,14 @@ namespace WitcherWPF
         void Time_tick(object sender, EventArgs e) {
             LoadBackground();
             
+        }
+        public void QuestDoor() {
+            qq = manager.LoadPlayerQuests();
+            foreach(PlayerQuest item in qq) {
+                if (item.Quest.QuestName == "Strašidelný dům" && item.Quest.QuestID == 1) {
+                    ToHouse.Visibility = Visibility.Visible;
+                }
+            }
         }
 
     }

@@ -56,6 +56,12 @@ namespace WitcherWPF {
             qq.Add(new Quest(3, "Primary", "Kovářova zrůda", "Triss řekla Geraltovi, aby pomohl svému starému známému Yavenovi Briggsovi. Geralt se za kovářem vydal a kovář mu slibíl, že dostane 50 orénů za to, že nestvůru zabije. Geralt po drsném souboji Ghůla zabil a může si dojít pro odměnu", "Vyzvedni si u Yavena odměnu za zabití Ghůla", 1, true, "Kovářova zrůda", "Odměna za Ghůla", 0, 0));
             qq.Add(new Quest(4, "Primary", "Kovářova zrůda", "Triss řekla Geraltovi, aby pomohl svému starému známému Yavenovi Briggsovi. Geralt se za kovářem vydal a kovář mu slibíl, že dostane 50 orénů za to, že nestvůru zabije. Geralt po drsném souboji Ghůla zabil a může si dojít pro odměnu", "Úkol dokončen", 1, true, "Kovářova zrůda", "Odměna za Ghůla", 500, 50));
 
+            //STRAŠIDELNÝ DŮM
+            qq.Add(new Quest(1, "Secondary", "Strašidelný dům", "Jeden z převižší ve staré wyzimě požádal Geralta o pomoc. Potřeboval získat z domu jeho prsten", "Jdi do přeživšího domu a najdi prsten", 1, true, "Strašidelný dům", null, 0, 0));
+            qq.Add(new Quest(2, "Secondary", "Strašidelný dům", "Jeden z převižší ve staré wyzimě požádal Geralta o pomoc. Potřeboval získat z domu jeho prsten. Geralt prsten získal a může se vrátit za přeživším", "Zabij ghůla", 1, true, "Strašidelný dům", null, 0, 0));
+            qq.Add(new Quest(3, "Secondary", "Strašidelný dům", "Jeden z převižší ve staré wyzimě požádal Geralta o pomoc. Potřeboval získat z domu jeho prsten. Geralt prsten získal a může se vrátit za přeživším. Když už byl Geralt v domě, tak se také postaral o příšeru", "Vrať se k přeživšímu pro odměnu", 1, true, "Strašidelný dům", "Našel jsem prsten", 0, 0));
+            qq.Add(new Quest(4, "Secondary", "Strašidelný dům", "Jeden z převižší ve staré wyzimě požádal Geralta o pomoc. Potřeboval získat z domu jeho prsten. Geralt prsten získal a může se vrátit za přeživším. Když už byl Geralt v domě, tak se také postaral o příšeru. Geralt si vyzvednul odměnu od přeživšího", "Úkol Dokončen", 1, true, "Strašidelný dům", null, 200, 60));
+
             manager.SaveQuests(qq);
         }
         
