@@ -307,6 +307,71 @@ namespace WitcherWPF {
             }
             return skill;
         }
+        public void CreateDefaultPlayer() {
+            Sword silver = null;
+            Sword steel = null;
+            Armor ar = null;
+            List<Sword> sword = manager.LoadSwords();
+            List<Armor> armor = manager.LoadArmors();
+            List<Player> player = new List<Player>();
+
+            Aard aard = new Aard();
+            aard.SignIntensity = 10;
+            aard.Effectivity = 0;
+            aard.EnduranceCost = 15;
+            aard.StunChance = 10;
+            aard.StunDuration = 3;
+            aard.KnockBackChance = 15;
+            Igni igni = new Igni();
+            igni.SignIntensity = 10;
+            igni.Effectivity = 0;
+            igni.EnduranceCost = 15;
+            igni.Damage = 10;
+            igni.BurnChance = 5;
+            igni.BurnDamage = 1;
+            igni.BurnDuration = 3;
+            Quen quen = new Quen();
+            quen.SignIntensity = 5;
+            quen.Effectivity = 0;
+            quen.EnduranceCost = 15;
+            quen.ShieldDuration = 5;
+            quen.DamageReduction = 5;
+            quen.EffectsResistance = 0;
+            Axii axii = new Axii();
+            axii.SignIntensity = 10;
+            axii.Effectivity = 0;
+            axii.EnduranceCost = 15;
+            axii.Duration = 4;
+            axii.ChannelingTime = 3;
+            axii.StatsDecrease = 5;
+            Yrden yrden = new Yrden();
+            yrden.SignIntensity = 10;
+            yrden.Effectivity = 0;
+            yrden.EnduranceCost = 15;
+            yrden.Duration = 5;
+            yrden.AttackBlock = 0;
+            yrden.Confusion = 0;
+            yrden.Pain = 0;
+
+
+            var matches = sword.Where(s => s.Type == "Stříbrný meč");
+            var matches2 = matches.Where(s => s.LootType == "Start");
+            var matches3 = sword.Where(s => s.Type == "Ocelový meč");
+            var matches4 = matches3.Where(s => s.LootType == "Start");
+            var matches5 = armor.Where(s => s.Name == "Mantikoří zbroj");
+            var matches6 = matches5.Where(s => s.LootType == "Start");
+            foreach (var manticore in matches6) {
+                ar = manticore;
+            }
+            foreach (var steels in matches4) {
+                steel = steels;
+            }
+            foreach (var aerondight in matches2) {
+                silver = aerondight;
+            }
+            player.Add(new Player(100, 100, 25, 25, 50, 0, 0, 1000, 1, 1, 50, 0, 5, 2, 0, 0, 0, 0.5, steel, silver, ar, aard, igni, quen, axii, yrden));
+            manager.SavePlayer(player);
+        }
         
     }
 }

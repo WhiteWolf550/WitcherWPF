@@ -60,12 +60,12 @@ namespace WitcherWPF {
             //CreateDialogue();
             //CreateQuests();
             //CreatePlayerQuests();
-            CreateSkills();
+            //CreateSkills();
             //CreateArmors();
             //CreateSwords();
-            CreatePlayer();
+            //CreatePlayer();
             //CreatePotions();
-            CreateCharacters();
+            //CreateCharacters();
             time.Visibility = Visibility.Hidden;
             Globals.Combat = true;
             Globals.location = "Old_wyzima1";
@@ -261,9 +261,10 @@ namespace WitcherWPF {
             items.Add(new Item("Prach smrti", "Prach, který se většinou dá získat z přeludů, nebo z jiných příšer", "Alchemy", "Barghest", @"img/Items/Monster_DeathDust.png", "Vitriol", "Alchemy", null, 0, 0, null, 10));
             
 
-            items.Add(new Item("Krev z Ghůla", "Krev, která se dá získat z Ghůla", "Alchemy", "Ghoul", @"img/Items/Monster_Ghoul_Blood.png", "Vitriol", "Alchemy", null, 0, 0, null, 10));
-            items.Add(new Item("Bílý Ocet", "Bílý Ocet, který se dá použít v Alchymii", "Alchemy", "Ghoul", @"img/Items/Monster_Ghoul_Blood.png", "Vitriol", "Alchemy", null, 0, 0, null, 10));
-            items.Add(new Item("Bílý Ocet", "Bílý Ocet, který se dá použít v Alchymii", "Alchemy", "Ghoul", @"img/Items/Monster_Ghoul_Blood.png", "Vitriol", "Alchemy", null, 0, 0, null, 10));
+
+            items.Add(new Item("Krev z Ghůla", "Krev, která se dá získat z Ghůla", "Alchemy", "Ghoul", @"img/Items/Monster_Ghoul_Blood.png", "Aether", "Alchemy", null, 0, 0, null, 10));
+            items.Add(new Item("Bílý Ocet", "Bílý Ocet, který se dá použít v Alchymii", "Alchemy", "Ghoul", @"img/Items/Monster_White_vinegar.png", "Vitriol", "Alchemy", null, 0, 0, null, 10));
+            items.Add(new Item("Žluč", "Žluč, která se dá použít v Alchymii", "Alchemy", "Ghoul", @"img/Items/Monster_Abomination_Lymph.png", "Rebis", "Alchemy", null, 0, 0, null, 10));
             //BUILDING
             items.Add(new Item("Dřevo", "Dřevo lze použít jako stavební materiál a nebo ho lze prodat", "Build", "Loot", @"img/Items/Wood.png", "žádné", "Build", null, 0, 0, null, 10));
             string jsonToFile = JsonConvert.SerializeObject(items, settings);

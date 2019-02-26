@@ -26,7 +26,7 @@ namespace WitcherWPF {
         FileManager manager = new FileManager();
         List<Effect> effect = new List<Effect>();
         public int hour = 8;
-        public  int minute = 0;
+        public  int minute = 20;
         public int second = 0;
         
         public Time() {
@@ -36,7 +36,7 @@ namespace WitcherWPF {
             
         }
         public void Timer() {
-            time.Interval = TimeSpan.FromMilliseconds(50);
+            time.Interval = TimeSpan.FromSeconds(5);
             time.Tick += new EventHandler(Time_tick);
 
             
@@ -50,7 +50,7 @@ namespace WitcherWPF {
             }
         }
         void Time_tick(object sender, EventArgs e) {
-            second++;
+            second += 50;
             if (second > 59) {
                 second = 0;
                 minute++;

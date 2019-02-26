@@ -56,6 +56,7 @@ namespace WitcherWPF
         }
 
         private void GetChar(object sender, RoutedEventArgs e) {
+            CharPanel.Children.Clear();
             Load();
         }
         private void GetBestiary(object sender, RoutedEventArgs e) {
@@ -65,6 +66,7 @@ namespace WitcherWPF
             foreach(Characters item in characters) {
                 Button button = new Button();
                 button.Content = item.Name;
+                button.FontSize = 23;
                 button.Foreground = Brushes.WhiteSmoke;
                 button.Background = Brushes.Transparent;
                 button.BorderBrush = Brushes.Transparent;

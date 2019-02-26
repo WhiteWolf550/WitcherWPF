@@ -108,7 +108,7 @@ namespace WitcherWPF
                     loot.Add(it);
                     
                 }
-                manager.SaveItems(loot, lootpath);
+                manager.SaveItems(loot);
             }else if (File.Exists(lootpath)) {
 
                 loot = manager.LoadItems();
@@ -199,6 +199,38 @@ namespace WitcherWPF
                 Console.WriteLine(iox.Message);
             }
 
+        }
+        public void CreateItems() {
+            List<Item> items = new List<Item>();
+            items.Add(new Item("Kuře", "Jídlo,Po snězení doplní malou část zdraví", "Loot", "Loot", @"img/Items/Food_Chicken.png", "žádné", "Food", "Sníst", 0, 0, null, 20));
+            items.Add(new Item("Wyverní maso", "Vzácné maso, které se dá prodat", "Loot", "Loot", @"img/Items/Food_Wyvern_Meat.png", "žádné", "Food", "Sníst", 0, 0, null, 90));
+            items.Add(new Item("Jablečný Džus", "Nápoj, lze vypít pro doplňení malé části zdraví", "Loot", "Loot", @"img/Items/Drink_Apple_Juice.png", "žádné", "Drink", "Vypít", 0, 0, null, 15));
+            items.Add(new Item("Fisstech", "Silná droga, lze prodat", "Loot", "Loot", @"img/Items/Potion_Fisstech.png", "žádné", "Drug", "Použít", 0, 0, null, 150));
+            items.Add(new Item("Víno", "Alkohol, lze prodat kupcům nebo použít", "Alcohol", "Loot", @"img/Items/Alcohol_Winered.png", "žádné", "Alcohol", "Vypít", 0, 0, null, 20));
+            items.Add(new Item("Temerská žitná", "Středně silný alkohol, lze prodat kupcům nebo použít jako Alchymistický základ", "MediumAlcohol", "Loot", @"img/Items/Alcohol_Temerian_Rye.png", "žádné", "Alcohol", "Vypít", 0, 0, null, 50));
+            items.Add(new Item("Trpasličí vodka", "Velice silný alkohol, lze prodat kupcům za vysokou částku nebo použít jako Alchymistický základ", "StrongAlcohol", "Loot", @"img/Items/Alcohol_Dwarven_Spirit.png", "žádné", "Alcohol", "Vypít", 0, 0, null, 80));
+
+            items.Add(new Item("Barghesti", "Kniha o barghestech", "Loot", "Loot", @"img/Items/Book_Bestiary.png", null, "Barghest", "Číst", 0, 0, "Barghesti jsou fakt svině...", 100));
+            //POTIONS
+            items.Add(new Item("Puštík", "Elixír, který rychle doplňuje Geraltovu výdrž", "Potion", "Alchemy", @"img/Items/Potion_Tawny_Owl.png", null, "Potion", "Vypít", 20, 2, null, 50));
+            items.Add(new Item("Vlaštovka", "Elixír, který rychle doplňuje Geraltovo zdraví", "Potion", "Alchemy", @"img/Items/Potion_Swallow.png", null, "Potion", "Vypít", 20, 2, null, 50));
+            items.Add(new Item("Hrom", "Elixír, který značně zvýší sílu útoků", "Potion", "Alchemy", @"img/Items/Potion_Thunderbolt.png", null, "Potion", "Vypít", 25, 2, null, 50));
+            items.Add(new Item("Petriho filtr", "Elixír, který značně zvýší intenzitu všech znamení", "Potion", "Alchemy", @"img/Items/Potion_Petris_Philter.png", null, "Potion", "Vypít", 30, 2, null, 80));
+            items.Add(new Item("Černá krev", "Elixír, který mění Geraltovu krev na jedovatou pro upíry (upíři dostanou poškození pokud zaútoči na Geralta)", "Potion", "Alchemy", @"img/Items/Potion_Black_Blood.png", null, "Potion", "Vypít", 25, 2, null, 80));
+            items.Add(new Item("Úplněk", "Elixír který značně zvýší Geraltovu vitalitu", "Potion", "Alchemy", @"img/Items/Potion_Full_Moon.png", null, "Potion", "Vypít", 25, 2, null, 50));
+
+            //MONSTER LOOT
+            items.Add(new Item("Tesáky z příšery", "Tesáky sebrané z příšery", "Alchemy", "Barghest", @"img/Items/Monster_Fang.png", "Rebis", "Alchemy", null, 0, 0, null, 10));
+            items.Add(new Item("Prach smrti", "Prach, který se většinou dá získat z přeludů, nebo z jiných příšer", "Alchemy", "Barghest", @"img/Items/Monster_DeathDust.png", "Vitriol", "Alchemy", null, 0, 0, null, 10));
+
+
+
+            items.Add(new Item("Krev z Ghůla", "Krev, která se dá získat z Ghůla", "Alchemy", "Ghoul", @"img/Items/Monster_Ghoul_Blood.png", "Aether", "Alchemy", null, 0, 0, null, 10));
+            items.Add(new Item("Bílý Ocet", "Bílý Ocet, který se dá použít v Alchymii", "Alchemy", "Ghoul", @"img/Items/Monster_White_vinegar.png", "Vitriol", "Alchemy", null, 0, 0, null, 10));
+            items.Add(new Item("Žluč", "Žluč, která se dá použít v Alchymii", "Alchemy", "Ghoul", @"img/Items/Monster_Abomination_Lymph.png", "Rebis", "Alchemy", null, 0, 0, null, 10));
+            //BUILDING
+            items.Add(new Item("Dřevo", "Dřevo lze použít jako stavební materiál a nebo ho lze prodat", "Build", "Loot", @"img/Items/Wood.png", "žádné", "Build", null, 0, 0, null, 10));
+            manager.SaveItems(items);
         }
 
     }

@@ -503,12 +503,17 @@
     <Resource Include="gifs\Characters\Dandelion.gif" />
     <Resource Include="gifs\Characters\Eskel.gif" />
     <Resource Include="gifs\Characters\Foltest.gif" />
-    <Resource Include="gifs\Characters\Geralt.gif" />
+    <Resource Include="gifs\Characters\GeraltOLD.gif" />
     <Resource Include="gifs\Characters\Lambert.gif" />
-    <Resource Include="gifs\Characters\Triss.gif" />
+    <Resource Include="gifs\Characters\TrissOLD.gif" />
     <Resource Include="gifs\Characters\Vesemir.gif" />
     <Resource Include="gifs\Characters\Yennefer.gif" />
     <Resource Include="img\LoadingScreens\LoadingImage1.jpg" />
+    <Resource Include="gifs\Characters\Geralt.gif" />
+    <Resource Include="gifs\Characters\Triss.gif" />
+    <Resource Include="img\Items\Monster_Ghoul_Blood.png" />
+    <Resource Include="img\Items\Monster_White_vinegar.png" />
+    <Resource Include="img\Items\Monster_Abomination_Lymph.png" />
     <Content Include="sounds\ghoul\ghoul_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -106,7 +106,22 @@ namespace WitcherWPF {
                 sound.PlaySound("QuestUpdate");
             }
             
+            
 
+        }
+        public void CreatePlayerQuests() {
+
+            List<Quest> qust = manager.LoadQuests();
+            List <PlayerQuest> qqq = manager.LoadPlayerQuests();
+            var matches = qust.Where(s => s.QuestID == 1);
+            var matches1 = matches.Where(s => s.QuestSeries == "Něco končí, něco začíná");
+
+            foreach (var item in matches1) {
+                Quest q = item;
+                qqq.Add(new PlayerQuest(q));
+
+            }
+            manager.SavePlayerQuests(qqq);
         }
     }
 }

@@ -26,6 +26,30 @@ namespace WitcherWPF {
             manager.SavePlayerInventory(inventory);
             manager.SaveEffects(effects);
         }
+
+        public void NewGame() {
+            Player player = new Player();
+            Quest quest = new Quest();
+            Dialogues dialogue = new Dialogues();
+            Sword sword = new Sword();
+            Armor armor = new Armor();
+            Skills skills = new Skills();
+            PlayerQuest pquest = new PlayerQuest();
+            Item items = new Item();
+            Potion potions = new Potion();
+            Characters characters = new Characters();
+
+            player.CreateDefaultPlayer();
+            quest.CreateQuests();
+            dialogue.CreateDialogues();
+            sword.CreateSwords();
+            armor.CreateArmor();
+            skills.CreateSkills();
+            pquest.CreatePlayerQuests();
+            items.CreateItems();
+            potions.CreatePotions();
+            characters.CreateCharacters();
+        }
     }
     
 }
