@@ -35,6 +35,7 @@ namespace WitcherWPF {
         Item items = new Item();
         Potion potions = new Potion();
         Characters characters = new Characters();
+        Shop shop = new Shop();
         
         public MainWindow() {
             
@@ -49,13 +50,14 @@ namespace WitcherWPF {
             //skills.CreateSkills();
             pquest.CreatePlayerQuests();
             items.CreateItems();
+            //shop.CreateShops();
             //potions.CreatePotions();
             //characters.CreateCharacters();
 
             
             time.Visibility = Visibility.Hidden;
             Globals.Combat = true;
-            Globals.location = "Old_wyzima3";
+            Globals.location = "Old_wyzima1";
             mainFrame.Navigate(new MainMenu(mainFrame, time));
         }
         

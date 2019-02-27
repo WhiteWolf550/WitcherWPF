@@ -239,7 +239,7 @@ namespace WitcherWPF
             items.Add(new Item("Dřevo", "Dřevo lze použít jako stavební materiál a nebo ho lze prodat", "Build", "Loot", @"img/Items/Wood.png", "žádné", "Build", null, 0, 0, null, 10));
 
             //QUEST ITEMS
-            items.Add(new Item("Zlatý prsten", "Zlatý prsten, který vypadá hodně staře", "Quest", "Strašidelný dům", @"img/Items/Wood.png", "žádné", null, null, 0, 0, null, 0));
+            items.Add(new Item("Zlatý prsten", "Zlatý prsten, který vypadá hodně staře", "Quest", "Strašidelný dům", @"img/Items/Quest_Ring.png", "žádné", null, null, 0, 0, null, 0));
             manager.SaveItems(items);
         }
 

@@ -521,6 +521,7 @@
     <Resource Include="img\Items\Monster_Ghoul_Blood.png" />
     <Resource Include="img\Items\Monster_White_vinegar.png" />
     <Resource Include="img\Items\Monster_Abomination_Lymph.png" />
+    <Resource Include="img\Items\Quest_Ring.png" />
     <Content Include="gifs\Characters\Geralt.mp4" />
     <Resource Include="img\Char\Geralt.png" />
     <Resource Include="img\Char\Triss.png" />

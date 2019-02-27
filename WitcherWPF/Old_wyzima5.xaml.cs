@@ -18,8 +18,26 @@ namespace WitcherWPF {
     /// Interakční logika pro Old_wyzima5.xaml
     /// </summary>
     public partial class Old_wyzima5 : UserControl {
+        List<PlayerQuest> qq = new List<PlayerQuest>();
+        FileManager manager = new FileManager();
         public Old_wyzima5() {
             InitializeComponent();
+            Quest();
+        }
+        public void Quest() {
+            qq = manager.LoadPlayerQuests();
+            foreach (PlayerQuest item in qq) {
+                if (item.Quest.QuestName == "Strašidelný dům" && item.Quest.QuestID == 2) {
+                    Shelf.Visibility = Visibility.Hidden;
+                    Ghoul.Visibility = Visibility.Visible;
+                    Outside.Visibility = Visibility.Hidden;
+                }
+                if (item.Quest.QuestName == "Strašidelný dům" && item.Quest.QuestID == 3) {
+                    Shelf.Visibility = Visibility.Hidden;
+                    Ghoul.Visibility = Visibility.Hidden;
+                    Outside.Visibility = Visibility.Visible;
+                }
+            }
         }
     }
 }

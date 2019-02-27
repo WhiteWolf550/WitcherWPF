@@ -24,12 +24,12 @@ namespace WitcherWPF {
     public partial class Location : Page {
         private Frame parentFrame;
         private Time time;
-        static public string loc = "Old_wyzima3";
+        static public string loc = "Old_wyzima1";
         static public bool LootLock;
         Item it = new Item();
         Music media = new Music();
         Button butclick = new Button();
-        Button Loot = new Button();
+        static Button Loot = new Button();
         public bool Steps = false;
         public Location() {
             InitializeComponent();
@@ -100,7 +100,7 @@ namespace WitcherWPF {
         public void GetLoot(object sender, RoutedEventArgs e) {
             Button button = (sender as Button);
             string loottype = "Loot";
-            if (button.Tag.ToString().Length > 0) {
+            if (button.Tag != null) {
                 loottype = button.Tag.ToString();
             }
             Loot = button;
@@ -111,6 +111,7 @@ namespace WitcherWPF {
             if (Loot.Tag.ToString() == "Strašidelný dům") {
                 Wyzima_House.Ghoul.Visibility = Visibility.Visible;
                 Wyzima_House.Outside.Visibility = Visibility.Hidden;
+                Wyzima_House.Shelf.Visibility = Visibility.Hidden;
             }
             
             LootLock = true;

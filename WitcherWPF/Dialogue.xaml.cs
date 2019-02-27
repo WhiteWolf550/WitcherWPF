@@ -49,6 +49,7 @@ namespace WitcherWPF
 
         public Dialogue() {
             InitializeComponent();
+            BlackScreen.Visibility = Visibility.Visible;
             playerlist = manager.LoadPlayer();
             TravelHide();
 
@@ -409,6 +410,9 @@ namespace WitcherWPF
         }
         private void GoToCombat(object sender, EventArgs e) {
             parentFrame.Navigate(new Combat(parentFrame, false, time, false, QuestName));
+        }
+        private void CloseLoot(object sender, RoutedEventArgs e) {
+
         }
     }
 }

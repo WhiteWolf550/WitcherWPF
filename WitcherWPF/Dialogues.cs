@@ -397,8 +397,8 @@ namespace WitcherWPF
             dialog.Add(new Dialogues("Geralt", "Dobře, podívam se po tom prstenu", 1, "Co tu děláte?", "Talk", "Přeživší", true, "Strašidelný dům", "Přijmout", false));
 
             dialog.Add(new Dialogues("Geralt", "Jak jsem řekl nemohu si dovolit ztrácet čas.", 1, "Co tu děláte?", "Talk", "Přeživší", true, null, "Odejít", true));
-            dialog.Add(new Dialogues("Přeživší", "A k čemu tedy máte ty meče?! To mě tu opravdu necháte?", 1, "Co tu děláte?", "Talk", "Přeživší", true, null, "Odejít", true));
-            dialog.Add(new Dialogues("Geralt", "Nemohu si dovolit ztrácet čas", 1, "Co tu děláte?", "Talk", "Přeživší", true, null, "Odejít", true));
+            dialog.Add(new Dialogues("Přeživší", "A k čemu tedy máte ty meče?! To mě tu opravdu necháte?", 1, "Co tu děláte?", "Talk", "Přeživší", true, null, "Odejít", false));
+            dialog.Add(new Dialogues("Geralt", "Nemohu si dovolit ztrácet čas", 1, "Co tu děláte?", "Talk", "Přeživší", true, null, "Odejít", false));
 
             //2
             dialog.Add(new Dialogues("Geralt", "Našel jsem ten prsten, který jste chtěl", 1, "Našel jsem prsten", "Talk", "Přeživší", false, "Strašidelný dům", null, false));

@@ -92,6 +92,13 @@ namespace WitcherWPF {
             return jsonread;
 
         }
+        public List<Shop> LoadShop() {
+            string path = @"../../gamefiles/Shops.json";
+            string jsonFromFile = File.ReadAllText(path);
+            List<Shop> jsonread = JsonConvert.DeserializeObject<List<Shop>>(jsonFromFile, settings);
+            return jsonread;
+
+        }
         public List<Armor> LoadPlayerArmors() {
             string path = @"../../saves/PlayerArmors.json";
             try {
@@ -172,6 +179,12 @@ namespace WitcherWPF {
         }
         public void SaveItems(List<Item> Items, string path) {
             string jsonToFilet = JsonConvert.SerializeObject(Items, settings);
+            File.WriteAllText(path, jsonToFilet);
+
+        }
+        public void SaveShops(List<Shop> Shop) {
+            string path = @"../../gamefiles/Shops.json";
+            string jsonToFilet = JsonConvert.SerializeObject(Shop, settings);
             File.WriteAllText(path, jsonToFilet);
 
         }

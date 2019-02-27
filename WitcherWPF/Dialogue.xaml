@@ -9,31 +9,41 @@
       Title="Dialogue" Height="894" Width="1426.666" Loaded="PageLoaded">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="173*"/>
-            <RowDefinition Height="91*"/>
-            <RowDefinition Height="512*"/>
-            <RowDefinition Height="118*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="351*"/>
-            <ColumnDefinition Width="755*"/>
-            <ColumnDefinition Width="321*"/>
-        </Grid.ColumnDefinitions>
+
         <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63" Grid.ColumnSpan="3" Grid.RowSpan="4"/>
         <Image Source="img/Characters/Geralt.png" HorizontalAlignment="Left" VerticalAlignment="Center" Height="432"  Width="174" Margin="144,70,0,10" Grid.Row="2"></Image>
         <Image Source="img/Characters/Foltest.png" Name="DialogueCharacter" HorizontalAlignment="Right" VerticalAlignment="Center" Height="432"  Width="174" Grid.Column="2" Margin="0,70,147,10" Grid.Row="2"></Image>
         <Image Source="img/UI/dialog_back.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1000" Grid.ColumnSpan="3" Margin="220,228,207,97" Height="187" Grid.Row="2"/>
 
-        <Label Style="{StaticResource MORPHEUS}" Content="PersonName" FontWeight="Bold" Name="PersonName" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Background="{x:Null}" Foreground="LightGray" Grid.ColumnSpan="2" Margin="292,240,706,238"/>
+        <Label Style="{StaticResource MORPHEUS}" Content="PersonName" FontWeight="Bold" Name="PersonName" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Background="{x:Null}" Foreground="LightGray" Margin="309,431,1010,429"/>
         <TextBlock TextWrapping="Wrap" Text="Text"  Name="PersonText" Grid.Row="2" MinWidth="100" MinHeight="30" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Width="908" Grid.ColumnSpan="3" Margin="270,290,249,122" Height="100" />
 
         <StackPanel Name="DialogueOptions" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" MinWidth="200" MinHeight="200" Margin="166,0,143,26" Grid.RowSpan="2" Width="446"/>
-        <StackPanel Visibility="Hidden" Opacity="0"  Name="QuestPop" HorizontalAlignment="Center" VerticalAlignment="Top" MinHeight="100" MinWidth="100" Grid.Column="1" Grid.Row="2">
+        <StackPanel Visibility="Visible" Opacity="0"  Name="QuestPop" HorizontalAlignment="Center" VerticalAlignment="Top" MinHeight="100" MinWidth="100" Margin="369,141,376,0" Width="682" Height="225">
             <Label Style="{StaticResource MORPHEUS}" HorizontalContentAlignment="Center" Name="QueName" Content="New Quest" FontSize="55" Foreground="#DDE82323"></Label>
             <TextBlock Style="{StaticResource MORPHEUS}" TextWrapping="Wrap" Name="QueGoal" Text="New Goal" FontSize="35" Background="{x:Null}" Foreground="#DDE82323" HorizontalAlignment="Center"></TextBlock>
         </StackPanel>
 
-        <Rectangle HorizontalAlignment="Left" Height="894" Stroke="Black" VerticalAlignment="Top" Width="1427" Fill="Black" Name="BlackScreen" Visibility="Visible" Opacity="1" Grid.ColumnSpan="3" Grid.RowSpan="4"/>
+
+
+        <Image x:Name="LootBack" Visibility="Hidden" Source="img/UI/inventory.png" HorizontalAlignment="Left" Margin="200,0,0,0"/>
+        <WrapPanel Visibility="Hidden" Margin="294,290,853,381" x:Name="LootInventory"/>
+        <Button Visibility="Hidden" Click="CloseLoot" x:Name="CloseBut" Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" Margin="210,207,1128,621">
+            <Image Width="52" Height="58">
+                <Image.Resources>
+                    <Style TargetType="{x:Type Image}">
+                        <!-- Default image -->
+                        <Setter Property="Source" Value="img/UI/exit.png"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <!-- Hover image -->
+                                <Setter Property="Source" Value="img/UI/exit_a.png"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Resources>
+            </Image>
+        </Button>
+        <Rectangle HorizontalAlignment="Left" Height="894" Stroke="Black" VerticalAlignment="Top" Width="1427" Fill="Black" Name="BlackScreen" Visibility="Hidden" Opacity="1" Grid.ColumnSpan="3" Grid.RowSpan="4"/>
     </Grid>
 </Page>
