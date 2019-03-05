@@ -1268,6 +1268,7 @@ namespace WitcherWPF {
         }
         private void QuestUpdate() {
             if (quest != null && CanLoadQuest == true) {
+                //CombatExit.Visibility = Visibility.Hidden;
                 CanLoadQuest = false;
                 playerquest.UpdateQuest(quest, QuestPop, QueName, QueGoal);
             }

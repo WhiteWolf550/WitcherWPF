@@ -39,6 +39,8 @@ namespace WitcherWPF
         Dialogue df;
         FileManager manager = new FileManager();
         Dialogues dialogues = new Dialogues();
+        PlayerInventory inventory = new PlayerInventory();
+        List<PlayerInventory> inventoryitems = new List<PlayerInventory>();
         List<Player> playerlist = new List<Player>();
         bool skip = false;
         int delay = 1000;
@@ -57,6 +59,7 @@ namespace WitcherWPF
         public Dialogue(Frame parentFrame, string Char, Time time) : this() {
             this.parentFrame = parentFrame;
             this.time = time;
+            inventoryitems = manager.LoadPlayerInventory();
             Character = Char;
             dialogues.DialogueGreet(PersonName, PersonText, Character);
             DialogueCharacter.Source = new BitmapImage(new Uri(@"img/Characters/" + Character + ".png", UriKind.Relative));
@@ -406,6 +409,10 @@ namespace WitcherWPF
         public void ScriptedEvents(string DialogueChoice) {
             if (DialogueChoice == "Problém s příšerou") {
                 TravelShow();
+            }
+            if (DialogueChoice == "Našel jsem prsten") {
+                inventory.DropItem("Zlatý prsten", inventoryitems);
+                manager.SavePlayerInventory(inventoryitems);
             }
         }
         private void GoToCombat(object sender, EventArgs e) {

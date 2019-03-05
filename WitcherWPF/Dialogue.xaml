@@ -15,6 +15,12 @@
         <Image Source="img/Characters/Foltest.png" Name="DialogueCharacter" HorizontalAlignment="Right" VerticalAlignment="Center" Height="432"  Width="174" Grid.Column="2" Margin="0,70,147,10" Grid.Row="2"></Image>
         <Image Source="img/UI/dialog_back.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1000" Grid.ColumnSpan="3" Margin="220,228,207,97" Height="187" Grid.Row="2"/>
 
+        <Button Name="Shop" Width="80" Height="80" Margin="1140,396,207,418" BorderBrush="{x:Null}">
+            <Button.Background>
+                <ImageBrush ImageSource="img/UI/Shop_ico.png"/>
+            </Button.Background>
+        </Button>
+        
         <Label Style="{StaticResource MORPHEUS}" Content="PersonName" FontWeight="Bold" Name="PersonName" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Background="{x:Null}" Foreground="LightGray" Margin="309,431,1010,429"/>
         <TextBlock TextWrapping="Wrap" Text="Text"  Name="PersonText" Grid.Row="2" MinWidth="100" MinHeight="30" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Width="908" Grid.ColumnSpan="3" Margin="270,290,249,122" Height="100" />
 

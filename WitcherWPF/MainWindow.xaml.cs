@@ -51,6 +51,8 @@ namespace WitcherWPF {
             pquest.CreatePlayerQuests();
             items.CreateItems();
             //shop.CreateShops();
+
+            //shop.CreateShops();
             //potions.CreatePotions();
             //characters.CreateCharacters();
 

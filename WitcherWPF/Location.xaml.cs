@@ -108,7 +108,7 @@ namespace WitcherWPF {
         }
         public void LootToInventory(object sender, RoutedEventArgs e) {
             it.LootToInventory(LootInventory, TakeLoot, LootBack, CloseBut, QuestPop, QueName, QueGoal);
-            if (Loot.Tag.ToString() == "Strašidelný dům") {
+            if (Loot.Tag.ToString() == "Strašidelný dům" && Loot.Tag != null) {
                 Wyzima_House.Ghoul.Visibility = Visibility.Visible;
                 Wyzima_House.Outside.Visibility = Visibility.Hidden;
                 Wyzima_House.Shelf.Visibility = Visibility.Hidden;

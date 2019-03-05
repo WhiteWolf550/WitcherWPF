@@ -30,9 +30,9 @@ namespace WitcherWPF {
             List<Item> items = manager.LoadItems();
             List<Sword> sword = manager.LoadSwords();
             List<Armor> armor = manager.LoadArmors();
-            List<Item> matches = items.Where(s => s.Type == "Blacksmith").ToList();
+            List<Item> matches = items.Where(s => s.Type == "Herb" && s.Type == "Loot").ToList();
             
-            shops.Add(new Shop("Yaven", "Blacksmith", matches, "Temerský ocelový meč", "Zbroj wyzimské stráže"));
+            shops.Add(new Shop("Yaven", "Blacksmith", items, "Temerský ocelový meč", "Zbroj wyzimské stráže"));
             manager.SaveShops(shops);
         }
     }

@@ -73,9 +73,14 @@ namespace WitcherWPF
             
             var matches = items.Where(s => s.LootType == LootType).ToList();
             int itc = matches.Count();
+            int lootcount = 0;
             Random rand = new Random();
-
-            int lootcount = rand.Next(1, 3);
+            if (matches.Count < 3) {
+                lootcount = rand.Next(1, matches.Count);
+            }else {
+                lootcount = rand.Next(1, 3);
+            }
+            
             
             if (!File.Exists(lootpath)) {
 
@@ -230,6 +235,9 @@ namespace WitcherWPF
             items.Add(new Item("Tesáky z příšery", "Tesáky sebrané z příšery", "Alchemy", "Barghest", @"img/Items/Monster_Fang.png", "Rebis", "Alchemy", null, 0, 0, null, 10));
             items.Add(new Item("Prach smrti", "Prach, který se většinou dá získat z přeludů, nebo z jiných příšer", "Alchemy", "Barghest", @"img/Items/Monster_DeathDust.png", "Vitriol", "Alchemy", null, 0, 0, null, 10));
 
+            //HERBS
+            items.Add(new Item("Vlaštovičník", "Běžná rostlina s léčivými vlastnostmi", "Alchemy", "Herb", @"img/Items/Herb_Celandine.png", "Rebis", null, null, 0, 0, null, 10));
+            items.Add(new Item("Bílá Myrta", "Běžná polní květina s velkými bílými květy", "Alchemy", "Herb", @"img/Items/Herb_Myrtle.png", "Aether", null, null, 0, 0, null, 10));
 
 
             items.Add(new Item("Krev z Ghůla", "Krev, která se dá získat z Ghůla", "Alchemy", "Ghůl", @"img/Items/Monster_Ghoul_Blood.png", "Aether", "Alchemy", null, 0, 0, null, 10));

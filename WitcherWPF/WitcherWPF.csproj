@@ -82,6 +82,10 @@
       <DependentUpon>AxiiSkills.xaml</DependentUpon>
     </Compile>
     <Compile Include="Barghest.cs" />
+    <Compile Include="Bestiary.cs" />
+    <Compile Include="BestiaryJournal.xaml.cs">
+      <DependentUpon>BestiaryJournal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Character.xaml.cs">
       <DependentUpon>Character.xaml</DependentUpon>
     </Compile>
@@ -190,6 +194,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AxiiSkills.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BestiaryJournal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -527,6 +535,10 @@
     <Resource Include="img\Char\Triss.png" />
     <Resource Include="img\Characters\Přeživší.png" />
     <Resource Include="img\Monsters\Ghoul.png" />
+    <Resource Include="img\Items\Herb_Celandine.png" />
+    <Resource Include="img\Items\Meteorite_Blue.png" />
+    <Resource Include="img\Items\Herb_Myrtle.png" />
+    <Resource Include="img\UI\Shop_ico.png" />
     <Content Include="sounds\ghoul\ghoul_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

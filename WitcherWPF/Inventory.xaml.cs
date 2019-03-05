@@ -73,7 +73,8 @@ namespace WitcherWPF
             player.LoadAttributes(HealthBar, EnduranceBar, ToxicityBar);
             player.LoadXP(XPBar, Level);
             player.LoadOrens(Oren);
-            LoadInventory();
+            LoadInventory(true);
+            LoadInventory(false);
             LoadGear();
             LoadEquipSwords();
             if (EnduranceBar.Value != EnduranceBar.Maximum && Combat == false ) {
@@ -120,10 +121,19 @@ namespace WitcherWPF
                 parentFrame.Navigate(new Combat(parentFrame, true, time, false, null));
             }
         }
-        public void LoadInventory() {
-            InventoryItems.Children.Clear();
+        public void LoadInventory(bool InvLoad) {
+            
+            List<PlayerInventory> matches = new List<PlayerInventory>();
+            if (InvLoad == true) {
+                InventoryItems.Children.Clear();
+                matches = pinventory.Where(s => s.Item.Type != "Alchemy").ToList();
+            }else {
+                AlchemyItems.Children.Clear();
+                matches = pinventory.Where(s => s.Item.Type == "Alchemy").ToList();
+            }
+            
             if (pinventory != null) {
-                foreach (var item in pinventory) {
+                foreach (var item in matches) {
                     int p = item.Item.Price;
                     int sell = p / 2;
                     string orens = inventory.Orens(sell);
@@ -152,7 +162,11 @@ namespace WitcherWPF
                     inventoryitem.ContextMenu = cm;
                     inventoryitem.Tag = item.Item.Action;
                     inventoryitem.Background = Brushes.Transparent;
-                    InventoryItems.Children.Add(inventoryitem);
+                    if (InvLoad == true) {
+                        InventoryItems.Children.Add(inventoryitem);
+                    }else {
+                        AlchemyItems.Children.Add(inventoryitem);
+                    }
                     buttonitems.Add(use, item);
                 }
             }
@@ -332,9 +346,10 @@ namespace WitcherWPF
         public void DropItem(object sender, RoutedEventArgs e) {
             PlayerInventory invent = new PlayerInventory();
             MenuItem button = (sender as MenuItem);
-            pinventory = invent.DropItem(button, pinventory);
+            pinventory = invent.DropItem(button.Tag.ToString(), pinventory);
             InventoryItems.Children.Clear();
-            LoadInventory();
+            LoadInventory(true);
+            LoadInventory(false);
             manager.SavePlayerInventory(pinventory);
 
         }
@@ -380,8 +395,9 @@ namespace WitcherWPF
                 }else if(item.Count == 1) {
                     pinventory.Remove(item);
                 }
-                LoadInventory();
-                
+                LoadInventory(true);
+                LoadInventory(false);
+
             }
         }
         public void Read(MenuItem book) {

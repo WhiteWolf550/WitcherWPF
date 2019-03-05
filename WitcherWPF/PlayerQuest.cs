@@ -97,13 +97,14 @@ namespace WitcherWPF {
                             }
                     }
                     }
-                
-                QuestShow(QuestPop);
-                await Task.Delay(5000);
-                QuestHide(QuestPop);
                 manager.SavePlayerQuests(playerQuests);
                 manager.SaveDialogues(dialogues, prolog);
+                QuestShow(QuestPop);
                 sound.PlaySound("QuestUpdate");
+                await Task.Delay(5000);
+                QuestHide(QuestPop);
+                
+                
             }
             
             
