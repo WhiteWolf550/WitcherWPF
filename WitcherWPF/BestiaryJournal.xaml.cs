@@ -21,5 +21,12 @@ namespace WitcherWPF {
         public BestiaryJournal() {
             InitializeComponent();
         }
+        public void LoadInfo(string Name, string Description, string Weak, string Strength,  string GIF) {
+            MonsterName.Content = Name;
+            CharDesc.Text = Description;
+            MonWeak.Text = Weak;
+            MonStrength.Text = Strength;
+            MonsterIMG.Source = new BitmapImage(new Uri(GIF, UriKind.Relative));
+        }
     }
 }

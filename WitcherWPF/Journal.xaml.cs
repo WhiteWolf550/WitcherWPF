@@ -24,12 +24,15 @@ namespace WitcherWPF
         private Time time;
         Music sound = new Music();
         List<Characters> characters = new List<Characters>();
+        List<Bestiary> bestiary = new List<Bestiary>();
         Dictionary<Button, Characters> chardict = new Dictionary<Button, Characters>();
+        Dictionary<Button, Bestiary> mondict = new Dictionary<Button, Bestiary>();
         FileManager manager = new FileManager();
         public Journal()
         {
             InitializeComponent();
             characters = manager.LoadCharacters();
+            bestiary = manager.LoadBestiary();
             sound.PlaySound("NewPage");
         }
         public Journal(Frame parentFrame, Time time) : this() {
@@ -57,16 +60,18 @@ namespace WitcherWPF
 
         private void GetChar(object sender, RoutedEventArgs e) {
             CharPanel.Children.Clear();
-            Load();
+            LoadChar();
         }
         private void GetBestiary(object sender, RoutedEventArgs e) {
-
+            CharPanel.Children.Clear();
+            LoadMonsters();
         }
-        public void Load() {
+        public void LoadChar() {
             foreach(Characters item in characters) {
                 Button button = new Button();
                 button.Content = item.Name;
                 button.FontSize = 23;
+                button.Tag = "Character";
                 button.Foreground = Brushes.WhiteSmoke;
                 button.Background = Brushes.Transparent;
                 button.BorderBrush = Brushes.Transparent;
@@ -75,11 +80,34 @@ namespace WitcherWPF
                 chardict.Add(button, item);
             }
         }
+        public void LoadMonsters() {
+            foreach (Bestiary item in bestiary) {
+                Button button = new Button();
+                button.Content = item.Name;
+                button.FontSize = 23;
+                button.Tag = "Monster";
+                button.Foreground = Brushes.WhiteSmoke;
+                button.Background = Brushes.Transparent;
+                button.BorderBrush = Brushes.Transparent;
+                button.Click += new RoutedEventHandler(LoadInfoClick);
+                CharPanel.Children.Add(button);
+                mondict.Add(button, item);
+            }
+        }
         private void LoadInfoClick(object sender, RoutedEventArgs e) {
-            CharInfo.Visibility = Visibility.Visible;
             Button button = (sender as Button);
-            Characters character = chardict[button];
-            CharInfo.LoadInfo(character.Name, character.Description, character.Source);
+            if (button.Tag.ToString() == "Character") {
+                CharInfo.Visibility = Visibility.Visible;
+                MonInfo.Visibility = Visibility.Hidden;
+
+                Characters character = chardict[button];
+                CharInfo.LoadInfo(character.Name, character.Description, character.Source);
+            }else {
+                CharInfo.Visibility = Visibility.Hidden;
+                MonInfo.Visibility = Visibility.Visible;
+                Bestiary beast = mondict[button];
+                MonInfo.LoadInfo(beast.Name, beast.Description, beast.Weakness, beast.Strength, beast.Source);
+            }
         }
     }
 }

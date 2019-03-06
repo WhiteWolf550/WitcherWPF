@@ -36,6 +36,7 @@ namespace WitcherWPF {
         Potion potions = new Potion();
         Characters characters = new Characters();
         Shop shop = new Shop();
+        Bestiary bestiary = new Bestiary();
         
         public MainWindow() {
             
@@ -51,7 +52,7 @@ namespace WitcherWPF {
             pquest.CreatePlayerQuests();
             items.CreateItems();
             //shop.CreateShops();
-
+            bestiary.CreateBestiary();
             //shop.CreateShops();
             //potions.CreatePotions();
             //characters.CreateCharacters();

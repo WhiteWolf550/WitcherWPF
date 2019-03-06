@@ -539,6 +539,8 @@
     <Resource Include="img\Items\Meteorite_Blue.png" />
     <Resource Include="img\Items\Herb_Myrtle.png" />
     <Resource Include="img\UI\Shop_ico.png" />
+    <Resource Include="img\Monsters\Barghest.png" />
+    <Resource Include="img\Monsters\Drowner.jpg" />
     <Content Include="sounds\ghoul\ghoul_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

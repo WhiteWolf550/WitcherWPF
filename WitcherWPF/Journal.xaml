@@ -149,5 +149,6 @@
 
         </StackPanel>
         <local:CharJournal x:Name="CharInfo" Visibility="Hidden" Grid.ColumnSpan="4" Grid.Column="2" Margin="36,53,347,4" Grid.Row="1" Grid.RowSpan="2"></local:CharJournal>
+        <local:BestiaryJournal x:Name="MonInfo" Visibility="Hidden" Grid.ColumnSpan="4" Grid.Column="2" Margin="36,53,347,4" Grid.Row="1" Grid.RowSpan="2"></local:BestiaryJournal>
     </Grid>
 </Page>

@@ -20,8 +20,9 @@
         </Rectangle>
         <Label Name="MonsterName" HorizontalContentAlignment="Center" Content="Name" FontSize="25" Foreground="#DDFFFFFF" HorizontalAlignment="Center" VerticalAlignment="Center" Height="43"  Width="168" Margin="253,29,279,618"/>
 
-        <TextBlock Padding="7" TextWrapping="Wrap" FontSize="18" Name="CharDesc" Text="Text..." Foreground="White" Margin="10,109,317,538"/>
-
+        <TextBlock Padding="7" TextWrapping="Wrap" FontSize="18" Name="CharDesc" Text="Text..." Foreground="White" Margin="10,109,317,270"/>
+        <TextBlock Padding="7" TextWrapping="Wrap" FontSize="18" Name="MonWeak" Text="Text..." Foreground="White" Margin="0,420,447,200"></TextBlock>
+        <TextBlock Padding="7" TextWrapping="Wrap" FontSize="18" Name="MonStrength" Text="Text..." Foreground="White" Margin="0,495,447,125"></TextBlock>
         <Image Name="MonsterIMG" Margin="463,135,0,157"></Image>
     </Grid>
 </UserControl>
