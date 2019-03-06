@@ -63,6 +63,7 @@ namespace WitcherWPF
             string lootpath = @"../../saves/Loot.json";
             
             List<Item> loot = new List<Item>();
+            List<int> useditems = new List<int>();
             List<Item> items = manager.LoadItems();
             //Dictionary<Item, Button> lootitems = new Dictionary<Item, Button>();
             
@@ -82,35 +83,42 @@ namespace WitcherWPF
 
                 for (int i = 0;i <= lootcount;i++) {
                     int rn = rand.Next(0, itc);
-                    int randomcount = rand.Next(0, 5);
-                    Image inventoryimage = new Image();
-                    inventoryimage.Width = 18;
-                    inventoryimage.Height = 18;
-                    inventoryimage.Source = new BitmapImage(new Uri(matches[rn].Source, UriKind.Relative));
-                    inventoryimage.Margin = new Thickness(-15, -3, -3, -3);
-                    Button inventoryitem = new Button();
-                    inventoryitem.Content = inventoryimage;
-                    inventoryitem.Height = 20;
-                    inventoryitem.Width = 20;
-                    inventoryitem.ToolTip = matches[rn].Name + "\n" + randomcount + "\n" + matches[rn].Description + "\n" + "SUBSTANCE:" + "\n" + matches[rn].Substance;
-                    inventoryitem.BorderBrush = Brushes.Transparent;
-                    inventoryitem.Background = Brushes.Transparent;
-                    LootInventory.Children.Add(inventoryitem);
-                    Item it = new Item();
-                    it.Name = matches[rn].Name;
-                    it.Description = matches[rn].Description;
-                    it.Type = matches[rn].Type;
-                    it.LootType = matches[rn].LootType;
-                    it.Source = matches[rn].Source;
-                    it.Substance = matches[rn].Substance;
-                    it.Effect = matches[rn].Effect;
-                    it.Action = matches[rn].Action;
-                    it.Content = matches[rn].Content;
-                    it.Price = matches[rn].Price;
-                    it.Count = randomcount;
-                    loot.Add(it);
-                    if (matches[rn].Type == "Quest") {
-                        i = lootcount + 1;
+                    int randomcount = rand.Next(1, 5);
+                    
+                    if (!useditems.Contains(rn)) {
+                        Image inventoryimage = new Image();
+                        inventoryimage.Width = 18;
+                        inventoryimage.Height = 18;
+                        inventoryimage.Source = new BitmapImage(new Uri(matches[rn].Source, UriKind.Relative));
+                        inventoryimage.Margin = new Thickness(-15, -3, -3, -3);
+                        Button inventoryitem = new Button();
+                        inventoryitem.Content = inventoryimage;
+                        inventoryitem.Height = 20;
+                        inventoryitem.Width = 20;
+                        inventoryitem.ToolTip = matches[rn].Name + "\n" + randomcount + "\n" + matches[rn].Description + "\n" + "SUBSTANCE:" + "\n" + matches[rn].Substance;
+                        inventoryitem.BorderBrush = Brushes.Transparent;
+                        inventoryitem.Background = Brushes.Transparent;
+                        LootInventory.Children.Add(inventoryitem);
+                        Item it = new Item();
+                        it.Name = matches[rn].Name;
+                        it.Description = matches[rn].Description;
+                        it.Type = matches[rn].Type;
+                        it.LootType = matches[rn].LootType;
+                        it.Source = matches[rn].Source;
+                        it.Substance = matches[rn].Substance;
+                        it.Effect = matches[rn].Effect;
+                        it.Action = matches[rn].Action;
+                        it.Content = matches[rn].Content;
+                        it.Price = matches[rn].Price;
+                        it.Count = randomcount;
+                        loot.Add(it);
+                        if (matches[rn].Type == "Quest")
+                        {
+                            i = lootcount + 1;
+                        }
+                        useditems.Add(rn);
+                    }else {
+                        i--;
                     }
                     
                 }
@@ -140,7 +148,10 @@ namespace WitcherWPF
         public void LootToInventory(WrapPanel LootInventory, Button LootButton, Image LootBack, Button CloseBut, StackPanel QuestPop, Label QueName, TextBlock QueGoal) {
             string lootpath = @"../../saves/Loot.json";
             List<Item> loot = manager.LoadLoot();
-            List<PlayerInventory> inventory = manager.LoadPlayerInventory(); 
+            List<PlayerInventory> inventory = manager.LoadPlayerInventory();
+            if (inventory == null) {
+                inventory = new List<PlayerInventory>();
+            }
             foreach (var item1 in loot) {
                 var match = loot.Where(s => s.Name == item1.Name).ToList();
                 var match2 = new List<PlayerInventory>();

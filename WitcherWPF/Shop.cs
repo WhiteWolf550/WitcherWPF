@@ -8,7 +8,7 @@ namespace WitcherWPF {
     class Shop {
         public string Name { get; set; }
         public string Type { get; set; }
-        List<Item> Items { get; set; }
+        List<string> Items { get; set; }
         public string Sword { get; set; }
         public string Armor { get; set; }
 
@@ -17,7 +17,7 @@ namespace WitcherWPF {
         public Shop() {
 
         }
-        public Shop(string Name, string Type, List<Item> Items, string Sword, string Armor) {
+        public Shop(string Name, string Type, List<string> Items, string Sword, string Armor) {
             this.Name = Name;
             this.Items = Items;
             this.Sword = Sword;
@@ -25,14 +25,18 @@ namespace WitcherWPF {
             this.Type = Type;
         }
 
-        public void CreateShops() {
+        public void CreateShops()
+        {
             List<Shop> shops = new List<Shop>();
             List<Item> items = manager.LoadItems();
-            List<Sword> sword = manager.LoadSwords();
-            List<Armor> armor = manager.LoadArmors();
-            List<Item> matches = items.Where(s => s.Type == "Herb" && s.Type == "Loot").ToList();
-            
-            shops.Add(new Shop("Yaven", "Blacksmith", items, "Temerský ocelový meč", "Zbroj wyzimské stráže"));
+            List<Item> matches = items.Where(s => s.Effect == "Alcohol").ToList();
+            List<string> shopitems = new List<string>();
+            foreach (Item item in matches)
+            {
+                shopitems.Add(item.Name);
+            }
+
+            shops.Add(new Shop("Yaven", "Blacksmith", shopitems, "Temerský ocelový meč", "Zbroj wyzimské stráže"));
             manager.SaveShops(shops);
         }
     }

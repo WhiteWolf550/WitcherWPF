@@ -126,50 +126,62 @@ namespace WitcherWPF
         public void LoadInventory(bool InvLoad) {
             
             List<PlayerInventory> matches = new List<PlayerInventory>();
-            if (InvLoad == true) {
-                InventoryItems.Children.Clear();
-                matches = pinventory.Where(s => s.Item.Type != "Alchemy").ToList();
-            }else {
-                AlchemyItems.Children.Clear();
-                matches = pinventory.Where(s => s.Item.Type == "Alchemy").ToList();
-            }
-            
-            if (pinventory != null) {
-                foreach (var item in matches) {
-                    int p = item.Item.Price;
-                    int sell = p / 2;
-                    string orens = inventory.Orens(sell);
-                    Image inventoryimage = new Image();
-                    inventoryimage.Width = 18;
-                    inventoryimage.Height = 18;
-                    inventoryimage.Source = new BitmapImage(new Uri(item.Item.Source, UriKind.Relative));
-                    inventoryimage.Margin = new Thickness(-15, -3, -3, -3);
-                    ContextMenu cm = new ContextMenu();
-                    MenuItem drop = new MenuItem();
-                    drop.Header = "Zahodit předmět";
-                    drop.Click += DropItem;
-                    drop.Tag = item.Item.Name;
-                    cm.Items.Add(drop);
-                    MenuItem use = new MenuItem();
-                    use.Header = item.Item.Action;
-                    use.Click += UseItem;
-                    use.Tag = item.Item.Action;
-                    cm.Items.Add(use);
-                    Button inventoryitem = new Button();
-                    inventoryitem.Content = inventoryimage;
-                    inventoryitem.Height = 20;
-                    inventoryitem.Width = 20;
-                    inventoryitem.BorderBrush = Brushes.Transparent;
-                    inventoryitem.ToolTip = item.Item.Name + "\n" + item.Item.Count + "x" + "\n" + item.Item.Description + "\n" + "SUBSTANCE:" + "\n" + item.Item.Substance + "\n" + "Lze prodat za: " + sell + " " + orens;
-                    inventoryitem.ContextMenu = cm;
-                    inventoryitem.Tag = item.Item.Action;
-                    inventoryitem.Background = Brushes.Transparent;
-                    if (InvLoad == true) {
-                        InventoryItems.Children.Add(inventoryitem);
-                    }else {
-                        AlchemyItems.Children.Add(inventoryitem);
+            if (pinventory != null)
+            {
+                if (InvLoad == true)
+                {
+                    InventoryItems.Children.Clear();
+                    matches = pinventory.Where(s => s.Item.Type != "Alchemy").ToList();
+                }
+                else
+                {
+                    AlchemyItems.Children.Clear();
+                    matches = pinventory.Where(s => s.Item.Type == "Alchemy").ToList();
+                }
+
+                if (pinventory != null)
+                {
+                    foreach (var item in matches)
+                    {
+                        int p = item.Item.Price;
+                        int sell = p / 2;
+                        string orens = inventory.Orens(sell);
+                        Image inventoryimage = new Image();
+                        inventoryimage.Width = 18;
+                        inventoryimage.Height = 18;
+                        inventoryimage.Source = new BitmapImage(new Uri(item.Item.Source, UriKind.Relative));
+                        inventoryimage.Margin = new Thickness(-15, -3, -3, -3);
+                        ContextMenu cm = new ContextMenu();
+                        MenuItem drop = new MenuItem();
+                        drop.Header = "Zahodit předmět";
+                        drop.Click += DropItem;
+                        drop.Tag = item.Item.Name;
+                        cm.Items.Add(drop);
+                        MenuItem use = new MenuItem();
+                        use.Header = item.Item.Action;
+                        use.Click += UseItem;
+                        use.Tag = item.Item.Action;
+                        cm.Items.Add(use);
+                        Button inventoryitem = new Button();
+                        inventoryitem.Content = inventoryimage;
+                        inventoryitem.Height = 20;
+                        inventoryitem.Width = 20;
+                        inventoryitem.BorderBrush = Brushes.Transparent;
+                        inventoryitem.ToolTip = item.Item.Name + "\n" + item.Item.Count + "x" + "\n" + item.Item.Description + "\n" + "SUBSTANCE:" + "\n" + item.Item.Substance + "\n" + "Lze prodat za: " + sell + " " + orens;
+                        inventoryitem.ContextMenu = cm;
+                        inventoryitem.Tag = item.Item.Action;
+                        inventoryitem.Background = Brushes.Transparent;
+                        if (InvLoad == true)
+                        {
+                            InventoryItems.Children.Add(inventoryitem);
+                        }
+                        else
+                        {
+                            AlchemyItems.Children.Add(inventoryitem);
+                        }
+                        buttonitems.Add(use, item);
                     }
-                    buttonitems.Add(use, item);
+
                 }
             }
         }
