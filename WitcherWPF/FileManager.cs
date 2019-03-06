@@ -63,6 +63,14 @@ namespace WitcherWPF {
             return jsonread;
 
         }
+        public List<Item> LoadLoot()
+        {
+            string path = @"../../saves/Loot.json";
+            string jsonFromFile = File.ReadAllText(path);
+            List<Item> jsonread = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
+            return jsonread;
+
+        }
 
         public List<PlayerQuest> LoadPlayerQuests() {
             string path = @"../../saves/PlayerQuests.json";

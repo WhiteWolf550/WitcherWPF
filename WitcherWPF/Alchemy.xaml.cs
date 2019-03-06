@@ -192,9 +192,9 @@ namespace WitcherWPF
             bool remove = false;
             foreach(PlayerInventory item in playerinventory) {
                 if (pitem == item) {
-                    if (item.Count > 1) {
-                        item.Count--;
-                    }else if(item.Count == 1) {
+                    if (item.Item.Count > 1) {
+                        item.Item.Count--;
+                    }else if(item.Item.Count == 1) {
                         removeitem = item;
                         remove = true;
                     }
@@ -209,12 +209,13 @@ namespace WitcherWPF
             PlayerInventory potionitem = new PlayerInventory();
             foreach (Item item in items) {
                 if (item.Name == CurrentPotion.Content.ToString()) {
-                    potionitem = new PlayerInventory(item, 1);                   
+                    item.Count = 1;
+                    potionitem = new PlayerInventory(item);                   
                 }
             }
             foreach (PlayerInventory item2 in playerinventory) {
                 if (item2.Item.Name == CurrentPotion.Content.ToString()) {
-                    item2.Count++;
+                    item2.Item.Count++;
                     addpotion = false;
                     break;
                 } else {

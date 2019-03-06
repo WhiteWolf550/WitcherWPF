@@ -9,6 +9,7 @@ namespace WitcherWPF {
         public string CurrentLocation { get; set; }
         public string Chapter { get; set; }
         public bool CombatTutorial { get; set; }
+        public bool AlchemyTutorial { get; set; }
 
         FileManager manager = new FileManager();
 

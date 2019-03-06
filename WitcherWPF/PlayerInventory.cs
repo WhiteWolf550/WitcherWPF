@@ -14,15 +14,14 @@ namespace WitcherWPF
     class PlayerInventory
     {
         public Item Item { get; set; }
-        public int Count { get; set; }
 
         FileManager manager = new FileManager();
         public PlayerInventory() {
 
         }
-        public PlayerInventory(Item item, int Count) {
+        public PlayerInventory(Item item) {
             this.Item = item;
-            this.Count = Count;
+            
         }
         public void GetItem() {
             JsonSerializerSettings settings = new JsonSerializerSettings {
@@ -39,7 +38,8 @@ namespace WitcherWPF
             int matchcount = matches.Count();
             int itemcount = rn.Next(0, 6);
             int rand = rn.Next(0, matchcount);
-            inventory.Add(new PlayerInventory(matches[rand], itemcount));
+            matches[rand].Count = 1;
+            inventory.Add(new PlayerInventory(matches[rand]));
             string jsonToFile = JsonConvert.SerializeObject(inventory, settings);
             File.WriteAllText(playerinvpath, jsonToFile);
         }

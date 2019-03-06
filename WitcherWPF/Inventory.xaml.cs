@@ -41,6 +41,7 @@ namespace WitcherWPF
         List<Sword> sword = new List<Sword>();
         List<Armor> armor = new List<Armor>();
         List<PlayerInventory> pinventory = new List<PlayerInventory>();
+        List<Potion> potions = new List<Potion>();
         PlayerInventory inventory = new PlayerInventory();
         Game game = new Game();
         Music sound = new Music();
@@ -60,6 +61,7 @@ namespace WitcherWPF
             armor = manager.LoadPlayerArmors();
             pinventory = manager.LoadPlayerInventory();
             effects = manager.LoadEffects();
+            potions = manager.LoadPotions();
             
         }
         public Inventory(Frame parentFrame, bool Combat, Time time) : this() {
@@ -158,7 +160,7 @@ namespace WitcherWPF
                     inventoryitem.Height = 20;
                     inventoryitem.Width = 20;
                     inventoryitem.BorderBrush = Brushes.Transparent;
-                    inventoryitem.ToolTip = item.Item.Name + "\n" + item.Count + "x" + "\n" + item.Item.Description + "\n" + "SUBSTANCE:" + "\n" + item.Item.Substance + "\n" + "Lze prodat za: " + sell + " " + orens;
+                    inventoryitem.ToolTip = item.Item.Name + "\n" + item.Item.Count + "x" + "\n" + item.Item.Description + "\n" + "SUBSTANCE:" + "\n" + item.Item.Substance + "\n" + "Lze prodat za: " + sell + " " + orens;
                     inventoryitem.ContextMenu = cm;
                     inventoryitem.Tag = item.Item.Action;
                     inventoryitem.Background = Brushes.Transparent;
@@ -368,8 +370,14 @@ namespace WitcherWPF
         }public void Drink(MenuItem drink) {
             Effect e = new Effect();
             e.Name = buttonitems[drink].Item.Name;
-            e.Duration = buttonitems[drink].Item.Duration;
-            e.Toxicity = buttonitems[drink].Item.Toxicity;
+            int toxicity = 0;
+            foreach (Potion item in potions) {
+                if (e.Name == item.Name) {
+                    e.Duration = item.Duration;
+                    e.Toxicity = item.Toxicity;
+                    toxicity = item.Toxicity;
+                }
+            }
 
             List<Effect> matches = effects.Where(s => s.Name == buttonitems[drink].Item.Name).ToList();
             if (matches.Count > 0) {
@@ -378,7 +386,7 @@ namespace WitcherWPF
                 effects.Add(e);
                 RemoveItem(buttonitems[drink].Item.Name);
                 foreach (Player item in playerinfo) {
-                    item.toxicity += buttonitems[drink].Item.Toxicity;
+                    item.toxicity += toxicity;
                 }
                 game.SaveGame(playerinfo, pinventory, armor, sword, effects);
                 parentFrame.Navigate(new Combat(parentFrame, true, time, true, null));
@@ -390,9 +398,9 @@ namespace WitcherWPF
         public void RemoveItem(string name) {
             List<PlayerInventory> matches = pinventory.Where(s => s.Item.Name == name).ToList();
             foreach(PlayerInventory item in matches) {
-                if (item.Count > 1) {
-                    item.Count -= 1;
-                }else if(item.Count == 1) {
+                if (item.Item.Count > 1) {
+                    item.Item.Count -= 1;
+                }else if(item.Item.Count == 1) {
                     pinventory.Remove(item);
                 }
                 LoadInventory(true);
