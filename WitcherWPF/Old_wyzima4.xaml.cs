@@ -20,9 +20,35 @@ namespace WitcherWPF
     /// </summary>
     public partial class Old_wyzima4 : UserControl
     {
+        static public bool Looted = false;
         public Old_wyzima4()
         {
             InitializeComponent();
+            CheckLootReset();
+        }
+        public void HideLoot(bool hide) {
+            if (hide == true) {
+                Looted = true;
+                Shelf.Visibility = Visibility.Hidden;
+            } else {
+                Looted = false;
+                Shelf.Visibility = Visibility.Visible;
+            }
+        }
+        public void CheckLootReset() {
+            if (Globals.LootReset == false) {
+                CheckLoot();
+            }else {
+                Looted = false;
+                CheckLoot();
+            }
+        }
+        public void CheckLoot() {
+            if (Looted == true) {
+                Shelf.Visibility = Visibility.Hidden;
+            } else if (Looted == false) {
+                Shelf.Visibility = Visibility.Visible;
+            }
         }
     }
 }

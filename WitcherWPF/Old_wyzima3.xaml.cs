@@ -24,6 +24,7 @@ namespace WitcherWPF
         public DispatcherTimer time = new DispatcherTimer();
         List<PlayerQuest> qq = new List<PlayerQuest>();
         FileManager manager = new FileManager();
+        public bool Looted = false;
         public Old_wyzima3()
         {
             InitializeComponent();

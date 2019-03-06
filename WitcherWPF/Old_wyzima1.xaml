@@ -21,7 +21,7 @@
         <Button Grid.Column="1" Grid.Row="1" Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Foltest" ToolTip="Král Foltest">
             <Image Source="img/Characters/Foltest.png" Grid.Column="1" Grid.Row="1"></Image>
         </Button>
-        <Button Name="Flower" Height="Auto" Grid.Column="2" Margin="246,10,10,10" Tag="Herb" Grid.Row="1" Click="GetLoot" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold">
+        <Button Name="Flower" Height="Auto" Grid.Column="2" Margin="246,10,10,10" Tag="Herb" Grid.Row="1" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold">
             <Image Source="img/UI/ui_loot.png" RenderTransformOrigin="0.5,0.5" Height="45" Width="44">
 
             </Image>

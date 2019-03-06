@@ -20,6 +20,7 @@ namespace WitcherWPF {
     public partial class Old_wyzima5 : UserControl {
         List<PlayerQuest> qq = new List<PlayerQuest>();
         FileManager manager = new FileManager();
+        public bool Looted = false;
         public Old_wyzima5() {
             InitializeComponent();
             Quest();

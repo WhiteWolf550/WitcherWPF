@@ -18,12 +18,34 @@ namespace WitcherWPF {
     /// Interakční logika pro UserControl1.xaml
     /// </summary>
     public partial class Old_wyzima1 : UserControl {
+        static public bool Looted = false;
         public Old_wyzima1() {
             InitializeComponent();
-            
+            CheckLootReset();
         }
-        private void GetLoot(object sender, RoutedEventArgs e) {
-            Item item = new Item();
+        public void HideLoot(bool hide) {
+            if (hide == true) {
+                Looted = true;
+                Flower.Visibility = Visibility.Hidden;
+            }else {
+                Looted = false;
+                Flower.Visibility = Visibility.Visible;
+            }
+        }
+        public void CheckLootReset() {
+            if (Globals.LootReset == false) {
+                CheckLoot();
+            } else {
+                Looted = false;
+                CheckLoot();
+            }
+        }
+        public void CheckLoot() {
+            if (Looted == true) {
+                Flower.Visibility = Visibility.Hidden;
+            } else if (Looted == false) {
+                Flower.Visibility = Visibility.Visible;
+            }
         }
     }
 }

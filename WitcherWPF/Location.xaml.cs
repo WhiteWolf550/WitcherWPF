@@ -29,6 +29,7 @@ namespace WitcherWPF {
         Item it = new Item();
         Music media = new Music();
         Button butclick = new Button();
+        UserControl CurrentUserControl = new UserControl();
         static Button Loot = new Button();
         public bool Steps = false;
         public Location() {
@@ -71,14 +72,19 @@ namespace WitcherWPF {
         public void SetLocation() {
             if (loc == "Old_wyzima2") {
                 Wyzima_Castle2.Visibility = Visibility.Visible;
+                CurrentUserControl = Wyzima_Castle2;
             }else if(loc == "Old_wyzima1") {
                 Wyzima_Castle.Visibility = Visibility.Visible;
+                CurrentUserControl = Wyzima_Castle;
             }else if (loc == "Old_wyzima3") {
                 Wyzima_Outside.Visibility = Visibility.Visible;
+                CurrentUserControl = Wyzima_Outside;
             } else if (loc == "Old_wyzima4") {
                 Wyzima_Smith.Visibility = Visibility.Visible;
+                CurrentUserControl = Wyzima_Smith;
             }else if (loc == "Old_wyzima5") {
                 Wyzima_House.Visibility = Visibility.Visible;
+                CurrentUserControl = Wyzima_House;
             }
         }
         public Location(Frame parentFrame, Time time) : this() {
@@ -98,7 +104,9 @@ namespace WitcherWPF {
              
         }
         public void GetLoot(object sender, RoutedEventArgs e) {
+            LootInventory.Children.Clear();
             Button button = (sender as Button);
+            Globals.LootReset = false;
             string loottype = "Loot";
             if (button.Tag != null) {
                 loottype = button.Tag.ToString();
@@ -108,14 +116,26 @@ namespace WitcherWPF {
         }
         public void LootToInventory(object sender, RoutedEventArgs e) {
             it.LootToInventory(LootInventory, TakeLoot, LootBack, CloseBut, QuestPop, QueName, QueGoal);
-            if (Loot.Tag.ToString() == "Strašidelný dům" && Loot.Tag != null) {
+            if (Loot.Tag != null) {
+                ScriptedEvents(Loot.Tag.ToString());
+            }else {
+
+            }
+            DisableLoot();
+        }
+        public void ScriptedEvents(string Event) {
+            if (Event == "Strašidelný dům") {
                 Wyzima_House.Ghoul.Visibility = Visibility.Visible;
                 Wyzima_House.Outside.Visibility = Visibility.Hidden;
                 Wyzima_House.Shelf.Visibility = Visibility.Hidden;
             }
-            
-            LootLock = true;
-
+        }
+        public void DisableLoot() {
+            if (loc == "Old_wyzima1") {
+                Wyzima_Castle.HideLoot(true);
+            }else if (loc == "Old_wyzima4") {
+                Wyzima_Smith.HideLoot(true);
+            }
         }
         public void CloseLoot(object sender, RoutedEventArgs e) {
             TakeLoot.Visibility = Visibility.Hidden;

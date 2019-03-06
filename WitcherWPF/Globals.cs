@@ -10,5 +10,6 @@ namespace WitcherWPF {
         public static bool Combat;
         public static int Hour;
         public static string daytime;
+        public static bool LootReset;
     }
 }

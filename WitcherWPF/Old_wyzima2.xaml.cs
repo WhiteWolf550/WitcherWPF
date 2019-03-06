@@ -18,8 +18,10 @@ namespace WitcherWPF {
     /// Interakční logika pro Old_wyzima2.xaml
     /// </summary>
     public partial class Old_wyzima2 : UserControl {
+        public bool Looted = false;
         public Old_wyzima2() {
             InitializeComponent();
         }
+        
     }
 }

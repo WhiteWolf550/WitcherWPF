@@ -38,9 +38,9 @@ namespace WitcherWPF {
         public void Timer() {
             time.Interval = TimeSpan.FromSeconds(1);
             time.Tick += new EventHandler(Time_tick);
-
-            
-
+        }
+        public void ResetLoot() {
+            Globals.LootReset = true;
         }
         public string Zero(int num) {
             if(num < 10) {
@@ -57,6 +57,7 @@ namespace WitcherWPF {
                 if (minute > 59) {
                     minute = 0;
                     hour++;
+                    ResetLoot();
                     if (hour > 23) {
                         hour = 0;
                     }
