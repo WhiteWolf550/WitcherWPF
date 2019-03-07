@@ -25,7 +25,6 @@ namespace WitcherWPF {
         private Frame parentFrame;
         private Time time;
         static public string loc = "Old_wyzima1";
-        static public bool LootLock;
         Item it = new Item();
         Music media = new Music();
         Button butclick = new Button();
@@ -36,9 +35,7 @@ namespace WitcherWPF {
             InitializeComponent();
             Globals.location = loc;
             AddHandlers();
-            if (LootLock == true) {
-                Wyzima_Castle.Flower.Visibility = Visibility.Hidden;
-            }
+            
 
         }
         public void AddHandlers() {
@@ -106,7 +103,7 @@ namespace WitcherWPF {
         public void GetLoot(object sender, RoutedEventArgs e) {
             LootInventory.Children.Clear();
             Button button = (sender as Button);
-            Globals.LootReset = false;
+            
             string loottype = "Loot";
             if (button.Tag != null) {
                 loottype = button.Tag.ToString();
@@ -121,6 +118,7 @@ namespace WitcherWPF {
             }else {
 
             }
+            Globals.LootReset = false;
             DisableLoot();
         }
         public void ScriptedEvents(string Event) {

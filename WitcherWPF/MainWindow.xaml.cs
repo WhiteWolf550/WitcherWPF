@@ -48,7 +48,7 @@ namespace WitcherWPF {
             dialogue.CreateDialogues();
             //sword.CreateSwords();
             //armor.CreateArmor();
-            //skills.CreateSkills();
+            skills.CreateSkills();
             pquest.CreatePlayerQuests();
             items.CreateItems();
             //shop.CreateShops();

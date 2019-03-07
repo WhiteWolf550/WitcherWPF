@@ -95,7 +95,7 @@ namespace WitcherWPF
                         inventoryitem.Content = inventoryimage;
                         inventoryitem.Height = 20;
                         inventoryitem.Width = 20;
-                        inventoryitem.ToolTip = matches[rn].Name + "\n" + randomcount + "\n" + matches[rn].Description + "\n" + "SUBSTANCE:" + "\n" + matches[rn].Substance;
+                        inventoryitem.ToolTip = matches[rn].Name + "\n" + randomcount + "x" + "\n" + matches[rn].Description + "\n" + "SUBSTANCE:" + "\n" + matches[rn].Substance;
                         inventoryitem.BorderBrush = Brushes.Transparent;
                         inventoryitem.Background = Brushes.Transparent;
                         LootInventory.Children.Add(inventoryitem);
@@ -125,7 +125,7 @@ namespace WitcherWPF
                 manager.SaveItems(loot, lootpath);
             }else if (File.Exists(lootpath)) {
 
-                loot = manager.LoadItems();
+                loot = manager.LoadLoot();
                 foreach (var item in loot) {
                     Image inventoryimage2 = new Image();
                     inventoryimage2.Width = 18;
@@ -136,7 +136,7 @@ namespace WitcherWPF
                     inventoryitem.Content = inventoryimage2;
                     inventoryitem.Height = 20;
                     inventoryitem.Width = 20;
-                    inventoryitem.ToolTip = item.Name + "\n" + item.Count + "\n" + item.Description + "\n" + "SUBSTANCE:" + "\n" + item.Substance;
+                    inventoryitem.ToolTip = item.Name + "\n" + item.Count + "x" + "\n" + item.Description + "\n" + "SUBSTANCE:" + "\n" + item.Substance;
                     inventoryitem.BorderBrush = Brushes.Transparent;
                     inventoryitem.Background = Brushes.Transparent;
                     LootInventory.Children.Add(inventoryitem);
@@ -178,11 +178,15 @@ namespace WitcherWPF
                                 if (item2.Item.Count + item1.Count > 10)
                                 {
                                     item2.Item.Count = 10;
-                                    int zbytek = item2.Item.Count + item1.Count - 10;
+                                    int rest = item2.Item.Count + item1.Count - 10;
+                                    
                                     Item restitem = item1;
-                                    restitem.Count = zbytek;
+                                    restitem.Count = rest;
                                     PlayerInventory inv = new PlayerInventory(restitem);
                                     inventory.Add(inv);
+                                    break;
+                                }else {
+                                    item2.Item.Count += item1.Count;
                                 }
                                 
                             }
@@ -239,7 +243,7 @@ namespace WitcherWPF
 
             //HERBS
             items.Add(new Item("Vlaštovičník", "Běžná rostlina s léčivými vlastnostmi", "Alchemy", "Herb", @"img/Items/Herb_Celandine.png", "Rebis", null, null, null, 10));
-            items.Add(new Item("Bílá Myrta", "Běžná polní květina s velkými bílými květy", "Alchemy", "Herb", @"img/Items/Herb_Myrtle.png", "Aether", null, null, null, 10));
+            items.Add(new Item("Bílá Myrta", "Běžná polní květina s velkými bílými květy", "Alchemy", "Herb", @"img/Items/Herb_Myrtle.png", "Vitriol", null, null, null, 10));
 
 
             items.Add(new Item("Krev z Ghůla", "Krev, která se dá získat z Ghůla", "Alchemy", "Ghůl", @"img/Items/Monster_Ghoul_Blood.png", "Aether", "Alchemy", null, null, 10));
