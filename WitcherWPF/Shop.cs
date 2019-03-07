@@ -33,9 +33,9 @@ namespace WitcherWPF {
             List<string> shopitems = new List<string>();
             foreach (Item item in matches)
             {
-                shopitems.Add(item.Name);
+                shopitems.Add("aa");
             }
-
+            
             shops.Add(new Shop("Yaven", "Blacksmith", shopitems, "Temerský ocelový meč", "Zbroj wyzimské stráže"));
             manager.SaveShops(shops);
         }

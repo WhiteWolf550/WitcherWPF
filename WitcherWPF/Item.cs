@@ -177,12 +177,10 @@ namespace WitcherWPF
                             else {
                                 if (item2.Item.Count + item1.Count > 10)
                                 {
-                                    item2.Item.Count = 10;
                                     int rest = item2.Item.Count + item1.Count - 10;
-                                    
-                                    Item restitem = item1;
-                                    restitem.Count = rest;
-                                    PlayerInventory inv = new PlayerInventory(restitem);
+                                    item2.Item.Count = 10; 
+                                    item1.Count = rest;
+                                    PlayerInventory inv = new PlayerInventory(item1);
                                     inventory.Add(inv);
                                     break;
                                 }else {

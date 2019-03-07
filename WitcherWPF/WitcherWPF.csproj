@@ -169,6 +169,9 @@
       <DependentUpon>Quests.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shop.cs" />
+    <Compile Include="ShopPage.xaml.cs">
+      <DependentUpon>ShopPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sign.cs" />
     <Compile Include="Skills.cs" />
     <Compile Include="StrongSkills.xaml.cs">
@@ -301,6 +304,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Old_wyzima1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShopPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

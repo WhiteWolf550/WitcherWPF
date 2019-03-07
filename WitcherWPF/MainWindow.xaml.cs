@@ -51,7 +51,7 @@ namespace WitcherWPF {
             skills.CreateSkills();
             pquest.CreatePlayerQuests();
             items.CreateItems();
-            //shop.CreateShops();
+            shop.CreateShops();
             bestiary.CreateBestiary();
             //shop.CreateShops();
             //potions.CreatePotions();

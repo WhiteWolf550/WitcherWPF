@@ -1146,7 +1146,7 @@ namespace WitcherWPF {
             EnemyTimeToAttack.Stop();
             EnemySound("Hit");
             EnemyAnimations("Hit");
-            if (IgniAnim != true) {
+            if (IgniAnim == false) {
                 int damage = player.Attack(SteelSword, Strong);
                 if (SteelSword != enemy.HurtSteelSword) {
                     damage = damage / 3;
@@ -1163,30 +1163,7 @@ namespace WitcherWPF {
 
                 }
             }else {
-                bool Burn = false;
-                int damage = 0;
-                foreach(Player item in playerlist) {
-                    damage = item.Igni.Damage;
-                    damage += item.Igni.SignIntensity / 10;
-
-                }
-                
-                int hp = enemy.HP - damage;
-                enemy.HP -= damage;
-                EnemyHP.Value = hp;
-                EnemyHP.ToolTip = EnemyHP.Value;
-                IgniAnim = false;
-                textb.Text = "Geralt dává poškození";
-                foreach(Player item in playerlist) {
-                    Burn = item.Igni.Burn();
-                }
-                if (Burn == true) {
-                    
-                    BurnDuration.Start();
-                } else {
-
-                }
-                PlayerAnimations("IgniFX", GIFSign);
+                IgniDamage();
 
             }
             
@@ -1197,7 +1174,33 @@ namespace WitcherWPF {
 
             }
         }
+        public void IgniDamage() {
+            bool Burn = false;
+            int damage = 0;
+            foreach (Player item in playerlist) {
+                damage = item.Igni.Damage;
+                damage += item.Igni.SignIntensity / 10;
 
+            }
+
+            int hp = enemy.HP - damage;
+            enemy.HP -= damage;
+            EnemyHP.Value = hp;
+            EnemyHP.ToolTip = EnemyHP.Value;
+            IgniAnim = false;
+            textb.Text = "Geralt dává poškození";
+            foreach (Player item in playerlist) {
+                Burn = item.Igni.Burn();
+            }
+            if (Burn == true) {
+
+                BurnDuration.Start();
+            }
+            else {
+
+            }
+            PlayerAnimations("IgniFX", GIFSign);
+        }
         private void PlayerLoad() {
             foreach(Player item in playerlist) {
                 
