@@ -15,7 +15,7 @@
         <Image Source="img/Characters/Foltest.png" Name="DialogueCharacter" HorizontalAlignment="Right" VerticalAlignment="Center" Height="432"  Width="174" Grid.Column="2" Margin="0,70,147,10" Grid.Row="2"></Image>
         <Image Source="img/UI/dialog_back.png" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1000" Grid.ColumnSpan="3" Margin="220,228,207,97" Height="187" Grid.Row="2"/>
 
-        <Button Name="Shop" Width="80" Height="80" Margin="1140,396,207,418" BorderBrush="{x:Null}">
+        <Button Visibility="Hidden" Click="OpenShop_Click" Name="Shop" Width="80" Height="80" Margin="1140,396,207,418" BorderBrush="{x:Null}">
             <Button.Background>
                 <ImageBrush ImageSource="img/UI/Shop_ico.png"/>
             </Button.Background>

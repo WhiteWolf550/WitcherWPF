@@ -59,7 +59,6 @@ namespace WitcherWPF
             LootBack.Visibility = Visibility.Visible;
             CloseBut.Visibility = Visibility.Visible;
             TakeLoot.Visibility = Visibility.Visible;
-            string ipath = @"../../gamefiles/GameItems.json";
             string lootpath = @"../../saves/Loot.json";
             
             List<Item> loot = new List<Item>();

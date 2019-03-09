@@ -95,6 +95,9 @@
     <Compile Include="Combat.xaml.cs">
       <DependentUpon>Combat.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Cutscenes.xaml.cs">
+      <DependentUpon>Cutscenes.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DeathMenu.xaml.cs">
       <DependentUpon>DeathMenu.xaml</DependentUpon>
     </Compile>
@@ -213,6 +216,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Combat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cutscenes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

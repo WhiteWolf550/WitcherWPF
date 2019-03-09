@@ -44,15 +44,15 @@ namespace WitcherWPF {
             
 
             //player.CreateDefaultPlayer();
-            quest.CreateQuests();
-            dialogue.CreateDialogues();
+            //quest.CreateQuests();
+            //dialogue.CreateDialogues();
             //sword.CreateSwords();
             //armor.CreateArmor();
-            skills.CreateSkills();
-            pquest.CreatePlayerQuests();
-            items.CreateItems();
-            shop.CreateShops();
-            bestiary.CreateBestiary();
+            //skills.CreateSkills();
+            //pquest.CreatePlayerQuests();
+            //items.CreateItems();
+            //shop.CreateShops();
+            //bestiary.CreateBestiary();
             //shop.CreateShops();
             //potions.CreatePotions();
             //characters.CreateCharacters();

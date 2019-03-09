@@ -64,6 +64,7 @@ namespace WitcherWPF
             dialogues.DialogueGreet(PersonName, PersonText, Character);
             DialogueCharacter.Source = new BitmapImage(new Uri(@"img/Characters/" + Character + ".png", UriKind.Relative));
             LoadOptions(false, null);
+            CheckShop();
 
         }
         public void DialogueS(Button button, bool Decision) {
@@ -420,6 +421,20 @@ namespace WitcherWPF
         }
         private void CloseLoot(object sender, RoutedEventArgs e) {
 
+        }
+        private void OpenShop_Click(object sender, RoutedEventArgs e) {
+            OpenShop();
+        }
+        public void OpenShop() {
+            parentFrame.Navigate(new ShopPage(parentFrame, time, Character));
+        }
+        public void CheckShop() {
+            List<Shop> shops = manager.LoadShop();
+            foreach(Shop item in shops) {
+                if (item.Name == Character) {
+                    Shop.Visibility = Visibility.Visible;
+                }
+            }
         }
     }
 }
