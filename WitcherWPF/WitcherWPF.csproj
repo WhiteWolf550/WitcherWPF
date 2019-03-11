@@ -159,6 +159,9 @@
     <Compile Include="Old_wyzima5.xaml.cs">
       <DependentUpon>Old_wyzima5.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PausePage.xaml.cs">
+      <DependentUpon>PausePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="PlayerInventory.cs" />
     <Compile Include="PlayerQuest.cs" />
@@ -302,6 +305,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PausePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="QuenSkills.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -352,8 +359,6 @@
     <None Include="dialogues\DialoguePrologue.json" />
     <Resource Include="fonts\MORPHEUS.TTF" />
     <Resource Include="fonts\MORPHEUS2.TTF" />
-    <None Include="gamefiles\GameItems.json" />
-    <None Include="gamefiles\Quests.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -452,6 +457,7 @@
     <Resource Include="img\UI\exit_c.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="gamefiles\" />
     <Folder Include="saves\" />
   </ItemGroup>
   <ItemGroup>
@@ -555,6 +561,7 @@
     <Resource Include="img\UI\Shop_ico.png" />
     <Resource Include="img\Monsters\Barghest.png" />
     <Resource Include="img\Monsters\Drowner.jpg" />
+    <Resource Include="img\UI\Pause_back.jpg" />
     <Content Include="sounds\ghoul\ghoul_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

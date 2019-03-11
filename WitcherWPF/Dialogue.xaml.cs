@@ -48,6 +48,7 @@ namespace WitcherWPF
         Music sound = new Music();
         string prolog = @"../../dialogues/DialoguePrologue.json";
         string QuestName = "";
+        string Enemy = "";
 
         public Dialogue() {
             InitializeComponent();
@@ -197,6 +198,20 @@ namespace WitcherWPF
             animation.Completed += (s, a) => BlackScreen.Visibility = Visibility.Visible;
             animation.Completed += (s, a) => BlackScreen.Opacity = 1;
             animation.Completed += new EventHandler(GoToCombat);
+            BlackScreen.BeginAnimation(UIElement.OpacityProperty, animation);
+        }
+        public void TravelCutsceneShow() {
+            BlackScreen.Visibility = Visibility.Visible;
+            var animation = new DoubleAnimation {
+                To = 1,
+                BeginTime = TimeSpan.FromSeconds(0),
+                Duration = TimeSpan.FromSeconds(1),
+                FillBehavior = FillBehavior.Stop
+            };
+
+            animation.Completed += (s, a) => BlackScreen.Visibility = Visibility.Visible;
+            animation.Completed += (s, a) => BlackScreen.Opacity = 1;
+            animation.Completed += new EventHandler(GoToCutscene);
             BlackScreen.BeginAnimation(UIElement.OpacityProperty, animation);
         }
         public void ChangeFrame() {
@@ -409,15 +424,22 @@ namespace WitcherWPF
         }
         public void ScriptedEvents(string DialogueChoice) {
             if (DialogueChoice == "Problém s příšerou") {
+                Enemy = "Ghůl";
                 TravelShow();
             }
             if (DialogueChoice == "Našel jsem prsten") {
                 inventory.DropItem("Zlatý prsten", inventoryitems);
                 manager.SavePlayerInventory(inventoryitems);
             }
+            if (DialogueChoice == "Vyrazit na cestu") {
+                TravelCutsceneShow();
+            }
         }
         private void GoToCombat(object sender, EventArgs e) {
-            parentFrame.Navigate(new Combat(parentFrame, false, time, false, QuestName));
+            parentFrame.Navigate(new Combat(parentFrame, false, time, false, QuestName, Enemy));
+        }
+        private void GoToCutscene(object sender, EventArgs e) {
+            parentFrame.Navigate(new Cutscenes(parentFrame, time, "PrologueCut2"));
         }
         private void CloseLoot(object sender, RoutedEventArgs e) {
 

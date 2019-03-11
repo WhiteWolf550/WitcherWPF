@@ -24,8 +24,10 @@ namespace WitcherWPF
     {
         private Frame parentFrame;
         private Time time;
-        DispatcherTimer loadtimer = new DispatcherTimer();
 
+        FileManager manager = new FileManager();
+        DispatcherTimer loadtimer = new DispatcherTimer();
+        List<Game> game = new List<Game>();
         private Music sound;
         public LoadScreen() {
             InitializeComponent();
@@ -37,6 +39,7 @@ namespace WitcherWPF
             this.time = time;
             this.sound = sound;
 
+            game = manager.LoadGame();
         }
         public void LoadTimer() {
             loadtimer.Interval = TimeSpan.FromSeconds(1);
@@ -51,10 +54,20 @@ namespace WitcherWPF
         }
         public void Load(object sender, EventArgs E) {
             sound.StopMusic();
+            LoadToGlobals();
             Globals.Combat = false;
             time.Visibility = Visibility.Visible;
             time.Timer();
             parentFrame.Navigate(new Location(parentFrame, time));
+        }
+        public void LoadToGlobals() {
+            foreach (Game item in game) {
+                Globals.Hour = item.Hour;
+                Globals.Minute = item.Minute;
+                Globals.location = item.CurrentLocation;
+                Globals.DialoguePath = item.DialoguePath;
+                Globals.Chapter = item.Chapter;
+            }
         }
         public void TransitionShow() {
             BlackScreen.Visibility = Visibility.Visible;

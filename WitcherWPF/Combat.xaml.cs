@@ -56,6 +56,9 @@ namespace WitcherWPF {
         private bool Potion;
         private string quest;
         private bool frominventory;
+        private string EnemyMainName;
+        private string CutsceneName;
+
         FileManager manager = new FileManager();
         static Player player = new Player();
         PlayerQuest playerquest = new PlayerQuest();
@@ -129,12 +132,35 @@ namespace WitcherWPF {
         public void PageLoaded(object sender, RoutedEventArgs e) {
             Application.Current.MainWindow.KeyDown += new KeyEventHandler(Crossway);
         }
-        public Combat(Frame parentFrame, bool frominventory, Time time, bool Potion, string Quest) : this() {
+        public Combat(Frame parentFrame, bool frominventory, Time time, bool Potion, string Quest, string Enemy) : this() {
             this.parentFrame = parentFrame;
             this.frominventory = frominventory;
             this.Potion = Potion;
             this.time = time;
+            this.EnemyMainName = Enemy;
             this.quest = Quest;
+            Deathmenu.Load.Click += new RoutedEventHandler(LoadGame);
+            Deathmenu.Exit.Click += new RoutedEventHandler(ExitGame);
+            StaminaCheck();
+            LoadEnemy();
+            LoadPlayer();
+            LoadEffects();
+            SetTimers();
+            SignChecker.Start();
+            if (frominventory == false) {
+                SetMusic();
+            }
+
+
+        }
+        public Combat(Frame parentFrame, bool frominventory, Time time, bool Potion, string Quest, string Enemy, string Cutscene) : this() {
+            this.parentFrame = parentFrame;
+            this.frominventory = frominventory;
+            this.Potion = Potion;
+            this.time = time;
+            this.EnemyMainName = Enemy;
+            this.quest = Quest;
+            this.CutsceneName = Cutscene;
             Deathmenu.Load.Click += new RoutedEventHandler(LoadGame);
             Deathmenu.Exit.Click += new RoutedEventHandler(ExitGame);
             StaminaCheck();
@@ -564,9 +590,16 @@ namespace WitcherWPF {
 
             
         }
+        public void SelectEnemy() {
+            if (EnemyMainName == "Ghůl") {
+                enemy = new Ghoul();
+            }else if (EnemyMainName == "Barghest") {
+                enemy = new Barghest();
+            }
+        }
         public void LoadEnemy() {
             if (frominventory == false) {
-                enemy = new Ghoul();
+                SelectEnemy();
                 EnemyHP.Value = enemy.MaxHP;
                 EnemyHP.ToolTip = enemy.MaxHP;
                 EnemyName.Content = enemy.Name;            
@@ -1220,7 +1253,7 @@ namespace WitcherWPF {
             EnemyHealthPoints = EnemyHP.Value;
             EnemName = enemy.Name;
             Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Crossway);
-            parentFrame.Navigate(new Inventory(parentFrame, true, time));
+            parentFrame.Navigate(new Inventory(parentFrame, true, time, EnemyMainName, CutsceneName));
             
         }
         public void UsePotion(Effect effect) {
@@ -1255,7 +1288,7 @@ namespace WitcherWPF {
             Deathmenu.BeginAnimation(UIElement.OpacityProperty, animation);
         }
         private void LoadGame(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Combat(parentFrame, false, time, false, quest));
+            parentFrame.Navigate(new Combat(parentFrame, false, time, false, quest, EnemyMainName, CutsceneName));
         }
         private void ExitGame(object sender, RoutedEventArgs e) {
             System.Windows.Application.Current.Shutdown();
@@ -1267,7 +1300,11 @@ namespace WitcherWPF {
             //time.location.StopBattleMusic();
             Globals.Combat = false;
             Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Crossway);
-            parentFrame.Navigate(new Location(parentFrame, time));
+            if (CutsceneName == null) {
+                parentFrame.Navigate(new Location(parentFrame, time));
+            }else {
+                parentFrame.Navigate(new Cutscenes(parentFrame, time, CutsceneName));
+            }
         }
         private void QuestUpdate() {
             if (quest != null && CanLoadQuest == true) {

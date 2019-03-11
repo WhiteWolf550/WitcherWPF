@@ -215,6 +215,46 @@ namespace WitcherWPF
             }
 
         }
+        public void GiveItem(PlayerInventory pitem, List<Shop> shops, int num) {
+            int def = pitem.Item.Count;
+            foreach(Shop item in shops) {
+                List<Item> items = item.Items.Where(s => s.Name == pitem.Item.Name).ToList();
+                //var match3 = items.Where(s => s.Count < 10).ToList();
+                if (items.Count > 0) {
+                    foreach (Item item2 in item.Items) {
+                        if (item2.Name == pitem.Item.Name) {
+                            if (item2.Count == 10) {
+                                if (0 == 0) {
+                                    item.Items.Add(pitem.Item);
+                                    break;
+                                }else {
+
+                                }
+                            } else {
+                                if (item2.Count + num > 10) {
+                                    int rest = item2.Count + num - 10;
+                                    item2.Count = 10;
+                                    Item it = pitem.Item;
+                                    it.Count = rest;
+
+                                    item.Items.Add(it);
+                                    break;
+                                } else {
+                                    item2.Count += num;
+                                }
+                            }
+                        }
+                    }
+                }else {
+                    Item item3 = pitem.Item;
+                    item3.Count = num;
+                    item.Items.Add(item3);
+                }
+            }
+            
+            manager.SaveShops(shops);
+            
+        }
         public void CreateItems() {
             List<Item> items = new List<Item>();
             items.Add(new Item("Kuře", "Jídlo,Po snězení doplní malou část zdraví", "Loot", "Loot", @"img/Items/Food_Chicken.png", "žádné", "Food", "Sníst", null, 20));

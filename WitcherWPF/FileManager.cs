@@ -13,9 +13,14 @@ namespace WitcherWPF {
 
         public List<Player> LoadPlayer() {
             string path = @"../../saves/Player.json";
-            string jsonFromFile = File.ReadAllText(path);
-            return JsonConvert.DeserializeObject<List<Player>>(jsonFromFile, settings);
-            
+            List<Player> jsonread = new List<Player>();
+            try {
+                string jsonFromFile = File.ReadAllText(path);
+                jsonread = JsonConvert.DeserializeObject<List<Player>>(jsonFromFile, settings);
+            }catch {
+
+            }
+            return jsonread;
 
         }
         public List<Effect> LoadEffects() {
@@ -36,81 +41,148 @@ namespace WitcherWPF {
         }
 
         public List<Dialogues> LoadDialogue(string path) {
+            List<Dialogues> jsonread = new List<Dialogues>();
+            try {
+                string jsonFromFile = File.ReadAllText(path);
+                jsonread = JsonConvert.DeserializeObject<List<Dialogues>>(jsonFromFile, settings);
+            }catch {
 
-            string jsonFromFile = File.ReadAllText(path);
-            List<Dialogues> jsonread = JsonConvert.DeserializeObject<List<Dialogues>>(jsonFromFile, settings);
+            }
             return jsonread;
 
         }
         public List<Quest> LoadQuests() {
             string path = @"../../gamefiles/Quests.json";
-            string jsonFromFile = File.ReadAllText(path);
-            List<Quest> jsonread = JsonConvert.DeserializeObject<List<Quest>>(jsonFromFile, settings);
+            List<Quest> jsonread = new List<Quest>();
+            try {
+                string jsonFromFile = File.ReadAllText(path);
+                jsonread = JsonConvert.DeserializeObject<List<Quest>>(jsonFromFile, settings);
+            }catch {
+
+            }
             return jsonread;
 
         }
         public List<Monologue> LoadMonologues() {
             string path = @"../../gamefiles/Monologue.json";
-            string jsonFromFile = File.ReadAllText(path);
-            List<Monologue> jsonread = JsonConvert.DeserializeObject<List<Monologue>>(jsonFromFile, settings);
+            List<Monologue> jsonread = new List<Monologue>();
+            try {
+                string jsonFromFile = File.ReadAllText(path);
+                jsonread = JsonConvert.DeserializeObject<List<Monologue>>(jsonFromFile, settings);
+            }catch {
+
+            }
             return jsonread;
 
         }
         public List<Skills> LoadSkills() {
             string path = @"../../saves/Skills.json";
-            string jsonFromFile = File.ReadAllText(path);
-            List<Skills> jsonread = JsonConvert.DeserializeObject<List<Skills>>(jsonFromFile, settings);
+            List<Skills> jsonread = new List<Skills>();
+            try {
+                string jsonFromFile = File.ReadAllText(path);
+                jsonread = JsonConvert.DeserializeObject<List<Skills>>(jsonFromFile, settings);
+            }catch {
+
+            }
             return jsonread;
 
         }
         public List<Item> LoadLoot()
         {
             string path = @"../../saves/Loot.json";
-            string jsonFromFile = File.ReadAllText(path);
-            List<Item> jsonread = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
+            List<Item> jsonread = new List<Item>();
+            try {
+                string jsonFromFile = File.ReadAllText(path);
+                jsonread = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
+            }catch {
+
+            }
             return jsonread;
 
         }
 
         public List<PlayerQuest> LoadPlayerQuests() {
             string path = @"../../saves/PlayerQuests.json";
-            string jsonFromFile = File.ReadAllText(path);
-            List<PlayerQuest> jsonread = JsonConvert.DeserializeObject<List<PlayerQuest>>(jsonFromFile, settings);
+            List<PlayerQuest> jsonread = new List<PlayerQuest>();
+            try {
+                string jsonFromFile = File.ReadAllText(path);
+                jsonread = JsonConvert.DeserializeObject<List<PlayerQuest>>(jsonFromFile, settings);
+            } catch {
+                jsonread = new List<PlayerQuest>();
+            }
+            
             return jsonread;
 
         }
         public List<Item> LoadItems() {
             string path = @"../../gamefiles/GameItems.json";
-            string jsonFromFile = File.ReadAllText(path);
-            List<Item> jsonread = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
+            List<Item> jsonread = new List<Item>();
+            try {
+                string jsonFromFile = File.ReadAllText(path);
+                jsonread = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
+            }catch {
+
+            }
             return jsonread;
 
         }
         public List<Sword> LoadPlayerSwords() {
             string path = @"../../saves/PlayerSwords.json";
-            string jsonFromFile = File.ReadAllText(path);
-            List<Sword> jsonread = JsonConvert.DeserializeObject<List<Sword>>(jsonFromFile, settings);
+            List<Sword> jsonread = new List<Sword>();
+            try {
+                string jsonFromFile = File.ReadAllText(path);
+                jsonread = JsonConvert.DeserializeObject<List<Sword>>(jsonFromFile, settings);
+            }catch {
+
+            }
             return jsonread;
 
         }
         public List<Sword> LoadSwords() {
             string path = @"../../gamefiles/Swords.json";
-            string jsonFromFile = File.ReadAllText(path);
-            List<Sword> jsonread = JsonConvert.DeserializeObject<List<Sword>>(jsonFromFile, settings);
+            List<Sword> jsonread = new List<Sword>();
+            try {
+                string jsonFromFile = File.ReadAllText(path);
+                jsonread = JsonConvert.DeserializeObject<List<Sword>>(jsonFromFile, settings);
+            }catch {
+
+            }
+            return jsonread;
+
+        }
+        public List<Game> LoadGame() {
+            string path = @"../../saves/Game.json";
+            List<Game> jsonread = new List<Game>();
+            try {
+                string jsonFromFile = File.ReadAllText(path);
+                jsonread = JsonConvert.DeserializeObject<List<Game>>(jsonFromFile, settings);
+            }catch {
+
+            }
             return jsonread;
 
         }
         public List<Bestiary> LoadBestiary() {
             string path = @"../../gamefiles/Bestiary.json";
-            string jsonFromFile = File.ReadAllText(path);
-            List<Bestiary> jsonread = JsonConvert.DeserializeObject<List<Bestiary>>(jsonFromFile, settings);
+            List<Bestiary> jsonread = new List<Bestiary>();
+            try {
+                string jsonFromFile = File.ReadAllText(path);
+                jsonread = JsonConvert.DeserializeObject<List<Bestiary>>(jsonFromFile, settings);
+            }catch {
+
+            }
             return jsonread;
 
         }
         public List<Shop> LoadShop() {
             string path = @"../../gamefiles/Shops.json";
-            string jsonFromFile = File.ReadAllText(path);
-            List<Shop> jsonread = JsonConvert.DeserializeObject<List<Shop>>(jsonFromFile, settings);
+            List<Shop> jsonread = new List<Shop>();
+            try {
+                string jsonFromFile = File.ReadAllText(path);
+                jsonread = JsonConvert.DeserializeObject<List<Shop>>(jsonFromFile, settings);
+            }catch {
+
+            }
             return jsonread;
 
         }
@@ -159,14 +231,24 @@ namespace WitcherWPF {
         
         public List<Potion> LoadPotions() {
             string path = @"../../gamefiles/Potions.json";
-            string jsonFromFile = File.ReadAllText(path);
-            List<Potion> jsonread = JsonConvert.DeserializeObject<List<Potion>>(jsonFromFile, settings);
+            List<Potion> jsonread = new List<Potion>();
+            try {
+                string jsonFromFile = File.ReadAllText(path);
+                jsonread = JsonConvert.DeserializeObject<List<Potion>>(jsonFromFile, settings);
+            }catch {
+
+            }
             return jsonread;
         }
         public List<Characters> LoadCharacters() {
             string path = @"../../gamefiles/Characters.json";
-            string jsonFromFile = File.ReadAllText(path);
-            List<Characters> jsonread = JsonConvert.DeserializeObject<List<Characters>>(jsonFromFile, settings);
+            List<Characters> jsonread = new List<Characters>();
+            try {
+                string jsonFromFile = File.ReadAllText(path);
+                jsonread = JsonConvert.DeserializeObject<List<Characters>>(jsonFromFile, settings);
+            }catch {
+
+            }
             return jsonread;
         }
 
@@ -189,6 +271,12 @@ namespace WitcherWPF {
         public void SaveItems(List<Item> Items) {
             string path = @"../../gamefiles/GameItems.json";
             string jsonToFilet = JsonConvert.SerializeObject(Items, settings);
+            File.WriteAllText(path, jsonToFilet);
+
+        }
+        public void SaveGame(List<Game> game) {
+            string path = @"../../saves/Game.json";
+            string jsonToFilet = JsonConvert.SerializeObject(game, settings);
             File.WriteAllText(path, jsonToFilet);
 
         }
@@ -223,9 +311,9 @@ namespace WitcherWPF {
             string jsonToFilet = JsonConvert.SerializeObject(PlayerArmors, settings);
             File.WriteAllText(path, jsonToFilet);
         }
-        public void SaveArmor(List<Armor> PlayerArmors) {
+        public void SaveArmor(List<Armor> Armors) {
             string path = @"../../gamefiles/Armors.json";
-            string jsonToFilet = JsonConvert.SerializeObject(PlayerArmors, settings);
+            string jsonToFilet = JsonConvert.SerializeObject(Armors, settings);
             File.WriteAllText(path, jsonToFilet);
         }
         public void SaveMonologue(List<Monologue> Monologue) {

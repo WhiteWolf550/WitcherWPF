@@ -27,6 +27,16 @@ namespace WitcherWPF {
             this.SetBonus = SetBonus;
             this.LootType = LootType;
         }
+        public void SellSword(List<Shop> shops, Sword sword) {
+            foreach(Shop item in shops) {
+                item.Swords.Add(sword);
+            }
+            manager.SaveShops(shops);
+        }
+        public void BuySword(List<Sword> swords, Sword sword) {
+            swords.Add(sword);
+            manager.SavePlayerSwords(swords);
+        }
         public void CreateSwords() {
             List<Sword> swords = new List<Sword>();
             swords.Add(new Sword("Ocelový meč", "Temerský ocelový meč", "Meč, který používají temerští vojáci", 1, 10, 0, @"img/Swords/Sword_Temeria.png", 200, null, 10, "Loot"));

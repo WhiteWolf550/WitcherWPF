@@ -17,12 +17,49 @@
                 <ImageBrush ImageSource="img/UI/exit.png"/>
             </Button.Background>
         </Button>
-        
+
+        <StackPanel Margin="1217,276,0,274" ScrollViewer.CanContentScroll="True" MinHeight="300">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF1F2914" Offset="0"/>
+                    <GradientStop Color="#FF192114" Offset="1"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <StackPanel Orientation="Horizontal">
+                <Button Click="LoadArmors_Click" Background="#FF192114" BorderBrush="{x:Null}" Height="66" Width="106">
+                    <Image Source="img/UI/Armor_ico.png"></Image>
+                </Button>
+                <Button Click="LoadSwords_Click" Background="#FF192114" BorderBrush="{x:Null}" Height="66" Width="103">
+                    <Image Source="img/UI/Sword_ico.png" Height="56" Width="81"></Image>
+                </Button>
+
+            </StackPanel>
+            <StackPanel Orientation="Vertical" MinHeight="310" Name="EquipWrap">
+
+            </StackPanel>
+
+
+        </StackPanel>
+
+
+        <Rectangle Margin="987,213,304,601" Stroke="#FF080808">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF1B2511" Offset="0"/>
+                    <GradientStop Color="#FF192114" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <StackPanel Margin="987,213,304,601" Name="Money" Orientation="Horizontal">
+            <Label Name="Oren" FontSize="20" Style="{StaticResource MORPHEUS}" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Padding="0" Content="Orens" Background="{x:Null}" Foreground="#DDECECEC" Width="90"/>
+            <Image Source="img/ui/oren.png" Width="44"></Image>
+        </StackPanel>
+
         <Image x:Name="LootBack" Visibility="Visible" Source="img/UI/inventory.png" HorizontalAlignment="Left" Margin="200,0,0,0"/>
         <WrapPanel Visibility="Visible" Margin="290,276,871,147" x:Name="LootInventory"/>
 
-        
-        
+
+
         <Rectangle Height="106" Width="213" VerticalAlignment="Center" Margin="987,300,227,444" Stroke="Black">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -41,5 +78,28 @@
             </Rectangle.Fill>
         </Rectangle>
         <WrapPanel Width="213"  Name="AlchemyItems" Margin="987,462,227,282"/>
+        <StackPanel Name="ShopDialog" Margin="636,327,511,356">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="img/UI/dlg.png"/>
+            </StackPanel.Background>
+            <StackPanel Height="120" Margin="21,20,26,20">
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="46,0,38,0" Width="77" Height="36">
+                    <Label HorizontalAlignment="Center" Name="Num" FontSize="20" Content="2" HorizontalContentAlignment="Right" Foreground="#DDFFFFFF" Height="25" Padding="0" Margin="0,6" Width="24"></Label>
+                    <Label Content="/10" FontSize="20" HorizontalAlignment="Center" Name="MaxNum" Width="44" Foreground="#DDFFFFFF"></Label>
+                </StackPanel>
+                <ScrollBar Name="ScrollBR" ValueChanged="ScrollBar_ValueChanged" Height="0" Orientation="Horizontal" Maximum="10" Minimum="1" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}"/>
+                <StackPanel Orientation="Horizontal" Height="53">
+                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Width="130">
+                        <Button Name="SellnBuyBut" Click="SellorBuy_Click" Padding="0"  Content="Prodat" Background="#FF283020" BorderBrush="{x:Null}" Height="30" Width="81" Margin="0,12,0,11"></Button>
+                        
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal" Width="111">
+                        <Button HorizontalAlignment="Right" Click="Close_Click" Padding="0"  Content="Zrušit" Background="#FF283020" BorderBrush="{x:Null}" Height="30" Width="81"></Button>
+                    </StackPanel>
+
+                </StackPanel>
+
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

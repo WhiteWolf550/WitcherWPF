@@ -25,13 +25,12 @@ namespace WitcherWPF {
         Music music = new Music();
         FileManager manager = new FileManager();
         List<Effect> effect = new List<Effect>();
-        public int hour = 8;
-        public  int minute = 20;
+        
         public int second = 0;
         
         public Time() {
             InitializeComponent();
-            Clock.Text = hour + ":" + minute;
+            Clock.Text = Globals.Hour + ":" + Zero(Globals.Minute);
             time.Start();
             
         }
@@ -53,24 +52,25 @@ namespace WitcherWPF {
             second += 20;
             if (second > 59) {
                 second = 0;
-                minute++;
-                if (minute > 59) {
-                    minute = 0;
-                    hour++;
+                Globals.Minute++;
+                if (Globals.Minute > 59) {
+                    Globals.Minute = 0;
+                    Globals.Hour++;
                     ResetLoot();
-                    if (hour > 23) {
-                        hour = 0;
+                    if (Globals.Hour > 23) {
+                        Globals.Hour = 0;
                     }
                 }
             }
-            if (hour >= 18 || hour < 9) {
+            if (Globals.Hour >= 18 || Globals.Hour < 9) {
                 music.AmbientMusic(false);
                 Globals.daytime = "night";
-            }else if(hour >= 9 && hour < 18) {
+            }else if(Globals.Hour >= 9 && Globals.Hour < 18) {
                 music.AmbientMusic(true);
                 Globals.daytime = "day";
             }
-            Clock.Text = hour + ":" + Zero(minute);
+            Clock.Text = Globals.Hour + ":" + Zero(Globals.Minute);
+            
             
         }
         

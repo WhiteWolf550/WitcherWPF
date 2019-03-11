@@ -24,15 +24,9 @@ namespace WitcherWPF
             
         }
         public void GetItem() {
-            JsonSerializerSettings settings = new JsonSerializerSettings {
-                TypeNameHandling = TypeNameHandling.All
-            };
-            string ipath = @"../../gamefiles/GameItems.json";
-            string playerinvpath = @"../../saves/PlayerInventory.json";
-            string jsonFromFile = File.ReadAllText(ipath);
-            string jsonFromFileinv = File.ReadAllText(playerinvpath);
-            List<Item> items = JsonConvert.DeserializeObject<List<Item>>(jsonFromFile, settings);
-            List<PlayerInventory> inventory = JsonConvert.DeserializeObject<List<PlayerInventory>>(jsonFromFileinv, settings);
+
+            List<Item> items = manager.LoadItems();
+            List<PlayerInventory> inventory = manager.LoadPlayerInventory();
             Random rn = new Random();
             var matches = items.Where(s => s.Type == "Loot").ToList();
             int matchcount = matches.Count();
@@ -40,8 +34,46 @@ namespace WitcherWPF
             int rand = rn.Next(0, matchcount);
             matches[rand].Count = 1;
             inventory.Add(new PlayerInventory(matches[rand]));
-            string jsonToFile = JsonConvert.SerializeObject(inventory, settings);
-            File.WriteAllText(playerinvpath, jsonToFile);
+            manager.SavePlayerInventory(inventory);
+        }
+        public void BuyItem(Item item, List<PlayerInventory> pinventory, int num) {
+            List<PlayerInventory> items = pinventory.Where(s => s.Item.Name == item.Name).ToList();
+            var match3 = items.Where(s => s.Item.Count < 10).ToList();
+            if (items.Count > 0) {
+                foreach (PlayerInventory item2 in items) {
+                    if (item2.Item.Name == item.Name) {
+                        if (item2.Item.Count == 10) {
+                            if (match3.Count() == 0) {
+                                PlayerInventory it = new PlayerInventory();
+                                it.Item = item;
+                                it.Item.Count = num;
+                                pinventory.Add(it);
+                            }else {
+
+                            }
+                        } else {
+                            if (item2.Item.Count + num > 10) {
+                                int rest = item2.Item.Count + num - 10;
+                                item2.Item.Count = 10;
+                                PlayerInventory it = new PlayerInventory();
+                                it.Item = item;
+                                it.Item.Count = rest;
+
+                                pinventory.Add(it);
+                                break;
+                            } else {
+                                item2.Item.Count += num;
+                            }
+                        }
+                    }
+                }
+            } else {
+                PlayerInventory item3 = new PlayerInventory();
+                item3.Item = item;
+                item3.Item.Count = num;
+                pinventory.Add(item3);
+            }
+            manager.SavePlayerInventory(pinventory);
         }
         public List<PlayerInventory> DropItem(string buttonTag, List<PlayerInventory> inventory) {
             

@@ -24,7 +24,7 @@ namespace WitcherWPF {
     public partial class Location : Page {
         private Frame parentFrame;
         private Time time;
-        static public string loc = "Old_wyzima1";
+        static public string loc;
         Item it = new Item();
         Music media = new Music();
         Button butclick = new Button();
@@ -33,7 +33,8 @@ namespace WitcherWPF {
         public bool Steps = false;
         public Location() {
             InitializeComponent();
-            Globals.location = loc;
+            
+            //Globals.location = loc;
             AddHandlers();
             
 
@@ -64,6 +65,7 @@ namespace WitcherWPF {
             loc = location;
             //time.Visibility = Visibility.Hidden;
             //Music();
+            time.Visibility = Visibility.Visible;
             SetLocation();
         }
         public void SetLocation() {
@@ -253,7 +255,10 @@ namespace WitcherWPF {
             BlackScreen.BeginAnimation(UIElement.OpacityProperty, animation);
         }
         public void GoToCombat(object sender, EventArgs e) {
-            parentFrame.Navigate(new Combat(parentFrame, false, time, false, Loot.Tag.ToString()));
+            parentFrame.Navigate(new Combat(parentFrame, false, time, false, Loot.Tag.ToString(), "Ghůl"));
+        }
+        private void GetMenu_Click(object sender, RoutedEventArgs e) {
+            parentFrame.Navigate(new PausePage(parentFrame, time));
         }
     }
 }

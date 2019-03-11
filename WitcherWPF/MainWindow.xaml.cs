@@ -22,45 +22,19 @@ namespace WitcherWPF {
     public partial class MainWindow : Window {
         
         
-        Music sound = new Music();
-        List<PlayerQuest> qqq = new List<PlayerQuest>();
-        FileManager manager = new FileManager();
-        Player player = new Player();
-        Quest quest = new Quest();
-        Dialogues dialogue = new Dialogues();
-        Sword sword = new Sword();
-        Armor armor = new Armor();
-        Skills skills = new Skills();
-        PlayerQuest pquest = new PlayerQuest();
-        Item items = new Item();
-        Potion potions = new Potion();
-        Characters characters = new Characters();
-        Shop shop = new Shop();
-        Bestiary bestiary = new Bestiary();
+        
         
         public MainWindow() {
             
             InitializeComponent();
             
 
-            //player.CreateDefaultPlayer();
-            //quest.CreateQuests();
-            //dialogue.CreateDialogues();
-            //sword.CreateSwords();
-            //armor.CreateArmor();
-            //skills.CreateSkills();
-            //pquest.CreatePlayerQuests();
-            //items.CreateItems();
-            //shop.CreateShops();
-            //bestiary.CreateBestiary();
-            //shop.CreateShops();
-            //potions.CreatePotions();
-            //characters.CreateCharacters();
+            
 
             
             time.Visibility = Visibility.Hidden;
             Globals.Combat = true;
-            Globals.location = "Old_wyzima1";
+            
             mainFrame.Navigate(new MainMenu(mainFrame, time));
         }
         

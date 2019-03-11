@@ -29,7 +29,16 @@ namespace WitcherWPF {
             this.SetBonus = SetBonus;
             this.LootType = LootType;
         }
-        
+        public void SellArmor(List<Shop> shops, Armor armor) {
+            foreach (Shop item in shops) {
+                item.Armors.Add(armor);
+            }
+            manager.SaveShops(shops);
+        }
+        public void BuyArmor(List<Armor> armors, Armor armor) {
+            armors.Add(armor);
+            manager.SavePlayerArmor(armors);
+        }
         public void CreateArmor() {
             List<Armor> armors = new List<Armor>();
             armors.Add(new Armor("Středně těžká zbroj", "Zbroj wyzimské stráže", "Obnošená zbroj wyzimské stráže", 1, 5, 0, 0, @"img/Armors/Armor_Temeria2.png", 150, null, 10, "Loot"));

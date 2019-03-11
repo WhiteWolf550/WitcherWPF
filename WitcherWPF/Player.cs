@@ -51,8 +51,10 @@ namespace WitcherWPF {
         public Axii Axii { get; set; }
 
         public FileManager manager = new FileManager();
-        public Music sound = new Music();
+
+
         public Player() {
+            
             this.SteelAnimationSets = new Dictionary<string, Uri>();
             this.SteelAnimationSets.Add("NoSword", new Uri("gifs/Geralt/geralt_fight_NoSword.gif", UriKind.Relative));
 
@@ -120,6 +122,7 @@ namespace WitcherWPF {
             this.SoundsSet.Add("QuenB", new Uri("sounds/geralt/ger_quenb.wav", UriKind.Relative));
             this.SoundsSet.Add("Yrden", new Uri("sounds/geralt/ger_yrden.wav", UriKind.Relative));
 
+
         }
 
         public Player(int MaxHealth, int Health, int MaxEndurance, int Endurance, int MaxToxicity, int Toxicity, int experience, int experiencetolevelup, int skillpoints, int level, int Money, int StrongStunChance, int strongstyledamage, int faststyledamage, int StunResistance, int ParryStunDuration, int VitalityperLevel, double EnduranceRegenSpeed, Sword SteelSword, Sword SilverSword, Armor Armor, Aard Aard, Igni Igni, Quen Quen, Axii Axii, Yrden Yrden ) {
@@ -184,6 +187,7 @@ namespace WitcherWPF {
             
         }
         public void LevelUP(List<Player> playerlist) {
+            Music sound = new Music();
             foreach (Player item in playerlist) {
                 if (item.experience >= item.experiencetolevelup) {
                     item.level += 1;
@@ -197,6 +201,23 @@ namespace WitcherWPF {
             foreach (Player item in playerlist) {
                 item.money += money;
             }
+        }
+        public bool Pay(int money, List<Player> playerlist) {
+            bool go = false;
+            foreach (Player item in playerlist) {
+                if (item.money - money < 0) {
+                    go = false;
+                }else {
+                    item.money -= money;
+                    go = true;
+                }
+            }
+            if (go == false) {
+                return false;
+            }else {
+                return true;
+            }
+            
         }
         public void LoadOrens(Label Orens) {
             List<Player> player = manager.LoadPlayer();
@@ -369,7 +390,7 @@ namespace WitcherWPF {
             foreach (var aerondight in matches2) {
                 silver = aerondight;
             }
-            player.Add(new Player(100, 100, 25, 25, 50, 0, 0, 1000, 50, 1, 50, 0, 5, 2, 0, 0, 0, 0.5, steel, silver, ar, aard, igni, quen, axii, yrden));
+            player.Add(new Player(100, 100, 25, 25, 50, 0, 0, 1000, 0, 1, 50, 0, 5, 2, 0, 0, 0, 0.5, steel, silver, ar, aard, igni, quen, axii, yrden));
             manager.SavePlayer(player);
         }
         

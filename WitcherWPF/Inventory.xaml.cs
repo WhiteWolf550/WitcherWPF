@@ -28,6 +28,8 @@ namespace WitcherWPF
             TypeNameHandling = TypeNameHandling.All
         };
         public bool Combat;
+        private string EnemyName;
+        private string CutsceneName;
         static string ipath = @"../../gamefiles/GameItems.json";
         static string playerinvpath = @"../../saves/PlayerInventory.json";
         static string playergearpath = @"../../saves/Player.json";
@@ -83,7 +85,27 @@ namespace WitcherWPF
                 StaminaRegen();
             }
         }
-        
+        public Inventory(Frame parentFrame, bool Combat, Time time, string EnemyName, string Cutscene) : this() {
+            this.EnemyName = EnemyName;
+            this.parentFrame = parentFrame;
+            this.time = time;
+            this.Combat = Combat;
+            this.CutsceneName = Cutscene;
+            Stamina.Interval = TimeSpan.FromSeconds(1);
+            Stamina.Tick += new EventHandler(Stamina_tick);
+            Player player = new Player();
+            player.LoadAttributes(HealthBar, EnduranceBar, ToxicityBar);
+            player.LoadXP(XPBar, Level);
+            player.LoadOrens(Oren);
+            LoadInventory(true);
+            LoadInventory(false);
+            LoadGear();
+            LoadEquipSwords();
+            if (EnduranceBar.Value != EnduranceBar.Maximum && Combat == false) {
+                StaminaRegen();
+            }
+        }
+
         public void GetMap(object sender, RoutedEventArgs e) {
             if (Combat == false) {
                 parentFrame.Navigate(new Map(parentFrame, time));
@@ -110,7 +132,7 @@ namespace WitcherWPF
         }
         public void GetAlchemy(object sender, RoutedEventArgs e) {
             if (Combat == false) {
-                parentFrame.Navigate(new Combat(parentFrame, false, time, false, null));
+                parentFrame.Navigate(new Combat(parentFrame, false, time, false, null, "Ghůl"));
                 game.SaveGame(playerinfo, pinventory, armor, sword, effects);
             }
         }
@@ -120,7 +142,7 @@ namespace WitcherWPF
                 parentFrame.Navigate(new Location(parentFrame, time));
             }else {
                 game.SaveGame(playerinfo, pinventory, armor, sword, effects);
-                parentFrame.Navigate(new Combat(parentFrame, true, time, false, null));
+                parentFrame.Navigate(new Combat(parentFrame, true, time, false, null, EnemyName, CutsceneName));
             }
         }
         public void LoadInventory(bool InvLoad) {
@@ -401,7 +423,7 @@ namespace WitcherWPF
                     item.toxicity += toxicity;
                 }
                 game.SaveGame(playerinfo, pinventory, armor, sword, effects);
-                parentFrame.Navigate(new Combat(parentFrame, true, time, true, null));
+                parentFrame.Navigate(new Combat(parentFrame, true, time, true, null, EnemyName, CutsceneName));
 
 
             }

@@ -13,8 +13,9 @@
         <Image Source="img/ui/medallion.png" Margin="482,85,487,522"></Image>
         <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Height="552" Margin="618,342,618,0">
             <Button Click="NewGameClick" Content="Nová hra" FontSize="30" Height="70" Background="{x:Null}" BorderBrush="{x:Null}"></Button>
-            <Button Click="LoadGameClick" Content="Načíst hru" FontSize="30" Height="70" Background="{x:Null}" BorderBrush="{x:Null}"></Button>
+            <Button Name="GameNew" Click="LoadGameClick" Content="Načíst hru" FontSize="30" Height="70" Background="{x:Null}" BorderBrush="{x:Null}"></Button>
             <Button Click="ExitGameClick" Content="Ukončit hru" FontSize="30" Height="70" Background="{x:Null}" BorderBrush="{x:Null}"></Button>
         </StackPanel>
+        <Rectangle HorizontalAlignment="Left" Height="894" Stroke="Black" VerticalAlignment="Top" Width="1427" Fill="Black" Name="BlackScreen" Visibility="Hidden" Opacity="0"/>
     </Grid>
 </Page>

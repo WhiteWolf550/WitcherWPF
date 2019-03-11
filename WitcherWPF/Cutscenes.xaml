@@ -9,6 +9,6 @@
       Title="Cutscenes"  Height="894" Width="1426.666">
 
     <Grid>
-        <MediaElement Name="CutScene"></MediaElement>
+        <MediaElement Name="CutScene" LoadedBehavior="Manual" MediaEnded="CutScene_MediaEnded"></MediaElement>
     </Grid>
 </Page>
