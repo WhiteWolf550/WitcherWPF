@@ -219,12 +219,12 @@ namespace WitcherWPF
             int def = pitem.Item.Count;
             foreach(Shop item in shops) {
                 List<Item> items = item.Items.Where(s => s.Name == pitem.Item.Name).ToList();
-                //var match3 = items.Where(s => s.Count < 10).ToList();
+                var match3 = items.Where(s => s.Count < 10).ToList();
                 if (items.Count > 0) {
                     foreach (Item item2 in item.Items) {
                         if (item2.Name == pitem.Item.Name) {
                             if (item2.Count == 10) {
-                                if (0 == 0) {
+                                if (match3.Count() == 0) {
                                     item.Items.Add(pitem.Item);
                                     break;
                                 }else {

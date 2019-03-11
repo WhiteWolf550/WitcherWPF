@@ -253,8 +253,8 @@ namespace WitcherWPF
             dialog.Add(new Dialogues("Geralt", "Ne králi, zatím ne", 1, "Co potřebujete králi?", "Talk", "Foltest", true, null, null, false));
             dialog.Add(new Dialogues("Foltest", "Tak to by sis měl pospíšit Geralte. Přeci jen jde o tvojí reputaci", 1, "Co potřebujete králi?", "Talk", "Foltest", true, "Něco končí, něco začíná", null, false));
             dialog.Add(new Dialogues("Geralt", "To že se jeden Zaklínač pokusí o zabití krále, ihned neznamená, že takový jsou všichni zaklínači", 1, "Co potřebujete králi?", "Talk", "Foltest", true, "Něco končí, něco začíná", null, false));
-            dialog.Add(new Dialogues("Foltest", "Takhle to ale u prostého lidu nefunguje. Lidem stačí, aby se jeden Zaklínač pokusil o vraždu a bude nenávidět všechny", 1, "Co potřebujete králi?", "Talk", "Foltest", true, "Něco končí, něco začíná", null, false));
-            dialog.Add(new Dialogues("Foltest", "Potřebuji mít tuto záležitost co nejrychleji zasebou Zaklínači.", 1, "Co potřebujete králi?", "Talk", "Foltest", true, "Něco končí, něco začíná", null, false));
+            dialog.Add(new Dialogues("Foltest", "Takhle to ale u prostého lidu nefunguje. Lidem stačí, aby se jeden Zaklínač pokusil o vraždu a budou nenávidět všechny", 1, "Co potřebujete králi?", "Talk", "Foltest", true, "Něco končí, něco začíná", null, false));
+            dialog.Add(new Dialogues("Foltest", "Potřebuji mít tuto záležitost co nejrychleji za sebou Zaklínači.", 1, "Co potřebujete králi?", "Talk", "Foltest", true, "Něco končí, něco začíná", null, false));
             dialog.Add(new Dialogues("Geralt", "Dobře králi", 1, "Co potřebujete králi?", "Talk", "Foltest", true, "Něco končí, něco začíná", null, false));
 
             //2
@@ -270,15 +270,14 @@ namespace WitcherWPF
             dialog.Add(new Dialogues("Geralt", "A přesně tam se vydám", 1, "Mám informace o vrahovi", "Talk", "Foltest", false, "Něco končí, něco začíná", null, false));
             dialog.Add(new Dialogues("Foltest", "Proč tak náhlá změna názoru?", 1, "Mám informace o vrahovi", "Talk", "Foltest", false, "Něco končí, něco začíná", null, false));
             dialog.Add(new Dialogues("Foltest", "Ještě před chvílí jsi nebyl, tak odhodlán", 1, "Mám informace o vrahovi", "Talk", "Foltest", false, "Něco končí, něco začíná", null, false));
-            dialog.Add(new Dialogues("Geralt", "Mám své důvody", 1, "Mám informace o vrahovi", "Talk", "Foltest", false, "Něco končí, něco začíná", null, false));
-            dialog.Add(new Dialogues("Foltest", "A mohl bych tvé důvody znát?", 1, "Mám informace o vrahovi", "Talk", "Foltest", false, "Něco končí, něco začíná", null, false));
+            dialog.Add(new Dialogues("Geralt", "Vrah by mohl mít něco společného se Salamandrou a to chci zjistit", 1, "Mám informace o vrahovi", "Talk", "Foltest", false, "Něco končí, něco začíná", null, false));
+            dialog.Add(new Dialogues("Foltest", "Dobře. Budeš potřebovat pomoct?", 1, "Mám informace o vrahovi", "Talk", "Foltest", false, "Něco končí, něco začíná", null, false));
             dialog.Add(new Dialogues("Geralt", "Ne", 1, "Mám informace o vrahovi", "Talk", "Foltest", false, "Něco končí, něco začíná", null, false));
-            dialog.Add(new Dialogues("Geralt", "Nemohl", 1, "Mám informace o vrahovi", "Talk", "Foltest", false, "Něco končí, něco začíná", null, false));
+            dialog.Add(new Dialogues("Geralt", "Tohle zvládnu sám", 1, "Mám informace o vrahovi", "Talk", "Foltest", false, "Něco končí, něco začíná", null, false));
             dialog.Add(new Dialogues("Foltest", "Dobře. Ať je po tvém", 1, "Mám informace o vrahovi", "Talk", "Foltest", false, "Něco končí, něco začíná", null, false));
             dialog.Add(new Dialogues("Foltest", "Pokud se ti o vrahovi podaří zjistit více, tak mi to přijeď sdělit. Budu tady ve Wyzimě", 1, "Mám informace o vrahovi", "Talk", "Foltest", false, "Něco končí, něco začíná", null, false));
             dialog.Add(new Dialogues("Foltest", "Samozřejmě tu na tebe bude čekat odměna pokud se ti to podaří vyřešit", 1, "Mám informace o vrahovi", "Talk", "Foltest", false, "Něco končí, něco začíná", null, false));
-            dialog.Add(new Dialogues("Geralt", "hm", 1, "Mám informace o vrahovi", "Talk", "Foltest", false, "Něco končí, něco začíná", null, false));
-            dialog.Add(new Dialogues("Geralt", "Samozřejmě", 1, "Mám informace o vrahovi", "Talk", "Foltest", false, "Něco končí, něco začíná", null, false));
+            dialog.Add(new Dialogues("Geralt", "Samozřejmě králi", 1, "Mám informace o vrahovi", "Talk", "Foltest", false, "Něco končí, něco začíná", null, false));
             dialog.Add(new Dialogues("Foltest", "Hodně štěstí Zaklínači", 1, "Mám informace o vrahovi", "Talk", "Foltest", false, "Něco končí, něco začíná", null, false));
 
             //leave
@@ -332,6 +331,13 @@ namespace WitcherWPF
             dialog.Add(new Dialogues("Geralt", "Ne, ještě něco vyřídím", 1, "Vyrazit na cestu", "Talk", "Triss", false, null, "Zůstat", true));
             dialog.Add(new Dialogues("Triss", "Až budeš připravený, tak přijď", 1, "Vyrazit na cestu", "Talk", "Triss", false, null, "Zůstat", false));
 
+            //4
+            dialog.Add(new Dialogues("Geralt", "Děkuji ti za pomoc s těmi elfy", 2, "Děkuji za pomoc", "Talk", "Triss", true, null, null, false));
+            dialog.Add(new Dialogues("Triss", "Máš štěstí, že jsem zrovna procházela kolem", 2, "Děkuji za pomoc", "Talk", "Triss", true, null, null, false));
+            dialog.Add(new Dialogues("Triss", "Foltest mě pověřil ať dávám pozor na to co se ve Wyzimě děje", 2, "Děkuji za pomoc", "Talk", "Triss", true, null, null, false));
+            dialog.Add(new Dialogues("Geralt", "Wyzima není bezpečná. Musím co nejdříve odejít", 2, "Děkuji za pomoc", "Talk", "Triss", true, null, null, false));
+            dialog.Add(new Dialogues("Geralt", "Marigolda jsem už poslal pryč", 2, "Děkuji za pomoc", "Talk", "Triss", true, null, null, false));
+            dialog.Add(new Dialogues("Triss", "To jsi udělal dobře. Marigold by nám tu moc nepomohl", 2, "Děkuji za pomoc", "Talk", "Triss", true, null, null, false));
             //leave
             dialog.Add(new Dialogues("Geralt", "Měj se Triss", 2, "Nashle", "Talk", "Triss", true, null, null, false));
             dialog.Add(new Dialogues("Triss", "Dávej na sebe pozor Geralte", 2, "Nashle", "Talk", "Triss", true, null, null, false));

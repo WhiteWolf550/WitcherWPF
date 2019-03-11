@@ -82,6 +82,7 @@
       <DependentUpon>AxiiSkills.xaml</DependentUpon>
     </Compile>
     <Compile Include="Barghest.cs" />
+    <Compile Include="Base.cs" />
     <Compile Include="Bestiary.cs" />
     <Compile Include="BestiaryJournal.xaml.cs">
       <DependentUpon>BestiaryJournal.xaml</DependentUpon>
@@ -550,6 +551,11 @@
     <Resource Include="img\Items\Monster_White_vinegar.png" />
     <Resource Include="img\Items\Monster_Abomination_Lymph.png" />
     <Resource Include="img\Items\Quest_Ring.png" />
+    <None Include="cutscenes\Chapter1Cut1.mp4" />
+    <None Include="cutscenes\Chapter1Cut2.mp4" />
+    <None Include="cutscenes\GameIntro.mp4" />
+    <None Include="cutscenes\PrologueCut1.mp4" />
+    <None Include="cutscenes\PrologueCut2.mp4" />
     <Content Include="gifs\Characters\Geralt.mp4" />
     <Resource Include="img\Char\Geralt.png" />
     <Resource Include="img\Char\Triss.png" />

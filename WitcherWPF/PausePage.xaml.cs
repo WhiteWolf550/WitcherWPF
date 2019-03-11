@@ -37,10 +37,19 @@ namespace WitcherWPF
 
         private void Menu_Click(object sender, RoutedEventArgs e) {
             Globals.Combat = true;
+            SaveGlobals();
             parentFrame.Navigate(new MainMenu(parentFrame, time));
         }
         private void ExitnSave_Click(object sender, RoutedEventArgs e) {
-            foreach(Game item in game ) {
+            SaveGlobals();
+            System.Windows.Application.Current.Shutdown();
+        }
+        private void Continue_Click(object sender, RoutedEventArgs e) {
+            time.time.Start();
+            parentFrame.Navigate(new Location(parentFrame, time));
+        }
+        public void SaveGlobals() {
+            foreach (Game item in game) {
                 item.Hour = Globals.Hour;
                 item.Minute = Globals.Minute;
                 item.Chapter = Globals.Chapter;
@@ -48,11 +57,6 @@ namespace WitcherWPF
                 item.CurrentLocation = Globals.location;
             }
             manager.SaveGame(game);
-            System.Windows.Application.Current.Shutdown();
-        }
-        private void Continue_Click(object sender, RoutedEventArgs e) {
-            time.time.Start();
-            parentFrame.Navigate(new Location(parentFrame, time));
         }
     }
 }

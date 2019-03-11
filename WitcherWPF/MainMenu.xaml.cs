@@ -52,9 +52,23 @@ namespace WitcherWPF {
         }
         public void NewGame() {
             game.NewGame();
+
             sound.StopMusic();
+            LoadToGlobals();
             parentFrame.Navigate(new Cutscenes(parentFrame, time, "GameIntro"));
 
+        }
+        public void LoadToGlobals() {
+            List<Game> game = new List<Game>();
+            FileManager manager = new FileManager();
+            game = manager.LoadGame();
+            foreach (Game item in game) {
+                Globals.Hour = item.Hour;
+                Globals.Minute = item.Minute;
+                Globals.location = item.CurrentLocation;
+                Globals.DialoguePath = item.DialoguePath;
+                Globals.Chapter = item.Chapter;
+            }
         }
         public void LoadGame() {
             parentFrame.Navigate(new LoadScreen(parentFrame, time, sound));
