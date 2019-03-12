@@ -191,6 +191,12 @@
     <Compile Include="Time.xaml.cs">
       <DependentUpon>Time.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Village_Inn.xaml.cs">
+      <DependentUpon>Village_Inn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Village_Outside1.xaml.cs">
+      <DependentUpon>Village_Outside1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Yrden.cs" />
     <Compile Include="YrdenSkills.xaml.cs">
       <DependentUpon>YrdenSkills.xaml</DependentUpon>
@@ -331,6 +337,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Time.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Village_Inn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Village_Outside1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -568,6 +582,13 @@
     <Resource Include="img\Monsters\Barghest.png" />
     <Resource Include="img\Monsters\Drowner.jpg" />
     <Resource Include="img\UI\Pause_back.jpg" />
+    <Resource Include="img\Locations\Village_Inn.png" />
+    <Resource Include="img\Locations\Village_Outside1_day.png" />
+    <Resource Include="img\Locations\Village_Outside1_night.png" />
+    <Resource Include="img\Locations\Village_Outside2_day.png" />
+    <Resource Include="img\Locations\Village_Outside2_night.png" />
+    <Resource Include="img\Locations\Village_Outside3_day.png" />
+    <Resource Include="img\Locations\Village_Outside3_night.png" />
     <Content Include="sounds\ghoul\ghoul_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

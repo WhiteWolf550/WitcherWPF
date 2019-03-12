@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="WitcherWPF.Village_Inn"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WitcherWPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="894" d:DesignWidth="1426.666">
+    <Grid>
+        <Image x:Name="LocationImage" Source="img/Locations/Village_Inn.png" Margin="-99,-42,-80,-48" Grid.ColumnSpan="3" Grid.RowSpan="3"></Image>        
+    </Grid>
+</UserControl>

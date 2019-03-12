@@ -44,6 +44,8 @@ namespace WitcherWPF {
         }
         public void CreateQuests() {
             List<Quest> qq = new List<Quest>();
+            //----------------------------------------PROLOGUE------------------------------------
+            //Něco končí, něco začíná
             qq.Add(new Quest(1, "Primary", "Něco končí, něco začíná", "Foltest si předvolal Geralta hned druhý den potom co krála zachránil.", "Zajdi za Foltestem", 1, true, "Něco končí, něco začíná", null, 0, 0));
             qq.Add(new Quest(2, "Primary", "Něco končí, něco začíná", "Foltest si předvolal Geralta hned druhý den potom co krále zachránil. Foltest Geraltovi oznámil, že by měl něco zjistit o vrahovi s pomocí Triss", "Zajdi za Triss a zjisti něco o vrahovi", 1, true, "Něco končí, něco začíná", "Zjistila jsi něco nového o tom vrahovi?", 0, 0));
             qq.Add(new Quest(3, "Primary", "Něco končí, něco začíná", "Foltest si předvolal Geralta hned druhý den potom co krále zachránil. Foltest Geraltovi oznámil, že by měl něco zjistit o vrahovi s pomocí Triss. Triss Geraltovi sdělila, že na to, aby zjistila, kdo byl vrah, tak potřebuje více času", "Počkej až se Triss dozví více o vrahovi", 1, true, "Něco končí, něco začíná", null, 0, 0));
@@ -65,7 +67,16 @@ namespace WitcherWPF {
 
             //----------------------------------------CHAPTER I------------------------------------
             //Záhadná Vesnice
-            qq.Add(new Quest(1, "Primary", "Záhadná vesnice", "Po cestě do Novigradu, Geralt narazil na Barghesta ve zvláštní vesnici. Geralta vesničani ve vesnici nechtěli, ale dozvěděl se, že ve vesnici byl i jiný zaklínač. Geralt se rozhodl, že se ve vesnici porozhlídne", "Prohledej vesnici a zeptej se lidí na Lamberta", 1, true, "Záhadná vesnice", null, 0, 0));
+            qq.Add(new Quest(1, "Primary", "Záhadná vesnice", "Po cestě do Novigradu, Geralt narazil na Barghesta ve zvláštní vesnici. Geralta vesničani ve vesnici nechtěli, ale dozvěděl se, že ve vesnici byl i jiný zaklínač. Geralt se rozhodl, že se ve vesnici porozhlídne", "Prohledej vesnici a zeptej se lidí na Lamberta", 1, true, "Záhadná vesnice", "Sháním informace", 0, 0));
+            qq.Add(new Quest(2, "Primary", "Záhadná vesnice", "Po cestě do Novigradu, Geralt narazil na Barghesta ve zvláštní vesnici. Geralta vesničani ve vesnici nechtěli, ale dozvěděl se, že ve vesnici byl i jiný zaklínač. Geralt se rozhodl, že se ve vesnici porozhlídne. Geralt v krčmě narazil na hospodského, který mu řekl, že Lambert měl rozhovor se starostou.", "Najdi starostu a zeptej se ho na Lamberta", 1, true, "Záhadná vesnice", "Zaklínač", 0, 0));
+            qq.Add(new Quest(3, "Primary", "Záhadná vesnice", "Po cestě do Novigradu, Geralt narazil na Barghesta ve zvláštní vesnici. Geralta vesničani ve vesnici nechtěli, ale dozvěděl se, že ve vesnici byl i jiný zaklínač. Geralt se rozhodl, že se ve vesnici porozhlídne. Geralt v krčmě narazil na hospodského, který mu řekl, že Lambert měl rozhovor se starostou. Starosta Geraltovi odmítl pomoci", "Najdi Lamberta", 1, true, "Záhadná vesnice", null, 0, 0));
+
+
+
+            //Na stopě zaklínači
+            qq.Add(new Quest(1, "Primary", "Na stopě Zaklínači", "Starosta byl Geraltovým projevem lehce zastrašen a jsem si skoro jist, že to byl i Geraltův plán, ale jelikož mu starosta odmítl pomoci, tak Geralt musí najít jiný způsob jak Lamberta najít", "Zjisti informace o Lambertovi", 1, true, "Na stopě zaklínači", "Lambert", 0, 0));
+            qq.Add(new Quest(2, "Primary", "Na stopě Zaklínači", "Starosta byl Geraltovým projevem lehce zastrašen a jsem si skoro jist, že to byl i Geraltův plán, ale jelikož mu starosta odmítl pomoci, tak Geralt musí najít jiný způsob jak Lamberta najít. Zoltan Geraltovi řekl o šílenci ve vesnici, který by mohl mít nějaké informace.", "Najdi vesnického šílence", 1, true, "Na stopě zaklínači", "Informace o Lambertovi", 0, 0));
+            qq.Add(new Quest(3, "Primary", "Na stopě Zaklínači", "Starosta byl Geraltovým projevem lehce zastrašen a jsem si skoro jist, že to byl i Geraltův plán, ale jelikož mu starosta odmítl pomoci, tak Geralt musí najít jiný způsob jak Lamberta najít. Zoltan Geraltovi řekl o šílenci ve vesnici, který by mohl mít nějaké informace. Šílenec Geraltovi prozradil, že se Lambert často setkával s mistrem lovčím", "Zeptej se lovčího na Lamberta", 1, true, "Na stopě zaklínači", null, 0, 0));
 
             manager.SaveQuests(qq);
         }

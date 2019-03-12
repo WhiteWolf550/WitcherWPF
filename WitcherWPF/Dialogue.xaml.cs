@@ -41,6 +41,8 @@ namespace WitcherWPF
         Dialogues dialogues = new Dialogues();
         PlayerInventory inventory = new PlayerInventory();
         List<PlayerInventory> inventoryitems = new List<PlayerInventory>();
+        List<Quest> Quests = new List<Quest>();
+        List<PlayerQuest> PlayerQuests = new List<PlayerQuest>();
         List<Player> playerlist = new List<Player>();
         bool skip = false;
         int delay = 1000;
@@ -54,6 +56,8 @@ namespace WitcherWPF
             InitializeComponent();
             BlackScreen.Visibility = Visibility.Visible;
             playerlist = manager.LoadPlayer();
+            Quests = manager.LoadQuests();
+            PlayerQuests = manager.LoadPlayerQuests();
             TravelHide();
 
         }
@@ -221,6 +225,8 @@ namespace WitcherWPF
             PersonText.Text = "";
             //---------------------VARIABLES---------------------------
             Brush c;
+            Quest qst = new Quest();
+            Dialogues dlgs = new Dialogues();
             PlayerQuest playerquest = new PlayerQuest();
             string qname = "";
             string qdesc = "";
@@ -239,8 +245,8 @@ namespace WitcherWPF
             
 
             //---------------------FILE LOADING---------------------------
-            List<Quest> Quests = manager.LoadQuests();
-            List<PlayerQuest> PlayerQuests = manager.LoadPlayerQuests();
+            
+            
             List<Dialogues> dialog = manager.LoadDialogue(prolog);
             //---------------------FILTERS---------------------------
             var matches = dialog.Where(s => s.Dialogue == Character);
@@ -279,6 +285,7 @@ namespace WitcherWPF
 
 
                 diadis = item.Choice;
+                dlgs = item;
 
                 if (ic == cd - 2) {
                     Activate2 = item.QuestActivate;
@@ -301,6 +308,7 @@ namespace WitcherWPF
                         var match3 = match2.Where(s => s.QuestID == 1);
 
                         foreach (var pitem in match3) {
+                            qst = pitem;
                             PlayerQuests.Add(new PlayerQuest(pitem));
                             qname = pitem.QuestName;
                             qdesc = pitem.QuestGoal;
@@ -407,7 +415,7 @@ namespace WitcherWPF
                     manager.SavePlayerQuests(PlayerQuests);
                     manager.SavePlayer(playerlist);
                     manager.SaveDialogues(dialog, prolog);
-                    ScriptedEvents(diadis);
+                    ScriptedEvents(dlgs, qst);
                     
 
                 }
@@ -422,17 +430,25 @@ namespace WitcherWPF
             } 
             
         }
-        public void ScriptedEvents(string DialogueChoice) {
-            if (DialogueChoice == "Problém s příšerou") {
+        private void ScriptedEvents(Dialogues Dialogue, Quest quest) {
+            if (Dialogue.Choice == "Problém s příšerou") {
                 Enemy = "Ghůl";
                 TravelShow();
             }
-            if (DialogueChoice == "Našel jsem prsten") {
+            if (Dialogue.Choice == "Našel jsem prsten") {
                 inventory.DropItem("Zlatý prsten", inventoryitems);
                 manager.SavePlayerInventory(inventoryitems);
             }
-            if (DialogueChoice == "Vyrazit na cestu") {
+            if (Dialogue.Choice == "Vyrazit na cestu") {
                 TravelCutsceneShow();
+            }
+            if (Dialogue.Choice == "Informace o Lambertovi" && Dialogue.Decision == "Nemám čas na tvoje kraviny") {
+                foreach(PlayerQuest item in PlayerQuests) {
+                    if (item.Quest == quest) {
+                        item.Quest.QuestGoal = "Starosta byl Geraltovým projevem lehce zastrašen a jsem si skoro jist, že to byl i Geraltův plán, ale jelikož mu starosta odmítl pomoci, tak Geralt musí najít jiný způsob jak Lamberta najít. Zoltan Geraltovi řekl o šílenci ve vesnici, který by mohl mít nějaké informace. Šílenec Geraltovi neporadil.";
+                        item.Quest.QuestGoal = "Najdi další stopu";
+                    }
+                }
             }
         }
         private void GoToCombat(object sender, EventArgs e) {

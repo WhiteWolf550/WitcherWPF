@@ -420,11 +420,12 @@ namespace WitcherWPF
             dialog.Add(new Dialogues("Přeživší", "Nashle", 2, "Nashle", "Talk", "Přeživší", true, null, null, false));
 
             //----------------------------------------CHAPTER I------------------------------------
+            // VILLAGER
             //greet
-            dialog.Add(new Dialogues("Vesničan", "Zdravím", 1, "Pozdrav", "Greet", "Vesničan", true, null, null, false));
+            dialog.Add(new Dialogues("Vesničan", "Nejsi tu vítán", 1, "Pozdrav", "Greet", "Vesničan", true, null, null, false));
 
             //1
-            dialog.Add(new Dialogues("Vesničan", "Jděte pryč!", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Vesničan", "Jdi pryč!", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
             dialog.Add(new Dialogues("Vesničan", "Takový jako ty tu nechceme!", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
             dialog.Add(new Dialogues("Geralt", "Máte tu hodně takových psů?", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
             dialog.Add(new Dialogues("Vesničan", "Nic ti neřeknu ty špinavá zrůdo!", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
@@ -441,8 +442,186 @@ namespace WitcherWPF
             dialog.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Vesničan", true, null, null, false));
             dialog.Add(new Dialogues("Vesničan", "Už se nikdy nevracej", 2, "Nashle", "Talk", "Vesničan", true, null, null, false));
 
+            //INKEEPER OLAF
+            //greet
+            dialog.Add(new Dialogues("Hospodský Olaf", "Co chceš?", 1, "Pozdrav", "Greet", "Olaf", true, null, null, false));
 
+            //1
+            dialog.Add(new Dialogues("Geralt", "Sháním informace o zaklínači, který tu byl předemnou", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Hospodský Olaf", "Shánět informace můžeš, ale žádný nedostaneš", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Hospodský Olaf", "Vysvětlili jsme ti jasně, že tě tu nechceme a ani nepotřebujeme", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Geralt", "Ti psi venku mi říkají něco jiného", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Geralt", "Myslím si, že zrovna tahle vesnice potřebuje zaklínače nejvíce", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Geralt", "Co se stalo s tím zaklínačem?", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Hospodský Olaf", "Já ti nic neřeknu ty všiváku, takže zmiz!", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Geralt", "Dneska nemám moc dobrou náladu, takže mě poslouchej", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Geralt", "Buď mi něco řekneš o tom zaklínači", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Geralt", "A nebo tě zabiju", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Geralt", "A věř mi, že se nestihneš ani pohnout", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Geralt", "Takže?", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Hospodský Olaf", "Sakra! já nic nevím. Si myslíš, že jsem místní drbna nebo co?!", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Geralt", "Poslouchám", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Hospodský Olaf", ".....", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Hospodský Olaf", "Přišel sem asi před 5 dny a hledal práci a úkryt.", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Hospodský Olaf", "Starosta ho samozřejmě ihned vyhnal. Stejně jako tebe", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Hospodský Olaf", "Nebo se teda pokusil, protože stačilo pár výhrůžek od starosty a ten magor se rozhodl, že zabije stráže starosty a bude vyhrožovat jemu", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Hospodský Olaf", "Nevím jestli mu starosta něco řekl, ale ten všivák pak odešel a už se neukázal. Starosta za nim pak poslal další hlídky, ale ti už se nevrátili", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Geralt", "Jméno toho zaklínače?", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Hospodský Olaf", "Jak to mám asi vědět?! Si myslíš, že jsme si povídali?!", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Hospodský Olaf", "Myslím, že se snad nikdy nepředstavil", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Geralt", "A ten místní starosta?", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Geralt", "Jeho jméno?", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Hospodský Olaf", "Turman", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Hospodský Olaf", "Turman Hogman", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Geralt", "Díky", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Hospodský Olaf", "Jdi už, mám tu i jiné lidi", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
 
+            //leave
+            dialog.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Olaf", true, null, null, false));
+            dialog.Add(new Dialogues("Hospodský Olaf", "Běž už", 2, "Nashle", "Talk", "Olaf", true, null, null, false));
+
+            //MAYOR TURMAN HOGMAN
+            dialog.Add(new Dialogues("Starosta Turman", "Ani se ke mně nepřibližuj zrůdo!", 1, "Pozdrav", "Greet", "Turman", true, null, null, false));
+
+            //1
+            dialog.Add(new Dialogues("Geralt", "Slyšel jsem, že jsi mluvil se zaklínačem, který tu byl předemnou", 1, "Zaklínač", "Talk", "Turman", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Starosa Turman", "A to jsi slyšel jako vodkoho?", 1, "Zaklínač", "Talk", "Turman", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Starosta Turman", "Protože ti ten dotyčný pravděpodobně neřekl, že se nebavím se zavšivenýma zrůdama", 1, "Zaklínač", "Talk", "Turman", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Geralt", "Tato informace se ke mně donesla", 1, "Zaklínač", "Talk", "Turman", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Geralt", "Jediné co chci jsou informace o té 'zavšivené zrůdě', takže nevidím problém proč byste mi to nemohl říct", 1, "Zaklínač", "Talk", "Turman", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Starosta Turman", "Vy doopravdy jste úplně tupý", 1, "Zaklínač", "Talk", "Turman", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Starosta Turman", "Jsi neslyšel? Řekl jsem vypadni a už se nevracej.", 1, "Zaklínač", "Talk", "Turman", false, "ZNa stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Starosta Turman", "Tohle je moje vesnice ve které nejsi vítaný", 1, "Zaklínač", "Talk", "Turman", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Geralt", "Dobře", 1, "Zaklínač", "Talk", "Turman", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Geralt", "Jak si přejete", 1, "Zaklínač", "Talk", "Turman", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Geralt", "Ale", 1, "Zaklínač", "Talk", "Turman", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Geralt", "Ti psi tam venku", 1, "Zaklínač", "Talk", "Turman", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Geralt", "Ti psi vás jednou zahubí. Může to být za 2 roky, za 2 měsíce a nebo taky jenom 2 DNY", 1, "Zaklínač", "Talk", "Turman", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Geralt", "A já moc dobře vím, na jakých místech se barghesti objevují", 1, "Zaklínač", "Talk", "Turman", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Geralt", "Mohl bych vám pomoct a zbavit vás tich psů", 1, "Zaklínač", "Talk", "Turman", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Geralt", "Chci jen vědět kam šel ten Zaklínač", 1, "Zaklínač", "Talk", "Turman", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Starosta Turman", "*rozklepaným hlasem* Zmiz", 1, "Zaklínač", "Talk", "Turman", false, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Starosta Turman", "Odsud", 1, "Zaklínač", "Talk", "Turman", false, "Na stopě zaklínači", null, false));
+
+            //leave
+            dialog.Add(new Dialogues("Geralt", "Sbohem, pane starosto", 2, "Nashle", "Talk", "Turman", true, null, null, false));
+            dialog.Add(new Dialogues("Starosta Turman", "...", 2, "Nashle", "Talk", "Turman", true, null, null, false));
+
+            //ZOLTAN
+            dialog.Add(new Dialogues("Zoltan", "Zdravím Geralte!", 1, "Pozdrav", "Greet", "Zoltan", true, null, null, false));
+
+            //1
+            dialog.Add(new Dialogues("Geralt", "Zoltane neslyšel jsi náhodou něco o zaklínači, který tu byl předemnou?", 1, "Lambert", "Talk", "Zoltan", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Zoltan", "Aha! Tak je to pravda", 1, "Lambert", "Talk", "Zoltan", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Zoltan", "Zprva som nevěděl esli to mám baštit, ale když to hlásíš i ty", 1, "Lambert", "Talk", "Zoltan", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Zoltan", "Popravdě Geralte, toho nevím o moc víc než ty", 1, "Lambert", "Talk", "Zoltan", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Zoltan", "Popravdě Geralte, toho nevím o moc víc než ty", 1, "Lambert", "Talk", "Zoltan", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Zoltan", "Lidi v tejhle vesnici sů divný a nerozebírají zrovna zajímavý témata", 1, "Lambert", "Talk", "Zoltan", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Zoltan", "Ale tož slyšel jsem o místním šílencovi a třeba by ti on mohl pomoct", 1, "Lambert", "Talk", "Zoltan", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Geralt", "Hmm", 1, "Lambert", "Talk", "Zoltan", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Geralt", "Víš o něm něco?", 1, "Lambert", "Talk", "Zoltan", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Zoltan", "Vůbec nic, protože som ho tu eště neviděl, takže ti bohužal nemožu ani říct, kde by jsi ho mohl najít", 1, "Lambert", "Talk", "Zoltan", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Zoltan", "Protože som ho tu eště neviděl, takže ti bohužal nemožu ani říct, kde by jsi ho mohl najít", 1, "Lambert", "Talk", "Zoltan", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Geralt", "Jinou stopu než tohle nemám, takže nemám na vybranou", 1, "Lambert", "Talk", "Zoltan", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Geralt", "Díky Zoltane", 1, "Lambert", "Talk", "Zoltan", false, "Na stopě zaklínači", null, false));
+
+            //2
+            dialog.Add(new Dialogues("Geralt", "Zoltane?", 1, "Co tě sem přivádí?", "Talk", "Zoltan", false, null, null, false));
+            dialog.Add(new Dialogues("Geralt", "Co ty tu děláš?", 1, "Co tě sem přivádí?", "Talk", "Zoltan", false, null, null, false));
+            dialog.Add(new Dialogues("Zoltan", "Tož to bych sa měl ptát já Geralte!", 1, "Co tě sem přivádí?", "Talk", "Zoltan", false, null, null, false));
+            dialog.Add(new Dialogues("Zoltan", "Takhle blízko Novigradu. Navíc když jsi byl nedávno ve Wyzimě", 1, "Co tě sem přivádí?", "Talk", "Zoltan", false, null, null, false));
+            dialog.Add(new Dialogues("Zoltan", "Jak tož vlastně všecko dopadlo? Dopad jsi Salamandru?", 1, "Co tě sem přivádí?", "Talk", "Zoltan", false, null, null, false));
+            dialog.Add(new Dialogues("Geralt", "Snad ano, ale upřímně ani nevím. To bude asi důvod proč tu jsem", 1, "Co tě sem přivádí?", "Talk", "Zoltan", false, null, null, false));
+            dialog.Add(new Dialogues("Geralt", "Spíš co tu děláš ty Zoltane", 1, "Co tě sem přivádí?", "Talk", "Zoltan", false, null, null, false));
+            dialog.Add(new Dialogues("Zoltan", "Po tom co Wyzima začala plápolat, tak tož mi bylo jasno, že nemám smysl tam zostavat", 1, "Co tě sem přivádí?", "Talk", "Zoltan", false, null, null, false));
+            dialog.Add(new Dialogues("Zoltan", "Chtěl som... jít zpět do Mahakamu, ale tož naskytli sa potíže a musil som vyrazit do Novigradu", 1, "Co tě sem přivádí?", "Talk", "Zoltan", false, null, null, false));
+            dialog.Add(new Dialogues("Zoltan", "Tu som zastavil jen abych doplnil energiju a napil sa, ale tady ani kořalku dobrů nemajů", 1, "Co tě sem přivádí?", "Talk", "Zoltan", false, null, null, false));
+            dialog.Add(new Dialogues("Zoltan", "Víš Geralte..", 1, "Co tě sem přivádí?", "Talk", "Zoltan", false, null, null, false));
+            dialog.Add(new Dialogues("Zoltan", "Tahleta vesnice nejni rychtyg", 1, "Co tě sem přivádí?", "Talk", "Zoltan", false, null, null, false));
+            dialog.Add(new Dialogues("Zoltan", "A tebe Geralte tož tebe tu ale vobec nemajů v lásce", 1, "Co tě sem přivádí?", "Talk", "Zoltan", false, null, null, false));
+            dialog.Add(new Dialogues("Zoltan", "Měl by si odsud co nejdříve vymáznot", 1, "Co tě sem přivádí?", "Talk", "Zoltan", false, null, null, false));
+            dialog.Add(new Dialogues("Geralt", "Neplánuji se tu zdržet moc dlouho", 1, "Co tě sem přivádí?", "Talk", "Zoltan", false, null, null, false));
+            dialog.Add(new Dialogues("Geralt", "A ani nechci", 1, "Co tě sem přivádí?", "Talk", "Zoltan", false, null, null, false));
+            dialog.Add(new Dialogues("Geralt", "To samé platí i pro tebe Zoltane. Nezdržuj se tu zbytečně dlouho. Není tu bezpečno", 1, "Co tě sem přivádí?", "Talk", "Zoltan", false, null, null, false));
+            dialog.Add(new Dialogues("Zoltan", "Neboj sa Geralte nemám to v plánu", 1, "Co tě sem přivádí?", "Talk", "Zoltan", false, null, null, false));
+
+            //leave
+            dialog.Add(new Dialogues("Geralt", "Měj se Zoltane", 2, "Nashle", "Talk", "Zoltan", true, null, null, false));
+            dialog.Add(new Dialogues("Zoltan", "Hodně štěstí Geralte", 2, "Nashle", "Talk", "Zoltan", true, null, null, false));
+
+            //MADMAN
+            dialog.Add(new Dialogues("Šílenec", "Zdravíčko pane", 1, "Pozdrav", "Greet", "Madman", true, null, null, false));
+
+            //1
+            dialog.Add(new Dialogues("Geralt", "Ty jsi ten šílenec o kterém každý mluví?", 1, "Informace o Lambertovi", "Talk", "Madman", false, null, null, false));
+            dialog.Add(new Dialogues("Šílenec", "Hahahaha", 1, "Informace o Lambertovi", "Talk", "Madman", false, null, null, false));
+            dialog.Add(new Dialogues("Šílenec", "Já? a šílenec? NIKDY", 1, "Informace o Lambertovi", "Talk", "Madman", false, null, null, false));
+            dialog.Add(new Dialogues("Šílenec", "Já jsem zcela zdravý a má mysl také", 1, "Informace o Lambertovi", "Talk", "Madman", false, null, null, false));
+            dialog.Add(new Dialogues("Šílenec", "Jen občas ze spánku mě noční můry budí", 1, "Informace o Lambertovi", "Talk", "Madman", false, null, null, false));
+            dialog.Add(new Dialogues("Šílenec", "Hahahah", 1, "Informace o Lambertovi", "Talk", "Madman", false, null, null, false));
+            dialog.Add(new Dialogues("Geralt", "Nevěděl bys něco o tom zaklínači, který tu byl předemnou?", 1, "Informace o Lambertovi", "Talk", "Madman", false, null, null, false));
+            dialog.Add(new Dialogues("Šílenec", "To nejsi ty? Ty jsi zase nějakej další? HHAHA", 1, "Informace o Lambertovi", "Talk", "Madman", false, null, null, false));
+            dialog.Add(new Dialogues("Šílenec", "Zaklínači se množí rychleji jak krysy", 1, "Informace o Lambertovi", "Talk", "Madman", false, null, null, false));
+            dialog.Add(new Dialogues("Geralt", "Víš o tom zaklínači něco? Třeba kam šel?", 1, "Informace o Lambertovi", "Talk", "Madman", false, null, null, false));
+            dialog.Add(new Dialogues("Šílenec", "Slyšíš to?", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", null, false));
+            dialog.Add(new Dialogues("Šílenec", "To psí štěkání je každým dnem hrozivější. Obvzláště v noci", 1, "Informace o Lambertovi", "Talk", "Madman", false, null, null, false));
+            //choice barghest
+            dialog.Add(new Dialogues("Geralt", "To jsou Barghesti", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", true));
+            dialog.Add(new Dialogues("Šílenec", "Ó Ano Ano", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "Strašné to zrůdy", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "Hahahaha", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "Zelené svítící stvůry a ten štěkot", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "Jako křik démonů...", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "Barghesti", false));
+            dialog.Add(new Dialogues("Geralt", "Barghesti se ale nezačínají objevovat jen tak", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Geralt", "Jsou znamením smrtí a zla", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "AHAHHAHAHH", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Geralt", "neznačí nic dobrého", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "Přesně tak haha", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "Vy jste velice chytrý muž pane...", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Geralt", "Geralt", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "Maxmilián", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "Ale zdejší mi říkají šílenec, magor, vyvrhel", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "HAHAHA", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "A to jen kvůli tomu, že nevěřím na ta jejich pravidla a víry", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "Však oni nevědí, že šílenost je znamením inteligence a chytrosti", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "hahaha", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Geralt", "Ve vesnici žije plno zkažených a zlých lidí", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "Ano ano. Ale lidé takovýhle nebývali. Ne. Ne", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "Vesnice byla dříve jiná", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "Plná lásky a radosti", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "Starosta vše změnil...přivedl sem jakési vyvrheli a lidi z východu...", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "Začal vyhánět poctivé lidi a ti kteří nesouhlasili byli šílenci", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "Začal zabíjet neviné lidi...", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "TEN POKRYTEC", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "TA SVINĚ ZAČALA ZABÍJET LIDI A RODINY!", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "JEN TAK JEN PRO ZÁBAVU!", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "...", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Geralt", "...", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "Tohle bývala zcelá jiná vesnice", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "Ten zaklínač ho měl zabít na místě", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "A ne si jen tak odejít. Jako zbabělec", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "hahahah", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Geralt", "Víš kam šel?", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Geralt", "Víš kam šel?", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "Starosta mě blizko k hospodě a hlavní budově nepouští", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Šílenec", "Nevím kam šel, ale několikrát ze zastavil u mistra lovčího", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            dialog.Add(new Dialogues("Geralt", "Děkuji ti Maxmiliáne. A přeju ti mír i klid v duši", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "To jsou Barghesti", false));
+            //choice evil
+            dialog.Add(new Dialogues("Geralt", "Nemám čas na tvoje kraviny, kam šel ten zaklínač a kde je", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "Nemám čas na tvoje kraviny", true));
+            dialog.Add(new Dialogues("Šílenec", "Hahahahah", 1, "Informace o Lambertovi", "Talk", "Madman", false, null, "Nemám čas na tvoje kraviny", false));
+            dialog.Add(new Dialogues("Šílenec", "Z toho štěkotu i mráz po zádech proběhne haha", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "Nemám čas na tvoje kraviny", false));
+            dialog.Add(new Dialogues("Geralt", "Kam šel ten zaklínač. Mluv", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "Nemám čas na tvoje kraviny", false));
+            dialog.Add(new Dialogues("Šílenec", "Tolik zloby a vzteku haha", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "Nemám čas na tvoje kraviny", false));
+            dialog.Add(new Dialogues("Geralt", "Ptám se na posled", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "Nemám čas na tvoje kraviny", false));
+            dialog.Add(new Dialogues("Geralt", "Kam šel!", 1, "Informace o Lambertovi", "Talk", "Madman", false, null, "Nemám čas na tvoje kraviny", false));
+            dialog.Add(new Dialogues("Šílenec", "Nemám tušení zeptej se třeba těch psů", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "Nemám čas na tvoje kraviny", false));
+            dialog.Add(new Dialogues("Šílenec", "Nemám přístup ke krčmě nevím nic o dění ve vesnici", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "Nemám čas na tvoje kraviny", false));
+            dialog.Add(new Dialogues("Šílenec", "VŽDYŤ JSEM JEN OBYČEJNÝ ŠÍLENEC HAHAHAHAH", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "Nemám čas na tvoje kraviny", false));
+            dialog.Add(new Dialogues("Geralt", "Jsi jen ztráta času. Dávej si pozor na psi ať nejsi další", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "Nemám čas na tvoje kraviny", false));
+            dialog.Add(new Dialogues("Geralt", "A nebo taky na zaklínače bez trpělivosti", 1, "Informace o Lambertovi", "Talk", "Madman", false, "Na stopě zaklínači", "Nemám čas na tvoje kraviny", false));
+
+            dialog.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Madman", true, null, null, false));
+            dialog.Add(new Dialogues("Šílenec", "Sbohem pane", 2, "Nashle", "Talk", "Madman", true, null, null, false));
 
             manager.SaveDialogues(dialog, path);
         }
