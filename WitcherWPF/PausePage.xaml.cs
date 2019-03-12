@@ -34,8 +34,16 @@ namespace WitcherWPF
             time.time.Stop();
             game = manager.LoadGame();
         }
-
+        public void PageLoaded(object sender, RoutedEventArgs e) {
+            Application.Current.MainWindow.KeyDown += new KeyEventHandler(Keys);
+        }
+        private void Keys(object sender, KeyEventArgs e) {
+            if (e.Key == Key.Escape) {
+                Continue();
+            }
+        }
         private void Menu_Click(object sender, RoutedEventArgs e) {
+            Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);
             Globals.Combat = true;
             SaveGlobals();
             parentFrame.Navigate(new MainMenu(parentFrame, time));
@@ -45,6 +53,10 @@ namespace WitcherWPF
             System.Windows.Application.Current.Shutdown();
         }
         private void Continue_Click(object sender, RoutedEventArgs e) {
+            Continue();
+        }
+        public void Continue() {
+            Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);
             time.time.Start();
             parentFrame.Navigate(new Location(parentFrame, time));
         }

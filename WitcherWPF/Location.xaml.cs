@@ -39,6 +39,14 @@ namespace WitcherWPF {
             
 
         }
+        public void PageLoaded(object sender, RoutedEventArgs e) {
+            Application.Current.MainWindow.KeyDown += new KeyEventHandler(Keys);
+        }
+        private void Keys(object sender, KeyEventArgs e) {
+            if (e.Key == Key.Escape) {
+                OpenMenu();
+            }
+        }
         public void AddHandlers() {
             Wyzima_Castle.Foltest.Click += new RoutedEventHandler(GetDialogue);
             Wyzima_Castle.FirePlace.Click += new RoutedEventHandler(Meditation);
@@ -93,10 +101,12 @@ namespace WitcherWPF {
             SetLocation();
         }
         public void GetInventory(object sender, RoutedEventArgs e) {
+            Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);
             media.PlaySound("Inventory");
             parentFrame.Navigate(new Inventory(parentFrame, false, time));
         }
         public void GetDialogue(object sender, RoutedEventArgs e) {
+            Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);
             Button button = (sender as Button);
             string charworld = button.Name.ToString();
             parentFrame.Navigate(new Dialogue(parentFrame, charworld, time));
@@ -206,6 +216,7 @@ namespace WitcherWPF {
             }
         }
         public void Meditation(object sender, RoutedEventArgs e) {
+            Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);
             parentFrame.Navigate(new Alchemy(parentFrame, time, true));
         }
         public void TravelHide(object sender, EventArgs e) {
@@ -255,9 +266,11 @@ namespace WitcherWPF {
             BlackScreen.BeginAnimation(UIElement.OpacityProperty, animation);
         }
         public void GoToCombat(object sender, EventArgs e) {
+            Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);
             parentFrame.Navigate(new Combat(parentFrame, false, time, false, Loot.Tag.ToString(), "Ghůl"));
         }
-        private void GetMenu_Click(object sender, RoutedEventArgs e) {
+        private void OpenMenu() {
+            Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);
             parentFrame.Navigate(new PausePage(parentFrame, time));
         }
     }

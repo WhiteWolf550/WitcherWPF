@@ -62,6 +62,11 @@ namespace WitcherWPF {
             qq.Add(new Quest(3, "Secondary", "Strašidelný dům", "Jeden z převižší ve staré wyzimě požádal Geralta o pomoc. Potřeboval získat z domu jeho prsten. Geralt prsten získal a může se vrátit za přeživším. Když už byl Geralt v domě, tak se také postaral o příšeru", "Vrať se k přeživšímu pro odměnu", 1, true, "Strašidelný dům", "Našel jsem prsten", 0, 0));
             qq.Add(new Quest(4, "Secondary", "Strašidelný dům", "Jeden z převižší ve staré wyzimě požádal Geralta o pomoc. Potřeboval získat z domu jeho prsten. Geralt prsten získal a může se vrátit za přeživším. Když už byl Geralt v domě, tak se také postaral o příšeru. Geralt si vyzvednul odměnu od přeživšího", "Úkol Dokončen", 1, true, "Strašidelný dům", null, 200, 60));
 
+
+            //----------------------------------------CHAPTER I------------------------------------
+            //Záhadná Vesnice
+            qq.Add(new Quest(1, "Primary", "Záhadná vesnice", "Po cestě do Novigradu, Geralt narazil na Barghesta ve zvláštní vesnici. Geralta vesničani ve vesnici nechtěli, ale dozvěděl se, že ve vesnici byl i jiný zaklínač. Geralt se rozhodl, že se ve vesnici porozhlídne", "Prohledej vesnici a zeptej se lidí na Lamberta", 1, true, "Záhadná vesnice", null, 0, 0));
+
             manager.SaveQuests(qq);
         }
         

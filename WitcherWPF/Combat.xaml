@@ -100,9 +100,9 @@
                 </Image.RenderTransform>
             </Image>
         </Button>
-        <Button Visibility="Hidden" Name="CombatExit" Click="ExitCombat" Margin="1159,239,154,523" Height="Auto" BorderBrush="{x:Null}">
+        <Button Visibility="Hidden" Name="CombatExit" Click="ExitCombat" Margin="1144,274,190,523" Height="Auto" BorderBrush="{x:Null}">
             <Button.Background>
-                <ImageBrush ImageSource="img/UI/door.png"/>
+                <ImageBrush ImageSource="img/UI/ui_door.png"/>
             </Button.Background>
         </Button>
         <Button Name="SkullLoot" Visibility="Hidden" Click="EnemyLoot" Margin="876,420,430,366" Height="Auto" BorderBrush="{x:Null}">

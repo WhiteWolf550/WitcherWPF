@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:WitcherWPF"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Location"  Height="894" Width="1426.666">
+      Title="Location"  Height="894" Width="1426.666" Loaded="PageLoaded">
 
     <Grid>
 
@@ -29,7 +29,6 @@
                 <ImageBrush ImageSource="img/UI/inventory_icon.png"/>
             </Button.Background>
         </Button>
-        <Button Click="GetMenu_Click" Content="Menu" Margin="1330,0,0,862" Background="#FF083A08" BorderBrush="{x:Null}"></Button>
         <Image x:Name="LootBack" Visibility="Hidden" Source="img/UI/inventory.png" HorizontalAlignment="Left" Margin="200,0,0,0"/>
         <WrapPanel Visibility="Hidden" Margin="294,290,853,381" x:Name="LootInventory"/>
         <Button Visibility="Hidden" Click="LootToInventory" x:Name="TakeLoot" Content="Vzít vše" Margin="236,750,1053,101" Height="Auto" Background="#FF1E4F19" BorderBrush="{x:Null}"/>

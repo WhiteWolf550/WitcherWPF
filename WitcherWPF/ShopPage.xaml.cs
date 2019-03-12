@@ -334,6 +334,7 @@ namespace WitcherWPF
             CurItem = item;
             ShopDialog.Visibility = Visibility.Visible;
             SellnBuyBut.Tag = "Sell";
+            Price.Content = "Cena: " + CurItem.Item.Price / 2 * Int32.Parse(Num.Content.ToString());
             SellnBuyBut.Content = "Prodat";
         }
         public void BuyItem_Box(MenuItem menu) {
@@ -343,6 +344,7 @@ namespace WitcherWPF
             CurShopItem = item;
             ShopDialog.Visibility = Visibility.Visible;
             SellnBuyBut.Tag = "Buy";
+            Price.Content = "Cena: " + CurShopItem.Price * Int32.Parse(Num.Content.ToString());
             SellnBuyBut.Content = "Koupit";
         }
         private void SellorBuy_Click(object sender, RoutedEventArgs e) {
@@ -398,6 +400,14 @@ namespace WitcherWPF
 
         private void ScrollBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
             Num.Content = Math.Round(ScrollBR.Value);
+            if (SellnBuyBut != null) {
+                if (SellnBuyBut.Tag.ToString() == "Sell") {
+                    Price.Content = "Cena: " + CurItem.Item.Price / 2 * Int32.Parse(Num.Content.ToString());
+                } else {
+                    Price.Content = "Cena: " + CurShopItem.Price * Int32.Parse(Num.Content.ToString());
+                }
+            }
+            
         }
         private void Sell() {
             int def = CurItem.Item.Count;
@@ -424,8 +434,8 @@ namespace WitcherWPF
         public void BuySword(MenuItem menu) {
             Sword sw = shopswordeq[menu];
             if (swords.Count < 2) {
-                int price = CurShopItem.Price / 2;
-                bool hasmoney = player.Pay(price * Int32.Parse(Num.Content.ToString()), playerlist);
+                int price = sw.Price;
+                bool hasmoney = player.Pay(price, playerlist);
                 if (hasmoney == true) {
                     foreach (Shop item in shops) {
                         item.Swords.Remove(sw);
@@ -448,8 +458,8 @@ namespace WitcherWPF
         public void BuyArmor(MenuItem menu) {
             Armor ar = shoparmoreq[menu];
             if (armors.Count < 2) {
-                int price = CurShopItem.Price / 2;
-                bool hasmoney = player.Pay(price * Int32.Parse(Num.Content.ToString()), playerlist);
+                int price = ar.Price;
+                bool hasmoney = player.Pay(price, playerlist);
                 if (hasmoney == true) {
                     foreach (Shop item in shops) {
                         item.Armors.Remove(ar);

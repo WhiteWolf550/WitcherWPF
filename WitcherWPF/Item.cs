@@ -67,12 +67,14 @@ namespace WitcherWPF
             //Dictionary<Item, Button> lootitems = new Dictionary<Item, Button>();
             
             
-            var matches = items.Where(s => s.LootType == LootType).ToList();
+            List<Item> matches = items.Where(s => s.LootType == LootType).ToList();
             int itc = matches.Count();
             int lootcount = 0;
             Random rand = new Random();
             if (matches.Count < 3) {
-                lootcount = rand.Next(1, matches.Count);
+                if (matches.Count() == 1) {
+                    lootcount = 0;
+                }
             }else {
                 lootcount = rand.Next(1, 3);
             }
@@ -279,8 +281,8 @@ namespace WitcherWPF
             items.Add(new Item("Prach smrti", "Prach, který se většinou dá získat z přeludů, nebo z jiných příšer", "Alchemy", "Barghest", @"img/Items/Monster_DeathDust.png", "Vitriol", "Alchemy", null, null, 10));
 
             //HERBS
-            items.Add(new Item("Vlaštovičník", "Běžná rostlina s léčivými vlastnostmi", "Alchemy", "Herb", @"img/Items/Herb_Celandine.png", "Rebis", null, null, null, 10));
-            items.Add(new Item("Bílá Myrta", "Běžná polní květina s velkými bílými květy", "Alchemy", "Herb", @"img/Items/Herb_Myrtle.png", "Vitriol", null, null, null, 10));
+            items.Add(new Item("Vlaštovičník", "Běžná rostlina s léčivými vlastnostmi", "Alchemy", "Celandine", @"img/Items/Herb_Celandine.png", "Rebis", null, null, null, 10));
+            items.Add(new Item("Bílá Myrta", "Běžná polní květina s velkými bílými květy", "Alchemy", "White_Myrtle", @"img/Items/Herb_Myrtle.png", "Vitriol", null, null, null, 10));
 
 
             items.Add(new Item("Krev z Ghůla", "Krev, která se dá získat z Ghůla", "Alchemy", "Ghůl", @"img/Items/Monster_Ghoul_Blood.png", "Aether", "Alchemy", null, null, 10));

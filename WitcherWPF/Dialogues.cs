@@ -243,7 +243,9 @@ namespace WitcherWPF
         }
         public void CreateDialogues() {
             List<Dialogues> dialog = new List<Dialogues>();
+            List<Dialogues> dialog1 = new List<Dialogues>();
             string path = @"../../dialogues/DialoguePrologue.json";
+            string path1 = @"../../dialogues/DialogueChapter1.json";
             //----------------------FOLTEST----------------
             //greet
             dialog.Add(new Dialogues("Foltest", "Vítej zpět Zaklínači", 1, "Pozdrav", "Greet", "Foltest", true, null, null, false));
@@ -416,6 +418,30 @@ namespace WitcherWPF
             //leave
             dialog.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Přeživší", true, null, null, false));
             dialog.Add(new Dialogues("Přeživší", "Nashle", 2, "Nashle", "Talk", "Přeživší", true, null, null, false));
+
+            //----------------------------------------CHAPTER I------------------------------------
+            //greet
+            dialog.Add(new Dialogues("Vesničan", "Zdravím", 1, "Pozdrav", "Greet", "Vesničan", true, null, null, false));
+
+            //1
+            dialog.Add(new Dialogues("Vesničan", "Jděte pryč!", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Vesničan", "Takový jako ty tu nechceme!", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Geralt", "Máte tu hodně takových psů?", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Vesničan", "Nic ti neřeknu ty špinavá zrůdo!", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Vesničan", "Takový jako ty tu nechceme!", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Geralt", "Pokud jich tu máte více, tak vesnice není bezpečná", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Vesničan", "Řekl jsem ať jdeš pryč!", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Vesničan", "Stačí nám, že tu byl už jeden jako ty a toho jsme se zbavili", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Vesničan", "Takže odsud zmiz", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Geralt", "On tu byl předemnou jiný zaklínač?", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Vesničan", "Ano, ale byl taky poslední", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
+            dialog.Add(new Dialogues("Vesničan", "Takže zmiz", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
+
+            //leave
+            dialog.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Vesničan", true, null, null, false));
+            dialog.Add(new Dialogues("Vesničan", "Už se nikdy nevracej", 2, "Nashle", "Talk", "Vesničan", true, null, null, false));
+
+
 
 
             manager.SaveDialogues(dialog, path);

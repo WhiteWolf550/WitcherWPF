@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:WitcherWPF"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PausePage" Height="894" Width="1426.666">
+      Title="PausePage" Height="894" Width="1426.666" Loaded="PageLoaded">
 
     <Grid>
         <Image Source="img/UI/Pause_back.jpg" Margin="-120,-54,-62,-60"></Image>
