@@ -48,7 +48,7 @@ namespace WitcherWPF
         int delay = 1000;
         Player player = new Player();
         Music sound = new Music();
-        string prolog = @"../../dialogues/DialoguePrologue.json";
+        string prolog = Globals.DialoguePath;
         string QuestName = "";
         string Enemy = "";
 
@@ -230,8 +230,7 @@ namespace WitcherWPF
             PlayerQuest playerquest = new PlayerQuest();
             string qname = "";
             string qdesc = "";
-            int questexp = 0;
-            int questreward = 0;
+            
             string diadis = "";
             string Activate = "";
             string Activate2 = "";
@@ -239,15 +238,17 @@ namespace WitcherWPF
             string Decision = null;
             string Choice = null;
             PlayerQuest que = new PlayerQuest();
+            int questexp = 0;
+            int questreward = 0;
 
             //---------------------PATHS---------------------------
 
-            
+
 
             //---------------------FILE LOADING---------------------------
-            
-            
-            List<Dialogues> dialog = manager.LoadDialogue(prolog);
+
+
+            List<Dialogues> dialog = manager.LoadDialogue(Globals.DialoguePath);
             //---------------------FILTERS---------------------------
             var matches = dialog.Where(s => s.Dialogue == Character);
             var matches2 = matches.Where(s => s.Type == "Talk");
@@ -345,6 +346,7 @@ namespace WitcherWPF
                                 questexp = it.Quest.experience;
                                 questreward = it.Quest.reward;
                                 playerquest = it;
+                                qst = it2;
                                 if (it2.DialogueActivate != null) {
                                     var mat = dialog.Where(s => s.Choice == it2.DialogueActivate);
                                     foreach (var di in mat) {
@@ -397,13 +399,21 @@ namespace WitcherWPF
                         player.AddMoney(questreward, playerlist);
 
                     }
-
-                    QueName.Content = qname;
+                    bool isEvent = ScriptedEvents2(dlgs, qst);
+                    if (isEvent == false) {
+                        QueName.Content = qname;
+                        QueGoal.Text = qdesc;
+                        
+                    }else {
+                        QueName.Content = qst.QuestName;
+                        QueGoal.Text = qst.QuestGoal;
+                        
+                    }
                     QueName.Foreground = c;
-                    QueGoal.Text = qdesc;
                     QueGoal.Foreground = c;
 
                     QuestName = qname;
+
                     que.QuestShow(QuestPop);
                     sound.PlaySound(QuestSound);
                     await Task.Delay(10000);
@@ -442,13 +452,27 @@ namespace WitcherWPF
             if (Dialogue.Choice == "Vyrazit na cestu") {
                 TravelCutsceneShow();
             }
+            
+        }
+        private bool ScriptedEvents2(Dialogues Dialogue, Quest quest) {
+            bool go = false;
             if (Dialogue.Choice == "Informace o Lambertovi" && Dialogue.Decision == "Nemám čas na tvoje kraviny") {
-                foreach(PlayerQuest item in PlayerQuests) {
-                    if (item.Quest == quest) {
-                        item.Quest.QuestGoal = "Starosta byl Geraltovým projevem lehce zastrašen a jsem si skoro jist, že to byl i Geraltův plán, ale jelikož mu starosta odmítl pomoci, tak Geralt musí najít jiný způsob jak Lamberta najít. Zoltan Geraltovi řekl o šílenci ve vesnici, který by mohl mít nějaké informace. Šílenec Geraltovi neporadil.";
-                        item.Quest.QuestGoal = "Najdi další stopu";
+                foreach (PlayerQuest item in PlayerQuests) {
+                    if (item.Quest.QuestName == quest.QuestName) {
+                        item.Quest.QuestDescription = "Starosta byl Geraltovým projevem lehce zastrašen a jsem si skoro jist, že to byl i Geraltův plán, ale jelikož mu starosta odmítl pomoci, tak Geralt musí najít jiný způsob jak Lamberta najít. Zoltan Geraltovi řekl o šílenci ve vesnici, který by mohl mít nějaké informace. Šílenec Geraltovi neporadil.";
+                        item.Quest.QuestGoal = "Najdi jinou stopu";
+                        quest.QuestGoal = "Najdi jinou stopu";
+                        quest.QuestDescription = "Starosta byl Geraltovým projevem lehce zastrašen a jsem si skoro jist, že to byl i Geraltův plán, ale jelikož mu starosta odmítl pomoci, tak Geralt musí najít jiný způsob jak Lamberta najít. Zoltan Geraltovi řekl o šílenci ve vesnici, který by mohl mít nějaké informace. Šílenec Geraltovi neporadil.";
+                        go = true;
                     }
                 }
+            }else {
+                go = false;
+            }
+            if (go == true) {
+                return true;
+            }else {
+                return false;
             }
         }
         private void GoToCombat(object sender, EventArgs e) {

@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="WitcherWPF.Village_Outside2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WitcherWPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="894" d:DesignWidth="1426.666">
+    <Grid>
+        <Image x:Name="LocationImage" Source="img/Locations/Village_Outside2_day.png" Margin="-99,-42,-80,-48" Grid.ColumnSpan="3" Grid.RowSpan="3"></Image>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO1" Margin="1136,438,201,386" Tag="Village_Outside1">
+            <Image Source="img/UI/ui_door.png"></Image>
+        </Button>
+
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Tag="Village_Outside3" Height="Auto"  Name="Steps" ToolTip="Druhá část vesnice" Margin="296,489,1045,308" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="1.049"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Image Source="img/UI/ui_steps.png"></Image>
+        </Button>
+        <Button Name="Loot" Height="Auto" Tag="Ginatia" Margin="652,474,703,363" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold">
+            <Image Source="img/UI/ui_loot.png" RenderTransformOrigin="0.5,0.5" Height="45" Width="44"></Image>
+        </Button>
+        <Button Visibility="Visible" Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" Tag="Problém s ghúly"  Name="Ghoul" ToolTip="Ghůl" Margin="22,423,1298,310">
+            <Image Source="img/Monsters/Ghoul.png" Height="151"></Image>
+        </Button>
+    </Grid>
+</UserControl>

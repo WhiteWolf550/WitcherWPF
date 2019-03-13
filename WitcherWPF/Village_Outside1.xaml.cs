@@ -25,7 +25,10 @@ namespace WitcherWPF {
         public bool Looted = false;
         public Village_Outside1() {
             InitializeComponent();
+            Ghoul.Visibility = Visibility.Hidden;
+            GhoulQuest();
             LoadBackground();
+            CheckLootReset();
             Timer();
             time.Start();
 
@@ -70,6 +73,14 @@ namespace WitcherWPF {
                 Barell.Visibility = Visibility.Hidden;
             } else if (Looted == false) {
                 Barell.Visibility = Visibility.Visible;
+            }
+        }
+        public void GhoulQuest() {
+            qq = manager.LoadPlayerQuests();
+            foreach (PlayerQuest item in qq) {
+                if (item.Quest.QuestName == "Problém s ghúly" && item.Quest.QuestID == 2) {
+                    Ghoul.Visibility = Visibility.Visible;
+                }
             }
         }
 

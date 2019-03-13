@@ -20,8 +20,8 @@
                 <ImageBrush ImageSource="img/UI/Shop_ico.png"/>
             </Button.Background>
         </Button>
-        
-        <Label Style="{StaticResource MORPHEUS}" Content="PersonName" FontWeight="Bold" Name="PersonName" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Background="{x:Null}" Foreground="LightGray" Margin="309,431,1010,429"/>
+
+        <Label Style="{StaticResource MORPHEUS}" Content="PersonName" FontWeight="Bold" Name="PersonName" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Background="{x:Null}" Foreground="LightGray" Margin="270,431,944,429" Width="213"/>
         <TextBlock TextWrapping="Wrap" Text="Text"  Name="PersonText" Grid.Row="2" MinWidth="100" MinHeight="30" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Width="908" Grid.ColumnSpan="3" Margin="270,290,249,122" Height="100" />
 
         <StackPanel Name="DialogueOptions" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" MinWidth="200" MinHeight="200" Margin="166,0,143,26" Grid.RowSpan="2" Width="446"/>

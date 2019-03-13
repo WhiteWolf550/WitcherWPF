@@ -28,8 +28,9 @@ namespace WitcherWPF {
         Item it = new Item();
         Music media = new Music();
         Button butclick = new Button();
-        UserControl CurrentUserControl = new UserControl();
+        
         static Button Loot = new Button();
+        string QuestName = null;
         public bool Steps = false;
         public Location() {
             InitializeComponent();
@@ -64,8 +65,28 @@ namespace WitcherWPF {
             Wyzima_Smith.Yaven.Click += new RoutedEventHandler(GetDialogue);
             Wyzima_Smith.FirePlace.Click += new RoutedEventHandler(Meditation);
             Wyzima_House.Shelf.Click += new RoutedEventHandler(GetLoot);
-            Wyzima_House.Ghoul.Click += new RoutedEventHandler(EnterCombat);
+            Wyzima_House.Ghoul.Click += new RoutedEventHandler(EnterCombat1);
             Wyzima_House.Outside.Click += new RoutedEventHandler(Switch_Click);
+
+            Village_Inn.Olaf.Click += new RoutedEventHandler(GetDialogue);
+            Village_Inn.Zoltan.Click += new RoutedEventHandler(GetDialogue);
+            Village_Inn.DoorO.Click += new RoutedEventHandler(Switch_Click);
+
+            Village_Outside1.Turman.Click += new RoutedEventHandler(GetDialogue);
+            Village_Outside1.Ghoul.Click += new RoutedEventHandler(EnterCombatChQuest);
+            Village_Outside1.MasterHunter.Click += new RoutedEventHandler(GetDialogue);
+            Village_Outside1.Barell.Click += new RoutedEventHandler(GetLoot);
+            Village_Outside1.DoorO.Click += new RoutedEventHandler(Switch_Click);
+            Village_Outside1.DoorO2.Click += new RoutedEventHandler(Switch_Click);
+
+            Village_Outside2.Loot.Click += new RoutedEventHandler(GetLoot);
+            Village_Outside2.Ghoul.Click += new RoutedEventHandler(EnterCombatChQuest);
+            Village_Outside2.Steps.Click += new RoutedEventHandler(Switch_Click);
+            Village_Outside2.DoorO1.Click += new RoutedEventHandler(Switch_Click);
+            Village_Outside3.Madman.Click += new RoutedEventHandler(GetDialogue);
+            Village_Outside3.Ghoul.Click += new RoutedEventHandler(EnterCombatChQuest);
+            Village_Outside3.Loot.Click += new RoutedEventHandler(GetLoot);
+            Village_Outside3.Steps.Click += new RoutedEventHandler(Switch_Click);
         }
         public Location(Frame parentFrame, string location, Time time) : this() {
             this.parentFrame = parentFrame;
@@ -79,19 +100,29 @@ namespace WitcherWPF {
         public void SetLocation() {
             if (loc == "Old_wyzima2") {
                 Wyzima_Castle2.Visibility = Visibility.Visible;
-                CurrentUserControl = Wyzima_Castle2;
+                
             }else if(loc == "Old_wyzima1") {
                 Wyzima_Castle.Visibility = Visibility.Visible;
-                CurrentUserControl = Wyzima_Castle;
+                
             }else if (loc == "Old_wyzima3") {
                 Wyzima_Outside.Visibility = Visibility.Visible;
-                CurrentUserControl = Wyzima_Outside;
+                
             } else if (loc == "Old_wyzima4") {
                 Wyzima_Smith.Visibility = Visibility.Visible;
-                CurrentUserControl = Wyzima_Smith;
+                
             }else if (loc == "Old_wyzima5") {
                 Wyzima_House.Visibility = Visibility.Visible;
-                CurrentUserControl = Wyzima_House;
+                
+            }else if (loc == "Village_Inn") {
+                Village_Inn.Visibility = Visibility.Visible;
+                
+            }else if (loc == "Village_Outside1") {
+                Village_Outside1.Visibility = Visibility.Visible;
+            }else if (loc == "Village_Outside2") {
+                Village_Outside2.Visibility = Visibility.Visible;
+
+            }else if (loc == "Village_Outside3") {
+                Village_Outside3.Visibility = Visibility.Visible;
             }
         }
         public Location(Frame parentFrame, Time time) : this() {
@@ -145,6 +176,12 @@ namespace WitcherWPF {
                 Wyzima_Castle.HideLoot(true);
             }else if (loc == "Old_wyzima4") {
                 Wyzima_Smith.HideLoot(true);
+            }else if (loc == "Village_Outside1") {
+                Village_Outside1.HideLoot(true);
+            }else if (loc == "Village_Outside2") {
+                Village_Outside2.HideLoot(true);
+            }else if (loc == "Village_Outside3") {
+                Village_Outside3.HideLoot(true);
             }
         }
         public void CloseLoot(object sender, RoutedEventArgs e) {
@@ -201,6 +238,10 @@ namespace WitcherWPF {
             Wyzima_Outside.Visibility = Visibility.Hidden;
             Wyzima_Smith.Visibility = Visibility.Hidden;
             Wyzima_House.Visibility = Visibility.Hidden;
+            Village_Inn.Visibility = Visibility.Hidden;
+            Village_Outside1.Visibility = Visibility.Hidden;
+            Village_Outside2.Visibility = Visibility.Hidden;
+            Village_Outside3.Visibility = Visibility.Hidden;
         }
         public void LocationSwitch(string loca) {
             if (loca == "Old_wyzima2") {
@@ -213,6 +254,16 @@ namespace WitcherWPF {
                 Wyzima_Smith.Visibility = Visibility.Visible;
             }else if (loca == "Old_wyzima5") {
                 Wyzima_House.Visibility = Visibility.Visible;
+            } else if (loca == "Village_Inn") {
+                Village_Inn.Visibility = Visibility.Visible;
+
+            }else if (loca == "Village_Outside1") {
+                Village_Outside1.Visibility = Visibility.Visible;
+            }else if (loca == "Village_Outside2") {
+                Village_Outside2.Visibility = Visibility.Visible;
+
+            }else if (loca == "Village_Outside3") {
+                Village_Outside3.Visibility = Visibility.Visible;
             }
         }
         public void Meditation(object sender, RoutedEventArgs e) {
@@ -248,7 +299,12 @@ namespace WitcherWPF {
             animation.Completed += new EventHandler(TravelHide);
             BlackScreen.BeginAnimation(UIElement.OpacityProperty, animation);
         }
-        private void EnterCombat(object sender, RoutedEventArgs e) {
+        private void EnterCombat1(object sender, RoutedEventArgs e) {
+            CombatTransitionShow();
+        }
+        private void EnterCombatChQuest(object sender, RoutedEventArgs e) {
+            Button button = (sender as Button);
+            QuestName = button.Tag.ToString();
             CombatTransitionShow();
         }
         public void CombatTransitionShow() {
@@ -267,7 +323,11 @@ namespace WitcherWPF {
         }
         public void GoToCombat(object sender, EventArgs e) {
             Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);
-            parentFrame.Navigate(new Combat(parentFrame, false, time, false, Loot.Tag.ToString(), "Ghůl"));
+            if (QuestName == null) {
+                parentFrame.Navigate(new Combat(parentFrame, false, time, false, Loot.Tag.ToString(), "Ghůl"));
+            }else {
+                parentFrame.Navigate(new Combat(parentFrame, false, time, false, QuestName, "Ghůl"));
+            }
         }
         private void OpenMenu() {
             Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);

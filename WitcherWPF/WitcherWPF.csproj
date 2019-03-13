@@ -197,6 +197,12 @@
     <Compile Include="Village_Outside1.xaml.cs">
       <DependentUpon>Village_Outside1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Village_Outside2.xaml.cs">
+      <DependentUpon>Village_Outside2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Village_Outside3.xaml.cs">
+      <DependentUpon>Village_Outside3.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Yrden.cs" />
     <Compile Include="YrdenSkills.xaml.cs">
       <DependentUpon>YrdenSkills.xaml</DependentUpon>
@@ -345,6 +351,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Village_Outside1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Village_Outside2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Village_Outside3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -589,6 +603,12 @@
     <Resource Include="img\Locations\Village_Outside2_night.png" />
     <Resource Include="img\Locations\Village_Outside3_day.png" />
     <Resource Include="img\Locations\Village_Outside3_night.png" />
+    <Resource Include="img\Characters\Madman.png" />
+    <Resource Include="img\Characters\Turman.png" />
+    <Resource Include="img\Characters\Olaf.png" />
+    <Resource Include="img\Characters\Zoltan.png" />
+    <Resource Include="img\Characters\Vesničan.png" />
+    <Resource Include="img\Characters\MasterHunter.png" />
     <Content Include="sounds\ghoul\ghoul_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -604,9 +624,12 @@
     <Content Include="sounds\ghoul\ghoul_Strong.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="sounds\music\Tavern1.mp3" />
+    <Content Include="sounds\music\Village_day.mp3" />
     <Content Include="sounds\music\menu.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="sounds\music\Village_night.mp3" />
     <Content Include="sounds\UI\buyskill.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

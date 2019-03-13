@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="WitcherWPF.Village_Outside3"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WitcherWPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="894" d:DesignWidth="1426.666">
+    <Grid>
+        <Image x:Name="LocationImage" Source="img/Locations/Village_Outside3_day.png" Margin="-99,-42,-80,-48" Grid.ColumnSpan="3" Grid.RowSpan="3"></Image>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO1" Margin="1004,389,333,435" Tag="Village_House1">
+            <Image Source="img/UI/ui_door.png"></Image>
+        </Button>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Madman" ToolTip="Vesnický šílenec" Margin="183,343,1142,314">
+            <Image Source="img/Characters/Madman.png" Grid.Column="1" Grid.Row="1"></Image>
+        </Button>
+
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Tag="Village_Outside2" Height="Auto"  Name="Steps" ToolTip="První část vesnice" Margin="46,525,1295,272" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-75"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Image Source="img/UI/ui_steps.png"></Image>
+        </Button>
+        <Button Name="Loot" Height="Auto" Tag="Celandine" Margin="431,449,924,388" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold">
+            <Image Source="img/UI/ui_loot.png" RenderTransformOrigin="0.5,0.5" Height="45" Width="44"></Image>
+        </Button>
+        <Button Visibility="Visible" Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" Tag="Problém s ghúly"  Name="Ghoul" ToolTip="Ghůl" Margin="702,377,629,372">
+            <Image Source="img/Monsters/Ghoul.png" Height="135"></Image>
+        </Button>
+    </Grid>
+</UserControl>

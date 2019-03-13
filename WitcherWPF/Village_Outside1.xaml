@@ -17,5 +17,14 @@
         <Button Name="Barell" Height="Auto" Margin="1146,535,212,304" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold">
             <Image Source="img/UI/ui_loot.png" RenderTransformOrigin="0.5,0.5" Height="45" Width="44"></Image>
         </Button>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Turman" ToolTip="Starosta Turman Hogman" Margin="918,441,418,288">
+            <Image Source="img/Characters/Turman.png" Grid.Column="1" Grid.Row="1"></Image>
+        </Button>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="MasterHunter" ToolTip="Mistr lovčí" Margin="394,420,959,342">
+            <Image Source="img/Characters/MasterHunter.png" Grid.Column="1" Grid.Row="1"></Image>
+        </Button>
+        <Button Visibility="Visible" Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" Tag="Problém s ghúly"  Name="Ghoul" ToolTip="Ghůl" Margin="612,399,689,304">
+            <Image Source="img/Monsters/Ghoul.png" Height="181"></Image>
+        </Button>
     </Grid>
 </UserControl>

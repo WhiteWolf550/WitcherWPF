@@ -1308,11 +1308,38 @@ namespace WitcherWPF {
         }
         private void QuestUpdate() {
             if (quest != null && CanLoadQuest == true) {
-                //CombatExit.Visibility = Visibility.Hidden;
+                CombatExit.Visibility = Visibility.Hidden;
                 CanLoadQuest = false;
-                playerquest.UpdateQuest(quest, QuestPop, QueName, QueGoal);
+                QuestChecker();
+                //playerquest.UpdateQuest(quest, QuestPop, QueName, QueGoal);
+                CombatExit.Visibility = Visibility.Visible;
             }
             
+        }
+        private void QuestChecker() {
+            if (quest == "Problém s ghúly") {
+                QuestToDialogue("Problém s ghúly", 3, "Madman");
+            }else {
+                playerquest.UpdateQuest(quest, QuestPop, QueName, QueGoal);
+            }
+        }
+        private void QuestToDialogue(string QuestName, int QuestID, string Character) {
+            playerQuests = manager.LoadPlayerQuests();
+            bool Dialogue = false;
+            foreach(PlayerQuest item in playerQuests) {
+                if (item.Quest.QuestName == QuestName && item.Quest.QuestID == QuestID) {
+                    playerquest.UpdateQuest(quest, QuestPop, QueName, QueGoal);
+                    Dialogue = true;
+                    
+                }else {
+                    
+                }
+            }
+            if (Dialogue == false) {
+                playerquest.UpdateQuest(quest, QuestPop, QueName, QueGoal);
+            }else {
+                parentFrame.Navigate(new Dialogue(parentFrame, Character, time));
+            }
         }
         private void Save() {
             manager.SavePlayer(playerlist);

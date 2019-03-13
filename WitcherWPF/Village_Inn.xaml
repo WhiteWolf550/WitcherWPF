@@ -8,5 +8,15 @@
              d:DesignHeight="894" d:DesignWidth="1426.666">
     <Grid>
         <Image x:Name="LocationImage" Source="img/Locations/Village_Inn.png" Margin="-99,-42,-80,-48" Grid.ColumnSpan="3" Grid.RowSpan="3"></Image>        
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Olaf" ToolTip="Hospodský Olaf" Margin="1113,359,212,347">
+            <Image Source="img/Characters/Olaf.png" Grid.Column="1" Grid.Row="1"></Image>
+        </Button>
+
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Zoltan" ToolTip="Zoltan Chivay" Margin="615,382,710,347">
+            <Image Source="img/Characters/Zoltan.png" Grid.Column="1" Grid.Row="1"></Image>
+        </Button>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO" Margin="520,359,817,465" Tag="Village_Outside1">
+            <Image Source="img/UI/ui_door.png"></Image>
+        </Button>
     </Grid>
 </UserControl>

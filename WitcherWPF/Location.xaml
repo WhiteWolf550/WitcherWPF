@@ -15,6 +15,13 @@
         <local:Old_wyzima3 x:Name="Wyzima_Outside" Visibility="Hidden"/>
         <local:Old_wyzima4 x:Name="Wyzima_Smith" Visibility="Hidden"/>
         <local:Old_wyzima5 x:Name="Wyzima_House" Visibility="Hidden"/>
+        
+        <!--  CHAPTER I -->
+        <local:Village_Inn x:Name="Village_Inn" Visibility="Hidden"></local:Village_Inn>
+        <local:Village_Outside1 x:Name="Village_Outside1" Visibility="Hidden"></local:Village_Outside1>
+        <local:Village_Outside2 x:Name="Village_Outside2" Visibility="Hidden"></local:Village_Outside2>
+        <local:Village_Outside3 x:Name="Village_Outside3" Visibility="Hidden"></local:Village_Outside3>
+        
 
         <Button HorizontalAlignment="Left" VerticalAlignment="Top" Click="GetInventory" x:Name="Inv" BorderBrush="{x:Null}" Height="90" Width="90" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>

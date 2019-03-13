@@ -43,6 +43,9 @@ namespace WitcherWPF
             }
         }
         private void Menu_Click(object sender, RoutedEventArgs e) {
+            Menu();
+        }
+        public void Menu() {
             Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);
             Globals.Combat = true;
             SaveGlobals();

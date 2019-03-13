@@ -60,11 +60,17 @@ namespace WitcherWPF {
         }
         public async void UpdateQuest(string QuestName, StackPanel QuestPop, Label QueName, TextBlock QueGoal) {
             Brush c = Brushes.Yellow;
-            string prolog = @"../../dialogues/DialoguePrologue.json";
+            string prolog = Globals.DialoguePath;
+            Player player = new Player();
             List<Quest> Quests = manager.LoadQuests();
+            List<Player> playerlist = manager.LoadPlayer();
             List<PlayerQuest> playerQuests = manager.LoadPlayerQuests();
             List<Dialogues> dialogues = manager.LoadDialogue(prolog);
             int id = 0;
+            PlayerQuest playerquest = new PlayerQuest();
+            int questexp = 0;
+            string QuestSound = "QuestUpdate";
+            int questreward = 0;
             var matches = playerQuests.Where(s => s.Quest.QuestName == QuestName);
             foreach(PlayerQuest item in matches) {
                 id = item.Quest.QuestID;
@@ -88,6 +94,8 @@ namespace WitcherWPF {
 
                             QueName.Content = item2.QuestName;
                             QueGoal.Text = item2.QuestGoal;
+                            questexp = item2.experience;
+                            questreward = item2.reward;
 
                             if (item2.DialogueActivate != null) {
                                 var mat = dialogues.Where(s => s.Choice == item2.DialogueActivate);
@@ -95,17 +103,30 @@ namespace WitcherWPF {
                                     di.Enabled = true;
                                 }
                             }
+                        }
+                    
                     }
-                    }
+                }
+                if (questexp != 0) {
+                    player.AddXP(questexp, playerlist);
+                    player.LevelUP(playerlist);
+                    playerQuests.Remove(playerquest);
+                    c = Brushes.Green;
+                    QuestSound = "QuestComplete";
+                }
+                if (questreward != 0) {
+                    player.AddMoney(questreward, playerlist);
+
+                }
                 manager.SavePlayerQuests(playerQuests);
                 manager.SaveDialogues(dialogues, prolog);
                 QuestShow(QuestPop);
-                sound.PlaySound("QuestUpdate");
+                sound.PlaySound(QuestSound);
                 await Task.Delay(5000);
                 QuestHide(QuestPop);
                 
                 
-            }
+            
             
             
 

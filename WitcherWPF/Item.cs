@@ -283,6 +283,7 @@ namespace WitcherWPF
             //HERBS
             items.Add(new Item("Vlaštovičník", "Běžná rostlina s léčivými vlastnostmi", "Alchemy", "Celandine", @"img/Items/Herb_Celandine.png", "Rebis", null, null, null, 10));
             items.Add(new Item("Bílá Myrta", "Běžná polní květina s velkými bílými květy", "Alchemy", "White_Myrtle", @"img/Items/Herb_Myrtle.png", "Vitriol", null, null, null, 10));
+            items.Add(new Item("Ginatia", "Okvětní plátky běžného křoví", "Alchemy", "Ginatia", @"img/Items/Herb_Ginatia.png", "Aether", null, null, null, 20));
 
 
             items.Add(new Item("Krev z Ghůla", "Krev, která se dá získat z Ghůla", "Alchemy", "Ghůl", @"img/Items/Monster_Ghoul_Blood.png", "Aether", "Alchemy", null, null, 10));

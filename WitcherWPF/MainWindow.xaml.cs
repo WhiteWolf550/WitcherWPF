@@ -20,15 +20,15 @@ namespace WitcherWPF {
     /// Interakční logika pro MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
-        
-        
-        
-        
+
+
+        Dialogues dia = new Dialogues();
+        Quest q = new Quest();
         public MainWindow() {
             
             InitializeComponent();
-            
-
+            //dia.CreateDialogues();
+            q.CreateQuests();
             
 
             

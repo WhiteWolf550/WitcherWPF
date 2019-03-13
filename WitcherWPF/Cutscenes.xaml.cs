@@ -71,10 +71,13 @@ namespace WitcherWPF
             }else if(CutsceneName == "Chapter1Cut1") {
                 parentFrame.Navigate(new Combat(parentFrame, false, time, false, null, "Barghest", "Chapter1Cut2"));
             }else if (CutsceneName == "Chapter1Cut2") {
+                Globals.Hour = 4;
                 Globals.Chapter = 1;
                 Globals.DialoguePath = @"../../dialogues/DialogueChapter1.json";
                 Globals.Combat = false;
-                parentFrame.Navigate(new Location(parentFrame, "Old_wyzima2", time));
+                Globals.location = "Village_Outside2";
+                time.Visibility = Visibility.Visible;
+                parentFrame.Navigate(new Dialogue(parentFrame, "Vesničan", time));
             }
         }
         private void RemoveHandler() {
