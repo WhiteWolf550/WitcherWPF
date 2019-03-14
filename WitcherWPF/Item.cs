@@ -259,9 +259,9 @@ namespace WitcherWPF
         }
         public void CreateItems() {
             List<Item> items = new List<Item>();
-            items.Add(new Item("Kuře", "Jídlo,Po snězení doplní malou část zdraví", "Loot", "Loot", @"img/Items/Food_Chicken.png", "žádné", "Food", "Sníst", null, 20));
-            items.Add(new Item("Wyverní maso", "Vzácné maso, které se dá prodat", "Loot", "Loot", @"img/Items/Food_Wyvern_Meat.png", "žádné", "Food", "Sníst", null, 90));
-            items.Add(new Item("Jablečný Džus", "Nápoj, lze vypít pro doplňení malé části zdraví", "Loot", "Loot", @"img/Items/Drink_Apple_Juice.png", "žádné", "Drink", "Vypít", null, 15));
+            items.Add(new Item("Kuře", "Jídlo,Po snězení doplní malou část zdraví", "Food", "Loot", @"img/Items/Food_Chicken.png", "žádné", "Food", "Sníst", null, 20));
+            items.Add(new Item("Wyverní maso", "Vzácné maso, které se dá prodat", "Food", "Loot", @"img/Items/Food_Wyvern_Meat.png", "žádné", "Food", "Sníst", null, 90));
+            items.Add(new Item("Jablečný Džus", "Nápoj, lze vypít pro doplňení malé části zdraví", "Drink", "Loot", @"img/Items/Drink_Apple_Juice.png", "žádné", "Drink", "Vypít", null, 15));
             items.Add(new Item("Fisstech", "Silná droga, lze prodat", "Loot", "Loot", @"img/Items/Potion_Fisstech.png", "žádné", "Drug", "Použít", null, 150));
             items.Add(new Item("Víno", "Alkohol, lze prodat kupcům nebo použít", "Alcohol", "Loot", @"img/Items/Alcohol_Winered.png", "žádné", "Alcohol", "Vypít", null, 20));
             items.Add(new Item("Temerská žitná", "Středně silný alkohol, lze prodat kupcům nebo použít jako Alchymistický základ", "MediumAlcohol", "Loot", @"img/Items/Alcohol_Temerian_Rye.png", "žádné", "Alcohol", "Vypít", null, 50));
@@ -278,12 +278,12 @@ namespace WitcherWPF
 
             //MONSTER LOOT
             items.Add(new Item("Tesáky z příšery", "Tesáky sebrané z příšery", "Alchemy", "Barghest", @"img/Items/Monster_Fang.png", "Rebis", "Alchemy", null, null, 10));
-            items.Add(new Item("Prach smrti", "Prach, který se většinou dá získat z přeludů, nebo z jiných příšer", "Alchemy", "Barghest", @"img/Items/Monster_DeathDust.png", "Vitriol", "Alchemy", null, null, 10));
+            items.Add(new Item("Prach smrti", "Prach, který se většinou dá získat z přeludů, nebo z jiných příšer", "Alchemy", "Barghest", @"img/Items/Monster_DeathDust.png", "Hydragenum", "Alchemy", null, null, 10));
 
             //HERBS
             items.Add(new Item("Vlaštovičník", "Běžná rostlina s léčivými vlastnostmi", "Alchemy", "Celandine", @"img/Items/Herb_Celandine.png", "Rebis", null, null, null, 10));
             items.Add(new Item("Bílá Myrta", "Běžná polní květina s velkými bílými květy", "Alchemy", "White_Myrtle", @"img/Items/Herb_Myrtle.png", "Vitriol", null, null, null, 10));
-            items.Add(new Item("Ginatia", "Okvětní plátky běžného křoví", "Alchemy", "Ginatia", @"img/Items/Herb_Ginatia.png", "Aether", null, null, null, 20));
+            items.Add(new Item("Ginatia", "Okvětní plátky běžného křoví", "Alchemy", "Ginatia", @"img/Items/Herb_Ginatia.png", "Vermilion", null, null, null, 20));
 
 
             items.Add(new Item("Krev z Ghůla", "Krev, která se dá získat z Ghůla", "Alchemy", "Ghůl", @"img/Items/Monster_Ghoul_Blood.png", "Aether", "Alchemy", null, null, 10));

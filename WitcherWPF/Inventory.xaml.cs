@@ -179,11 +179,16 @@ namespace WitcherWPF
                         drop.Click += DropItem;
                         drop.Tag = item.Item.Name;
                         cm.Items.Add(drop);
-                        MenuItem use = new MenuItem();
-                        use.Header = item.Item.Action;
-                        use.Click += UseItem;
-                        use.Tag = item.Item.Action;
-                        cm.Items.Add(use);
+                        if (item.Item.Action != null) {
+                            MenuItem use = new MenuItem();
+                            use.Header = item.Item.Action;
+                            use.Click += UseItem;
+                            use.Tag = item.Item.Action;
+                            cm.Items.Add(use);
+                            buttonitems.Add(use, item);
+                        } else {
+                            buttonitems.Add(drop, item);
+                        }
                         Button inventoryitem = new Button();
                         inventoryitem.Content = inventoryimage;
                         inventoryitem.Height = 20;
@@ -201,7 +206,7 @@ namespace WitcherWPF
                         {
                             AlchemyItems.Children.Add(inventoryitem);
                         }
-                        buttonitems.Add(use, item);
+                        
                     }
 
                 }

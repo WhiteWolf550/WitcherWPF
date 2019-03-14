@@ -141,6 +141,9 @@
     <Compile Include="Map_Old_Wyzima.xaml.cs">
       <DependentUpon>Map_Old_Wyzima.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Map_Village.xaml.cs">
+      <DependentUpon>Map_Village.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Map_WyzimaCastle.xaml.cs">
       <DependentUpon>Map_WyzimaCastle.xaml</DependentUpon>
     </Compile>
@@ -295,6 +298,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Map_Old_Wyzima.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Map_Village.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -609,6 +616,8 @@
     <Resource Include="img\Characters\Zoltan.png" />
     <Resource Include="img\Characters\Vesničan.png" />
     <Resource Include="img\Characters\MasterHunter.png" />
+    <Resource Include="img\Items\Herb_Ginatia.png" />
+    <Resource Include="img\Monsters\Barghest_map.png" />
     <Content Include="sounds\ghoul\ghoul_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -503,6 +503,10 @@ namespace WitcherWPF
             dialog1.Add(new Dialogues("Starosta Turman", "*rozklepaným hlasem* Zmiz", 1, "Zaklínač", "Talk", "Turman", false, "Záhadná vesnice", null, false));
             dialog1.Add(new Dialogues("Starosta Turman", "Odsud", 1, "Zaklínač", "Talk", "Turman", false, "Na stopě zaklínači", null, false));
 
+            //2
+            dialog1.Add(new Dialogues("Geralt", "Co si myslíš, že děláš?", 1, "Co si myslíš, že děláš", "Talk", "Turman", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Starosta Turman", "Co si myslíš, že děláš?", 1, "Co si myslíš, že děláš", "Talk", "Turman", false, "Na stopě zaklínači", null, false));
+
             //leave
             dialog1.Add(new Dialogues("Geralt", "Sbohem, pane starosto", 2, "Nashle", "Talk", "Turman", true, null, null, false));
             dialog1.Add(new Dialogues("Starosta Turman", "...", 2, "Nashle", "Talk", "Turman", true, null, null, false));

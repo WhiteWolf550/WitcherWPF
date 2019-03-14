@@ -33,12 +33,17 @@ namespace WitcherWPF {
             List<Armor> armors = manager.LoadArmors();
 
             List<Item> matches = items.Where(s => s.Effect == "Alcohol").ToList();
+            List<Item> matches2 = items.Where(s => s.Effect == "Alcohol" || s.Type == "Drink" || s.Type == "Food").ToList();
             List<Sword> mats = swords.Where(s => s.Level == 1).ToList();
             List<Armor> mata = armors.Where(s => s.Level == 1).ToList();
             foreach(Item item in matches) {
                 item.Count = 10;
             }   
+            foreach(Item item in matches2) {
+                item.Count = 10;
+            }
             shops.Add(new Shop("Yaven", "Blacksmith", matches, mats, mata));
+            shops.Add(new Shop("Olaf", "Innkeeper", matches2, null, null));
 
 
             manager.SaveShops(shops);

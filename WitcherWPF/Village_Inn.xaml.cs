@@ -18,8 +18,22 @@ namespace WitcherWPF {
     /// Interakční logika pro Village_Inn.xaml
     /// </summary>
     public partial class Village_Inn : UserControl {
+        List<PlayerQuest> pquest = new List<PlayerQuest>();
+        FileManager manager = new FileManager();
         public Village_Inn() {
             InitializeComponent();
+            Turman.Visibility = Visibility.Hidden;
+            pquest = manager.LoadPlayerQuests();
+            ChapterQuest();
+        }
+        public void ChapterQuest() {
+            foreach(PlayerQuest item in pquest) {
+                if (item.Quest.QuestName == "Záhadná vesnice" && item.Quest.QuestID == 4) {
+                    Turman.Visibility = Visibility.Visible;
+                    Zoltan.Visibility = Visibility.Hidden;
+                    Olaf.Visibility = Visibility.Hidden;
+                }
+            }
         }
     }
 }

@@ -51,6 +51,7 @@ namespace WitcherWPF
         string prolog = Globals.DialoguePath;
         string QuestName = "";
         string Enemy = "";
+        string CutsceneName = "";
 
         public Dialogue() {
             InitializeComponent();
@@ -114,6 +115,7 @@ namespace WitcherWPF
                     }
                     
                     option.FontSize = 20;
+                    option.MinHeight = 20;
                     option.HorizontalAlignment = HorizontalAlignment.Center;
                     option.BorderBrush = Brushes.Transparent;
                     option.Background = Brushes.Transparent;
@@ -452,7 +454,13 @@ namespace WitcherWPF
             if (Dialogue.Choice == "Vyrazit na cestu") {
                 TravelCutsceneShow();
             }
-            
+            if (Dialogue.Choice == "Co si myslíš, že děláš") {
+                Enemy = "Human1";
+                CutsceneName = "Chapter1Cut3Begin";
+                TravelShow();
+            }
+
+
         }
         private bool ScriptedEvents2(Dialogues Dialogue, Quest quest) {
             bool go = false;
@@ -476,7 +484,7 @@ namespace WitcherWPF
             }
         }
         private void GoToCombat(object sender, EventArgs e) {
-            parentFrame.Navigate(new Combat(parentFrame, false, time, false, QuestName, Enemy));
+            parentFrame.Navigate(new Combat(parentFrame, false, time, false, QuestName, Enemy, CutsceneName));
         }
         private void GoToCutscene(object sender, EventArgs e) {
             parentFrame.Navigate(new Cutscenes(parentFrame, time, "PrologueCut2"));

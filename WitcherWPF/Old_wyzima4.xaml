@@ -16,7 +16,7 @@
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Yaven" ToolTip="Yaven Briggs (Kovář)" Margin="246,328,1019,205">
             <Image Source="img/Characters/Yaven.png"></Image>
         </Button>
-        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="FirePlace" Margin="1279,508,69,316">
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="FirePlace" Margin="1243,481,60,306">
             <Image Source="img/UI/ui_fire.png" ></Image>
         </Button>
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" ToolTip="Do města" Tag="Old_wyzima3"  Name="Outside" Margin="574,430,775,404">

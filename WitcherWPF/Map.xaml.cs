@@ -32,7 +32,7 @@ namespace WitcherWPF
             SetMap();
         }
         public void Clicks() {
-            
+            Village.Barghest.Click += new RoutedEventHandler(StartCombat_Click);
             
             
         }
@@ -46,6 +46,12 @@ namespace WitcherWPF
                 WyzimaCastle.Visibility = Visibility.Visible;
             } else if(map == "Old_wyzima3") {
                 Old_Wyzima.Visibility = Visibility.Visible;
+            }else if (map == "Village_Outside1") {
+                Village.Visibility = Visibility.Visible;
+            }else if (map == "Village_Outside2") {
+                Village.Visibility = Visibility.Visible;
+            }else if (map == "Village_Outside3") {
+                Village.Visibility = Visibility.Visible;
             }
         }
         public void GetInventory(object sender, RoutedEventArgs e) {
@@ -72,6 +78,11 @@ namespace WitcherWPF
             parentFrame.Navigate(new Location(parentFrame, tag, time));
 
         }
+        public void StartCombat_Click(object sender, RoutedEventArgs e) {
+            Button button = (sender as Button);
+            parentFrame.Navigate(new Combat(parentFrame, false, time, false, null, button.Tag.ToString()));
+        }
+        
         
     }
 }

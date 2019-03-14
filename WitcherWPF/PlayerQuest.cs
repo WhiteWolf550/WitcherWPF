@@ -91,7 +91,7 @@ namespace WitcherWPF {
                             item.Quest.QuestDescription = item2.QuestDescription;
                             item.Quest.QuestGoal = item2.QuestGoal;
                             item.Quest.DialogueActivate = item2.DialogueActivate;
-
+                            playerquest = item;
                             QueName.Content = item2.QuestName;
                             QueGoal.Text = item2.QuestGoal;
                             questexp = item2.experience;

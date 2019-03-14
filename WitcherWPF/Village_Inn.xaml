@@ -11,12 +11,17 @@
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Olaf" ToolTip="Hospodský Olaf" Margin="1113,359,212,347">
             <Image Source="img/Characters/Olaf.png" Grid.Column="1" Grid.Row="1"></Image>
         </Button>
-
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Turman" ToolTip="Starosta Turman Hogman" Margin="901,351,424,347">
+            <Image Source="img/Characters/Turman.png" Grid.Column="1" Grid.Row="1"></Image>
+        </Button>
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Zoltan" ToolTip="Zoltan Chivay" Margin="615,382,710,347">
             <Image Source="img/Characters/Zoltan.png" Grid.Column="1" Grid.Row="1"></Image>
         </Button>
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO" Margin="520,359,817,465" Tag="Village_Outside1">
             <Image Source="img/UI/ui_door.png"></Image>
+        </Button>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="FirePlace" Margin="227,382,1115,415">
+            <Image Source="img/UI/ui_fire.png" ></Image>
         </Button>
     </Grid>
 </UserControl>

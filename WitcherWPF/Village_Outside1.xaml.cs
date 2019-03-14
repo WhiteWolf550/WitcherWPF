@@ -26,6 +26,7 @@ namespace WitcherWPF {
         public Village_Outside1() {
             InitializeComponent();
             Ghoul.Visibility = Visibility.Hidden;
+            Turman.Visibility = Visibility.Visible;
             GhoulQuest();
             LoadBackground();
             CheckLootReset();
@@ -80,6 +81,16 @@ namespace WitcherWPF {
             foreach (PlayerQuest item in qq) {
                 if (item.Quest.QuestName == "Problém s ghúly" && item.Quest.QuestID == 2) {
                     Ghoul.Visibility = Visibility.Visible;
+                }
+            }
+        }
+        public void ChapterQuest() {
+            qq = manager.LoadPlayerQuests();
+            foreach (PlayerQuest item in qq) {
+                if (item.Quest.QuestName == "Záhadná vesnice" && item.Quest.QuestID == 4) {
+                    Turman.Visibility = Visibility.Hidden;
+                    
+                    
                 }
             }
         }

@@ -19,18 +19,19 @@ namespace WitcherWPF {
             this.AnimationSet.Add("Death", new Uri("gifs/NPC/npc_fight_stagger.gif", UriKind.Relative));
 
             this.HurtSteelSword = true;
-            this.MaxHP = 100;
+            this.MaxHP = 110;
             this.HP = this.MaxHP;
             this.Name = "Vrah";
-            this.XP = 30;
+            this.XP = 60;
 
-            this.StunChance = 5;
-            this.DodgeChance = 80;
-            this.BleedChance = 5;
+            this.StunChance = 2;
+            this.DodgeChance = 30;
+            this.BleedChance = 10;
             this.StrongSpeed = 800;
             this.FastSpeed = 500;
-            this.StrongDamage = 12;
-            this.FastDamage = 5;
+            this.StrongDamage = 29;
+            this.FastChance = 30;
+            this.FastDamage = 22;
             this.AttackInterval = 1000;
 
 
@@ -38,7 +39,17 @@ namespace WitcherWPF {
         }
 
         public override void EnemyBehavior(double PlayerHP, double PlayerHPMax) {
-            throw new NotImplementedException();
+            if (this.HP < this.MaxHP / 2) {
+                this.DodgeChance = 50;
+                if (this.HP < this.MaxHP / 4) {
+                    this.DodgeChance = 20;
+                    this.FastChance = 60;
+                    this.FastDamage = 26;
+                }
+            }
+            if (PlayerHP < PlayerHPMax / 2) {
+                this.FastChance = 10;
+            }
         }
     }
 }

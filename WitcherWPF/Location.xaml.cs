@@ -71,6 +71,7 @@ namespace WitcherWPF {
             Village_Inn.Olaf.Click += new RoutedEventHandler(GetDialogue);
             Village_Inn.Zoltan.Click += new RoutedEventHandler(GetDialogue);
             Village_Inn.DoorO.Click += new RoutedEventHandler(Switch_Click);
+            Village_Inn.FirePlace.Click += new RoutedEventHandler(Meditation);
 
             Village_Outside1.Turman.Click += new RoutedEventHandler(GetDialogue);
             Village_Outside1.Ghoul.Click += new RoutedEventHandler(EnterCombatChQuest);

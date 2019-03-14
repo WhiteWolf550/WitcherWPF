@@ -595,6 +595,8 @@ namespace WitcherWPF {
                 enemy = new Ghoul();
             }else if (EnemyMainName == "Barghest") {
                 enemy = new Barghest();
+            }else if (EnemyMainName == "Human1") {
+                enemy = new Murderer1();
             }
         }
         public void LoadEnemy() {
@@ -1323,12 +1325,13 @@ namespace WitcherWPF {
                 playerquest.UpdateQuest(quest, QuestPop, QueName, QueGoal);
             }
         }
-        private void QuestToDialogue(string QuestName, int QuestID, string Character) {
+        private async void QuestToDialogue(string QuestName, int QuestID, string Character) {
             playerQuests = manager.LoadPlayerQuests();
             bool Dialogue = false;
             foreach(PlayerQuest item in playerQuests) {
-                if (item.Quest.QuestName == QuestName && item.Quest.QuestID == QuestID) {
+                if (item.Quest.QuestName == QuestName && item.Quest.QuestID == QuestID) {                    
                     playerquest.UpdateQuest(quest, QuestPop, QueName, QueGoal);
+                    await Task.Delay(5000);
                     Dialogue = true;
                     
                 }else {
