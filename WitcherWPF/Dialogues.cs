@@ -504,8 +504,11 @@ namespace WitcherWPF
             dialog1.Add(new Dialogues("Starosta Turman", "Odsud", 1, "Zaklínač", "Talk", "Turman", false, "Na stopě zaklínači", null, false));
 
             //2
-            dialog1.Add(new Dialogues("Geralt", "Co si myslíš, že děláš?", 1, "Co si myslíš, že děláš", "Talk", "Turman", false, "Na stopě zaklínači", null, false));
-            dialog1.Add(new Dialogues("Starosta Turman", "Co si myslíš, že děláš?", 1, "Co si myslíš, že děláš", "Talk", "Turman", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Co si myslíš, že děláš?", 1, "Co si myslíš, že děláš", "Talk", "Turman", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Starosta Turman", "Starám se o svojí vesnici!", 1, "Co si myslíš, že děláš", "Talk", "Turman", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Tomuhle říkáš starání se o vesnici?", 1, "Co si myslíš, že děláš", "Talk", "Turman", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Starosta Turman", "Už tě mám plné zuby mutante! chcípni", 1, "Co si myslíš, že děláš", "Talk", "Turman", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Starosta Turman", "Stráže zabte ho!", 1, "Co si myslíš, že děláš", "Talk", "Turman", false, "Záhadná vesnice", null, false));
 
             //leave
             dialog1.Add(new Dialogues("Geralt", "Sbohem, pane starosto", 2, "Nashle", "Talk", "Turman", true, null, null, false));
@@ -631,6 +634,23 @@ namespace WitcherWPF
             dialog1.Add(new Dialogues("Šílenec", "Je mezi nimi i ten trpaslík", 1, "Co se děje?", "Talk", "Madman", false, "Záhadná vesnice", null, false));
             dialog1.Add(new Dialogues("Geralt", "Zoltan?!", 1, "Co se děje?", "Talk", "Madman", false, "Na stopě zaklínači", null, false));
             dialog1.Add(new Dialogues("Geralt", "Já toho hajzla zabiju", 1, "Co se děje?", "Talk", "Madman", false, "Záhadná vesnice", null, false));
+
+            //3
+            dialog1.Add(new Dialogues("Geralt", "Neviděl jsi náhodou, kam zavedli toho trpaslíka?", 1, "Zoltan", "Talk", "Madman", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Šílenec", "Ano samozřejmě, že ano", 1, "Zoltan", "Talk", "Madman", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Šílenec", "Na tuto velkou událost jsem čekal velice dlouho", 1, "Zoltan", "Talk", "Madman", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Šílenec", "Velice", 1, "Zoltan", "Talk", "Madman", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Je to důležité", 1, "Zoltan", "Talk", "Madman", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Šílenec", "Vzali je do staré části vesnice", 1, "Zoltan", "Talk", "Madman", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Šílenec", "Tam se nikdo neodváží", 1, "Zoltan", "Talk", "Madman", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Šílenec", "Tam totiž sídlí vesnická nestvůra", 1, "Zoltan", "Talk", "Madman", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Takže odtamtud přichází Barghesti?", 1, "Zoltan", "Talk", "Madman", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Šílenec", "Haha", 1, "Zoltan", "Talk", "Madman", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Šílenec", "Kéž by Barghesti pane", 1, "Zoltan", "Talk", "Madman", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Šílenec", "Barghesti jsou oproti téhle stvůře hmyz", 1, "Zoltan", "Talk", "Madman", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Šílenec", "Tohle je totiž ten důvod proč tam starosta bere lidi", 1, "Zoltan", "Talk", "Madman", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Šílenec", "Aby ji nakrmil...", 1, "Zoltan", "Talk", "Madman", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Děkuji je na čase, abych se tam vydal", 1, "Zoltan", "Talk", "Madman", false, "Záhadná vesnice", null, false));
 
 
             dialog1.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Madman", true, null, null, false));

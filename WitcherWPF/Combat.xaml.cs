@@ -54,7 +54,7 @@ namespace WitcherWPF {
         private Frame parentFrame;
         private Time time;
         private bool Potion;
-        private string quest;
+        private string quest = null;
         private bool frominventory;
         private string EnemyMainName;
         private string CutsceneName;
@@ -1332,6 +1332,7 @@ namespace WitcherWPF {
                 if (item.Quest.QuestName == QuestName && item.Quest.QuestID == QuestID) {                    
                     playerquest.UpdateQuest(quest, QuestPop, QueName, QueGoal);
                     await Task.Delay(5000);
+                    
                     Dialogue = true;
                     
                 }else {
@@ -1341,6 +1342,8 @@ namespace WitcherWPF {
             if (Dialogue == false) {
                 playerquest.UpdateQuest(quest, QuestPop, QueName, QueGoal);
             }else {
+                backgroundmedia.Stop();
+                Globals.Combat = false;
                 parentFrame.Navigate(new Dialogue(parentFrame, Character, time));
             }
         }

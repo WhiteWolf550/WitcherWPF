@@ -15,10 +15,11 @@ namespace WitcherWPF {
         public bool AlchemyTutorial { get; set; }
         public int Hour { get; set; }
         public int Minute { get; set; }
+        public bool MayorDead { get; set; }
 
         FileManager manager = new FileManager();
 
-        public Game(string CurrentLocation, int Chapter, bool CombatTutorial, bool AlchemyTutorial, int Hour, int Minute, string DialoguePath, string DayTime) {
+        public Game(string CurrentLocation, int Chapter, bool CombatTutorial, bool AlchemyTutorial, int Hour, int Minute, string DialoguePath, string DayTime, bool MayorDead) {
             this.CurrentLocation = CurrentLocation;
             this.Chapter = Chapter;
             this.CombatTutorial = CombatTutorial;
@@ -27,6 +28,7 @@ namespace WitcherWPF {
             this.Minute = Minute;
             this.DialoguePath = DialoguePath;
             this.DayTime = DayTime;
+            this.MayorDead = MayorDead;
         }
         public Game() {
 
@@ -47,7 +49,7 @@ namespace WitcherWPF {
         }
         public void CreateGame() {
             List<Game> game = new List<Game>();
-            game.Add(new Game("Old_wyzima2", 0, true, true, 8, 0, @"../../dialogues/DialoguePrologue.json", "night"));
+            game.Add(new Game("Old_wyzima2", 0, true, true, 8, 0, @"../../dialogues/DialoguePrologue.json", "night", false));
 
             manager.SaveGame(game);
         }

@@ -23,8 +23,8 @@ namespace WitcherWPF
         private Frame parentFrame;
         private Time time;
         private string CutsceneName;
-        
 
+        PlayerQuest quest = new PlayerQuest();
         public Cutscenes()
         {
             InitializeComponent();
@@ -78,7 +78,14 @@ namespace WitcherWPF
                 Globals.location = "Village_Outside2";
                 time.Visibility = Visibility.Visible;
                 parentFrame.Navigate(new Dialogue(parentFrame, "Vesničan", time));
-            }
+            }else if (CutsceneName == "Chapter1Cut3Begin") {
+                parentFrame.Navigate(new DecisionPage(parentFrame,  time));
+            }else if (CutsceneName == "Chapter1Cut3Die" || CutsceneName == "Chapter1Cut3Live") {
+                Globals.Combat = false;
+                parentFrame.Navigate(new Location(parentFrame, time));
+                quest.UpdateQuest("Záhadná vesnice", QuestPop, QueName, QueGoal);
+            } 
+            
         }
         private void RemoveHandler() {
             Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);

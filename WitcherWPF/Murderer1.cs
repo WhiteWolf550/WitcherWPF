@@ -18,6 +18,13 @@ namespace WitcherWPF {
             this.AnimationSet.Add("Stun", new Uri(@"gifs/NPC/npc_fight_strongattack.gif", UriKind.Relative));
             this.AnimationSet.Add("Death", new Uri("gifs/NPC/npc_fight_stagger.gif", UriKind.Relative));
 
+            this.SoundSet = new Dictionary<string, Uri>();
+            this.SoundSet.Add("Strong", new Uri(@"sounds/human/human_Strong.wav", UriKind.Relative));
+            this.SoundSet.Add("Fast", new Uri(@"sounds/human/human_Fast.wav", UriKind.Relative));
+            this.SoundSet.Add("Hit", new Uri(@"sounds/human/human_hit.wav", UriKind.Relative));
+            this.SoundSet.Add("Dodge", new Uri(@"sounds/human/human_dodge.wav", UriKind.Relative));
+            this.SoundSet.Add("Death", new Uri(@"sounds/human/human_death.wav", UriKind.Relative));
+
             this.HurtSteelSword = true;
             this.MaxHP = 110;
             this.HP = this.MaxHP;

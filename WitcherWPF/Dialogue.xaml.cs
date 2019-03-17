@@ -49,9 +49,9 @@ namespace WitcherWPF
         Player player = new Player();
         Music sound = new Music();
         string prolog = Globals.DialoguePath;
-        string QuestName = "";
+        string QuestName = null;
         string Enemy = "";
-        string CutsceneName = "";
+        string CutsceneName = null;
 
         public Dialogue() {
             InitializeComponent();

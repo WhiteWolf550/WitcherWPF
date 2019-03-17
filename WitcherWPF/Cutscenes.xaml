@@ -10,5 +10,9 @@
 
     <Grid>
         <MediaElement Name="CutScene" LoadedBehavior="Manual" MediaEnded="CutScene_MediaEnded"></MediaElement>
+        <StackPanel Visibility="Visible" Opacity="0"  Name="QuestPop" HorizontalAlignment="Center" VerticalAlignment="Top" MinHeight="100" MinWidth="100" Margin="369,141,376,0" Width="682" Height="225">
+            <Label Style="{StaticResource MORPHEUS}" HorizontalContentAlignment="Center" Name="QueName" Content="New Quest" FontSize="55" Foreground="#DDE82323"></Label>
+            <TextBlock Style="{StaticResource MORPHEUS}" TextWrapping="Wrap" Name="QueGoal" Text="New Goal" FontSize="35" Background="{x:Null}" Foreground="#DDE82323" HorizontalAlignment="Center"></TextBlock>
+        </StackPanel>
     </Grid>
 </Page>

@@ -102,6 +102,9 @@
     <Compile Include="DeathMenu.xaml.cs">
       <DependentUpon>DeathMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DecisionPage.xaml.cs">
+      <DependentUpon>DecisionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogue.xaml.cs">
       <DependentUpon>Dialogue.xaml</DependentUpon>
     </Compile>
@@ -243,6 +246,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DeathMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DecisionPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -591,6 +598,10 @@
     <None Include="cutscenes\GameIntro.mp4" />
     <None Include="cutscenes\PrologueCut1.mp4" />
     <None Include="cutscenes\PrologueCut2.mp4" />
+    <Content Include="cutscenes\Chapter1Cut3Begin.mp4" />
+    <Content Include="cutscenes\Chapter1Cut3Die.mp4" />
+    <Content Include="cutscenes\Chapter1Cut3Live.mp4" />
+    <Content Include="cutscenes\DecisionVideo.mp4" />
     <Content Include="gifs\Characters\Geralt.mp4" />
     <Resource Include="img\Char\Geralt.png" />
     <Resource Include="img\Char\Triss.png" />
@@ -618,6 +629,7 @@
     <Resource Include="img\Characters\MasterHunter.png" />
     <Resource Include="img\Items\Herb_Ginatia.png" />
     <Resource Include="img\Monsters\Barghest_map.png" />
+    <Resource Include="img\UI\blood.png" />
     <Content Include="sounds\ghoul\ghoul_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -633,6 +645,22 @@
     <Content Include="sounds\ghoul\ghoul_Strong.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="sounds\human\human_death.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sounds\human\human_hit.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sounds\human\human_Fast.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sounds\human\human_Strong.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sounds\human\human_dodge.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="sounds\music\Decide.mp3" />
     <Content Include="sounds\music\Tavern1.mp3" />
     <Content Include="sounds\music\Village_day.mp3" />
     <Content Include="sounds\music\menu.mp3">
