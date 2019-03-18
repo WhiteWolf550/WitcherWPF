@@ -46,7 +46,7 @@ namespace WitcherWPF
             loadtimer.Tick += new EventHandler(Load_Tick);
         }
         void Load_Tick(object sender, EventArgs e) {
-            LoadBar.Value += 20;
+            //LoadBar.Value += 20;
             if (LoadBar.Value == 100) {
                 loadtimer.Stop();
                 TransitionShow();

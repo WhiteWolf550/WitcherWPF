@@ -53,6 +53,7 @@ namespace WitcherWPF
             swords = manager.LoadPlayerSwords();
             armors = manager.LoadPlayerArmors();
             playerlist = manager.LoadPlayer();
+            LoadPerson();
 
             
 
@@ -67,6 +68,9 @@ namespace WitcherWPF
             player.LoadOrens(Oren);
             LoadShop();
 
+        }
+        public void LoadPerson() {
+            ShopCharacter.Source = new BitmapImage(new Uri(@"img/Characters/" + character + ".png", UriKind.Relative));
         }
         public void LoadShop() {
             shops = manager.LoadShop();

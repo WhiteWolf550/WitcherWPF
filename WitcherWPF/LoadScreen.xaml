@@ -25,6 +25,18 @@
                         <GradientStop Color="#FF340000" Offset="1"/>
                     </LinearGradientBrush>
                 </ProgressBar.Foreground>
+                <ProgressBar.Triggers>
+                    <EventTrigger RoutedEvent="ProgressBar.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                Storyboard.TargetName="LoadBar" 
+                Storyboard.TargetProperty="Value"
+                From="0" To="100" Duration="0:0:10"  />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </ProgressBar.Triggers>
             </ProgressBar>
         </StackPanel>
         <Rectangle HorizontalAlignment="Left" Height="894" Stroke="Black" VerticalAlignment="Top" Width="1427" Fill="Black" Name="BlackScreen" Visibility="Hidden" Opacity="0"/>

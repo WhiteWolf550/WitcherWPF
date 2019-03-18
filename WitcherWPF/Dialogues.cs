@@ -551,6 +551,32 @@ namespace WitcherWPF
             dialog1.Add(new Dialogues("Geralt", "To samé platí i pro tebe Zoltane. Nezdržuj se tu zbytečně dlouho. Není tu bezpečno", 1, "Co tě sem přivádí?", "Talk", "Zoltan", true, null, null, false));
             dialog1.Add(new Dialogues("Zoltan", "Neboj sa Geralte nemám to v plánu", 1, "Co tě sem přivádí?", "Talk", "Zoltan", true, null, null, false));
 
+            //3
+            dialog1.Add(new Dialogues("Geralt", "Zoltane jsi v pořádku?", 1, "Jsi v pořádku?", "Talk", "Zoltan", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Zoltan", "Tož Geralt nikdá mi nebylo lépe", 1, "Jsi v pořádku?", "Talk", "Zoltan", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Zoltan", "Zápach krve a prošlého jídla mi vyhovuje", 1, "Jsi v pořádku?", "Talk", "Zoltan", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Kdo je ta žena?", 1, "Jsi v pořádku?", "Talk", "Zoltan", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Zoltan", "Nevím, ale byla tu, když mě sem přivedli", 1, "Jsi v pořádku?", "Talk", "Zoltan", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Není spoutaná.. narozdíl od tebe", 1, "Jsi v pořádku?", "Talk", "Zoltan", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Zoltan", "Geralte... prohlížet si ji můžeš, až když mě rozvážeš", 1, "Jsi v pořádku?", "Talk", "Zoltan", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Samozřejmě", 1, "Jsi v pořádku?", "Talk", "Zoltan", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Geralt", ".......", 1, "Jsi v pořádku?", "Talk", "Zoltan", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Zoltan", "Ehmm Gerale?", 1, "Jsi v pořádku?", "Talk", "Zoltan", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Ano?", 1, "Jsi v pořádku?", "Talk", "Zoltan", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Zoltan", "Co s ňou? Berem ju sebó?", 1, "Jsi v pořádku?", "Talk", "Zoltan", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Nechat ji tady nemůžeme", 1, "Jsi v pořádku?", "Talk", "Zoltan", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Pojďme odsud. Není tu bezpečno", 1, "Jsi v pořádku?", "Talk", "Zoltan", false, "Záhadná vesnice", null, false));
+
+            //4
+            dialog1.Add(new Dialogues("Geralt", "Zoltane potřebuji, aby jsi se o ní postaral. Zvládneš to?", 1, "Postaráš se o ní?", "Talk", "Zoltan", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Zoltane", "Tož jasně Geralte, ale kam s ňů?", 1, "Postaráš se o ní?", "Talk", "Zoltan", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Zoltane", "Ani nevíme odkaď je, nebo kde bydlí", 1, "Postaráš se o ní?", "Talk", "Zoltan", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Vem ji do opuštěné budovy na okraji vesnice. Tam může zůstat dokud se nevzbudí", 1, "Postaráš se o ní?", "Talk", "Zoltan", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Zoltan", "Geralte... Myslíš, že je ještě vůbec živá? Kdo ví co ji provedli", 1, "Postaráš se o ní?", "Talk", "Zoltan", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Normálně bych ti lehce odpověděl, ale problém je, že u ní nevím", 1, "Postaráš se o ní?", "Talk", "Zoltan", false, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Můj medailon na ní zvláštně reaguje..", 1, "Postaráš se o ní?", "Talk", "Zoltan", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Buď opatrný Zoltane. Vrátím se za tebou, až najdu Lamberta", 1, "Postaráš se o ní?", "Talk", "Zoltan", false, "Záhadná vesnice", null, false));
+
             //leave
             dialog1.Add(new Dialogues("Geralt", "Měj se Zoltane", 2, "Nashle", "Talk", "Zoltan", true, null, null, false));
             dialog1.Add(new Dialogues("Zoltan", "Hodně štěstí Geralte", 2, "Nashle", "Talk", "Zoltan", true, null, null, false));
@@ -678,16 +704,47 @@ namespace WitcherWPF
             dialog1.Add(new Dialogues("Mistr lovčí", "Ne o barghesty ne. Ti psi už mě nezajímají. Plánuji odsud co nejdříve odejít. Není tu bezpečno", 1, "Co víš o tom zaklínači", "Talk", "MasterHunter", false, "Problém s ghúly", null, false));
             dialog1.Add(new Dialogues("Mistr lovčí", "Jde mi o ghúli zaklínači. Je jich tu čím dál tím více", 1, "Co víš o tom zaklínači", "Talk", "MasterHunter", false, "Na stopě zaklínači", null, false));
             dialog1.Add(new Dialogues("Geralt", "Dobře postarám se o ty ghúli, ale nesnaž se mě podvést", 1, "Co víš o tom zaklínači", "Talk", "MasterHunter", false, "Problém s ghúly", null, false));
-
+            //2
+            dialog1.Add(new Dialogues("Geralt", "Zabil jsem ty ghúly. Kde je Lambert?", 1, "Kde je Lambert?", "Talk", "MasterHunter", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Mistr lovčí", "Že ti to ale trvalo zaklínači", 1, "Kde je Lambert?", "Talk", "MasterHunter", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Mistr lovčí", "Lambert se ukryl na sever od vesnice. Je tam takový starý dům", 1, "Kde je Lambert?", "Talk", "MasterHunter", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Ukryl?", 1, "Kde je Lambert?", "Talk", "MasterHunter", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Geralt", "On před někým utíká?", 1, "Kde je Lambert", "Talk", "MasterHunter", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Mistr lovčí", "Co já vím. Moc mi toho neřekl", 1, "Kde je Lambert?", "Talk", "MasterHunter", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Dobře děkuji. A radši tuto vesnici, co nerychleji opusť", 1, "Kde je Lambert?", "Talk", "MasterHunter", false, "Na stopě zaklínači", null, false));
             //leave
             dialog1.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "MasterHunter", true, null, null, false));
             dialog1.Add(new Dialogues("Mistr lovčí", "Sbohem", 2, "Nashle", "Talk", "MasterHunter", true, null, null, false));
 
+            //LAMBERT
+            dialog1.Add(new Dialogues("Lambert", "Zdravím vlku", 1, "Pozdrav", "Greet", "Lambert", true, null, null, false));
+
+            //1
+            dialog1.Add(new Dialogues("Geralt", "Dlouho jsme se neviděli", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Lambert", "Nečekal jsem, že tu uvidím zrovna tebe Geralte", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Lambert", "Co tu děláš? Nemáš být náhodou ve Wyzimě?", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Ve Wyzimě jsem byl, ale už jsem naše tajemství získal zpět", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Lambert", "Takže co děláš tady?", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Slyšel jsem, že jsi se bavil s vrahem, který zaútočil na Foltesta", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Lambert", "Odkdy jsi Foltestova chůva", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Lambert", "Jsi se nepochlubil", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Jsem tu kvůli tobě Lamberte, protože to vypadá, že máš problém", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Lambert", "Ne já žádný problém nemám. Jen po mě jdou nějací šaškové z Novigradu", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Víš kdo jsou?", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Lambert", "Geralte já nepotřebuji tvojí pomoc. Dokážu se o sebe postarat", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Myslím si, že můžou být spojeni s těmi, kteří ukradli naše tajemství", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Lambert", "Mě je jedno co si myslíš", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Lambert", "Když jsem pátral v Novigradu, tak jsem se dostal až k nim a jim se nelíbil můj zájem o ně", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Lambert", "Tak si se mnou domluvili komunikaci přes megaskop a snažili se mě nalákat do pasti", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Lambert", "Tu schůzku jsem přijmul, ale nikdo tam nepřišel. Hádám, že měl přijít ten, který se pokusil o zabití Foltesta", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Lambert", "Tak jsem se chtěl vrátit zpět do Novigradu, ale po cestě jsem narazil na jejich další skupinku", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
 
 
 
 
-
+            //leave
+            dialog1.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "MasterHunter", true, null, null, false));
+            dialog1.Add(new Dialogues("Lambert", "Sbohem vlku", 2, "Nashle", "Talk", "Lambert", true, null, null, false));
 
 
             manager.SaveDialogues(dialog1, path1);

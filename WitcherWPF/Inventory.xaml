@@ -129,7 +129,7 @@
         </StackPanel>
         <Image gif:ImageBehavior.AnimatedSource="gifs/geralt_inventory.gif" HorizontalAlignment="Center" VerticalAlignment="Center" Width="500" Grid.Row="1" Grid.Column="1" Grid.RowSpan="3"  Height="482" Margin="224,68,345,236"  />
         <!--<Image Source="img/UI/inventory1.png" HorizontalAlignment="Right" VerticalAlignment="Center" Width="300" Margin="0,66,0,270" Height="450" Grid.Row="1" Grid.Column="1" Grid.RowSpan="3" Grid.ColumnSpan="3"/>-->
-        <Label Content="Inventář" FontSize="20" Foreground="#DDDADADA" Grid.Column="1" Margin="983,24,0,116" Grid.Row="2" FontFamily="Times New Roman" Background="{x:Null}"></Label>
+        <Label Content="Inventář" FontSize="20" Foreground="#DDDADADA" Grid.Column="1" Margin="983,24,0,116" Grid.Row="2" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz" Background="{x:Null}"></Label>
         <Rectangle Height="107" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Margin="0,0,0,64" Stroke="Black">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -141,7 +141,7 @@
         <WrapPanel Grid.Row="2" Grid.Column="2"  Name="InventoryItems" Margin="0,0,0,64">
 
         </WrapPanel>
-        <Label Content="Alchymistický inventář" FontSize="20" Foreground="#DDDADADA" Grid.Column="1" Margin="864,36,0,428" Grid.Row="3" FontFamily="Times New Roman" Background="{x:Null}"></Label>
+        <Label Content="Alchymistický inventář" FontSize="20" Foreground="#DDDADADA" Grid.Column="1" Margin="864,36,0,428" Grid.Row="3" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz" Background="{x:Null}"></Label>
         <Rectangle Height="107" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" Margin="0,0,0,388" Stroke="Black">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

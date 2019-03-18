@@ -11,12 +11,12 @@
     <Grid>
         <MediaElement Name="mediaElement" UnloadedBehavior="Manual" MediaEnded="MediaElement_MediaEnded"></MediaElement>
         <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button Click="Death_Click" FontSize="70" MinHeight="100" Content="Zabít starostu" BorderBrush="{x:Null}">
+            <Button Click="Death_Click" FontSize="70" MinHeight="100" Content="Zabít starostu" BorderBrush="{x:Null}" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz">
                 <Button.Background>
                     <ImageBrush ImageSource="img/UI/blood.png"/>
                 </Button.Background>
             </Button>
-            <Button Click="Live_Click" FontSize="70" MinHeight="100"  Content="Nechat starostu žít" BorderBrush="{x:Null}">
+            <Button Click="Live_Click" FontSize="70" MinHeight="100"  Content="Nechat starostu žít" BorderBrush="{x:Null}" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz">
                 <Button.Background>
                     <ImageBrush ImageSource="img/UI/blood.png"/>
                 </Button.Background>
