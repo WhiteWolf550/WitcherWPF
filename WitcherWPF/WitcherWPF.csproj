@@ -197,6 +197,18 @@
     <Compile Include="Time.xaml.cs">
       <DependentUpon>Time.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Village_Crypt.xaml.cs">
+      <DependentUpon>Village_Crypt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Village_House.xaml.cs">
+      <DependentUpon>Village_House.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Village_House2.xaml.cs">
+      <DependentUpon>Village_House2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Village_House3.xaml.cs">
+      <DependentUpon>Village_House3.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Village_Inn.xaml.cs">
       <DependentUpon>Village_Inn.xaml</DependentUpon>
     </Compile>
@@ -208,6 +220,12 @@
     </Compile>
     <Compile Include="Village_Outside3.xaml.cs">
       <DependentUpon>Village_Outside3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Village_Outside4.xaml.cs">
+      <DependentUpon>Village_Outside4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Village_Outside5.xaml.cs">
+      <DependentUpon>Village_Outside5.xaml</DependentUpon>
     </Compile>
     <Compile Include="Yrden.cs" />
     <Compile Include="YrdenSkills.xaml.cs">
@@ -360,6 +378,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Village_Crypt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Village_House.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Village_House2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Village_House3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Village_Inn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -373,6 +407,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Village_Outside3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Village_Outside4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Village_Outside5.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -630,6 +672,19 @@
     <Resource Include="img\Items\Herb_Ginatia.png" />
     <Resource Include="img\Monsters\Barghest_map.png" />
     <Resource Include="img\UI\blood.png" />
+    <Resource Include="img\Locations\Village_Crypt.png" />
+    <Resource Include="img\Locations\Village_House.png" />
+    <Resource Include="img\Locations\Village_House2.png" />
+    <Resource Include="img\Locations\Village_Outside4_day.png" />
+    <Resource Include="img\Locations\Village_Outside4_night.png" />
+    <Resource Include="img\Locations\Village_Outside5_day.png" />
+    <Resource Include="img\Locations\Village_Outside5_night.png" />
+    <Resource Include="img\Characters\Lambert.png" />
+    <Resource Include="img\Characters\Morenn.png" />
+    <Resource Include="img\Items\Armor_Part1.png" />
+    <Resource Include="img\Items\Armor_Part2.png" />
+    <Resource Include="img\Items\Armor_Part3.png" />
+    <Resource Include="img\Items\Potion_Cat.png" />
     <Content Include="sounds\ghoul\ghoul_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

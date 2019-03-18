@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="WitcherWPF.Village_Crypt"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WitcherWPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="894" d:DesignWidth="1426.666">
+    <Grid>
+        <Image x:Name="LocationImage" Source="img/Locations/Village_Crypt.png" Margin="-99,-42,-80,-48" Grid.ColumnSpan="3" Grid.RowSpan="3"></Image>
+        <Button Name="Chest" Height="Auto" Margin="526,495,832,344" Background="{x:Null}" BorderBrush="{x:Null}" ToolTip="Crypt1" FontSize="18" FontWeight="Bold">
+            <Image Source="img/UI/ui_loot.png" RenderTransformOrigin="0.5,0.5" Height="45" Width="44"></Image>
+        </Button>
+        <Rectangle HorizontalAlignment="Left" Height="894" Stroke="Black" VerticalAlignment="Top" Width="1427" Fill="Black" Name="BlackScreen" Visibility="Hidden" Opacity="1"/>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO1" Margin="42,403,1287,405" Tag="Village_Outside3">
+            <Image Source="img/UI/ui_door.png"></Image>
+        </Button>
+    </Grid>
+</UserControl>

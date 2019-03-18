@@ -11,6 +11,8 @@
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO1" Margin="1004,389,333,435" Tag="Village_House1">
             <Image Source="img/UI/ui_door.png"></Image>
         </Button>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Crypt1" Margin="413,343,924,481" Tag="Village_Crypt">
+        </Button>
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Madman" ToolTip="Vesnický šílenec" Margin="183,343,1142,314">
             <Image Source="img/Characters/Madman.png" Grid.Column="1" Grid.Row="1"></Image>
         </Button>

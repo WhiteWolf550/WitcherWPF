@@ -21,7 +21,12 @@
         <local:Village_Outside1 x:Name="Village_Outside1" Visibility="Hidden"></local:Village_Outside1>
         <local:Village_Outside2 x:Name="Village_Outside2" Visibility="Hidden"></local:Village_Outside2>
         <local:Village_Outside3 x:Name="Village_Outside3" Visibility="Hidden"></local:Village_Outside3>
-        
+        <local:Village_Outside4 x:Name="Village_Outside4" Visibility="Hidden"></local:Village_Outside4>
+        <local:Village_Outside5 x:Name="Village_Outside5" Visibility="Hidden"></local:Village_Outside5>
+        <local:Village_House x:Name="Village_House" Visibility="Hidden"></local:Village_House>
+        <local:Village_House2 x:Name="Village_House2" Visibility="Hidden"></local:Village_House2>
+        <local:Village_House3 x:Name="Village_House3" Visibility="Hidden"></local:Village_House3>
+        <local:Village_Crypt x:Name="Village_Crypt" Visibility="Hidden"></local:Village_Crypt>
 
         <Button HorizontalAlignment="Left" VerticalAlignment="Top" Click="GetInventory" x:Name="Inv" BorderBrush="{x:Null}" Height="90" Width="90" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>

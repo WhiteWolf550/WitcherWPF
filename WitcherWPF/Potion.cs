@@ -50,6 +50,7 @@ namespace WitcherWPF
             potions.Add(new Potion("Petriho filtr", 30, "Quebirth", "Vermilion", "Hydragenum", @"img/Items/Potion_Petris_Philter.png", "Elixír, který značně zvýší intenzitu všech znamení", 1, "StrongAlcohol"));
             potions.Add(new Potion("Černá krev", 25, "Hydragenum", "Rebis", "Vermilion", @"img/Items/Potion_Black_Blood.png", "Elixír, který mění Geraltovu krev na jedovatou pro upíry (upíři dostanou poškození pokud zaútoči na Geralta)", 3, "StrongAlcohol"));
             potions.Add(new Potion("Úplněk", 25, "Quebirth", "Hydragenum", "Aether", @"img/Items/Potion_Full_Moon.png", "Elixír který značně zvýší Geraltovu vitalitu", 1, "StrongAlcohol"));
+            potions.Add(new Potion("Kočka", 25, "Vermilion", "Rebis", "Aether", @"img/Items/Potion_Cat.png", "Elixír který umožní Geraltovi vidět ve tmě", 1, "MediumAlcohol"));
 
             manager.SavePotions(potions);
         }

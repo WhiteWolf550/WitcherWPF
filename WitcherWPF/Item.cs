@@ -275,6 +275,7 @@ namespace WitcherWPF
             items.Add(new Item("Petriho filtr", "Elixír, který značně zvýší intenzitu všech znamení", "Potion", "Alchemy", @"img/Items/Potion_Petris_Philter.png", null, "Potion", "Vypít", null, 80));
             items.Add(new Item("Černá krev", "Elixír, který mění Geraltovu krev na jedovatou pro upíry (upíři dostanou poškození pokud zaútoči na Geralta)", "Potion", "Alchemy", @"img/Items/Potion_Black_Blood.png", null, "Potion", "Vypít", null, 80));
             items.Add(new Item("Úplněk", "Elixír který značně zvýší Geraltovu vitalitu", "Potion", "Alchemy", @"img/Items/Potion_Full_Moon.png", null, "Potion", "Vypít", null, 50));
+            items.Add(new Item("Kočka", "Elixír který umožní Geraltovi vidět ve tmě", "Potion", "Alchemy", @"img/Items/Potion_Cat.png", null, "Potion", "Vypít", null, 20));
 
             //MONSTER LOOT
             items.Add(new Item("Tesáky z příšery", "Tesáky sebrané z příšery", "Alchemy", "Barghest", @"img/Items/Monster_Fang.png", "Rebis", "Alchemy", null, null, 10));
@@ -294,6 +295,15 @@ namespace WitcherWPF
 
             //QUEST ITEMS
             items.Add(new Item("Zlatý prsten", "Zlatý prsten, který vypadá hodně staře", "Quest", "Strašidelný dům", @"img/Items/Quest_Ring.png", "žádné", null, null, null, 0));
+
+            //SPECIAL
+            items.Add(new Item("Část zbroje: Hruď", "Stará část zbroje, která vypadá hodně staře", "Quest", "Crypt1", @"img/Items/Armor_Part1.png",  "žádné", null, null, null, 0));
+            items.Add(new Item("Část zbroje: Manuskript", "Stará část zbroje, která vypadá hodně staře", "Quest", "Crypt2", @"img/Items/Armor_Part2.png", "žádné", null, null, null, 0));
+            items.Add(new Item("Část zbroje: Nátepník", "Stará část zbroje, která vypadá hodně staře", "Quest", "Crypt3", @"img/Items/Armor_Part3.png", "žádné", null, null, null, 0));
+
+
+
+
             manager.SaveItems(items);
         }
 

@@ -124,6 +124,18 @@ namespace WitcherWPF {
 
             }else if (loc == "Village_Outside3") {
                 Village_Outside3.Visibility = Visibility.Visible;
+            }else if (loc == "Village_Outside4") {
+                Village_Outside4.Visibility = Visibility.Visible;
+            }else if (loc == "Village_Outside5") {
+                Village_Outside5.Visibility = Visibility.Visible;
+            }else if (loc == "Village_House") {
+                Village_House.Visibility = Visibility.Visible;
+            }else if (loc == "Village_House2") {
+                Village_House2.Visibility = Visibility.Visible;
+            }else if (loc == "Village_House3") {
+                Village_House3.Visibility = Visibility.Visible;
+            }else if (loc == "Village_Crypt") {
+                Village_Crypt.Visibility = Visibility.Visible;
             }
         }
         public Location(Frame parentFrame, Time time) : this() {
@@ -243,6 +255,12 @@ namespace WitcherWPF {
             Village_Outside1.Visibility = Visibility.Hidden;
             Village_Outside2.Visibility = Visibility.Hidden;
             Village_Outside3.Visibility = Visibility.Hidden;
+            Village_Outside4.Visibility = Visibility.Hidden;
+            Village_Outside5.Visibility = Visibility.Hidden;
+            Village_House.Visibility = Visibility.Hidden;
+            Village_House2.Visibility = Visibility.Hidden;
+            Village_House3.Visibility = Visibility.Hidden;
+            Village_Crypt.Visibility = Visibility.Hidden;
         }
         public void LocationSwitch(string loca) {
             if (loca == "Old_wyzima2") {
@@ -265,6 +283,18 @@ namespace WitcherWPF {
 
             }else if (loca == "Village_Outside3") {
                 Village_Outside3.Visibility = Visibility.Visible;
+            } else if (loca == "Village_Outside4") {
+                Village_Outside4.Visibility = Visibility.Visible;
+            } else if (loca == "Village_Outside5") {
+                Village_Outside5.Visibility = Visibility.Visible;
+            } else if (loca == "Village_House") {
+                Village_House.Visibility = Visibility.Visible;
+            } else if (loca == "Village_House2") {
+                Village_House2.Visibility = Visibility.Visible;
+            } else if (loca == "Village_House3") {
+                Village_House3.Visibility = Visibility.Visible;
+            } else if (loca == "Village_Crypt") {
+                Village_Crypt.Visibility = Visibility.Visible;
             }
         }
         public void Meditation(object sender, RoutedEventArgs e) {
