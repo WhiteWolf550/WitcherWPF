@@ -11,13 +11,26 @@
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO1" Margin="1136,438,201,386" Tag="Village_Outside1">
             <Image Source="img/UI/ui_door.png"></Image>
         </Button>
-
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Zoltan" ToolTip="Zoltan Chivay" Margin="496,438,775,179">
+            <Image Source="img/Characters/Zoltan.png" Grid.Column="1" Grid.Row="1"></Image>
+        </Button>
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Tag="Village_Outside3" Height="Auto"  Name="Steps" ToolTip="Druhá část vesnice" Margin="296,489,1045,308" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
                     <RotateTransform Angle="1.049"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Image Source="img/UI/ui_steps.png"></Image>
+        </Button>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Tag="Village_Outside4" Height="Auto"  Name="Steps2" ToolTip="Stará část vesnice" Margin="21,606,1320,191" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-93.721"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Button.RenderTransform>

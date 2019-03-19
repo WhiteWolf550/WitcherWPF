@@ -96,6 +96,7 @@
     <Compile Include="Combat.xaml.cs">
       <DependentUpon>Combat.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Crypt.cs" />
     <Compile Include="Cutscenes.xaml.cs">
       <DependentUpon>Cutscenes.xaml</DependentUpon>
     </Compile>

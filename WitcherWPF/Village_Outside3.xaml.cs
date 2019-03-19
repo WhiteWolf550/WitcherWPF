@@ -23,12 +23,21 @@ namespace WitcherWPF
     {
         public DispatcherTimer time = new DispatcherTimer();
         List<PlayerQuest> qq = new List<PlayerQuest>();
+        List<Crypt> crypts = new List<Crypt>();
         FileManager manager = new FileManager();
         public bool Looted = false;
         public Village_Outside3() {
             InitializeComponent();
             Ghoul.Visibility = Visibility.Hidden;
+            Steps2.Visibility = Visibility.Hidden;
+            DoorO1.Visibility = Visibility.Hidden;
+            Crypt1.Visibility = Visibility.Hidden;
+            Zoltan.Visibility = Visibility.Hidden;
+
             GhoulQuest();
+            House();
+            OldVillage();
+            Crypt();
             LoadBackground();
             CheckLootReset();
             Timer();
@@ -90,6 +99,38 @@ namespace WitcherWPF
             foreach (PlayerQuest item in qq) {
                 if (item.Quest.QuestName == "Problém s ghúly" && item.Quest.QuestID == 1) {
                     Ghoul.Visibility = Visibility.Visible;
+                }
+            }
+        }
+        public void OldVillage() {
+            qq = manager.LoadPlayerQuests();
+            foreach (PlayerQuest item in qq) {
+                if (item.Quest.QuestName == "Na stopě zaklínači" && item.Quest.QuestID == 7) {
+                    Steps2.Visibility = Visibility.Visible;
+                }
+            }
+        }
+        public void House() {
+            qq = manager.LoadPlayerQuests();
+            foreach (PlayerQuest item in qq) {
+                if (item.Quest.QuestName == "Cesta do Novigradu" && item.Quest.QuestID == 2) {
+                    DoorO1.Visibility = Visibility.Visible;
+                }
+            }
+        }
+        public void Crypt() {
+            crypts = manager.LoadCrypts();
+            foreach(Crypt item in crypts) {
+                if (item.Name == "Crypt1" &&item.IsEnabled == true) {
+                    Crypt1.Visibility = Visibility.Visible;
+                }
+            }
+        }
+        public void ZoltanCheck() {
+            qq = manager.LoadPlayerQuests();
+            foreach (PlayerQuest item in qq) {
+                if (item.Quest.QuestName == "Cesta do Novigradu" && item.Quest.QuestID == 1) {
+                    Zoltan.Visibility = Visibility.Visible;
                 }
             }
         }

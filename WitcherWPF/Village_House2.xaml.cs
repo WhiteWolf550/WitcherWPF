@@ -20,9 +20,22 @@ namespace WitcherWPF
     /// </summary>
     public partial class Village_House2 : UserControl
     {
+        List<PlayerQuest> qq = new List<PlayerQuest>();
+        FileManager manager = new FileManager();
         public Village_House2()
         {
             InitializeComponent();
+            DoorO1.Visibility = Visibility.Visible;
+            Door();
+        }
+        public void Door() {
+            qq = manager.LoadPlayerQuests();
+            foreach (PlayerQuest item in qq) {
+                if (item.Quest.QuestName == "Na stopě zaklínači") {
+                    DoorO1.Visibility = Visibility.Hidden;
+
+                }
+            }
         }
     }
 }

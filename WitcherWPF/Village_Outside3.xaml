@@ -11,7 +11,11 @@
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO1" Margin="1004,389,333,435" Tag="Village_House1">
             <Image Source="img/UI/ui_door.png"></Image>
         </Button>
-        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Crypt1" Margin="413,343,924,481" Tag="Village_Crypt">
+        <Button Background="#FFDC3232" BorderBrush="{x:Null}" Height="Auto"  Name="Crypt1" Margin="461,343,876,481" Tag="Crypt1">
+            
+        </Button>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Zoltan" ToolTip="Zoltan Chivay" Margin="894,391,445,372">
+            <Image Source="img/Characters/Zoltan.png" Grid.Column="1" Grid.Row="1"></Image>
         </Button>
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Madman" ToolTip="Vesnický šílenec" Margin="183,343,1142,314">
             <Image Source="img/Characters/Madman.png" Grid.Column="1" Grid.Row="1"></Image>
@@ -23,6 +27,17 @@
                     <ScaleTransform/>
                     <SkewTransform/>
                     <RotateTransform Angle="-75"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Image Source="img/UI/ui_steps.png"></Image>
+        </Button>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Tag="Village_Outside5" Height="Auto"  Name="Steps2" ToolTip="První část vesnice" Margin="1232,514,109,283" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="48.175"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Button.RenderTransform>

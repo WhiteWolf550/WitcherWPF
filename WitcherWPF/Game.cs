@@ -67,6 +67,7 @@ namespace WitcherWPF {
             Bestiary bestiary = new Bestiary();
             Game game = new Game();
             Shop shop = new Shop();
+            Crypt crypts = new Crypt();
 
             items.CreateItems();
             quest.CreateQuests();
@@ -82,6 +83,7 @@ namespace WitcherWPF {
             pquest.CreatePlayerQuests();
             shop.CreateShops();
             game.CreateGame();
+            crypts.CreateCrypts();
 
             File.Delete("../../saves/PlayerInventory.json");
             

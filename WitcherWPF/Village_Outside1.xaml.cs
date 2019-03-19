@@ -28,6 +28,7 @@ namespace WitcherWPF {
             Ghoul.Visibility = Visibility.Hidden;
             Turman.Visibility = Visibility.Visible;
             GhoulQuest();
+            ChapterQuest();
             LoadBackground();
             CheckLootReset();
             Timer();
@@ -87,7 +88,7 @@ namespace WitcherWPF {
         public void ChapterQuest() {
             qq = manager.LoadPlayerQuests();
             foreach (PlayerQuest item in qq) {
-                if (item.Quest.QuestName == "Záhadná vesnice" && item.Quest.QuestID == 4) {
+                if (item.Quest.QuestName == "Záhadná vesnice" && item.Quest.QuestID >= 5) {
                     Turman.Visibility = Visibility.Hidden;
                     
                     

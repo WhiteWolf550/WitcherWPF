@@ -25,7 +25,7 @@ namespace WitcherWPF {
         }
         public void ShowEnemy() {
             Random rand = new Random();
-            int rn = rand.Next(0, 23);
+            int rn = rand.Next(Globals.Hour, Globals.Hour + 1);
             if (Globals.Hour == rn) {
                 Barghest.Visibility = Visibility.Visible;
             }

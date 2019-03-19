@@ -20,9 +20,23 @@ namespace WitcherWPF
     /// </summary>
     public partial class Village_House : UserControl
     {
+        
+        List<PlayerQuest> qq = new List<PlayerQuest>();
+        FileManager manager = new FileManager();
         public Village_House()
         {
             InitializeComponent();
+            DoorO1.Visibility = Visibility.Hidden;
+            Door();
+        }
+        public void Door() {
+            qq = manager.LoadPlayerQuests();
+            foreach (PlayerQuest item in qq) {
+                if (item.Quest.QuestName == "Záhadná vesnice" && item.Quest.QuestID == 9) {
+                    DoorO1.Visibility = Visibility.Visible;
+
+                }
+            }
         }
     }
 }

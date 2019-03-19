@@ -26,7 +26,10 @@ namespace WitcherWPF {
         public Village_Outside2() {
             InitializeComponent();
             Ghoul.Visibility = Visibility.Hidden;
+            Steps2.Visibility = Visibility.Hidden;
+            Zoltan.Visibility = Visibility.Hidden;
             GhoulQuest();
+            OldVillage();
 
             LoadBackground();
             CheckLootReset();
@@ -81,6 +84,22 @@ namespace WitcherWPF {
             foreach(PlayerQuest item in qq) {
                 if (item.Quest.QuestName == "Problém s ghúly" && item.Quest.QuestID == 3) {
                     Ghoul.Visibility = Visibility.Visible;
+                }
+            }
+        }
+        public void OldVillage() {
+            qq = manager.LoadPlayerQuests();
+            foreach (PlayerQuest item in qq) {
+                if (item.Quest.QuestName == "Záhadná vesnice" && item.Quest.QuestID == 8) {
+                    Steps2.Visibility = Visibility.Visible;
+                }
+            }
+        }
+        public void ZoltanCheck() {
+            qq = manager.LoadPlayerQuests();
+            foreach (PlayerQuest item in qq) {
+                if (item.Quest.QuestName == "Záhadná vesnice" && item.Quest.QuestID == 9) {
+                    Zoltan.Visibility = Visibility.Visible;
                 }
             }
         }

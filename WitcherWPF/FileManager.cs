@@ -150,6 +150,18 @@ namespace WitcherWPF {
             return jsonread;
 
         }
+        public List<Crypt> LoadCrypts() {
+            string path = @"../../saves/Crypts.json";
+            List<Crypt> jsonread = new List<Crypt>();
+            try {
+                string jsonFromFile = File.ReadAllText(path);
+                jsonread = JsonConvert.DeserializeObject<List<Crypt>>(jsonFromFile, settings);
+            } catch {
+
+            }
+            return jsonread;
+
+        }
         public List<Game> LoadGame() {
             string path = @"../../saves/Game.json";
             List<Game> jsonread = new List<Game>();
@@ -354,6 +366,11 @@ namespace WitcherWPF {
         public void SaveBestiary(List<Bestiary> Potions) {
             string path = @"../../gamefiles/Bestiary.json";
             string jsonToFilet = JsonConvert.SerializeObject(Potions, settings);
+            File.WriteAllText(path, jsonToFilet);
+        }
+        public void SaveCrypts(List<Crypt> Crypts) {
+            string path = @"../../saves/Crypts.json";
+            string jsonToFilet = JsonConvert.SerializeObject(Crypts, settings);
             File.WriteAllText(path, jsonToFilet);
         }
     }

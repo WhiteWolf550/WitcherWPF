@@ -27,6 +27,9 @@ namespace WitcherWPF
         public bool Looted = false;
         public Village_Outside5() {
             InitializeComponent();
+            Steps.Visibility = Visibility.Visible;
+            DoorO1.Visibility = Visibility.Hidden;
+            Village();
             LoadBackground();
             Timer();
             time.Start();
@@ -50,6 +53,16 @@ namespace WitcherWPF
             LoadBackground();
 
 
+        }
+        public void Village() {
+            qq = manager.LoadPlayerQuests();
+            foreach (PlayerQuest item in qq) {
+                if (item.Quest.QuestName == "Na stopě zaklínači") {
+                    Steps.Visibility = Visibility.Hidden;
+                    DoorO1.Visibility = Visibility.Visible;
+
+                }
+            }
         }
     }
 }

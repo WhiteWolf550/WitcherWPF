@@ -577,6 +577,13 @@ namespace WitcherWPF
             dialog1.Add(new Dialogues("Geralt", "Můj medailon na ní zvláštně reaguje..", 1, "Postaráš se o ní?", "Talk", "Zoltan", false, "Na stopě zaklínači", null, false));
             dialog1.Add(new Dialogues("Geralt", "Buď opatrný Zoltane. Vrátím se za tebou, až najdu Lamberta", 1, "Postaráš se o ní?", "Talk", "Zoltan", false, "Záhadná vesnice", null, false));
 
+            //5
+            dialog1.Add(new Dialogues("Geralt", "Jak jí je?", 1, "Jak jí je?", "Talk", "Zoltan", false, "Cesta do Novigradu", null, false));
+            dialog1.Add(new Dialogues("Zoltan", "Tož už je ji lépe", 1, "Jak jí je?", "Talk", "Zoltan", false, "Cesta do Novigradu", null, false));
+            dialog1.Add(new Dialogues("Zoltan", "Chtěla si s tebou promluvit", 1, "Jak jí je?", "Talk", "Zoltan", false, "Cesta do Novigradu", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Hmmmm", 1, "Jak jí je?", "Talk", "Zoltan", false, "Cesta do Novigradu", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Dobře, Tak tedy sbohem a hodně štěstí Zoltane", 1, "Jak jí je?", "Talk", "Zoltan", false, "Cesta do Novigradu", null, false));
+            dialog1.Add(new Dialogues("Zoltan", "Hodně štěstí i tobě Geralte", 1, "Jak jí je?", "Talk", "Zoltan", false, "Cesta do Novigradu", null, false));
             //leave
             dialog1.Add(new Dialogues("Geralt", "Měj se Zoltane", 2, "Nashle", "Talk", "Zoltan", true, null, null, false));
             dialog1.Add(new Dialogues("Zoltan", "Hodně štěstí Geralte", 2, "Nashle", "Talk", "Zoltan", true, null, null, false));
@@ -738,15 +745,37 @@ namespace WitcherWPF
             dialog1.Add(new Dialogues("Lambert", "Tak si se mnou domluvili komunikaci přes megaskop a snažili se mě nalákat do pasti", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
             dialog1.Add(new Dialogues("Lambert", "Tu schůzku jsem přijmul, ale nikdo tam nepřišel. Hádám, že měl přijít ten, který se pokusil o zabití Foltesta", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
             dialog1.Add(new Dialogues("Lambert", "Tak jsem se chtěl vrátit zpět do Novigradu, ale po cestě jsem narazil na jejich další skupinku", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
-
-
+            dialog1.Add(new Dialogues("Lambert", "Od té skupinky jsem se dozvěděl, že jejich velitel by měl být v téhle vesnici, tak jsem si myslel, že je to ten starosta, ale asi ne", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Lambert", "No a teď se tady schovávám", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Takže se musím vydat do Novigradu", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Lambert", "Až tam budeš, tak se ptej na člověka jménem Bolehlav. Je to jejich takový malý šéf.", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Lambert", "Ale dávej si pozor, když zjistí, že je hledá zaklínač, tak si domyslí co tam děláš", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Ty nepůjdeš se mnou?", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Lambert", "Ne už mě nebaví být neustále n útěku. Asi se vrátím do Kaer Morhen", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Dobře, tak tedy hodně štěstí", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Cesta do Novigradu", null, false));
+            dialog1.Add(new Dialogues("Lambert", "Uvidíme se na Kaer Morhen vlku", 1, "Dlouho jsme se neviděli", "Talk", "Lambert", false, "Na stopě zaklínači", null, false));
 
 
             //leave
-            dialog1.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "MasterHunter", true, null, null, false));
+            dialog1.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Lambert", true, null, null, false));
             dialog1.Add(new Dialogues("Lambert", "Sbohem vlku", 2, "Nashle", "Talk", "Lambert", true, null, null, false));
 
+            //MORENN
+            dialog1.Add(new Dialogues("Morenn", "Zaklínači", 1, "Pozdrav", "Greet", "Morenn", true, null, null, false));
 
+            //1
+            dialog1.Add(new Dialogues("Geralt", "Jak ti je?", 1, "Jak ti je?", "Talk", "Morenn", false, "Cesta do Novigradu", null, false));
+            dialog1.Add(new Dialogues("Morenn", "Je mi lépe a to jen díky vám. Děkuji", 1, "Jak ti je?", "Talk", "Morenn", false, "Cesta do Novigradu", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Máš kam jít .. ?", 1, "Jak ti je?", "Talk", "Morenn", false, "Cesta do Novigradu", null, false));
+            dialog1.Add(new Dialogues("Morenn", "Morenn. Jmenuji se Morenn", 1, "Jak ti je?", "Talk", "Morenn", false, "Cesta do Novigradu", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Geralt z Rivie", 1, "Jak ti je?", "Talk", "Morenn", false, "Cesta do Novigradu", null, false));
+            dialog1.Add(new Dialogues("Morenn", "Ne dokážu se o sebe postarat Geralte", 1, "Jak ti je?", "Talk", "Morenn", false, "Cesta do Novigradu", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Dobře, tak tedy Sbohem Morenn", 1, "Jak ti je?", "Talk", "Morenn", false, "Cesta do Novigradu", null, false));
+            dialog1.Add(new Dialogues("Morenn", "Sbohem Geralte", 1, "Jak ti je?", "Talk", "Morenn", false, "Cesta do Novigradu", null, false));
+
+            //leave
+            dialog1.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Morenn", true, null, null, false));
+            dialog1.Add(new Dialogues("Morenn", "Sbohem Geralte", 2, "Nashle", "Talk", "Morenn", true, null, null, false));
             manager.SaveDialogues(dialog1, path1);
             manager.SaveDialogues(dialog, path);
         }
