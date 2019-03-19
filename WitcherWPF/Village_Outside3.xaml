@@ -11,7 +11,7 @@
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO1" Margin="1004,389,333,435" Tag="Village_House1">
             <Image Source="img/UI/ui_door.png"></Image>
         </Button>
-        <Button Background="#FFDC3232" BorderBrush="{x:Null}" Height="Auto"  Name="Crypt1" Margin="461,343,876,481" Tag="Crypt1">
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Crypt1" Margin="472,361,913,463" Tag="Crypt1">
             
         </Button>
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Zoltan" ToolTip="Zoltan Chivay" Margin="894,391,445,372">

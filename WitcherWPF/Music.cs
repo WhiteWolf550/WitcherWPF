@@ -32,6 +32,12 @@ namespace WitcherWPF {
             this.musicday.Add("Village_Outside1", new Uri(@"../../sounds/music/Village_day.mp3", UriKind.Relative));
             this.musicday.Add("Village_Outside2", new Uri(@"../../sounds/music/Village_day.mp3", UriKind.Relative));
             this.musicday.Add("Village_Outside3", new Uri(@"../../sounds/music/Village_day.mp3", UriKind.Relative));
+            this.musicday.Add("Village_Outside4", new Uri(@"../../sounds/music/Swamp.mp3", UriKind.Relative));
+            this.musicday.Add("Village_Outside5", new Uri(@"../../sounds/music/Village_day.mp3", UriKind.Relative));
+            this.musicday.Add("Village_House", new Uri(@"../../sounds/music/Swamp.mp3", UriKind.Relative));
+            this.musicday.Add("Village_House2", new Uri(@"../../sounds/music/Village_day.mp3", UriKind.Relative));
+            this.musicday.Add("Village_House3", new Uri(@"../../sounds/music/Village_day.mp3", UriKind.Relative));
+            this.musicday.Add("Village_Crypt", new Uri(@"../../sounds/music/Village_day.mp3", UriKind.Relative));
 
             this.musicnight.Add("Old_wyzima1", new Uri(@"../../sounds/music/The_Order.mp3", UriKind.Relative));
             this.musicnight.Add("Old_wyzima2", new Uri(@"../../sounds/music/The_Order.mp3", UriKind.Relative));
@@ -42,6 +48,12 @@ namespace WitcherWPF {
             this.musicnight.Add("Village_Outside1", new Uri(@"../../sounds/music/Village_night.mp3", UriKind.Relative));
             this.musicnight.Add("Village_Outside2", new Uri(@"../../sounds/music/Village_night.mp3", UriKind.Relative));
             this.musicnight.Add("Village_Outside3", new Uri(@"../../sounds/music/Village_night.mp3", UriKind.Relative));
+            this.musicnight.Add("Village_Outside4", new Uri(@"../../sounds/music/Swamp.mp3", UriKind.Relative));
+            this.musicnight.Add("Village_Outside5", new Uri(@"../../sounds/music/Village_night.mp3", UriKind.Relative));
+            this.musicnight.Add("Village_House", new Uri(@"../../sounds/music/Swamp.mp3", UriKind.Relative));
+            this.musicnight.Add("Village_House2", new Uri(@"../../sounds/music/Village_night.mp3", UriKind.Relative));
+            this.musicnight.Add("Village_House3", new Uri(@"../../sounds/music/Village_night.mp3", UriKind.Relative));
+            this.musicnight.Add("Village_Crypt", new Uri(@"../../sounds/music/Village_night.mp3", UriKind.Relative));
 
             this.sounds.Add("NewPage", new Uri(@"../../sounds/UI/newpage.wav", UriKind.Relative));
             this.sounds.Add("OpenDoor", new Uri(@"../../sounds/UI/opendoor.wav", UriKind.Relative));

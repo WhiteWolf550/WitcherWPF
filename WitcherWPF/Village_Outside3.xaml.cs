@@ -33,6 +33,7 @@ namespace WitcherWPF
             DoorO1.Visibility = Visibility.Hidden;
             Crypt1.Visibility = Visibility.Hidden;
             Zoltan.Visibility = Visibility.Hidden;
+            Madman.Visibility = Visibility.Hidden;
 
             GhoulQuest();
             House();

@@ -37,11 +37,12 @@ namespace WitcherWPF {
             
             //Globals.location = loc;
             AddHandlers();
-            
+            LoadTransition();
 
         }
         public void PageLoaded(object sender, RoutedEventArgs e) {
             Application.Current.MainWindow.KeyDown += new KeyEventHandler(Keys);
+            
         }
         private void Keys(object sender, KeyEventArgs e) {
             if (e.Key == Key.Escape) {
@@ -83,11 +84,32 @@ namespace WitcherWPF {
             Village_Outside2.Loot.Click += new RoutedEventHandler(GetLoot);
             Village_Outside2.Ghoul.Click += new RoutedEventHandler(EnterCombatChQuest);
             Village_Outside2.Steps.Click += new RoutedEventHandler(Switch_Click);
+            Village_Outside2.Steps2.Click += new RoutedEventHandler(Switch_Click);
             Village_Outside2.DoorO1.Click += new RoutedEventHandler(Switch_Click);
+            Village_Outside2.Zoltan.Click += new RoutedEventHandler(GetDialogue);
+
             Village_Outside3.Madman.Click += new RoutedEventHandler(GetDialogue);
             Village_Outside3.Ghoul.Click += new RoutedEventHandler(EnterCombatChQuest);
             Village_Outside3.Loot.Click += new RoutedEventHandler(GetLoot);
             Village_Outside3.Steps.Click += new RoutedEventHandler(Switch_Click);
+            Village_Outside3.Steps2.Click += new RoutedEventHandler(Switch_Click);
+            Village_Outside3.Zoltan.Click += new RoutedEventHandler(GetDialogue);
+            Village_Outside3.Crypt1.Click += new RoutedEventHandler(Switch_Click);
+
+            Village_Outside4.DoorO1.Click += new RoutedEventHandler(Switch_Click);
+            Village_Outside4.Steps.Click += new RoutedEventHandler(Switch_Click);
+
+            Village_Outside5.DoorO1.Click += new RoutedEventHandler(Switch_Click);
+            Village_Outside5.Steps.Click += new RoutedEventHandler(Switch_Click);
+
+            Village_House.DoorO1.Click += new RoutedEventHandler(Switch_Click);
+            Village_House.Zoltan.Click += new RoutedEventHandler(GetDialogue);
+
+            Village_House2.DoorO1.Click += new RoutedEventHandler(Switch_Click);
+            Village_House2.Lambert.Click += new RoutedEventHandler(GetDialogue);
+
+            Village_House3.DoorO1.Click += new RoutedEventHandler(Switch_Click);
+            Village_House3.Morenn.Click += new RoutedEventHandler(GetDialogue);
         }
         public Location(Frame parentFrame, string location, Time time) : this() {
             this.parentFrame = parentFrame;
@@ -97,6 +119,8 @@ namespace WitcherWPF {
             //Music();
             time.Visibility = Visibility.Visible;
             SetLocation();
+            
+            
         }
         public void SetLocation() {
             if (loc == "Old_wyzima2") {
@@ -363,6 +387,21 @@ namespace WitcherWPF {
         private void OpenMenu() {
             Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);
             parentFrame.Navigate(new PausePage(parentFrame, time));
+        }
+        public void LoadTransition() {
+            BlackScreen.Visibility = Visibility.Visible;
+            BlackScreen.Opacity = 1;
+            var animation = new DoubleAnimation {
+                To = 0,
+                BeginTime = TimeSpan.FromSeconds(1),
+                Duration = TimeSpan.FromSeconds(1),
+                FillBehavior = FillBehavior.Stop
+            };
+
+            animation.Completed += (s, a) => BlackScreen.Visibility = Visibility.Hidden;
+            animation.Completed += (s, a) => BlackScreen.Opacity = 0;
+
+            BlackScreen.BeginAnimation(UIElement.OpacityProperty, animation);
         }
     }
 }

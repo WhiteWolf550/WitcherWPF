@@ -718,6 +718,7 @@
     </Content>
     <Content Include="sounds\music\Decide.mp3" />
     <Content Include="sounds\music\Tavern1.mp3" />
+    <Content Include="sounds\music\Swamp.mp3" />
     <Content Include="sounds\music\Village_day.mp3" />
     <Content Include="sounds\music\menu.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

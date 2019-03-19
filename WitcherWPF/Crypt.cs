@@ -22,6 +22,8 @@ namespace WitcherWPF {
             crypts.Add(new Crypt("Crypt1", true));
             crypts.Add(new Crypt("Crypt2", true));
             crypts.Add(new Crypt("Crypt3", true));
+
+            manager.SaveCrypts(crypts);
         }
         public Crypt() {
 
