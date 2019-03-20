@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -30,11 +31,15 @@ namespace WitcherWPF
         Dictionary<Button, Potion> potiondict = new Dictionary<Button, Potion>();
         Dictionary<Image, PlayerInventory> itemsdict = new Dictionary<Image, PlayerInventory>();
         Potion potion = new Potion();
+        int hour = 0;
         Music sound = new Music();
         Button CurrentPotion = new Button();
         public Alchemy()
         {
             InitializeComponent();
+            Hour.Content = Globals.Hour + ":00";
+            hour = Globals.Hour;
+            ScrollBR.Value = Globals.Hour;
             sound.PlaySound("Alchemy");
         }
         public Alchemy(Frame parentFrame, Time time, bool meditation) : this() {
@@ -249,6 +254,52 @@ namespace WitcherWPF
             AddPotionToTable(CurrentPotion);
 
         }
+        private void ScrollBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {
+            Hour.Content = Math.Round(ScrollBR.Value);
+            hour = int.Parse(Hour.Content.ToString());
+            Hour.Content += ":00";
 
+
+        }
+
+        private void StartMeditation_Click(object sender, RoutedEventArgs e) {
+            
+            MeditationTransitionShow();
+        }
+        public void MeditationTransitionShow() {
+            BlackScreen.Visibility = Visibility.Visible;
+            time.Visibility = Visibility.Hidden;
+            var animation = new DoubleAnimation {
+                To = 1,
+                BeginTime = TimeSpan.FromSeconds(0),
+                Duration = TimeSpan.FromSeconds(2),
+                FillBehavior = FillBehavior.Stop
+            };
+
+            animation.Completed += (s, a) => BlackScreen.Visibility = Visibility.Visible;
+            animation.Completed += (s, a) => BlackScreen.Opacity = 1;
+            animation.Completed += new EventHandler(MeditationTransitionHide);
+            animation.Completed += new EventHandler(ChangeTime);
+            BlackScreen.BeginAnimation(UIElement.OpacityProperty, animation);
+        }
+        public void MeditationTransitionHide(object sender, EventArgs e) {
+            var animation = new DoubleAnimation {
+                To = 0,
+                BeginTime = TimeSpan.FromSeconds(1),
+                Duration = TimeSpan.FromSeconds(2),
+                FillBehavior = FillBehavior.Stop
+            };
+
+            animation.Completed += (s, a) => BlackScreen.Visibility = Visibility.Hidden;
+            animation.Completed += (s, a) => BlackScreen.Opacity = 0;
+            
+            BlackScreen.BeginAnimation(UIElement.OpacityProperty, animation);
+            
+        }
+        private void ChangeTime(object sender, EventArgs e) {
+            
+            Globals.Hour = hour;
+            time.Visibility = Visibility.Visible;
+        }
     }
 }

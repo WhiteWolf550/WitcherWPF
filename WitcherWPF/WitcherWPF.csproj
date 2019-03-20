@@ -691,6 +691,7 @@
     <Resource Include="img\UI\Effect_Petris_philter.png" />
     <Resource Include="img\UI\Effect_Tawny_owl.png" />
     <Resource Include="img\UI\Effect_Thunderbolt.png" />
+    <Resource Include="img\UI\Meditate.png" />
     <Content Include="sounds\ghoul\ghoul_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

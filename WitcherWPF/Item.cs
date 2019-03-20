@@ -312,16 +312,16 @@ namespace WitcherWPF
             items.Add(new Item("Úplněk", "Elixír který značně zvýší Geraltovu vitalitu", "Potion", "Alchemy", @"img/Items/Potion_Full_Moon.png", null, "Potion", "Vypít", null, 50));
             items.Add(new Item("Kočka", "Elixír který umožní Geraltovi vidět ve tmě", "Potion", "Alchemy", @"img/Items/Potion_Cat.png", null, "Potion", "Vypít", null, 20));
 
-            //MONSTER LOOT
-            items.Add(new Item("Tesáky z příšery", "Tesáky sebrané z příšery", "Alchemy", "Barghest", @"img/Items/Monster_Fang.png", "Rebis", "Alchemy", null, null, 10));
-            items.Add(new Item("Prach smrti", "Prach, který se většinou dá získat z přeludů, nebo z jiných příšer", "Alchemy", "Barghest", @"img/Items/Monster_DeathDust.png", "Hydragenum", "Alchemy", null, null, 10));
+            
 
             //HERBS
             items.Add(new Item("Vlaštovičník", "Běžná rostlina s léčivými vlastnostmi", "Alchemy", "Celandine", @"img/Items/Herb_Celandine.png", "Rebis", null, null, null, 10));
             items.Add(new Item("Bílá Myrta", "Běžná polní květina s velkými bílými květy", "Alchemy", "White_Myrtle", @"img/Items/Herb_Myrtle.png", "Vitriol", null, null, null, 10));
             items.Add(new Item("Ginatia", "Okvětní plátky běžného křoví", "Alchemy", "Ginatia", @"img/Items/Herb_Ginatia.png", "Vermilion", null, null, null, 20));
 
-
+            //MONSTER LOOT
+            items.Add(new Item("Tesáky z příšery", "Tesáky sebrané z příšery", "Alchemy", "Barghest", @"img/Items/Monster_Fang.png", "Rebis", "Alchemy", null, null, 10));
+            items.Add(new Item("Prach smrti", "Prach, který se většinou dá získat z přeludů, nebo z jiných příšer", "Alchemy", "Barghest", @"img/Items/Monster_DeathDust.png", "Hydragenum", "Alchemy", null, null, 10));
             items.Add(new Item("Krev z Ghůla", "Krev, která se dá získat z Ghůla", "Alchemy", "Ghůl", @"img/Items/Monster_Ghoul_Blood.png", "Aether", "Alchemy", null, null, 10));
             items.Add(new Item("Bílý Ocet", "Bílý Ocet, který se dá použít v Alchymii", "Alchemy", "Ghůl", @"img/Items/Monster_White_vinegar.png", "Vitriol", "Alchemy", null, null, 10));
             items.Add(new Item("Žluč", "Žluč, která se dá použít v Alchymii", "Alchemy", "Ghůl", @"img/Items/Monster_Abomination_Lymph.png", "Rebis", "Alchemy", null, null, 10));
@@ -332,9 +332,9 @@ namespace WitcherWPF
             items.Add(new Item("Zlatý prsten", "Zlatý prsten, který vypadá hodně staře", "Quest", "Strašidelný dům", @"img/Items/Quest_Ring.png", "žádné", null, null, null, 0));
 
             //SPECIAL
-            items.Add(new Item("Část zbroje: Hruď", "Stará část zbroje, která vypadá hodně staře", "Quest", "Crypt1", @"img/Items/Armor_Part1.png",  "žádné", null, null, null, 0));
-            items.Add(new Item("Část zbroje: Manuskript", "Stará část zbroje, která vypadá hodně staře", "Quest", "Crypt2", @"img/Items/Armor_Part2.png", "žádné", null, null, null, 0));
-            items.Add(new Item("Část zbroje: Nátepník", "Stará část zbroje, která vypadá hodně staře", "Quest", "Crypt3", @"img/Items/Armor_Part3.png", "žádné", null, null, null, 0));
+            items.Add(new Item("Část zbroje: Hruď", "Stará část zbroje, která vypadá hodně staře", "Special", "Crypt1", @"img/Items/Armor_Part1.png",  "žádné", null, null, null, 0));
+            items.Add(new Item("Část zbroje: Manuskript", "Stará část zbroje, která vypadá hodně staře", "Special", "Crypt2", @"img/Items/Armor_Part2.png", "žádné", null, null, null, 0));
+            items.Add(new Item("Část zbroje: Nátepník", "Stará část zbroje, která vypadá hodně staře", "Special", "Crypt3", @"img/Items/Armor_Part3.png", "žádné", null, null, null, 0));
 
 
 

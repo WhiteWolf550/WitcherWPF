@@ -30,6 +30,7 @@ namespace WitcherWPF
             effects = manager.LoadEffects();
             crypts = manager.LoadCrypts();
             CheckCat();
+            CheckChest();
         }
         public void CheckCat() {
             foreach(Effect item in effects) {
