@@ -28,5 +28,15 @@ namespace WitcherWPF {
         public Crypt() {
 
         }
+        public void CheckCrypt(string Name) {
+            FileManager manager = new FileManager();
+            List<Crypt> crypts = manager.LoadCrypts();
+            foreach(Crypt item in crypts) {
+                if (item.Name == Name) {
+                    item.IsEnabled = false;
+                }
+            }
+            manager.SaveCrypts(crypts);
+        }
     }
 }

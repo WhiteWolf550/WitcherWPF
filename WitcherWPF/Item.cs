@@ -148,7 +148,9 @@ namespace WitcherWPF
         }
         public void LootToInventory(WrapPanel LootInventory, Button LootButton, Image LootBack, Button CloseBut, StackPanel QuestPop, Label QueName, TextBlock QueGoal) {
             string lootpath = @"../../saves/Loot.json";
+            Crypt crypt = new Crypt();
             List<Item> loot = manager.LoadLoot();
+            List<Crypt> crypts = manager.LoadCrypts();
             List<PlayerInventory> inventory = manager.LoadPlayerInventory();
             if (inventory == null) {
                 inventory = new List<PlayerInventory>();
@@ -202,7 +204,9 @@ namespace WitcherWPF
                 }
                 //PlayerInventory inv = new PlayerInventory(item1, cit);
                 //inventory.Add(inv);
+                crypt.CheckCrypt(item1.LootType);
             }
+            
             LootInventory.Visibility = Visibility.Hidden;
             LootButton.Visibility = Visibility.Hidden;
             LootBack.Visibility = Visibility.Hidden;
@@ -215,6 +219,37 @@ namespace WitcherWPF
             catch (IOException iox) {
                 Console.WriteLine(iox.Message);
             }
+
+        }
+        
+        public void GenerateSpecificItems(WrapPanel LootInventory, Button Hide, Image LootBack, Button TakeLoot, Button CloseBut, string LootType) {
+            List<Item> items = manager.LoadItems();
+            List<Item> loot = new List<Item>();
+            List<Item> items2 = items.Where(s => s.LootType == LootType).ToList();
+            Hide.Visibility = Visibility.Hidden;
+            LootInventory.Visibility = Visibility.Visible;
+            LootBack.Visibility = Visibility.Visible;
+            CloseBut.Visibility = Visibility.Visible;
+            TakeLoot.Visibility = Visibility.Visible;
+            string lootpath = @"../../saves/Loot.json";
+
+            foreach (Item item in items2) {
+                Image inventoryimage = new Image();
+                inventoryimage.Width = 18;
+                inventoryimage.Height = 18;
+                inventoryimage.Source = new BitmapImage(new Uri(item.Source, UriKind.Relative));
+                inventoryimage.Margin = new Thickness(-15, -3, -3, -3);
+                Button inventoryitem = new Button();
+                inventoryitem.Content = inventoryimage;
+                inventoryitem.Height = 20;
+                inventoryitem.Width = 20;
+                inventoryitem.ToolTip = item.Name + "\n" + "1x" + "\n" + item.Description + "\n" + "SUBSTANCE:" + "\n" + item.Substance;
+                inventoryitem.BorderBrush = Brushes.Transparent;
+                inventoryitem.Background = Brushes.Transparent;
+                LootInventory.Children.Add(inventoryitem);
+                loot.Add(item);
+            }
+            manager.SaveItems(loot, lootpath);
 
         }
         public void GiveItem(PlayerInventory pitem, List<Shop> shops, int num) {

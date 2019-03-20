@@ -25,13 +25,17 @@ namespace WitcherWPF {
         Dialogues dia = new Dialogues();
         Quest q = new Quest();
         Crypt crypt = new Crypt();
+        Item item = new Item();
+        Potion potion = new Potion();
+
         public MainWindow() {
             
             InitializeComponent();
             //dia.CreateDialogues();
             //Globals.DialoguePath = @"../../dialogues/DialogueChapter1.json";
             //q.CreateQuests();
-            crypt.CreateCrypts();
+            //crypt.CreateCrypts();
+            
 
             
             time.Visibility = Visibility.Hidden;

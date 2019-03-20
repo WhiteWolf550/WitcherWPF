@@ -21,18 +21,27 @@ namespace WitcherWPF
     public partial class Village_Crypt : UserControl
     {
         List<Effect> effects = new List<Effect>();
+        List<Crypt> crypts = new List<Crypt>();
         FileManager manager = new FileManager();
         public Village_Crypt()
         {
             InitializeComponent();
             BlackScreen.Visibility = Visibility.Visible;
             effects = manager.LoadEffects();
+            crypts = manager.LoadCrypts();
             CheckCat();
         }
         public void CheckCat() {
             foreach(Effect item in effects) {
                 if (item.Name == "Kočka") {
                     BlackScreen.Visibility = Visibility.Hidden;
+                }
+            }
+        }
+        public void CheckChest() {
+            foreach(Crypt item in crypts) {
+                if (item.Name == "Crypt1" && item.IsEnabled == false) {
+                    Chest.Visibility = Visibility.Hidden;
                 }
             }
         }

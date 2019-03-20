@@ -110,6 +110,9 @@ namespace WitcherWPF {
 
             Village_House3.DoorO1.Click += new RoutedEventHandler(Switch_Click);
             Village_House3.Morenn.Click += new RoutedEventHandler(GetDialogue);
+
+            Village_Crypt.Chest.Click += new RoutedEventHandler(GetLoot2);
+            Village_Crypt.DoorO1.Click += new RoutedEventHandler(Switch_Click);
         }
         public Location(Frame parentFrame, string location, Time time) : this() {
             this.parentFrame = parentFrame;
@@ -189,7 +192,13 @@ namespace WitcherWPF {
                 loottype = button.Tag.ToString();
             }
             Loot = button;
-            it.GenerateLoot(LootInventory, Wyzima_Castle.Flower, LootBack, TakeLoot, CloseBut, loottype);
+            it.GenerateLoot(LootInventory, button, LootBack, TakeLoot, CloseBut, loottype);
+        }
+        public void GetLoot2(object sender, RoutedEventArgs e) {
+            LootInventory.Children.Clear();
+            Button button = (sender as Button);
+            Loot = button;
+            it.GenerateSpecificItems(LootInventory, button, LootBack, TakeLoot, CloseBut, button.Tag.ToString());
         }
         public void LootToInventory(object sender, RoutedEventArgs e) {
             it.LootToInventory(LootInventory, TakeLoot, LootBack, CloseBut, QuestPop, QueName, QueGoal);

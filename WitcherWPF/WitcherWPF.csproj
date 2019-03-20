@@ -686,6 +686,11 @@
     <Resource Include="img\Items\Armor_Part2.png" />
     <Resource Include="img\Items\Armor_Part3.png" />
     <Resource Include="img\Items\Potion_Cat.png" />
+    <Resource Include="img\UI\Effect_Cat.png" />
+    <Resource Include="img\UI\Effect_Full_moon.png" />
+    <Resource Include="img\UI\Effect_Petris_philter.png" />
+    <Resource Include="img\UI\Effect_Tawny_owl.png" />
+    <Resource Include="img\UI\Effect_Thunderbolt.png" />
     <Content Include="sounds\ghoul\ghoul_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -36,6 +36,8 @@ namespace WitcherWPF
             inventory.Add(new PlayerInventory(matches[rand]));
             manager.SavePlayerInventory(inventory);
         }
+        
+
         public void BuyItem(Item item, List<PlayerInventory> pinventory, int num) {
             List<PlayerInventory> items = pinventory.Where(s => s.Item.Name == item.Name).ToList();
             var match3 = items.Where(s => s.Item.Count < 10).ToList();
