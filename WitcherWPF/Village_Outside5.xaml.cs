@@ -57,7 +57,7 @@ namespace WitcherWPF
         public void Village() {
             qq = manager.LoadPlayerQuests();
             foreach (PlayerQuest item in qq) {
-                if (item.Quest.QuestName == "Na stopě zaklínači") {
+                if (item.Quest.QuestName == "Na stopě Zaklínači") {
                     Steps.Visibility = Visibility.Hidden;
                     DoorO1.Visibility = Visibility.Visible;
 

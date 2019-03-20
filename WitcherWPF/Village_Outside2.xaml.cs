@@ -30,6 +30,7 @@ namespace WitcherWPF {
             Zoltan.Visibility = Visibility.Hidden;
             GhoulQuest();
             OldVillage();
+            ZoltanCheck();
 
             LoadBackground();
             CheckLootReset();

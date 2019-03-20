@@ -365,16 +365,29 @@ namespace WitcherWPF
                         foreach (var item in matchactiv3) {
                             id2 = item.Quest.QuestID;
                         }
-                        var matchactiv4 = matchactiv2.Where(s => s.QuestID == id2 + 1);
-                        foreach (var it in matchactiv3) {
-                            foreach (var it2 in matchactiv4) {
-                                it.Quest.QuestID++;
-                                it.Quest.QuestDescription = it2.QuestDescription;
-                                it.Quest.QuestGoal = it2.QuestGoal;
-                                it.Quest.DialogueActivate = it2.DialogueActivate;
+                        if (matchactiv3.Count() > 0) {
+                            var matchactiv4 = matchactiv2.Where(s => s.QuestID == id2 + 1);
+                            foreach (var it in matchactiv3) {
+                                foreach (var it2 in matchactiv4) {
+                                    it.Quest.QuestID++;
+                                    it.Quest.QuestDescription = it2.QuestDescription;
+                                    it.Quest.QuestGoal = it2.QuestGoal;
+                                    it.Quest.DialogueActivate = it2.DialogueActivate;
 
-                                if (it2.DialogueActivate != null) {
-                                    var mat = dialog.Where(s => s.Choice == it2.DialogueActivate);
+                                    if (it2.DialogueActivate != null) {
+                                        var mat = dialog.Where(s => s.Choice == it2.DialogueActivate);
+                                        foreach (var di in mat) {
+                                            di.Enabled = true;
+                                        }
+                                    }
+                                }
+                            }
+                        }else {
+                            var matchactiv5 = matchactiv2.Where(s => s.QuestSeries == Activate2 && s.QuestID == 1);
+                            foreach(Quest item in matchactiv5) {
+                                PlayerQuests.Add(new PlayerQuest(item));
+                                if (item.DialogueActivate != null) {
+                                    var mat = dialog.Where(s => s.Choice == item.DialogueActivate);
                                     foreach (var di in mat) {
                                         di.Enabled = true;
                                     }

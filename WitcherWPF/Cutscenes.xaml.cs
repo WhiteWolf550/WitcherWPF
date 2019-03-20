@@ -84,8 +84,19 @@ namespace WitcherWPF
                 Globals.Combat = false;
                 parentFrame.Navigate(new Location(parentFrame, time));
                 quest.UpdateQuest("Záhadná vesnice", QuestPop, QueName, QueGoal);
-            } 
-            
+            } else if (CutsceneName == "Chapter1Cut4") {
+                CutsceneName = "Chapter2Cut1";
+                CutPlay();
+            } else if (CutsceneName == "Chapter2Cut1") {
+                Globals.Hour = 13;
+                Globals.Chapter = 2;
+                Globals.DialoguePath = @"../../dialogues/DialogueChapter2.json";
+                Globals.Combat = false;
+                Globals.location = "Village_Outside2";
+                time.Visibility = Visibility.Visible;
+                parentFrame.Navigate(new Location(parentFrame, time));
+            }
+
         }
         private void RemoveHandler() {
             Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);

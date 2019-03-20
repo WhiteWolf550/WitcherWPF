@@ -12,7 +12,7 @@
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Morenn" ToolTip="Morenn" Margin="538,374,691,200">
             <Image Source="img/Characters/Morenn.png" Grid.Column="1" Grid.Row="1"></Image>
         </Button>
-        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO1" Margin="327,441,987,354" Tag="Village_Outside3">
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO1" Margin="327,441,987,354" Tag="Chapter1Cut4">
             <Image Source="img/UI/ui_door.png"></Image>
         </Button>    
     </Grid>

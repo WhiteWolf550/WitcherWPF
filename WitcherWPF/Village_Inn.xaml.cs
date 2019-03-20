@@ -27,10 +27,12 @@ namespace WitcherWPF {
         }
         public void ChapterQuest() {
             foreach(PlayerQuest item in pquest) {
-                if (item.Quest.QuestName == "Záhadná vesnice" && item.Quest.QuestID >= 4) {
+                if (item.Quest.QuestName == "Záhadná vesnice" && item.Quest.QuestID >= 4 || item.Quest.QuestName != "Záhadná vesnice") {
                     
                     Zoltan.Visibility = Visibility.Hidden;
                     //Olaf.Visibility = Visibility.Hidden;
+                }else {
+                    Zoltan.Visibility = Visibility.Visible;
                 }
             }
         }

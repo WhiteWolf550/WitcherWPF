@@ -8,7 +8,7 @@
              d:DesignHeight="894" d:DesignWidth="1426.666">
     <Grid>
         <Image x:Name="LocationImage" Source="img/Locations/Village_Outside3_day.png" Margin="-99,-42,-80,-48" Grid.ColumnSpan="3" Grid.RowSpan="3"></Image>
-        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO1" Margin="1004,389,333,435" Tag="Village_House1">
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO1" Margin="1004,389,333,435" Tag="Village_House3">
             <Image Source="img/UI/ui_door.png"></Image>
         </Button>
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Crypt1" Margin="472,361,913,463" Tag="Village_Crypt">

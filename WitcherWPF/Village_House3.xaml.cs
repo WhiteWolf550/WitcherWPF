@@ -20,9 +20,23 @@ namespace WitcherWPF
     /// </summary>
     public partial class Village_House3 : UserControl
     {
+        List<PlayerQuest> qq = new List<PlayerQuest>();
+        FileManager manager = new FileManager();
         public Village_House3()
         {
             InitializeComponent();
+            
+            DoorCheck();
+        }
+        public void DoorCheck() {
+            qq = manager.LoadPlayerQuests();
+            foreach (PlayerQuest item in qq) {
+                if (item.Quest.QuestName == "Cesta do Novigradu" && item.Quest.QuestID == 2) {
+                    DoorO1.Visibility = Visibility.Hidden;
+                }else {
+                    DoorO1.Visibility = Visibility.Visible;
+                }
+            }
         }
     }
 }

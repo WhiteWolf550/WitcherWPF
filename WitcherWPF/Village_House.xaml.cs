@@ -34,6 +34,7 @@ namespace WitcherWPF
             foreach (PlayerQuest item in qq) {
                 if (item.Quest.QuestName == "Záhadná vesnice" && item.Quest.QuestID == 9) {
                     DoorO1.Visibility = Visibility.Visible;
+                    Zoltan.Visibility = Visibility.Hidden;
 
                 }
             }

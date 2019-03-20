@@ -644,6 +644,8 @@
     <Content Include="cutscenes\Chapter1Cut3Begin.mp4" />
     <Content Include="cutscenes\Chapter1Cut3Die.mp4" />
     <Content Include="cutscenes\Chapter1Cut3Live.mp4" />
+    <Content Include="cutscenes\Chapter1Cut4.mp4" />
+    <Content Include="cutscenes\Chapter2Cut1.mp4" />
     <Content Include="cutscenes\DecisionVideo.mp4" />
     <Content Include="gifs\Characters\Geralt.mp4" />
     <Resource Include="img\Char\Geralt.png" />

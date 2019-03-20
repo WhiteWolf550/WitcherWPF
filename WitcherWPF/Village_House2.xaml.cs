@@ -31,7 +31,7 @@ namespace WitcherWPF
         public void Door() {
             qq = manager.LoadPlayerQuests();
             foreach (PlayerQuest item in qq) {
-                if (item.Quest.QuestName == "Na stopě zaklínači") {
+                if (item.Quest.QuestName == "Na stopě Zaklínači") {
                     DoorO1.Visibility = Visibility.Hidden;
 
                 }

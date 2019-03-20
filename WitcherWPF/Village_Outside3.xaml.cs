@@ -38,6 +38,7 @@ namespace WitcherWPF
             GhoulQuest();
             House();
             OldVillage();
+            ZoltanCheck();
             Crypt();
             LoadBackground();
             CheckLootReset();
@@ -106,7 +107,7 @@ namespace WitcherWPF
         public void OldVillage() {
             qq = manager.LoadPlayerQuests();
             foreach (PlayerQuest item in qq) {
-                if (item.Quest.QuestName == "Na stopě zaklínači" && item.Quest.QuestID == 7) {
+                if (item.Quest.QuestName == "Na stopě Zaklínači" && item.Quest.QuestID == 7) {
                     Steps2.Visibility = Visibility.Visible;
                 }
             }

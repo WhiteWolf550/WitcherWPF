@@ -32,6 +32,7 @@ namespace WitcherWPF {
         static Button Loot = new Button();
         string QuestName = null;
         public bool Steps = false;
+        public string CutsceneName = null;
         public Location() {
             InitializeComponent();
             
@@ -91,6 +92,7 @@ namespace WitcherWPF {
             Village_Outside3.Madman.Click += new RoutedEventHandler(GetDialogue);
             Village_Outside3.Ghoul.Click += new RoutedEventHandler(EnterCombatChQuest);
             Village_Outside3.Loot.Click += new RoutedEventHandler(GetLoot);
+            Village_Outside3.DoorO1.Click += new RoutedEventHandler(Switch_Click);
             Village_Outside3.Steps.Click += new RoutedEventHandler(Switch_Click);
             Village_Outside3.Steps2.Click += new RoutedEventHandler(Switch_Click);
             Village_Outside3.Zoltan.Click += new RoutedEventHandler(GetDialogue);
@@ -108,7 +110,7 @@ namespace WitcherWPF {
             Village_House2.DoorO1.Click += new RoutedEventHandler(Switch_Click);
             Village_House2.Lambert.Click += new RoutedEventHandler(GetDialogue);
 
-            Village_House3.DoorO1.Click += new RoutedEventHandler(Switch_Click);
+            Village_House3.DoorO1.Click += new RoutedEventHandler(EnterCutscene);
             Village_House3.Morenn.Click += new RoutedEventHandler(GetDialogue);
 
             Village_Crypt.Chest.Click += new RoutedEventHandler(GetLoot2);
@@ -366,6 +368,11 @@ namespace WitcherWPF {
         private void EnterCombat1(object sender, RoutedEventArgs e) {
             CombatTransitionShow();
         }
+        private void EnterCutscene(object sender, RoutedEventArgs e) {
+            Button button = (sender as Button);
+            CutsceneTransitionShow();
+            CutsceneName = button.Tag.ToString();
+        }
         private void EnterCombatChQuest(object sender, RoutedEventArgs e) {
             Button button = (sender as Button);
             QuestName = button.Tag.ToString();
@@ -384,6 +391,23 @@ namespace WitcherWPF {
             animation.Completed += (s, a) => BlackScreen.Opacity = 1;
             animation.Completed += new EventHandler(GoToCombat);
             BlackScreen.BeginAnimation(UIElement.OpacityProperty, animation);
+        }
+        public void CutsceneTransitionShow() {
+            BlackScreen.Visibility = Visibility.Visible;
+            var animation = new DoubleAnimation {
+                To = 1,
+                BeginTime = TimeSpan.FromSeconds(0),
+                Duration = TimeSpan.FromSeconds(2),
+                FillBehavior = FillBehavior.Stop
+            };
+
+            animation.Completed += (s, a) => BlackScreen.Visibility = Visibility.Visible;
+            animation.Completed += (s, a) => BlackScreen.Opacity = 1;
+            animation.Completed += new EventHandler(GoToCutscene);
+            BlackScreen.BeginAnimation(UIElement.OpacityProperty, animation);
+        }
+        private void GoToCutscene(object sender, EventArgs e) {
+            parentFrame.Navigate(new Cutscenes(parentFrame, time, CutsceneName));
         }
         public void GoToCombat(object sender, EventArgs e) {
             Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);

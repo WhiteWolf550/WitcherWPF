@@ -88,10 +88,12 @@ namespace WitcherWPF {
         public void ChapterQuest() {
             qq = manager.LoadPlayerQuests();
             foreach (PlayerQuest item in qq) {
-                if (item.Quest.QuestName == "Záhadná vesnice" && item.Quest.QuestID >= 5) {
+                if (item.Quest.QuestName == "Záhadná vesnice" && item.Quest.QuestID >= 5 || item.Quest.QuestName != "Záhadná vesnice") {
                     Turman.Visibility = Visibility.Hidden;
                     
                     
+                }else {
+                    Turman.Visibility = Visibility.Visible;
                 }
             }
         }
