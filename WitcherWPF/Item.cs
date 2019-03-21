@@ -304,13 +304,13 @@ namespace WitcherWPF
 
             items.Add(new Item("Barghesti", "Kniha o barghestech", "Loot", "Loot", @"img/Items/Book_Bestiary.png", null, "Barghest", "Číst", "Barghesti jsou fakt svině...", 100));
             //POTIONS
-            items.Add(new Item("Puštík", "Elixír, který rychle doplňuje Geraltovu výdrž", "Potion", "Alchemy", @"img/Items/Potion_Tawny_Owl.png", null, "Potion", "Vypít", null, 50));
-            items.Add(new Item("Vlaštovka", "Elixír, který rychle doplňuje Geraltovo zdraví", "Potion", "Alchemy", @"img/Items/Potion_Swallow.png", null, "Potion", "Vypít", null, 50));
-            items.Add(new Item("Hrom", "Elixír, který značně zvýší sílu útoků", "Potion", "Alchemy", @"img/Items/Potion_Thunderbolt.png", null, "Potion", "Vypít", null, 50));
-            items.Add(new Item("Petriho filtr", "Elixír, který značně zvýší intenzitu všech znamení", "Potion", "Alchemy", @"img/Items/Potion_Petris_Philter.png", null, "Potion", "Vypít", null, 80));
-            items.Add(new Item("Černá krev", "Elixír, který mění Geraltovu krev na jedovatou pro upíry (upíři dostanou poškození pokud zaútoči na Geralta)", "Potion", "Alchemy", @"img/Items/Potion_Black_Blood.png", null, "Potion", "Vypít", null, 80));
-            items.Add(new Item("Úplněk", "Elixír který značně zvýší Geraltovu vitalitu", "Potion", "Alchemy", @"img/Items/Potion_Full_Moon.png", null, "Potion", "Vypít", null, 50));
-            items.Add(new Item("Kočka", "Elixír který umožní Geraltovi vidět ve tmě", "Potion", "Alchemy", @"img/Items/Potion_Cat.png", null, "Potion", "Vypít", null, 20));
+            items.Add(new Item("Puštík", "Elixír, který rychle doplňuje Geraltovu výdrž", "Potion", "Alchemy", @"img/Items/Potion_Tawny_Owl.png", null, "Potion", "Vypít", null, 20));
+            items.Add(new Item("Vlaštovka", "Elixír, který rychle doplňuje Geraltovo zdraví", "Potion", "Alchemy", @"img/Items/Potion_Swallow.png", null, "Potion", "Vypít", null, 20));
+            items.Add(new Item("Hrom", "Elixír, který značně zvýší sílu útoků", "Potion", "Alchemy", @"img/Items/Potion_Thunderbolt.png", null, "Potion", "Vypít", null, 25));
+            items.Add(new Item("Petriho filtr", "Elixír, který značně zvýší intenzitu všech znamení", "Potion", "Alchemy", @"img/Items/Potion_Petris_Philter.png", null, "Potion", "Vypít", null, 30));
+            items.Add(new Item("Černá krev", "Elixír, který mění Geraltovu krev na jedovatou pro upíry (upíři dostanou poškození pokud zaútoči na Geralta)", "Potion", "Alchemy", @"img/Items/Potion_Black_Blood.png", null, "Potion", "Vypít", null, 25));
+            items.Add(new Item("Úplněk", "Elixír který značně zvýší Geraltovu vitalitu", "Potion", "Alchemy", @"img/Items/Potion_Full_Moon.png", null, "Potion", "Vypít", null, 25));
+            items.Add(new Item("Kočka", "Elixír který umožní Geraltovi vidět ve tmě", "Potion", "Alchemy", @"img/Items/Potion_Cat.png", null, "Potion", "Vypít", null, 25));
 
             
 

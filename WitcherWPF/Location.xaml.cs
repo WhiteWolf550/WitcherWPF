@@ -82,6 +82,8 @@ namespace WitcherWPF {
             Village_Outside1.Barell.Click += new RoutedEventHandler(GetLoot);
             Village_Outside1.DoorO.Click += new RoutedEventHandler(Switch_Click);
             Village_Outside1.DoorO2.Click += new RoutedEventHandler(Switch_Click);
+            Village_Outside1.Trader.Click += new RoutedEventHandler(GetDialogue);
+            Village_Outside1.Jarek.Click += new RoutedEventHandler(GetDialogue);
 
             Village_Outside2.Loot.Click += new RoutedEventHandler(GetLoot);
             Village_Outside2.Ghoul.Click += new RoutedEventHandler(EnterCombatChQuest);
@@ -98,6 +100,7 @@ namespace WitcherWPF {
             Village_Outside3.Steps2.Click += new RoutedEventHandler(Switch_Click);
             Village_Outside3.Zoltan.Click += new RoutedEventHandler(GetDialogue);
             Village_Outside3.Crypt1.Click += new RoutedEventHandler(Switch_Click);
+            Village_Outside3.BrickMaker.Click += new RoutedEventHandler(GetDialogue);
 
             Village_Outside4.DoorO1.Click += new RoutedEventHandler(Switch_Click);
             Village_Outside4.Steps.Click += new RoutedEventHandler(Switch_Click);
