@@ -11,9 +11,13 @@
         <Button Name="Chest" Height="Auto" Margin="526,495,832,344" Background="{x:Null}" BorderBrush="{x:Null}" ToolTip="Bedna" Tag="Crypt1" FontSize="18" FontWeight="Bold">
             <Image Source="img/UI/ui_loot.png" RenderTransformOrigin="0.5,0.5" Height="45" Width="44"></Image>
         </Button>
+        <Button Name="Barghest" ToolTip="Barghest"  Tag="Vzteklý pes" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="507,456,704,230" Height="Auto">
+            <Image Source="img/Monsters/Barghest_map.png"></Image>
+        </Button>
         <Rectangle HorizontalAlignment="Left" Height="894" Stroke="Black" VerticalAlignment="Top" Width="1427" Fill="Black" Name="BlackScreen" Visibility="Hidden" Opacity="1"/>
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO1" Margin="42,403,1287,405" Tag="Village_Outside3">
             <Image Source="img/UI/ui_door.png"></Image>
         </Button>
+        
     </Grid>
 </UserControl>

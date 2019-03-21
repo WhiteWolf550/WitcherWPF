@@ -13,7 +13,7 @@
             <Image Source="img/UI/ui_loot.png" RenderTransformOrigin="0.5,0.5">
             </Image>
         </Button>
-        <Button Visibility="Hidden" Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Ghoul" ToolTip="Ghůl" Margin="154,339,1055,225">
+        <Button Visibility="Hidden" Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Ghoul" ToolTip="Ghůl" Margin="154,339,1055,225" Tag="Ghůl">
             <Image Source="img/Monsters/Ghoul.png" Height="329"></Image>
         </Button>
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" ToolTip="Do města" Tag="Old_wyzima3"  Name="Outside" Margin="574,430,775,404">

@@ -476,6 +476,13 @@ namespace WitcherWPF
             dialog1.Add(new Dialogues("Geralt", "Díky", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
             dialog1.Add(new Dialogues("Hospodský Olaf", "Jdi už, mám tu i jiné lidi", 1, "Sháním informace", "Talk", "Olaf", false, "Záhadná vesnice", null, false));
 
+            //2
+            dialog1.Add(new Dialogues("Geralt", "Neviděl jsi někde kolem vesnice Barghesta?", 1, "Neviděl jsi někde Barghesta?", "Talk", "Olaf", false, "Vzteklý pes", null, false));
+            dialog1.Add(new Dialogues("Hospodský Olaf", "Barghestů je kolem vesnice plno, ale nedoporučoval bych je jako mazlíčky", 1, "Neviděl jsi někde Barghesta?", "Talk", "Olaf", false, "Vzteklý pes", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Jeden z Barghestů se přibližuje hodně k vesnici. O něm jsi taky nic neslyšel?", 1, "Neviděl jsi někde Barghesta?", "Talk", "Olaf", false, "Vzteklý pes", null, false));
+            dialog1.Add(new Dialogues("Hospodský Olaf", "Jo to je pěknej parchant. Zabíjí mi slepice", 1, "Neviděl jsi někde Barghesta?", "Talk", "Olaf", false, "Vzteklý pes", null, false));
+            dialog1.Add(new Dialogues("Hospodský Olaf", "Lidi říkaj, že v nějaký kryptě ve vesnici, ale já o žádný kryptě nevím", 1, "Neviděl jsi někde Barghesta?", "Talk", "Olaf", false, "Vzteklý pes", null, false));
+            dialog1.Add(new Dialogues("Geralt", "Dobře, díky", 1, "Neviděl jsi někde Barghesta?", "Talk", "Olaf", false, "Vzteklý pes", null, false));
             //leave
             dialog1.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Olaf", true, null, null, false));
             dialog1.Add(new Dialogues("Hospodský Olaf", "Běž už", 2, "Nashle", "Talk", "Olaf", true, null, null, false));
@@ -719,6 +726,22 @@ namespace WitcherWPF
             dialog1.Add(new Dialogues("Geralt", "On před někým utíká?", 1, "Kde je Lambert", "Talk", "MasterHunter", false, "Na stopě zaklínači", null, false));
             dialog1.Add(new Dialogues("Mistr lovčí", "Co já vím. Moc mi toho neřekl", 1, "Kde je Lambert?", "Talk", "MasterHunter", false, "Na stopě zaklínači", null, false));
             dialog1.Add(new Dialogues("Geralt", "Dobře děkuji. A radši tuto vesnici, co nerychleji opusť", 1, "Kde je Lambert?", "Talk", "MasterHunter", false, "Na stopě zaklínači", null, false));
+
+            //3
+            dialog1.Add(new Dialogues("Geralt", "Je tu nějaká práce pro zaklínače?", 1, "Nějaká práce pro zaklínače?", "Talk", "MasterHunter", true, null, null, false));
+            dialog1.Add(new Dialogues("Mistr lovčí", "V téhle vesnici je práce pro zaklínače dostatek", 1, "Nějaká práce pro zaklínače?", "Talk", "MasterHunter", true, null, null, false));
+            dialog1.Add(new Dialogues("Mistr lovčí", "Ale měl bych tu jeden zvláštní kousek", 1, "Nějaká práce pro zaklínače?", "Talk", "MasterHunter", true, null, null, false));
+            dialog1.Add(new Dialogues("Mistr lovčí", "Všiml jsem si, že jeden Barghest se až moc přibližuje k vesnici", 1, "Nějaká práce pro zaklínače?", "Talk", "MasterHunter", false, null, null, false));
+            dialog1.Add(new Dialogues("Mistr lovčí", "Myslím si, že by to mohl být vůdce smečky", 1, "Nějaká práce pro zaklínače?", "Talk", "MasterHunter", true, null, null, false));
+            dialog1.Add(new Dialogues("Mistr lovčí", "Dám ti za něj 80 orénů", 1, "Nějaká práce pro zaklínače?", "Talk", "MasterHunter", true, null, null, false));
+            dialog1.Add(new Dialogues("Geralt", "Dobře, beru", 1, "Nějaká práce pro zaklínače?", "Talk", "MasterHunter", true, "Vzteklý pes", "Beru", true));
+            dialog1.Add(new Dialogues("Geralt", "Bohužel nevím, kde by se ten Barghest mohl nacházet. Zkus se zeptat ve vesnici, jestli ho někdo neviděl", 1, "Nějaká práce pro zaklínače?", "Talk", "MasterHunter", true, "Vzteklý pes", "Beru", false));
+            //4
+            dialog1.Add(new Dialogues("Geralt", "Barghest je mrtvý", 1, "Zabil jsem toho psa", "Talk", "MasterHunter", false, null, null, false));
+            dialog1.Add(new Dialogues("Mistr lovčí", "Dobrá práce zaklínači. Tady je tvých 80 orénů", 1, "Zabil jsem toho psa", "Talk", "MasterHunter", false, null, null, false));
+
+            dialog1.Add(new Dialogues("Geralt", "Nemám zájem", 1, "Nějaká práce pro zaklínače?", "Talk", "MasterHunter", true, null, "Nemám zájem", true));
+            dialog1.Add(new Dialogues("Mistr lovčí", "Pokud si to rozmyslíš, tak se vrať", 1, "Nějaká práce pro zaklínače?", "Talk", "MasterHunter", true, null, "Nemám zájem", false));
             //leave
             dialog1.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "MasterHunter", true, null, null, false));
             dialog1.Add(new Dialogues("Mistr lovčí", "Sbohem", 2, "Nashle", "Talk", "MasterHunter", true, null, null, false));

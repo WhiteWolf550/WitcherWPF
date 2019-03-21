@@ -32,7 +32,7 @@
             </Button.RenderTransform>
             <Image Source="img/UI/ui_steps.png"></Image>
         </Button>
-        <Button Background="{x:Null}" BorderBrush="{x:Null}" Tag="Village_Outside5" Height="Auto"  Name="Steps2" ToolTip="První část vesnice" Margin="1232,514,109,283" RenderTransformOrigin="0.5,0.5">
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Tag="Village_Outside5" Height="Auto"  Name="Steps2" ToolTip="Opuštěný dům" Margin="1232,514,109,283" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

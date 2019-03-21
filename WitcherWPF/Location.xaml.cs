@@ -31,6 +31,7 @@ namespace WitcherWPF {
         
         static Button Loot = new Button();
         string QuestName = null;
+        string MonsterName = null;
         public bool Steps = false;
         public string CutsceneName = null;
         public Location() {
@@ -115,6 +116,7 @@ namespace WitcherWPF {
 
             Village_Crypt.Chest.Click += new RoutedEventHandler(GetLoot2);
             Village_Crypt.DoorO1.Click += new RoutedEventHandler(Switch_Click);
+            Village_Crypt.Barghest.Click += new RoutedEventHandler(EnterCombatChQuest);
         }
         public Location(Frame parentFrame, string location, Time time) : this() {
             this.parentFrame = parentFrame;
@@ -271,7 +273,7 @@ namespace WitcherWPF {
         }
         private void Switch_Click(object sender, RoutedEventArgs e) {
             Button button = (sender as Button);
-            if (button.Name == "Steps") {
+            if (button.Name == "Steps" || button.Name== "Steps2") {
                 media.PlaySound("Steps");
                 Steps = true;
             }else {
@@ -366,6 +368,8 @@ namespace WitcherWPF {
             BlackScreen.BeginAnimation(UIElement.OpacityProperty, animation);
         }
         private void EnterCombat1(object sender, RoutedEventArgs e) {
+            Button button = (sender as Button);
+            
             CombatTransitionShow();
         }
         private void EnterCutscene(object sender, RoutedEventArgs e) {
@@ -376,6 +380,7 @@ namespace WitcherWPF {
         private void EnterCombatChQuest(object sender, RoutedEventArgs e) {
             Button button = (sender as Button);
             QuestName = button.Tag.ToString();
+            MonsterName = button.ToolTip.ToString();
             CombatTransitionShow();
         }
         public void CombatTransitionShow() {
@@ -412,9 +417,9 @@ namespace WitcherWPF {
         public void GoToCombat(object sender, EventArgs e) {
             Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);
             if (QuestName == null) {
-                parentFrame.Navigate(new Combat(parentFrame, false, time, false, Loot.Tag.ToString(), "Ghůl"));
+                parentFrame.Navigate(new Combat(parentFrame, false, time, false, Loot.Tag.ToString(), MonsterName));
             }else {
-                parentFrame.Navigate(new Combat(parentFrame, false, time, false, QuestName, "Ghůl"));
+                parentFrame.Navigate(new Combat(parentFrame, false, time, false, QuestName, MonsterName));
             }
         }
         private void OpenMenu() {

@@ -22,15 +22,18 @@ namespace WitcherWPF
     {
         List<Effect> effects = new List<Effect>();
         List<Crypt> crypts = new List<Crypt>();
+        List<PlayerQuest> qq = new List<PlayerQuest>();
         FileManager manager = new FileManager();
         public Village_Crypt()
         {
             InitializeComponent();
             BlackScreen.Visibility = Visibility.Visible;
+            Barghest.Visibility = Visibility.Hidden;
             effects = manager.LoadEffects();
             crypts = manager.LoadCrypts();
             CheckCat();
             CheckChest();
+            CheckBarghest();
         }
         public void CheckCat() {
             foreach(Effect item in effects) {
@@ -43,6 +46,16 @@ namespace WitcherWPF
             foreach(Crypt item in crypts) {
                 if (item.Name == "Crypt1" && item.IsEnabled == false) {
                     Chest.Visibility = Visibility.Hidden;
+                }
+            }
+        }
+        public void CheckBarghest() {
+            qq = manager.LoadPlayerQuests();
+            foreach (PlayerQuest item in qq) {
+                if (item.Quest.QuestName == "Vzteklý pes" && item.Quest.QuestID == 2) {
+                    
+                    Barghest.Visibility = Visibility.Visible;
+
                 }
             }
         }

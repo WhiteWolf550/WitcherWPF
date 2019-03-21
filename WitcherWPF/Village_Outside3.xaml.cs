@@ -31,7 +31,7 @@ namespace WitcherWPF
             Ghoul.Visibility = Visibility.Hidden;
             Steps2.Visibility = Visibility.Hidden;
             DoorO1.Visibility = Visibility.Hidden;
-            Crypt1.Visibility = Visibility.Hidden;
+            Crypt1.Visibility = Visibility.Visible;
             Zoltan.Visibility = Visibility.Hidden;
             Madman.Visibility = Visibility.Hidden;
 
@@ -39,7 +39,7 @@ namespace WitcherWPF
             House();
             OldVillage();
             ZoltanCheck();
-            Crypt();
+            //Crypt();
             LoadBackground();
             CheckLootReset();
             Timer();
