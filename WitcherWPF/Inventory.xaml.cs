@@ -428,7 +428,9 @@ namespace WitcherWPF
                     item.toxicity += toxicity;
                 }
                 game.SaveGame(playerinfo, pinventory, armor, sword, effects);
-                parentFrame.Navigate(new Combat(parentFrame, true, time, true, null, EnemyName, CutsceneName));
+                if (Combat == true) {
+                    parentFrame.Navigate(new Combat(parentFrame, true, time, true, null, EnemyName, CutsceneName));
+                }
 
 
             }

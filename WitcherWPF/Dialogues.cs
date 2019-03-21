@@ -735,10 +735,10 @@ namespace WitcherWPF
             dialog1.Add(new Dialogues("Mistr lovčí", "Myslím si, že by to mohl být vůdce smečky", 1, "Nějaká práce pro zaklínače?", "Talk", "MasterHunter", true, null, null, false));
             dialog1.Add(new Dialogues("Mistr lovčí", "Dám ti za něj 80 orénů", 1, "Nějaká práce pro zaklínače?", "Talk", "MasterHunter", true, null, null, false));
             dialog1.Add(new Dialogues("Geralt", "Dobře, beru", 1, "Nějaká práce pro zaklínače?", "Talk", "MasterHunter", true, "Vzteklý pes", "Beru", true));
-            dialog1.Add(new Dialogues("Geralt", "Bohužel nevím, kde by se ten Barghest mohl nacházet. Zkus se zeptat ve vesnici, jestli ho někdo neviděl", 1, "Nějaká práce pro zaklínače?", "Talk", "MasterHunter", true, "Vzteklý pes", "Beru", false));
+            dialog1.Add(new Dialogues("Mistr lovčí", "Bohužel nevím, kde by se ten Barghest mohl nacházet. Zkus se zeptat ve vesnici, jestli ho někdo neviděl", 1, "Nějaká práce pro zaklínače?", "Talk", "MasterHunter", true, "Vzteklý pes", "Beru", false));
             //4
-            dialog1.Add(new Dialogues("Geralt", "Barghest je mrtvý", 1, "Zabil jsem toho psa", "Talk", "MasterHunter", false, null, null, false));
-            dialog1.Add(new Dialogues("Mistr lovčí", "Dobrá práce zaklínači. Tady je tvých 80 orénů", 1, "Zabil jsem toho psa", "Talk", "MasterHunter", false, null, null, false));
+            dialog1.Add(new Dialogues("Geralt", "Barghest je mrtvý", 1, "Zabil jsem toho psa", "Talk", "MasterHunter", false, "Vzteklý pes", null, false));
+            dialog1.Add(new Dialogues("Mistr lovčí", "Dobrá práce zaklínači. Tady je tvých 80 orénů", 1, "Zabil jsem toho psa", "Talk", "MasterHunter", false, "Vzteklý pes", null, false));
 
             dialog1.Add(new Dialogues("Geralt", "Nemám zájem", 1, "Nějaká práce pro zaklínače?", "Talk", "MasterHunter", true, null, "Nemám zájem", true));
             dialog1.Add(new Dialogues("Mistr lovčí", "Pokud si to rozmyslíš, tak se vrať", 1, "Nějaká práce pro zaklínače?", "Talk", "MasterHunter", true, null, "Nemám zájem", false));

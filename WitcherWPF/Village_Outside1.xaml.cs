@@ -26,7 +26,7 @@ namespace WitcherWPF {
         public Village_Outside1() {
             InitializeComponent();
             Ghoul.Visibility = Visibility.Hidden;
-            Turman.Visibility = Visibility.Visible;
+            Turman.Visibility = Visibility.Hidden;
             GhoulQuest();
             ChapterQuest();
             LoadBackground();
@@ -88,12 +88,12 @@ namespace WitcherWPF {
         public void ChapterQuest() {
             qq = manager.LoadPlayerQuests();
             foreach (PlayerQuest item in qq) {
-                if (item.Quest.QuestName == "Záhadná vesnice" && item.Quest.QuestID >= 5 || item.Quest.QuestName != "Záhadná vesnice") {
-                    Turman.Visibility = Visibility.Hidden;
+                if (item.Quest.QuestName == "Záhadná vesnice" && item.Quest.QuestID < 5 ) {
+                    Turman.Visibility = Visibility.Visible;
                     
                     
                 }else {
-                    Turman.Visibility = Visibility.Visible;
+                    
                 }
             }
         }

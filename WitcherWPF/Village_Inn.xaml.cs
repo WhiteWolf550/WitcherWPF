@@ -22,17 +22,19 @@ namespace WitcherWPF {
         FileManager manager = new FileManager();
         public Village_Inn() {
             InitializeComponent();
+            Zoltan.Visibility = Visibility.Hidden;
             pquest = manager.LoadPlayerQuests();
             ChapterQuest();
         }
         public void ChapterQuest() {
             foreach(PlayerQuest item in pquest) {
-                if (item.Quest.QuestName == "Záhadná vesnice" && item.Quest.QuestID >= 4 || item.Quest.QuestName != "Záhadná vesnice") {
-                    
-                    Zoltan.Visibility = Visibility.Hidden;
+                if (item.Quest.QuestName == "Záhadná vesnice" && item.Quest.QuestID < 4) {
+
+                    Zoltan.Visibility = Visibility.Visible;
+                        
                     //Olaf.Visibility = Visibility.Hidden;
                 }else {
-                    Zoltan.Visibility = Visibility.Visible;
+                    
                 }
             }
         }
