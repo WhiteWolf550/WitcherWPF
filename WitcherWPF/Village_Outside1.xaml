@@ -23,6 +23,12 @@
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="MasterHunter" ToolTip="Mistr lovčí" Margin="394,420,959,342">
             <Image Source="img/Characters/MasterHunter.png" Grid.Column="1" Grid.Row="1"></Image>
         </Button>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Jarek" ToolTip="Jarek" Margin="1285,446,36,260">
+            <Image Source="img/Characters/Jarek.png" Grid.Column="1" Grid.Row="1"></Image>
+        </Button>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Trader" ToolTip="Potulný obchodník" Margin="226,420,1116,324">
+            <Image Source="img/Characters/Trader.png" Grid.Column="1" Grid.Row="1"></Image>
+        </Button>
         <Button Visibility="Visible" Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" Tag="Problém s ghúly"  Name="Ghoul" ToolTip="Ghůl" Margin="612,399,689,304">
             <Image Source="img/Monsters/Ghoul.png" Height="181"></Image>
         </Button>
