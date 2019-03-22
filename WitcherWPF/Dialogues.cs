@@ -246,6 +246,7 @@ namespace WitcherWPF
             List<Dialogues> dialog1 = new List<Dialogues>();
             string path = @"../../dialogues/DialoguePrologue.json";
             string path1 = @"../../dialogues/DialogueChapter1.json";
+            string path2 = @"../../dialogues/DialogueChapter2.json";
             //----------------------FOLTEST----------------
             //greet
             dialog.Add(new Dialogues("Foltest", "Vítej zpět Zaklínači", 1, "Pozdrav", "Greet", "Foltest", true, null, null, false));

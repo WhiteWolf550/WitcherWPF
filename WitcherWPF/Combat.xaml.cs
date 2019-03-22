@@ -45,6 +45,7 @@ namespace WitcherWPF {
         DispatcherTimer Poisoning = new DispatcherTimer();
         DispatcherTimer Pain = new DispatcherTimer();
         DispatcherTimer Confusion = new DispatcherTimer();
+        DispatcherTimer TawnyOwl = new DispatcherTimer();
 
 
         MediaPlayer backgroundmedia = new MediaPlayer();
@@ -87,12 +88,13 @@ namespace WitcherWPF {
         static bool Poisoned = false;
         static bool BleedB  = false;
         int BConfusion = 0;
+        int SignIncrease = 0;
         bool Confused = false;
         bool CanLoadQuest = true;
         static bool SwordChosen = false;
         bool EnemyStrong;
         int i = 0;
-
+        int StatDecrease = 0;
         int BleedT = 0;
         int PoisonT = 0;
         int PainD = 0;
@@ -110,12 +112,15 @@ namespace WitcherWPF {
         int YrdenEn = 0;
         int AxiiEn = 0;
         double stamina = 0;
+        double StaminaAmount = 0.5;
         int toxicity = 0;
         int maxtoxicity = 0;
         int maxstamina = 0;
         bool PlayerAttacking = false;
         bool Parry = false;
+        bool BlackBlood = false;
         bool EnemyAttacking = false;
+        bool ThunderBolt = false;
         bool EnemyCanAttack = false;
         bool CanPlayerTouchSword = false;
         bool CanEnemyTouchSword = false;
@@ -211,6 +216,7 @@ namespace WitcherWPF {
                 IgniEn = item.Igni.EndurCost();
                 AxiiEn = item.Axii.EndurCost();
                 Parrydur = item.ParryStunDuration;
+                StatDecrease = item.Axii.StatsDecrease;
             }
             PlayerStrongAttackDuration.Interval = new TimeSpan(0, 0, 0, 0, 800);
             PlayerStrongAttackDuration.Tick += new EventHandler(PlayerStrongDuration_Tick);
@@ -253,6 +259,8 @@ namespace WitcherWPF {
 
             Stamina.Interval = TimeSpan.FromSeconds(1);
             Stamina.Tick += new EventHandler(Stamina_tick);
+
+            
 
             Confusion.Interval = new TimeSpan(0, 0, 0, 2);
             Confusion.Tick += new EventHandler(Confusion_tick);
@@ -451,7 +459,7 @@ namespace WitcherWPF {
             if (stamina <= 0) {
                 stamina = 0;
             }
-            stamina += 0.5;
+            stamina += StaminaAmount;
             
             if (stamina >= maxstamina) {
                 stamina = maxstamina;
@@ -506,6 +514,7 @@ namespace WitcherWPF {
         void AxiiDuration_Tick(object sender, EventArgs e) {
             AxiiDuration.Stop();
             AxiiActive = false;
+            AxiiDamageReduction = 0;
             GIFSign.Visibility = Visibility.Hidden;
             
         }
@@ -894,6 +903,7 @@ namespace WitcherWPF {
                     armorbleed = item.Armor.Bleedingresistance;
                     armorpoison = item.Armor.Poisonresistance;
                 }
+                back += SignIncrease;
                 enemy.HP = enemy.HP * 1 - back;
                 int decreaseddamage = damage * 1 - num;
                 if (decreaseddamage < 0) {
@@ -917,6 +927,10 @@ namespace WitcherWPF {
                 Bleed(armorbleed, QuenEff);
             }else if (enemy.PoisonChanc() == true && Poisoned == false) {
                 Poison(armorpoison, QuenEff);
+            }
+            if (BlackBlood == true && enemy.Class == "Vampire") {
+                EnemyHP.Value -= damage / 2;
+                textb.Text = "Efekt černé krve dal přišeře " + damage / 2 + "DMG";
             }
             if (PlayerCheck() == true) {
                 EnemyCanAttack = false;
@@ -977,6 +991,12 @@ namespace WitcherWPF {
             EnemyHit();
         }
         private void Axii() {
+            int intensity = 0;
+            foreach (Player item in playerlist) {
+                AxiiDamageReduction = item.Axii.StatsDecrease;
+                intensity = item.Axii.SignIntensity + SignIncrease / 10;
+            }
+            AxiiDamageReduction += intensity;
             PlayerAttacking = false;
             PlayerSound("Axii");
             AttackCombo = 0;
@@ -991,10 +1011,14 @@ namespace WitcherWPF {
         }
         private void Yrden() {
             int PD = 0;
+            int intensity = 0;
+            if (SignIncrease != 0) {
+                intensity = SignIncrease - 15;
+            }
             foreach(Player item in playerlist) {
                 EnemyYrdenStrongBlock = item.Yrden.AttackBlock;
                 YrdenConfusion = item.Yrden.Confusion;
-                PainD = item.Yrden.Pain + item.Yrden.SignIntensity / 10;
+                PainD = item.Yrden.Pain + item.Yrden.SignIntensity + intensity / 10;
                 PD = item.Yrden.Pain;
                 BConfusion = item.Yrden.Confusion;
             }
@@ -1056,8 +1080,8 @@ namespace WitcherWPF {
             EnduranceBar.ToolTip = stamina;
             Stamina.Start();
             foreach(Player item in playerlist) {
-                isStunned = item.Aard.Stun();
-                KnockBack = item.Aard.KnockBack();
+                isStunned = item.Aard.Stun(SignIncrease);
+                KnockBack = item.Aard.KnockBack(SignIncrease);
             }
             stamina -= AardEn;
             if (isStunned == true) {
@@ -1182,21 +1206,7 @@ namespace WitcherWPF {
             EnemySound("Hit");
             EnemyAnimations("Hit");
             if (IgniAnim == false) {
-                int damage = player.Attack(SteelSword, Strong);
-                if (SteelSword != enemy.HurtSteelSword) {
-                    damage = damage / 3;
-                    textb.Text = "reduce!";
-                }
-                EnemyHP.Value = enemy.Hit(enemy.HP, damage);
-                EnemyHP.ToolTip = EnemyHP.Value;
-                textb.Text = "Geralt dává poškození za " + damage;
-                if (player.Stun(Strong) == true) {
-                    Stunned = true;
-                    StunDuration.Start();
-                    EnemyAnimationsRepeat("Stun");
-                } else {
-
-                }
+                SwordDamage();
             }else {
                 IgniDamage();
 
@@ -1209,12 +1219,34 @@ namespace WitcherWPF {
 
             }
         }
+        public void SwordDamage() {
+            int damage = player.Attack(SteelSword, Strong);
+            if (SteelSword != enemy.HurtSteelSword) {
+                damage = damage / 3;
+                textb.Text = "reduce!";
+            }
+            if (ThunderBolt == true) {
+                
+                damage = damage * 1 + 30;
+               
+            }
+            EnemyHP.Value = enemy.Hit(enemy.HP, damage);
+            EnemyHP.ToolTip = EnemyHP.Value;
+            textb.Text = "Geralt dává poškození za " + damage;
+            if (player.Stun(Strong) == true) {
+                Stunned = true;
+                StunDuration.Start();
+                EnemyAnimationsRepeat("Stun");
+            } else {
+
+            }
+        }
         public void IgniDamage() {
             bool Burn = false;
             int damage = 0;
             foreach (Player item in playerlist) {
                 damage = item.Igni.Damage;
-                damage += item.Igni.SignIntensity / 10;
+                damage += item.Igni.SignIntensity + SignIncrease / 10;
 
             }
 
@@ -1262,16 +1294,27 @@ namespace WitcherWPF {
             if (effect.Name == "Vlaštovka") {
                 Heal();
             }else if (effect.Name == "Hrom") {
-
+                ThunderBolt = true;
             }else if (effect.Name == "Puštík") {
-
+                StaminaAmount = 2;
             }else if (effect.Name == "Petriho filtr") {
-
+                SignIncrease = 20;
             }else if (effect.Name == "Úplněk") {
-
+                RestoreHP();
             }else if (effect.Name == "Černá krev") {
-
+                BlackBlood = true;
             }
+        }
+        public void RestoreHP() {
+            Effect ef = new Effect();
+            HealthBar.Value = HealthBar.Maximum;
+            foreach(Effect item in Effects) {
+                if (item.Name == "Úplněk") {
+                    ef = item;
+                }
+            }
+            Effects.Remove(ef);
+
         }
         public void Heal() {
             Healing.Start();

@@ -13,6 +13,7 @@ namespace WitcherWPF {
         public int MaxHP { get; set; }
         public int HP { get; set; }
         public string Name { get; set; }
+        public string Class { get; set; }
         public int StrongSpeed { get; set; }
         public int FastSpeed { get; set; }
         public bool HurtSteelSword { get; set; }

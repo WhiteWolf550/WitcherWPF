@@ -30,6 +30,7 @@ namespace WitcherWPF
             this.MaxHP = 100;
             this.HP = this.MaxHP;
             this.Name = "Ghůl";
+            this.Class = "Necrophage";
             this.XP = 50;
 
             this.StunChance = 10;

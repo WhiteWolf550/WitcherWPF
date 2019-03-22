@@ -17,20 +17,20 @@ namespace WitcherWPF {
         public Aard() {
 
         }
-        public bool Stun() {
+        public bool Stun(int Increase) {
             Random rand = new Random();
             int rn = rand.Next(0, 100);
-            if (rn < this.StunChance + this.SignIntensity / 10) {
+            if (rn < this.StunChance + this.SignIntensity + Increase / 10) {
                 return true;
             } else {
                 return false;
             }
             
         }
-        public bool KnockBack() {
+        public bool KnockBack(int Increase) {
             Random rand = new Random();
             int rn = rand.Next(0, 100);
-            if (rn < this.KnockBackChance + this.SignIntensity / 10) {
+            if (rn < this.KnockBackChance + this.SignIntensity + Increase / 10) {
                 return true;
             } else {
                 return false;

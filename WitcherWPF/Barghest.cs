@@ -31,6 +31,7 @@ namespace WitcherWPF
             this.MaxHP = 100;
             this.HP = this.MaxHP;
             this.Name = "Barghest";
+            this.Class = "Dogs";
             this.XP = 30;
 
             this.StunChance = 10;
