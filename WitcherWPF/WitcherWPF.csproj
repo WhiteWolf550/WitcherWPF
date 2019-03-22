@@ -694,6 +694,9 @@
     <Resource Include="img\UI\Effect_Tawny_owl.png" />
     <Resource Include="img\UI\Effect_Thunderbolt.png" />
     <Resource Include="img\UI\Meditate.png" />
+    <Resource Include="img\Characters\Jarek.png" />
+    <Resource Include="img\Characters\Trader.png" />
+    <Resource Include="img\Characters\BrickMaker.png" />
     <Content Include="sounds\ghoul\ghoul_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

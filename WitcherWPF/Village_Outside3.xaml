@@ -20,6 +20,9 @@
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Madman" ToolTip="Vesnický šílenec" Margin="183,343,1142,314">
             <Image Source="img/Characters/Madman.png" Grid.Column="1" Grid.Row="1"></Image>
         </Button>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="BrickMaker" ToolTip="Cihlář" Margin="1150,361,192,335">
+            <Image Source="img/Characters/BrickMaker.png" Grid.Column="1" Grid.Row="1"></Image>
+        </Button>
 
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Tag="Village_Outside2" Height="Auto"  Name="Steps" ToolTip="První část vesnice" Margin="46,525,1295,272" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>

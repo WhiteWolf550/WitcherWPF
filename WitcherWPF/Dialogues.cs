@@ -429,7 +429,7 @@ namespace WitcherWPF
             dialog1.Add(new Dialogues("Vesničan", "Jdi pryč!", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
             dialog1.Add(new Dialogues("Vesničan", "Takový jako ty tu nechceme!", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
             dialog1.Add(new Dialogues("Geralt", "Máte tu hodně takových psů?", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
-            dialog1.Add(new Dialogues("Vesničan", "Nic ti neřeknu ty špinavá zrůdo!", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
+            dialog1.Add(new Dialogues("Vesničan", "Nic ti neřeknu ty špinavá zrůdo! Jarek měl pravdu přinášíte jen smůlu a neštěstí!", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
             dialog1.Add(new Dialogues("Vesničan", "Takový jako ty tu nechceme!", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
             dialog1.Add(new Dialogues("Geralt", "Pokud jich tu máte více, tak vesnice není bezpečná", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
             dialog1.Add(new Dialogues("Vesničan", "Řekl jsem ať jdeš pryč!", 1, "Co se děje", "Talk", "Vesničan", true, "Záhadná vesnice", null, false));
@@ -696,6 +696,111 @@ namespace WitcherWPF
 
             dialog1.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Madman", true, null, null, false));
             dialog1.Add(new Dialogues("Šílenec", "Sbohem pane", 2, "Nashle", "Talk", "Madman", true, null, null, false));
+
+            //BRICKMAKER
+            dialog1.Add(new Dialogues("Cihlář", "Dobrej", 1, "Pozdrav", "Greet", "BrickMaker", true, null, null, false));
+
+            //1
+            dialog1.Add(new Dialogues("Geralt", "Co dělá cihlář v takovéhle vesnici?", 1, "Co dělá cihlář v takovéhle vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Cihlář sem bejval. Teď už nejsem", 1, "Co dělá cihlář v takovéhle vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Makám tady na polích", 1, "Co dělá cihlář v takovéhle vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Geralt", "A proč už nejsi cihlář?", 1, "Co dělá cihlář v takovéhle vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Protože se změnila vesnice", 1, "Co dělá cihlář v takovéhle vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Od té doby co tu je na krvežíznivá bestie, tak se vše změnilo", 1, "Co dělá cihlář v takovéhle vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Tohle bejvala veselá vesnice", 1, "Co dělá cihlář v takovéhle vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Ale potom co se tady vobjevil ten zaklínačskej, tak se z téhle vesnice stalo bitevní pole", 1, "Co dělá cihlář v takovéhle vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Geralt", "Pokud vím, tak ten zaklínač moc dlouho nebyl", 1, "Co dělá cihlář v takovéhle vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Nemyslím toho kterej tu byl nedávno. Tamten zaklínač přišel asi před rokem", 1, "Co dělá cihlář v takovéhle vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Od té doby tu žije ta bestie", 1, "Co dělá cihlář v takovéhle vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Geralt", "Jaká bestie? Barghesti?", 1, "Co dělá cihlář v takovéhle vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Víte co pane, do tohohle se vůbec nepleťte. Budou z toho jen problémy", 1, "Co dělá cihlář v takovéhle vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Zaklínačský nám přinesli jen potíže", 1, "Co dělá cihlář v takovéhle vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Geralt", "Co se tu stalo?", 1, "Co dělá cihlář v takovéhle vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Už jsem toho řekl až moc", 1, "Co dělá cihlář v takovéhle vesnici", "Talk", "BrickMaker", true, null, null, false));
+
+            //2
+            dialog1.Add(new Dialogues("Geralt", "Nějaká práce pro zaklínače", 1, "Práce pro zaklínače", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Tady ti nikdo práci nenabídne zaklínačskej", 1, "Práce pro zaklínače", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Leda tak možná Mistr lovčí. Toho se zeptej", 1, "Práce pro zaklínače", "Talk", "BrickMaker", true, null, null, false));
+
+            //3
+            dialog1.Add(new Dialogues("Geralt", "Vypadáš, že tu žiješ už dlouho", 1, "O vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Geralt", "Řekl bys mi něco o zdejších lidech?", 1, "O vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Je to vopravdu nutný?", 1, "O vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Geralt", "Rád bych věděl s jakými lidmi mám tu čest", 1, "O vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "No kde bych začal?..", 1, "O vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Máme tu mistra lovčího, kterej nám pomáhá s těma čoklama", 1, "O vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Pak je tu Jarek, kterej nemá zaklínačský moc v lásce, tak za nim ani nechoď", 1, "O vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Samozřejmě tu máme i starostu, který je poslední dobou...no.. nesvůj", 1, "O vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Žije tu i šílenec. Vo něm se říká, že přežil starou vesnici..... a asi to bude i pravda", 1, "O vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Neměl to v životě lehký", 1, "O vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Geralt", "Přežil starou vesnici? Co to znamená?", 1, "O vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "To nejni...", 1, "O vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "To nejni důležitý", 1, "O vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Nejni to tvoje starost zaklínačskej", 1, "O vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "No a pak se nám tu zastavil nějakej vobchodník", 1, "O vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Geralt", "Dobře", 1, "O vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Geralt", "Kde najdu toho šílence?", 1, "O vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Poslední dobou je někde zalezlej a nevychází ven", 1, "O vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Být tebou ho nechám být. Ten člověk toho viděl dost", 1, "O vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Geralt", "Právě proto s ním chci mluvit", 1, "O vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Myslím, že většinou se tu vobjevuje kolem pátý nebo čtvrtý. Už nevím", 1, "O vesnici", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Geralt", "Dobře, děkuji ti za informace", 1, "O vesnici", "Talk", "BrickMaker", true, null, null, false));
+
+            dialog1.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "BrickMaker", true, null, null, false));
+            dialog1.Add(new Dialogues("Cihlář", "Nashle", 2, "Nashle", "Talk", "BrickMaker", true, null, null, false));
+
+            //TRADER
+            dialog1.Add(new Dialogues("Obchodník", "Dobrý den", 1, "Pozdrav", "Greet", "Trader", true, null, null, false));
+
+            //1
+            dialog1.Add(new Dialogues("Geralt", "Co dělá člověk v takovéhlem oblečení v takovéhle vesnici?", 1, "Co tu děláte?", "Talk", "Trader", true, null, null, false));
+            dialog1.Add(new Dialogues("Obchodník", "No co bych tu dělal", 1, "Co tu děláte?", "Talk", "Trader", true, null, null, false));
+            dialog1.Add(new Dialogues("Obchodník", "Myslel jsem, že bych tu mohl chvíli zůstat, ale to nepřipadá v úvahu", 1, "Co tu děláte?", "Talk", "Trader", true, null, null, false));
+            dialog1.Add(new Dialogues("Obchodník", "Zrůdy všude a ty lidi ještě horší. Obvzlášť ten starosta", 1, "Co tu děláte?", "Talk", "Trader", true, null, null, false));
+            dialog1.Add(new Dialogues("Geralt", "Co je se starostou?", 1, "Co tu děláte?", "Talk", "Trader", true, null, null, false));
+            dialog1.Add(new Dialogues("Obchodník", "Vyháněl mě ještě dřív, než jsem stačil říct dobrý den", 1, "Co tu děláte?", "Talk", "Trader", true, null, null, false));
+            dialog1.Add(new Dialogues("Obchodník", "Už abych byl v Novigradu", 1, "Co tu děláte?", "Talk", "Trader", true, null, null, false));
+            dialog1.Add(new Dialogues("Obchodník", "Kdybyste si však chtěl něco koupit, tak tu mám celkem pěkné meče", 1, "Co tu děláte?", "Talk", "Trader", true, null, null, false));
+            dialog1.Add(new Dialogues("Geralt", "Dobře, beru na vědomí", 1, "Co tu děláte?", "Talk", "Trader", true, null, null, false));
+
+            dialog1.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Trader", true, null, null, false));
+            dialog1.Add(new Dialogues("Obchodník", "Nashledanou", 2, "Nashle", "Talk", "Trader", true, null, null, false));
+
+            //JAREK
+            dialog1.Add(new Dialogues("Jarek", "No nazdar", 1, "Pozdrav", "Greet", "Jarek", true, null, null, false));
+
+            //1
+            dialog1.Add(new Dialogues("Geralt", "Ty jsi Jarek?", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Jarek", "Jakej Jarek?!", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Jarek", "Pro tebe PAN Jarek chlapečku", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Jarek", "Si myslíš, že když znáš moje jméno, tak jsme kamarádi?!", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Jarek", "Právě naopak chlapečku", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Geralt", "Vyznáš se tady?", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Jarek", "Jasně, že se tady vyznám, když tu bydlím už vod plenek", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Jarek", "A co ty jseš? nějakej turista nebo co?", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Jarek", "Tohle místo není žádná turistická atrakce", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Jarek", "Právě naopak", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Jarek", "Jestli jsi přišel jen, aby jsi šel vomkrnout tu zrůdu ve starý, tak prosím. O jednoho blbečka méně", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Geralt", "Zrůda? Ve starý?", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Jarek", "Takhle říkáme tvý bábě všiváku", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Jarek", "Vode mě se nic nedozvíš", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Geralt", "Už vím co jsem potřeboval", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Jarek", "Jak že víš co jsi potřeboval?! Vždyť jsem ti nic neřekl!", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Jarek", "Hej!", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Jarek", "Nic nevíš! Ani nevíš co tam venku ve starý žije!", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Geralt", "Tak mi to řekni", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Jarek", "Co?!", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Jarek", "Ne ne ne!", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Jarek", "Já ti nic neřeknu chlapečku!", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Jarek", "Divím se, že tě starosta, ještě nevyhodil po zkušenostech s vědmákama", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Geralt", "A jaký máte zkušenosti?", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Jarek", "ŠPATNÝ!", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Jarek", "Hodně špatný a víc vědět nepotřebuješ", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Jarek", "A zmiz už, akorát kvůli tobě dostanu infarkt", 1, "Ty jsi Jarek?", "Talk", "Jarek", true, null, null, false));
+
+            dialog1.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Jarek", true, null, null, false));
+            dialog1.Add(new Dialogues("Jarek", "Běž už ty všiváku!", 2, "Nashle", "Talk", "jarek", true, null, null, false));
 
             //MASTER HUNTER
             dialog1.Add(new Dialogues("Mistr lovčí", "Zdravíčko pane", 1, "Pozdrav", "Greet", "MasterHunter", true, null, null, false));
