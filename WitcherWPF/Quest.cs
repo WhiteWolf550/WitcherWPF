@@ -101,6 +101,11 @@ namespace WitcherWPF {
             qq.Add(new Quest(2, "Primary", "Problém s ghúly", "Lovčí pozádal Geralte ať se postará o ghúli ve vesnici", "Zabij 2 ghúly ve vesnici", 1, true, "Problém s ghúly", null, 0, 0));
             qq.Add(new Quest(3, "Primary", "Problém s ghúly", "Lovčí pozádal Geralte ať se postará o ghúli ve vesnici", "Zabij posledního ghúla", 1, true, "Problém s ghúly", null, 0, 0));
             qq.Add(new Quest(4, "Primary", "Problém s ghúly", "Lovčí pozádal Geralte ať se postará o ghúli ve vesnici", "Úkol dokončen", 1, true, "Problém s ghúly", "Co se děje?", 1000, 0));
+
+            //----------------------------------------CHAPTER II------------------------------------
+            //Pach velkoměsta
+            qq.Add(new Quest(1, "Primary", "Pach velkoměsta", "Potom co Geralt přijel do Novigradu, tak narazil na poslíčka, který mu sdělil, že má zajít za Triss, která žije v domě vedle kostela.", "Zajdi za Triss", 1, true, "Pach velkoměsta", "Informace", 0, 0));
+
             manager.SaveQuests(qq);
         }
 

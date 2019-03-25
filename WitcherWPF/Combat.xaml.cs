@@ -119,6 +119,27 @@ namespace WitcherWPF {
         bool PlayerAttacking = false;
         bool Parry = false;
         bool BlackBlood = false;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         bool EnemyAttacking = false;
         bool ThunderBolt = false;
         bool EnemyCanAttack = false;

@@ -244,6 +244,7 @@ namespace WitcherWPF
         public void CreateDialogues() {
             List<Dialogues> dialog = new List<Dialogues>();
             List<Dialogues> dialog1 = new List<Dialogues>();
+            List<Dialogues> dialog2 = new List<Dialogues>();
             string path = @"../../dialogues/DialoguePrologue.json";
             string path1 = @"../../dialogues/DialogueChapter1.json";
             string path2 = @"../../dialogues/DialogueChapter2.json";
@@ -905,6 +906,156 @@ namespace WitcherWPF
             //leave
             dialog1.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Morenn", true, null, null, false));
             dialog1.Add(new Dialogues("Morenn", "Sbohem Geralte", 2, "Nashle", "Talk", "Morenn", true, null, null, false));
+
+
+
+
+            //----------------------------------------CHAPTER II------------------------------------
+
+            //----------------------MESSENGER----------------
+            //greet
+            dialog2.Add(new Dialogues("Poslíček", "Dobrý den pane", 1, "Pozdrav", "Greet", "Messenger", true, null, null, false));
+
+            //1
+            dialog2.Add(new Dialogues("Geralt", "Co se děje?", 1, "Co se děje?", "Talk", "Messenger", true, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Poslíček", "Dobrý den, Paní Ranucul mi sdělila, že až přijedete to města, tak za ní máte přijít", 1, "Co se děje?", "Talk", "Messenger", true, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Poslíček", "Bydlí vedle kostela", 1, "Co se děje?", "Talk", "Messenger", true, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Děkuji", 1, "Co se děje?", "Talk", "Messenger", true, "Pach velkoměsta", null, false));
+
+            //leave
+            dialog2.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Messenger", true, null, null, false));
+            dialog2.Add(new Dialogues("Poslíček", "Nashle pane!", 2, "Nashle", "Talk", "Messenger", true, null, null, false));
+
+
+            //----------------------TRISS----------------
+            //greet
+            dialog2.Add(new Dialogues("Triss", "Ano Geralte?", 1, "Pozdrav", "Greet", "Triss", true, null, null, false));
+
+            //1
+            dialog2.Add(new Dialogues("Geralt", "Bez toho poslíčka bych tě v tomhle městě hledal hodně dlouho", 1, "Informace", "Talk", "Triss", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Začíná mi chybět Kaer Morhen", 1, "Informace", "Talk", "Triss", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Triss", "Taky tě ráda vidím Geralte", 1, "Informace", "Talk", "Triss", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Nějaké novinky ve městě?", 1, "Informace", "Talk", "Triss", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Triss", "Nic moc jsem se nestihla dozvědět. Spíš co jsi zjistil ty. Našel jsi Lamberta?", 1, "Informace", "Talk", "Triss", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Lamberta jsem našel a ten mě zavedl sem", 1, "Informace", "Talk", "Triss", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Lamberta hledala nějaká tajemná skupinka z Novigradu, proto jsem tady", 1, "Informace", "Talk", "Triss", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Je možné, že to jsou zbytky ze Salamandry", 1, "Informace", "Talk", "Triss", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Triss", "Slyšela jsem, že chodí v noci po městě. Vypadá to, že si dávají pozor", 1, "Informace", "Talk", "Triss", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Nebude lehké je najít. Navíc pokud zjistí, že je hledá zaklínač, tak jim asi dojde co se děje", 1, "Informace", "Talk", "Triss", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Triss", "Možná by bylo lepší, kdyby je hledal někdo jiný než ty", 1, "Informace", "Talk", "Triss", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Kdyby tu byl někdo jiný", 1, "Informace", "Talk", "Triss", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Triss", "Možná bych mohla ...", 1, "Informace", "Talk", "Triss", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Ne, to opravdu ne Triss", 1, "Informace", "Talk", "Triss", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Triss", "A co máš teda v plánu?", 1, "Informace", "Talk", "Triss", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Ještě nevím. Musím se o nich dozvědět co nejvíce", 1, "Informace", "Talk", "Triss", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Triss", "V tom případě bys měl zajít do hospody, tam by jsi se o nich mohl něco dozvědět", 1, "Informace", "Talk", "Triss", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Triss", "Ale buď opatrný Geralte. Lidi v téhle části Novigradu nemají rádi cizince", 1, "Informace", "Talk", "Triss", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Neboj se Triss. Vrátím se až budu vědět více", 1, "Informace", "Talk", "Triss", false, "Pach velkoměsta", null, false));
+
+
+            //leave
+            dialog2.Add(new Dialogues("Geralt", "Měj se Triss", 2, "Nashle", "Talk", "Triss", true, null, null, false));
+            dialog2.Add(new Dialogues("Triss", "Dávej na sebe pozor Geralte", 2, "Nashle", "Talk", "Triss", true, null, null, false));
+
+            //----------------------GRIFFARIN----------------
+            //greet
+            dialog2.Add(new Dialogues("Hospodský Griffarin", "Co chceš?", 1, "Pozdrav", "Greet", "Griffarin", true, null, null, false));
+
+            //1
+            dialog2.Add(new Dialogues("Geralt", "Děje se ve městě něco zajímavého?", 1, "O dění ve městě", "Talk", "Griffarin", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Hospodský Griffarin", "Kdo se ptá?", 1, "O dění ve městě", "Talk", "Griffarin", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Dobrodruh. Zkoumám města a jejich obyvatele", 1, "O dění ve městě", "Talk", "Griffarin", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Hospodský Griffarin", "Takže dobrodruh jo? Není práce, tak musíte místo lovení příšer zkoumat města jo", 1, "O dění ve městě", "Talk", "Griffarin", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Hledám práci... Takže co se děje ve městě?", 1, "O dění ve městě", "Talk", "Griffarin", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Hospodský Griffarin", "Nic moc zajímavýho pro zabijáka příšer", 1, "O dění ve městě", "Talk", "Griffarin", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Hospodský Griffarin", "Tady žádný příšery nejsou, takže můžeš jít hledat dál", 1, "O dění ve městě", "Talk", "Griffarin", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Vodku", 1, "O dění ve městě", "Talk", "Griffarin", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Hospodský Griffarin", "Prosím mistře", 1, "O dění ve městě", "Talk", "Griffarin", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Geralt", "....", 1, "O dění ve městě", "Talk", "Griffarin", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Kdo jsou ti ozbrojenci, kteří tu chodí v noci", 1, "O dění ve městě", "Talk", "Griffarin", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Hospodský Griffarin", "To bude asi městská stráž", 1, "O dění ve městě", "Talk", "Griffarin", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Městskou stráž poznám a tohle městská stráž není", 1, "O dění ve městě", "Talk", "Griffarin", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Hospodský Griffarin", "Dám ti radu", 1, "O dění ve městě", "Talk", "Griffarin", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Hospodský Griffarin", "Nestrkej nos do věcí, do kterejch ti nic není", 1, "O dění ve městě", "Talk", "Griffarin", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Jak jsem řekl. Hledám práci a nemusí to být jen zabíjení příšer", 1, "O dění ve městě", "Talk", "Griffarin", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Hospodský Griffarin", "Já pro tebe žádnou práci nemám. Zeptej se ostatních", 1, "O dění ve městě", "Talk", "Griffarin", false, "Pach velkoměsta", null, false));
+
+
+            //leave
+            dialog2.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Griffarin", true, null, null, false));
+            dialog2.Add(new Dialogues("Hospodský Griffarin", "Běž už", 2, "Nashle", "Talk", "Griffarin", true, null, null, false));
+
+            //----------------------TRADER2----------------
+            //greet
+            dialog2.Add(new Dialogues("Překupník", "Hmmm?", 1, "Pozdrav", "Greet", "Trader2", true, null, null, false));
+
+            //1
+            dialog2.Add(new Dialogues("Geralt", "Neděje se ve městě něco zajímavého?", 1, "Novigrad", "Talk", "Trader2", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Překupník", "Hele, já nechci mít nic společného s tím co se tu dějě, tak mě z toho vynech. Já nic nevím", 1, "Novigrad", "Talk", "Trader2", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Chci jen informace", 1, "Novigrad", "Talk", "Trader2", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Překupník", "Zeptej se těch štětek venku. Ty toho ví určitě víc než dost", 1, "Novigrad", "Talk", "Trader2", false, "Pach velkoměsta", null, false));
+
+            //2
+            dialog2.Add(new Dialogues("Geralt", "Znáš Abigail?", 1, "Zlatý prsten", "Talk", "Trader2", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Překupník", "Hmm...Abigail? Myslíš tu kurvu? Jo tu znám. A co jako?", 1, "Zlatý prsten", "Talk", "Trader2", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Slyšel jsem, že jsi jí něco ukradl", 1, "Zlatý prsten", "Talk", "Trader2", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Překupník", "Krádež bych tomu neříkal. Podvedla mě, tak jsem si vzal odškodné", 1, "Zlatý prsten", "Talk", "Trader2", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Budeš mi ho muset dát", 1, "Zlatý prsten", "Talk", "Trader2", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Překupník", "No to teda nebudu muset. Je můj!", 1, "Zlatý prsten", "Talk", "Trader2", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Geralt", "...", 1, "Zlatý prsten", "Talk", "Trader2", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Buď mi ho dáš a každý budeme spokojeni", 1, "Zlatý prsten", "Talk", "Trader2", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Geralt", "A nebo ti rozbiju držku", 1, "Zlatý prsten", "Talk", "Trader2", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Překupník", "Já jsem řekl, že je můj, takže si straš jak chceš dědo", 1, "Zlatý prsten", "Talk", "Trader2", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Jak chceš", 1, "Zlatý prsten", "Talk", "Trader2", false, "Zlatý prsten", null, false));
+
+
+
+
+
+            //leave
+            dialog2.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Trader2", true, null, null, false));
+            dialog2.Add(new Dialogues("Překupník", "Já nic nevím", 2, "Nashle", "Talk", "Trader2", true, null, null, false));
+
+            //----------------------ABIGAIL----------------
+            dialog2.Add(new Dialogues("Abigail", "Ahoj krasavče", 1, "Pozdrav", "Greet", "Abigail", true, null, null, false));
+
+            //1
+            dialog2.Add(new Dialogues("Geralt", "Potřeboval bych informace o těch ozbrojencích, kteří tu chodí v noci", 1, "Informace", "Talk", "Abigail", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Abigail", "Být tebou, tak bych se o ně ani nezajímala. Riskuješ, že přijdeš o život", 1, "Informace", "Talk", "Abigail", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Já rád riskuju. Takže co mi o nich můžeš říct?", 1, "Informace", "Talk", "Abigail", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Abigail", "Když ti něco řeknu, tak riskuju, že přijdu o život i já. Takže od tebe budu taky něco potřebovat", 1, "Informace", "Talk", "Abigail", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Hmm.... Takže co potřebuješ?", 1, "Informace", "Talk", "Abigail", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Abigail", "Jeden zákazník mě okradl. Ukradl mi můj prsten. Potřebuji aby jsi ho našel a vrátil mi ho", 1, "Informace", "Talk", "Abigail", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Geralt", "A kde najdu toho tvého... zákazníka?", 1, "Informace", "Talk", "Abigail", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Abigail", "Myslím, že většinu svého času tráví v hospodě", 1, "Informace", "Talk", "Abigail", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Geralt", "A jak vypadá?", 1, "Informace", "Talk", "Abigail", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Abigail", "Takový malý. Nosí žlutou šálu", 1, "Informace", "Talk", "Abigail", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Dobře... najdu tvůj náhrdelník", 1, "Informace", "Talk", "Abigail", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Abigail", "Budu tady na tebe čekat...", 1, "Informace", "Talk", "Abigail", false, "Zlatý prsten", null, false));
+
+            //2
+            dialog2.Add(new Dialogues("Geralt", "Mám tvůj prsten", 1, "Mám ten prsten", "Talk", "Abigail", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Abigail", "Ohh..děkuji moc", 1, "Mám ten prsten", "Talk", "Abigail", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Teď chci ty informace", 1, "Mám ten prsten", "Talk", "Abigail", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Abigail", "Ty opravud nevíš kdo jsou?", 1, "Mám ten prsten", "Talk", "Abigail", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Kdybych to věděl, tak se tě neptám", 1, "Mám ten prsten", "Talk", "Abigail", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Abigail", "To jsi asi hodně nový", 1, "Mám ten prsten", "Talk", "Abigail", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Abigail", "To jsou lidi od Bolehlava", 1, "Mám ten prsten", "Talk", "Abigail", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Víš, kde bych ho mohl najít?", 1, "Mám ten prsten", "Talk", "Abigail", false, "Zlatý prsten", null, false));
+            dialog2.Add(new Dialogues("Abigail", "Nevím a být tebou, tak se o něj nezajímám", 1, "Mám ten prsten", "Talk", "Abigail", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Děkuji za radu, ale nemám na vybranou", 1, "Mám ten prsten", "Talk", "Abigail", false, "Zlatý prsten", null, false));
+
+
+
+
+
+
+
+            //leave
+            dialog2.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Abigail", true, null, null, false));
+            dialog2.Add(new Dialogues("Abigail", "Měj se fešáku", 2, "Nashle", "Talk", "Abigail", true, null, null, false));
+
+
             manager.SaveDialogues(dialog1, path1);
             manager.SaveDialogues(dialog, path);
         }
