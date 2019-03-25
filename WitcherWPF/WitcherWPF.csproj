@@ -697,6 +697,25 @@
     <Resource Include="img\Characters\Jarek.png" />
     <Resource Include="img\Characters\Trader.png" />
     <Resource Include="img\Characters\BrickMaker.png" />
+    <Resource Include="img\Locations\Novigrad_Crypt.png" />
+    <Resource Include="img\Locations\Novigrad_House1.png" />
+    <Resource Include="img\Locations\Novigrad_House2.png" />
+    <Resource Include="img\Locations\Novigrad_House3.png" />
+    <Resource Include="img\Locations\Novigrad_Inn.png" />
+    <Resource Include="img\Locations\Novigrad_Outside1_day.png" />
+    <Resource Include="img\Locations\Novigrad_Outside1_night.png" />
+    <Resource Include="img\Locations\Novigrad_Outside2_day.png" />
+    <Resource Include="img\Locations\Novigrad_Outside2_night.png" />
+    <Resource Include="img\Locations\Novigrad_Outside3_day.png" />
+    <Resource Include="img\Locations\Novigrad_Outside3_night.png" />
+    <Resource Include="img\Locations\Novigrad_Outside4_day.png" />
+    <Resource Include="img\Locations\Novigrad_Outside4_night.png" />
+    <Resource Include="img\Locations\Novigrad_Outside5_day.png" />
+    <Resource Include="img\Locations\Novigrad_Outside5_night.png" />
+    <Resource Include="img\Locations\Novigrad_Outside6_day.png" />
+    <Resource Include="img\Locations\Novigrad_Outside6_night.png" />
+    <Resource Include="img\Locations\Novigrad_Outside7_day.png" />
+    <Resource Include="img\Locations\Novigrad_Outside7_night.png" />
     <Content Include="sounds\ghoul\ghoul_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
