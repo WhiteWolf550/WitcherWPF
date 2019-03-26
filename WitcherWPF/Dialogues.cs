@@ -977,6 +977,18 @@ namespace WitcherWPF
             dialog2.Add(new Dialogues("Geralt", "Tak já se vrátím pro ten krystal", 1, "Zjistil jsem něco nového", "Talk", "Triss", false, "Tajná organizace", null, false));
             dialog2.Add(new Dialogues("Triss", "Buď opatrný. Možná to budou hlídat", 1, "Zjistil jsem něco nového", "Talk", "Triss", false, "Tajná organizace", null, false));
 
+            //4
+            dialog2.Add(new Dialogues("Geralt", "Jsi v pořádku?", 1, "Jsi v pořádku?", "Talk", "Triss", false, "Triss v nesnázích", null, false));
+            dialog2.Add(new Dialogues("Triss", "Ano....", 1, "Jsi v pořádku?", "Talk", "Triss", false, "Triss v nesnázích", null, false));
+            dialog2.Add(new Dialogues("Triss", "Jsem...", 1, "Jsi v pořádku?", "Talk", "Triss", false, "Triss v nesnázích", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Dokážeš použít ten krystal, abychom zjistili, kde je jejich úkryt?", 1, "Jsi v pořádku?", "Talk", "Triss", false, "Triss v nesnázích", null, false));
+            dialog2.Add(new Dialogues("Triss", "Už nemusíme....", 1, "Jsi v pořádku?", "Talk", "Triss", false, "Triss v nesnázích", null, false));
+            dialog2.Add(new Dialogues("Triss", "Ukrývají.. se někde... v bažinách", 1, "Jsi v pořádku?", "Talk", "Triss", false, "Triss v nesnázích", null, false));
+            dialog2.Add(new Dialogues("Triss", "Říkali to", 1, "Jsi v pořádku?", "Talk", "Triss", false, "Triss v nesnázích", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Dobře, najdu způsob, jak se dostat do bažin. Ty si mezitím odpočiň", 1, "Jsi v pořádku?", "Talk", "Triss", false, "Triss v nesnázích", null, false));
+            dialog2.Add(new Dialogues("Triss", "Buď opatrný ...Geralte... určitě je to past", 1, "Jsi v pořádku?", "Talk", "Triss", false, "Triss v nesnázích", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Já vím. O mě se neboj", 1, "Jsi v pořádku?", "Talk", "Triss", false, "Triss v nesnázích", null, false));
+
 
             //leave
             dialog2.Add(new Dialogues("Geralt", "Měj se Triss", 2, "Nashle", "Talk", "Triss", true, null, null, false));
@@ -1116,8 +1128,20 @@ namespace WitcherWPF
             dialog2.Add(new Dialogues("Bolehlav", "Jediná tvoje možnost je ta první, takže sbohem zaklínači", 1, "Co po mě chceš?", "Talk", "Bolehlav", false, "Tajná organizace", null, false));
             dialog2.Add(new Dialogues("Geralt", "Sbohem", 1, "Co po mě chceš?", "Talk", "Bolehlav", false, "Pach velkoměsta", null, false));
 
+            //2
+            dialog2.Add(new Dialogues("Geralt", "Dejte mi Triss a přežijete", 1, "Dejte mi Triss a přežijete", "Talk", "Bolehlav", false, "Triss v nesnázích", null, false));
+            dialog2.Add(new Dialogues("Bolehlav", "Myslím si, že teď bys nám neměl vyhrožovat, nebo tvoje květinka nepřežije", 1, "Dejte mi Triss a přežijete", "Talk", "Bolehlav", false, "Triss v nesnázích", null, false));
+            dialog2.Add(new Dialogues("Bolehlav", "Řekli jsme ti ať odsud vypadneš, ale ty jsi tu zůstal, tak za to teď zaplatíš", 1, "Dejte mi Triss a přežijete", "Talk", "Bolehlav", false, "Triss v nesnázích", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Zachvíli budete litovat toho, že jste se narodili", 1, "Dejte mi Triss a přežijete", "Talk", "Bolehlav", false, "Triss v nesnázích", null, false));
+            dialog2.Add(new Dialogues("Bolehlav", "Ale prosímtě zaklínači. Ty si myslíš, že o nás víš všechno, ale nevíš vůbec nic...", 1, "Dejte mi Triss a přežijete", "Talk", "Bolehlav", false, "Triss v nesnázích", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Drž hubu... a bojuj", 1, "Dejte mi Triss a přežijete", "Talk", "Bolehlav", false, "Triss v nesnázích", null, false));
+
+
+
+
+
             //leave
-            dialog2.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Abigail", true, null, null, false));
+            dialog2.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Bolehlav", true, null, null, false));
             dialog2.Add(new Dialogues("Bolehlav", "Sbohem", 2, "Nashle", "Talk", "Bolehlav", true, null, null, false));
 
             //----------------------MORENN----------------
@@ -1143,6 +1167,26 @@ namespace WitcherWPF
             dialog2.Add(new Dialogues("Geralt", "Díky... a.. co tady děláš?", 1, "Neviděla jsi tu procházet zrzavou ženu?", "Talk", "Morenn", false, "Triss v nesnázích", null, false));
             dialog2.Add(new Dialogues("Morenn", "Šla jsem kolem a zahlédla jsem to", 1, "Neviděla jsi tu procházet zrzavou ženu?", "Talk", "Morenn", false, "Triss v nesnázích", null, false));
             dialog2.Add(new Dialogues("Morenn", "Hmmm... tak díky", 1, "Neviděla jsi tu procházet zrzavou ženu?", "Talk", "Morenn", false, "Triss v nesnázích", null, false));
+
+            dialog2.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Morenn", true, null, null, false));
+            dialog2.Add(new Dialogues("Morenn", "Měj se Geralte", 2, "Nashle", "Talk", "Morenn", true, null, null, false));
+
+            //----------------------PŘEVOZNÍK----------------
+            dialog2.Add(new Dialogues("Převozník", "Brej den přeju", 1, "Pozdrav", "Greet", "Traveler", true, null, null, false));
+
+            //1
+            dialog2.Add(new Dialogues("Geralt", "Dokážeš mě přepravit do bažin?", 1, "Dokážeš mě přepravit do bažin?", "Talk", "Traveler", false, "Tajná organizace", null, false));
+            dialog2.Add(new Dialogues("Převozník", "Do bažin? To není zrovna místo, kam bych převážel často", 1, "Dokážeš mě přepravit do bažin?", "Talk", "Traveler", false, "Tajná organizace", null, false));
+            dialog2.Add(new Dialogues("Převozník", "Ale asi bych mohl", 1, "Dokážeš mě přepravit do bažin?", "Talk", "Traveler", false, "Tajná organizace", null, false));
+            dialog2.Add(new Dialogues("Převozník", "Kdy?", 1, "Dokážeš mě přepravit do bažin?", "Talk", "Traveler", false, "Tajná organizace", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Hned teď", 1, "Dokážeš mě přepravit do bažin?", "Talk", "Traveler", false, "Tajná organizace", null, false));
+            dialog2.Add(new Dialogues("Převozník", "No...tak dobře, ale varuji vás není to zrovna hezký místo", 1, "Dokážeš mě přepravit do bažin?", "Talk", "Traveler", false, "Tajná organizace", null, false));
+
+
+            dialog2.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Traveler", true, null, null, false));
+            dialog2.Add(new Dialogues("Převozník", "Nashle mistře", 2, "Nashle", "Talk", "Traveler", true, null, null, false));
+
+
             manager.SaveDialogues(dialog1, path1);
             manager.SaveDialogues(dialog, path);
         }
