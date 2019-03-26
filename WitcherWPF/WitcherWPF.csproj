@@ -155,6 +155,36 @@
     <Compile Include="Monster.cs" />
     <Compile Include="Murderer1.cs" />
     <Compile Include="Music.cs" />
+    <Compile Include="Novigrad_Crypt.xaml.cs">
+      <DependentUpon>Novigrad_Crypt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Novigrad_House1.xaml.cs">
+      <DependentUpon>Novigrad_House1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Novigrad_Inn.xaml.cs">
+      <DependentUpon>Novigrad_Inn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Novigrad_Outside1.xaml.cs">
+      <DependentUpon>Novigrad_Outside1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Novigrad_Outside2.xaml.cs">
+      <DependentUpon>Novigrad_Outside2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Novigrad_Outside3.xaml.cs">
+      <DependentUpon>Novigrad_Outside3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Novigrad_Outside4.xaml.cs">
+      <DependentUpon>Novigrad_Outside4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Novigrad_Outside5.xaml.cs">
+      <DependentUpon>Novigrad_Outside5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Novigrad_Outside6.xaml.cs">
+      <DependentUpon>Novigrad_Outside6.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Novigrad_Outside7.xaml.cs">
+      <DependentUpon>Novigrad_Outside7.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Old_wyzima2.xaml.cs">
       <DependentUpon>Old_wyzima2.xaml</DependentUpon>
     </Compile>
@@ -332,6 +362,46 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Map_WyzimaCastle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Novigrad_Crypt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Novigrad_House1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Novigrad_Inn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Novigrad_Outside1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Novigrad_Outside2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Novigrad_Outside3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Novigrad_Outside4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Novigrad_Outside5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Novigrad_Outside6.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Novigrad_Outside7.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -716,6 +786,11 @@
     <Resource Include="img\Locations\Novigrad_Outside6_night.png" />
     <Resource Include="img\Locations\Novigrad_Outside7_day.png" />
     <Resource Include="img\Locations\Novigrad_Outside7_night.png" />
+    <Resource Include="img\Characters\Abigail.png" />
+    <Resource Include="img\Characters\Bolehlav.png" />
+    <Resource Include="img\Characters\Griffarin.png" />
+    <Resource Include="img\Characters\Messenger.png" />
+    <Resource Include="img\Characters\Trader2.png" />
     <Content Include="sounds\ghoul\ghoul_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -746,6 +821,9 @@
     <Content Include="sounds\human\human_dodge.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="sounds\music\Novigrad_Inn.mp3" />
+    <Content Include="sounds\music\Novigrad_night.mp3" />
+    <Content Include="sounds\music\Novigrad_day.mp3" />
     <Content Include="sounds\music\Decide.mp3" />
     <Content Include="sounds\music\Tavern1.mp3" />
     <Content Include="sounds\music\Swamp.mp3" />

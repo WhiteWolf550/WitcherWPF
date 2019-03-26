@@ -92,9 +92,9 @@ namespace WitcherWPF
                 Globals.Chapter = 2;
                 Globals.DialoguePath = @"../../dialogues/DialogueChapter2.json";
                 Globals.Combat = false;
-                Globals.location = "Village_Outside2";
+                Globals.location = "Novigrad_Outside2";
                 time.Visibility = Visibility.Visible;
-                parentFrame.Navigate(new Location(parentFrame, time));
+                parentFrame.Navigate(new Dialogue(parentFrame, "Messenger", time));
             }
 
         }

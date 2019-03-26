@@ -170,6 +170,24 @@ namespace WitcherWPF {
                 Village_House3.Visibility = Visibility.Visible;
             }else if (loc == "Village_Crypt") {
                 Village_Crypt.Visibility = Visibility.Visible;
+            }else if (loc == "Novigrad_Outside1") {
+                Novigrad_Outside1.Visibility = Visibility.Visible;
+            }else if (loc == "Novigrad_Outside2") {
+                Novigrad_Outside2.Visibility = Visibility.Visible;
+            }else if (loc == "Novigrad_Outside3") {
+                Novigrad_Outside3.Visibility = Visibility.Visible;
+            }else if (loc == "Novigrad_Outside4") {
+                Novigrad_Outside4.Visibility = Visibility.Visible;
+            }else if (loc == "Novigrad_Outside5") {
+                Novigrad_Outside5.Visibility = Visibility.Visible;
+            }else if (loc == "Novigrad_Outside6") {
+                Novigrad_Outside6.Visibility = Visibility.Visible;
+            }else if (loc == "Novigrad_Outside7") {
+                Novigrad_Outside7.Visibility = Visibility.Visible;
+            }else if (loc == "Novigrad_Crypt") {
+                Novigrad_Crypt.Visibility = Visibility.Visible;
+            }else if (loc == "Novigrad_Inn") {
+                Novigrad_Inn.Visibility = Visibility.Visible;
             }
         }
         public Location(Frame parentFrame, Time time) : this() {
@@ -235,6 +253,8 @@ namespace WitcherWPF {
                 Village_Outside2.HideLoot(true);
             }else if (loc == "Village_Outside3") {
                 Village_Outside3.HideLoot(true);
+            }else if (loc == "Novigrad_House1") {
+                Novigrad_House1.HideLoot(true);
             }
         }
         public void CloseLoot(object sender, RoutedEventArgs e) {
@@ -301,6 +321,15 @@ namespace WitcherWPF {
             Village_House2.Visibility = Visibility.Hidden;
             Village_House3.Visibility = Visibility.Hidden;
             Village_Crypt.Visibility = Visibility.Hidden;
+            Novigrad_Crypt.Visibility = Visibility.Hidden;
+            Novigrad_Inn.Visibility = Visibility.Hidden;
+            Novigrad_Outside1.Visibility = Visibility.Hidden;
+            Novigrad_Outside2.Visibility = Visibility.Hidden;
+            Novigrad_Outside3.Visibility = Visibility.Hidden;
+            Novigrad_Outside4.Visibility = Visibility.Hidden;
+            Novigrad_Outside5.Visibility = Visibility.Hidden;
+            Novigrad_Outside6.Visibility = Visibility.Hidden;
+            Novigrad_Outside7.Visibility = Visibility.Hidden;
         }
         public void LocationSwitch(string loca) {
             if (loca == "Old_wyzima2") {
