@@ -26,8 +26,8 @@
 
         <StackPanel Name="DialogueOptions" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" MinWidth="200" MinHeight="200" Margin="166,0,143,26" Grid.RowSpan="2" Width="446"/>
         <StackPanel Visibility="Visible" Opacity="0"  Name="QuestPop" HorizontalAlignment="Center" VerticalAlignment="Top" MinHeight="100" MinWidth="100" Margin="369,141,376,0" Width="682" Height="225">
-            <Label Style="{StaticResource MORPHEUS}" HorizontalContentAlignment="Center" Name="QueName" Content="New Quest" FontSize="55" Foreground="#DDE82323"></Label>
-            <TextBlock Style="{StaticResource MORPHEUS}" TextWrapping="Wrap" Name="QueGoal" Text="New Goal" FontSize="35" Background="{x:Null}" Foreground="#DDE82323" HorizontalAlignment="Center"></TextBlock>
+            <Label  HorizontalContentAlignment="Center" Name="QueName" Content="New Quest" FontSize="55" Foreground="#DDE82323" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></Label>
+            <TextBlock  TextWrapping="Wrap" Name="QueGoal" Text="New Goal" FontSize="35" Background="{x:Null}" Foreground="#DDE82323" HorizontalAlignment="Center" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></TextBlock>
         </StackPanel>
 
 
