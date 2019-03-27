@@ -28,7 +28,7 @@ namespace WitcherWPF {
         Item it = new Item();
         Music media = new Music();
         Button butclick = new Button();
-        
+        UserControl CurrentLocation = new UserControl();
         static Button Loot = new Button();
         string QuestName = null;
         string MonsterName = null;
@@ -38,7 +38,7 @@ namespace WitcherWPF {
             InitializeComponent();
             
             //Globals.location = loc;
-            AddHandlers();
+            
             LoadTransition();
 
         }
@@ -51,31 +51,44 @@ namespace WitcherWPF {
                 OpenMenu();
             }
         }
-        public void AddHandlers() {
+        public void AddHandlersWyz1(Old_wyzima1 Wyzima_Castle) {
+
             Wyzima_Castle.Foltest.Click += new RoutedEventHandler(GetDialogue_Click);
             Wyzima_Castle.FirePlace.Click += new RoutedEventHandler(Meditation);
             Wyzima_Castle.Flower.Click += new RoutedEventHandler(GetLoot);
             Wyzima_Castle.Steps.Click += new RoutedEventHandler(Switch_Click);
+
+        }
+        public void AddHandlersWyz2(Old_wyzima2 Wyzima_Castle2) {
             Wyzima_Castle2.Triss.Click += new RoutedEventHandler(GetDialogue_Click);
             Wyzima_Castle2.Door.Click += new RoutedEventHandler(Switch_Click);
             Wyzima_Castle2.Steps.Click += new RoutedEventHandler(Switch_Click);
+            
+        }
+        public void AddHandlersWyz3(Old_wyzima3 Wyzima_Outside) {
             Wyzima_Outside.ToCastle.Click += new RoutedEventHandler(Switch_Click);
             Wyzima_Outside.DoorO.Click += new RoutedEventHandler(Switch_Click);
             Wyzima_Outside.Přeživší.Click += new RoutedEventHandler(GetDialogue_Click);
             Wyzima_Outside.ToHouse.Click += new RoutedEventHandler(Switch_Click);
+        }
+        public void AddHandlersWyz4(Old_wyzima4 Wyzima_Smith) {
             Wyzima_Smith.Outside.Click += new RoutedEventHandler(Switch_Click);
             Wyzima_Smith.Shelf.Click += new RoutedEventHandler(GetLoot);
             Wyzima_Smith.Yaven.Click += new RoutedEventHandler(GetDialogue_Click);
             Wyzima_Smith.FirePlace.Click += new RoutedEventHandler(Meditation);
+        }
+        public void AddHandlersWyz5(Old_wyzima5 Wyzima_House) {
             Wyzima_House.Shelf.Click += new RoutedEventHandler(GetLoot);
             Wyzima_House.Ghoul.Click += new RoutedEventHandler(EnterCombat1);
             Wyzima_House.Outside.Click += new RoutedEventHandler(Switch_Click);
-
+        }
+        public void AddHandlersVillInn(Village_Inn Village_Inn) {
             Village_Inn.Olaf.Click += new RoutedEventHandler(GetDialogue_Click);
             Village_Inn.Zoltan.Click += new RoutedEventHandler(GetDialogue_Click);
             Village_Inn.DoorO.Click += new RoutedEventHandler(Switch_Click);
             Village_Inn.FirePlace.Click += new RoutedEventHandler(Meditation);
-
+        }
+        public void AddHandlersVillO1(Village_Outside1 Village_Outside1) {
             Village_Outside1.Turman.Click += new RoutedEventHandler(GetDialogue_Click);
             Village_Outside1.Ghoul.Click += new RoutedEventHandler(EnterCombatChQuest);
             Village_Outside1.MasterHunter.Click += new RoutedEventHandler(GetDialogue_Click);
@@ -84,14 +97,16 @@ namespace WitcherWPF {
             Village_Outside1.DoorO2.Click += new RoutedEventHandler(Switch_Click);
             Village_Outside1.Trader.Click += new RoutedEventHandler(GetDialogue_Click);
             Village_Outside1.Jarek.Click += new RoutedEventHandler(GetDialogue_Click);
-
+        }
+        public void AddHandlersVillO2(Village_Outside2 Village_Outside2) {
             Village_Outside2.Loot.Click += new RoutedEventHandler(GetLoot);
             Village_Outside2.Ghoul.Click += new RoutedEventHandler(EnterCombatChQuest);
             Village_Outside2.Steps.Click += new RoutedEventHandler(Switch_Click);
             Village_Outside2.Steps2.Click += new RoutedEventHandler(Switch_Click);
             Village_Outside2.DoorO1.Click += new RoutedEventHandler(Switch_Click);
             Village_Outside2.Zoltan.Click += new RoutedEventHandler(GetDialogue_Click);
-
+        }
+        public void AddHandlersVillO3(Village_Outside3 Village_Outside3) {
             Village_Outside3.Madman.Click += new RoutedEventHandler(GetDialogue_Click);
             Village_Outside3.Ghoul.Click += new RoutedEventHandler(EnterCombatChQuest);
             Village_Outside3.Loot.Click += new RoutedEventHandler(GetLoot);
@@ -101,64 +116,81 @@ namespace WitcherWPF {
             Village_Outside3.Zoltan.Click += new RoutedEventHandler(GetDialogue_Click);
             Village_Outside3.Crypt1.Click += new RoutedEventHandler(Switch_Click);
             Village_Outside3.BrickMaker.Click += new RoutedEventHandler(GetDialogue_Click);
-
+        }
+        public void AddHandlersVillO4(Village_Outside4 Village_Outside4) {
             Village_Outside4.DoorO1.Click += new RoutedEventHandler(Switch_Click);
             Village_Outside4.Steps.Click += new RoutedEventHandler(Switch_Click);
-
+        }
+        public void AddHandlersVillO5(Village_Outside5 Village_Outside5) {
             Village_Outside5.DoorO1.Click += new RoutedEventHandler(Switch_Click);
             Village_Outside5.Steps.Click += new RoutedEventHandler(Switch_Click);
-
+        }
+        public void AddHandlersVillHo1(Village_House Village_House) {
             Village_House.DoorO1.Click += new RoutedEventHandler(Switch_Click);
             Village_House.Zoltan.Click += new RoutedEventHandler(GetDialogue_Click);
-
+        }
+        public void AddHandlersVillHo2(Village_House2 Village_House2) {
             Village_House2.DoorO1.Click += new RoutedEventHandler(Switch_Click);
             Village_House2.Lambert.Click += new RoutedEventHandler(GetDialogue_Click);
-
+        }
+        public void AddHandlersVillHo3(Village_House3 Village_House3) {
             Village_House3.DoorO1.Click += new RoutedEventHandler(EnterCutscene);
             Village_House3.Morenn.Click += new RoutedEventHandler(GetDialogue_Click);
-
+        }
+        public void AddHandlersVillCrypt(Village_Crypt Village_Crypt) {
             Village_Crypt.Chest.Click += new RoutedEventHandler(GetLoot2);
             Village_Crypt.DoorO1.Click += new RoutedEventHandler(Switch_Click);
             Village_Crypt.Barghest.Click += new RoutedEventHandler(EnterCombatChQuest);
-
+        }
+        public void AddHandlersNovO1(Novigrad_Outside1 Novigrad_Outside1) {
             Novigrad_Outside1.Steps.Click += new RoutedEventHandler(Switch_Click);
             Novigrad_Outside1.Steps2.Click += new RoutedEventHandler(Switch_Click);
-
+        }
+        public void AddHandlersNovO2(Novigrad_Outside2 Novigrad_Outside2) {
             Novigrad_Outside2.Steps.Click += new RoutedEventHandler(Switch_Click);
             Novigrad_Outside2.DoorO.Click += new RoutedEventHandler(Switch_Click);
             Novigrad_Outside2.Steps2.Click += new RoutedEventHandler(Switch_Click);
             Novigrad_Outside2.Morenn.Click += new RoutedEventHandler(GetDialogue_Click);
 
+        }
+        public void AddHandlersNovO3(Novigrad_Outside3 Novigrad_Outside3) {
             Novigrad_Outside3.Steps.Click += new RoutedEventHandler(Switch_Click);
             Novigrad_Outside3.Steps2.Click += new RoutedEventHandler(Switch_Click);
             Novigrad_Outside3.DoorO.Click += new RoutedEventHandler(Switch_Click);
-
+        }
+        public void AddHandlersNovO4(Novigrad_Outside4 Novigrad_Outside4) {
             Novigrad_Outside4.Steps.Click += new RoutedEventHandler(Switch_Click);
             Novigrad_Outside4.Steps2.Click += new RoutedEventHandler(Switch_Click);
             Novigrad_Outside4.Abigail.Click += new RoutedEventHandler(GetDialogue_Click);
-
+        }
+        public void AddHandlersNovO5(Novigrad_Outside5 Novigrad_Outside5) {
             Novigrad_Outside5.Steps.Click += new RoutedEventHandler(Switch_Click);
             Novigrad_Outside5.DoorO.Click += new RoutedEventHandler(Switch_Click);
             Novigrad_Outside5.DoorO1.Click += new RoutedEventHandler(Switch_Click);
-
+        }
+        public void AddHandlersNovO6(Novigrad_Outside6 Novigrad_Outside6) {
             Novigrad_Outside6.Steps.Click += new RoutedEventHandler(Switch_Click);
             Novigrad_Outside6.DoorO.Click += new RoutedEventHandler(EnterCutscene);
-
+        }
+        public void AddHandlersNovO7(Novigrad_Outside7 Novigrad_Outside7) {
             Novigrad_Outside7.DoorO.Click += new RoutedEventHandler(Switch_Click);
             Novigrad_Outside7.DoorO2.Click += new RoutedEventHandler(Switch_Click);
-
+        }
+        public void AddHandlersNovHo1(Novigrad_House1 Novigrad_House1) {
             Novigrad_House1.Triss.Click += new RoutedEventHandler(GetDialogue_Click);
             Novigrad_House1.Loot.Click += new RoutedEventHandler(GetLoot);
-
+        }
+        public void AddHandlersNovHo2(Novigrad_House2 Novigrad_House2) {
             Novigrad_House2.Bolehlav.Click += new RoutedEventHandler(GetDialogue_Click);
             Novigrad_House2.DoorO.Click += new RoutedEventHandler(Switch_Click);
+        }
+        public void AddHandlersNovCrypt(Novigrad_Crypt Novigrad_Crypt) {
 
+        }
+        public void AddHandlersNovInn(Novigrad_Inn Novigrad_Inn) {
             Novigrad_Inn.Griffarin.Click += new RoutedEventHandler(GetDialogue_Click);
             Novigrad_Inn.Trader2.Click += new RoutedEventHandler(GetDialogue_Click);
             Novigrad_Inn.DoorO.Click += new RoutedEventHandler(Switch_Click);
-
-            
-
         }
         public Location(Frame parentFrame, string location, Time time) : this() {
             this.parentFrame = parentFrame;
@@ -173,62 +205,135 @@ namespace WitcherWPF {
         }
         public void SetLocation() {
             if (loc == "Old_wyzima2") {
-                Wyzima_Castle2.Visibility = Visibility.Visible;
-                
-            }else if(loc == "Old_wyzima1") {
-                Wyzima_Castle.Visibility = Visibility.Visible;
-                
-            }else if (loc == "Old_wyzima3") {
-                Wyzima_Outside.Visibility = Visibility.Visible;
-                
+                Old_wyzima2 wyzima2 = new Old_wyzima2();
+                grid.Children.Add(wyzima2);
+                AddHandlersWyz2(wyzima2);
+                CurrentLocation = wyzima2;
+            } else if (loc == "Old_wyzima1") {
+                Old_wyzima1 wyzima1 = new Old_wyzima1();
+                grid.Children.Add(wyzima1);
+                AddHandlersWyz1(wyzima1);
+                CurrentLocation = wyzima1;
+            } else if (loc == "Old_wyzima3") {
+                Old_wyzima3 wyzima3 = new Old_wyzima3();
+                grid.Children.Add(wyzima3);
+                AddHandlersWyz3(wyzima3);
+                CurrentLocation = wyzima3;
             } else if (loc == "Old_wyzima4") {
-                Wyzima_Smith.Visibility = Visibility.Visible;
-                
-            }else if (loc == "Old_wyzima5") {
-                Wyzima_House.Visibility = Visibility.Visible;
-                
-            }else if (loc == "Village_Inn") {
-                Village_Inn.Visibility = Visibility.Visible;
-                
-            }else if (loc == "Village_Outside1") {
-                Village_Outside1.Visibility = Visibility.Visible;
-            }else if (loc == "Village_Outside2") {
-                Village_Outside2.Visibility = Visibility.Visible;
-
-            }else if (loc == "Village_Outside3") {
-                Village_Outside3.Visibility = Visibility.Visible;
-            }else if (loc == "Village_Outside4") {
-                Village_Outside4.Visibility = Visibility.Visible;
-            }else if (loc == "Village_Outside5") {
-                Village_Outside5.Visibility = Visibility.Visible;
-            }else if (loc == "Village_House") {
-                Village_House.Visibility = Visibility.Visible;
-            }else if (loc == "Village_House2") {
-                Village_House2.Visibility = Visibility.Visible;
-            }else if (loc == "Village_House3") {
-                Village_House3.Visibility = Visibility.Visible;
-            }else if (loc == "Village_Crypt") {
-                Village_Crypt.Visibility = Visibility.Visible;
-            }else if (loc == "Novigrad_Outside1") {
-                Novigrad_Outside1.Visibility = Visibility.Visible;
-            }else if (loc == "Novigrad_Outside2") {
-                Novigrad_Outside2.Visibility = Visibility.Visible;
-            }else if (loc == "Novigrad_Outside3") {
-                Novigrad_Outside3.Visibility = Visibility.Visible;
-            }else if (loc == "Novigrad_Outside4") {
-                Novigrad_Outside4.Visibility = Visibility.Visible;
-            }else if (loc == "Novigrad_Outside5") {
-                Novigrad_Outside5.Visibility = Visibility.Visible;
-            }else if (loc == "Novigrad_Outside6") {
-                Novigrad_Outside6.Visibility = Visibility.Visible;
-            }else if (loc == "Novigrad_Outside7") {
-                Novigrad_Outside7.Visibility = Visibility.Visible;
-            }else if (loc == "Novigrad_Crypt") {
-                Novigrad_Crypt.Visibility = Visibility.Visible;
-            }else if (loc == "Novigrad_Inn") {
-                Novigrad_Inn.Visibility = Visibility.Visible;
-            }else if (loc == "Novigrad_House1") {
-                Novigrad_House1.Visibility = Visibility.Visible;
+                Old_wyzima4 wyzima4 = new Old_wyzima4();
+                grid.Children.Add(wyzima4);
+                AddHandlersWyz4(wyzima4);
+                CurrentLocation = wyzima4;
+            } else if (loc == "Old_wyzima5") {
+                Old_wyzima5 wyzima5 = new Old_wyzima5();
+                grid.Children.Add(wyzima5);
+                AddHandlersWyz5(wyzima5);
+                CurrentLocation = wyzima5;
+            } else if (loc == "Village_Inn") {
+                Village_Inn inn = new Village_Inn();
+                grid.Children.Add(inn);
+                AddHandlersVillInn(inn);
+                CurrentLocation = inn;
+            } else if (loc == "Village_Outside1") {
+                Village_Outside1 outside1 = new Village_Outside1();
+                grid.Children.Add(outside1);
+                AddHandlersVillO1(outside1);
+                CurrentLocation = outside1;
+            } else if (loc == "Village_Outside2") {
+                Village_Outside2 outside2 = new Village_Outside2();
+                grid.Children.Add(outside2);
+                AddHandlersVillO2(outside2);
+                CurrentLocation = outside2;
+            } else if (loc == "Village_Outside3") {
+                Village_Outside3 outside3 = new Village_Outside3();
+                grid.Children.Add(outside3);
+                AddHandlersVillO3(outside3);
+                CurrentLocation = outside3;
+            } else if (loc == "Village_Outside4") {
+                Village_Outside4 outside4 = new Village_Outside4();
+                grid.Children.Add(outside4);
+                AddHandlersVillO4(outside4);
+                CurrentLocation = outside4;
+            } else if (loc == "Village_Outside5") {
+                Village_Outside5 outside5 = new Village_Outside5();
+                grid.Children.Add(outside5);
+                AddHandlersVillO5(outside5);
+                CurrentLocation = outside5;
+            } else if (loc == "Village_House") {
+                Village_House house1 = new Village_House();
+                grid.Children.Add(house1);
+                AddHandlersVillHo1(house1);
+                CurrentLocation = house1;
+            } else if (loc == "Village_House2") {
+                Village_House2 house2 = new Village_House2();
+                grid.Children.Add(house2);
+                AddHandlersVillHo2(house2);
+                CurrentLocation = house2;
+            } else if (loc == "Village_House3") {
+                Village_House3 house3 = new Village_House3();
+                grid.Children.Add(house3);
+                AddHandlersVillHo3(house3);
+                CurrentLocation = house3;
+            } else if (loc == "Village_Crypt") {
+                Village_Crypt crypt = new Village_Crypt();
+                grid.Children.Add(crypt);
+                AddHandlersVillCrypt(crypt);
+                CurrentLocation = crypt;
+            } else if (loc == "Novigrad_Outside1") {
+                Novigrad_Outside1 location = new Novigrad_Outside1();
+                grid.Children.Add(location);
+                AddHandlersNovO1(location);
+                CurrentLocation = location;
+            } else if (loc == "Novigrad_Outside2") {
+                Novigrad_Outside2 location = new Novigrad_Outside2();
+                grid.Children.Add(location);
+                AddHandlersNovO2(location);
+                CurrentLocation = location;
+            } else if (loc == "Novigrad_Outside3") {
+                Novigrad_Outside3 location = new Novigrad_Outside3();
+                grid.Children.Add(location);
+                AddHandlersNovO3(location);
+                CurrentLocation = location;
+            } else if (loc == "Novigrad_Outside4") {
+                Novigrad_Outside4 location = new Novigrad_Outside4();
+                grid.Children.Add(location);
+                AddHandlersNovO4(location);
+                CurrentLocation = location;
+            } else if (loc == "Novigrad_Outside5") {
+                Novigrad_Outside5 location = new Novigrad_Outside5();
+                grid.Children.Add(location);
+                AddHandlersNovO5(location);
+                CurrentLocation = location;
+            } else if (loc == "Novigrad_Outside6") {
+                Novigrad_Outside6 location = new Novigrad_Outside6();
+                grid.Children.Add(location);
+                AddHandlersNovO6(location);
+                CurrentLocation = location;
+            } else if (loc == "Novigrad_Outside7") {
+                Novigrad_Outside7 location = new Novigrad_Outside7();
+                grid.Children.Add(location);
+                AddHandlersNovO7(location);
+                CurrentLocation = location;
+            } else if (loc == "Novigrad_Crypt") {
+                Novigrad_Crypt location = new Novigrad_Crypt();
+                grid.Children.Add(location);
+                AddHandlersNovCrypt(location);
+                CurrentLocation = location;
+            } else if (loc == "Novigrad_Inn") {
+                Novigrad_Inn location = new Novigrad_Inn();
+                grid.Children.Add(location);
+                AddHandlersNovInn(location);
+                CurrentLocation = location;
+            } else if (loc == "Novigrad_House1") {
+                Novigrad_House1 location = new Novigrad_House1();
+                grid.Children.Add(location);
+                AddHandlersNovHo1(location);
+                CurrentLocation = location;
+            } else if (loc == "Novigrad_House2") {
+                Novigrad_House2 location = new Novigrad_House2();
+                grid.Children.Add(location);
+                AddHandlersNovHo2(location);
+                CurrentLocation = location;
             }
         }
         public Location(Frame parentFrame, Time time) : this() {
@@ -282,32 +387,33 @@ namespace WitcherWPF {
         }
         public void ScriptedEvents(string Event) {
             if (Event == "Strašidelný dům") {
-                Wyzima_House.Ghoul.Visibility = Visibility.Visible;
+                
+                /*Wyzima_House.Ghoul.Visibility = Visibility.Visible;
                 Wyzima_House.Outside.Visibility = Visibility.Hidden;
-                Wyzima_House.Shelf.Visibility = Visibility.Hidden;
+                Wyzima_House.Shelf.Visibility = Visibility.Hidden;*/
             }
         }
         public void DisableLoot() {
-            if (loc == "Old_wyzima1") {
+            /*if (loc == "Old_wyzima1") {
                 Wyzima_Castle.HideLoot(true);
-            }else if (loc == "Old_wyzima4") {
+            } else if (loc == "Old_wyzima4") {
                 Wyzima_Smith.HideLoot(true);
-            }else if (loc == "Village_Outside1") {
+            } else if (loc == "Village_Outside1") {
                 Village_Outside1.HideLoot(true);
-            }else if (loc == "Village_Outside2") {
+            } else if (loc == "Village_Outside2") {
                 Village_Outside2.HideLoot(true);
-            }else if (loc == "Village_Outside3") {
+            } else if (loc == "Village_Outside3") {
                 Village_Outside3.HideLoot(true);
-            }else if (loc == "Novigrad_House1") {
+            } else if (loc == "Novigrad_House1") {
                 Novigrad_House1.HideLoot(true);
-            }
+            }*/
         }
         public void CloseLoot(object sender, RoutedEventArgs e) {
             TakeLoot.Visibility = Visibility.Hidden;
             LootInventory.Visibility = Visibility.Hidden;
             LootBack.Visibility = Visibility.Hidden;
             CloseBut.Visibility = Visibility.Hidden;
-            Wyzima_Castle.Flower.Visibility = Visibility.Visible;
+            //Wyzima_Castle.Flower.Visibility = Visibility.Visible;
             LootInventory.Children.Clear();
         }
         public void Music(bool day) {
@@ -333,7 +439,7 @@ namespace WitcherWPF {
                 media.PlaySound("OpenDoor");
             }
             
-            HideAll();
+            //HideAll();
             LocationSwitch(butclick.Tag.ToString());
             Globals.location = butclick.Tag.ToString();
             loc = butclick.Tag.ToString();
@@ -350,86 +456,84 @@ namespace WitcherWPF {
             butclick = button;
             TravelShow();
         }
-        private void HideAll() {
-            Wyzima_Castle2.Visibility = Visibility.Hidden;
-            Wyzima_Castle.Visibility = Visibility.Hidden;
-            Wyzima_Outside.Visibility = Visibility.Hidden;
-            Wyzima_Smith.Visibility = Visibility.Hidden;
-            Wyzima_House.Visibility = Visibility.Hidden;
-            Village_Inn.Visibility = Visibility.Hidden;
-            Village_Outside1.Visibility = Visibility.Hidden;
-            Village_Outside2.Visibility = Visibility.Hidden;
-            Village_Outside3.Visibility = Visibility.Hidden;
-            Village_Outside4.Visibility = Visibility.Hidden;
-            Village_Outside5.Visibility = Visibility.Hidden;
-            Village_House.Visibility = Visibility.Hidden;
-            Village_House2.Visibility = Visibility.Hidden;
-            Village_House3.Visibility = Visibility.Hidden;
-            Village_Crypt.Visibility = Visibility.Hidden;
-            Novigrad_Crypt.Visibility = Visibility.Hidden;
-            Novigrad_Inn.Visibility = Visibility.Hidden;
-            Novigrad_Outside1.Visibility = Visibility.Hidden;
-            Novigrad_Outside2.Visibility = Visibility.Hidden;
-            Novigrad_Outside3.Visibility = Visibility.Hidden;
-            Novigrad_Outside4.Visibility = Visibility.Hidden;
-            Novigrad_Outside5.Visibility = Visibility.Hidden;
-            Novigrad_Outside6.Visibility = Visibility.Hidden;
-            Novigrad_Outside7.Visibility = Visibility.Hidden;
-            Novigrad_House1.Visibility = Visibility.Hidden;
-        }
+        
         public void LocationSwitch(string loca) {
+            grid.Children.Clear();
             if (loca == "Old_wyzima2") {
-                Wyzima_Castle2.Visibility = Visibility.Visible;
+                Old_wyzima2 wyzima2 = new Old_wyzima2();
+                grid.Children.Add(wyzima2);
+                AddHandlersWyz2(wyzima2);
+                CurrentLocation = wyzima2;
             } else if (loca == "Old_wyzima1") {
-                Wyzima_Castle.Visibility = Visibility.Visible;
+                Old_wyzima1 wyzima1 = new Old_wyzima1();
+                grid.Children.Add(wyzima1);
+                AddHandlersWyz1(wyzima1);
+                CurrentLocation = wyzima1;
             } else if (loca == "Old_wyzima3") {
-                Wyzima_Outside.Visibility = Visibility.Visible;
-            }else if (loca == "Old_wyzima4") {
-                Wyzima_Smith.Visibility = Visibility.Visible;
-            }else if (loca == "Old_wyzima5") {
-                Wyzima_House.Visibility = Visibility.Visible;
+                Old_wyzima3 wyzima3 = new Old_wyzima3();
+                grid.Children.Add(wyzima3);
+                AddHandlersWyz3(wyzima3);
+                CurrentLocation = wyzima3;
+            } else if (loca == "Old_wyzima4") {
+                Old_wyzima4 wyzima4 = new Old_wyzima4();
+                grid.Children.Add(wyzima4);
+                AddHandlersWyz4(wyzima4);
+                CurrentLocation = wyzima4;
+            } else if (loca == "Old_wyzima5") {
+                Old_wyzima5 wyzima5 = new Old_wyzima5();
+                grid.Children.Add(wyzima5);
+                AddHandlersWyz5(wyzima5);
+                CurrentLocation = wyzima5;
             } else if (loca == "Village_Inn") {
-                Village_Inn.Visibility = Visibility.Visible;
-
-            }else if (loca == "Village_Outside1") {
-                Village_Outside1.Visibility = Visibility.Visible;
-            }else if (loca == "Village_Outside2") {
-                Village_Outside2.Visibility = Visibility.Visible;
-
-            }else if (loca == "Village_Outside3") {
-                Village_Outside3.Visibility = Visibility.Visible;
+                Village_Inn inn = new Village_Inn();
+                grid.Children.Add(inn);
+                AddHandlersVillInn(inn);
+                CurrentLocation = inn;
+            } else if (loca == "Village_Outside1") {
+                Village_Outside1 outside1 = new Village_Outside1();
+                grid.Children.Add(outside1);
+                AddHandlersVillO1(outside1);
+                CurrentLocation = outside1;
+            } else if (loca == "Village_Outside2") {
+                Village_Outside2 outside2 = new Village_Outside2();
+                grid.Children.Add(outside2);
+                AddHandlersVillO2(outside2);
+                CurrentLocation = outside2;
+            } else if (loca == "Village_Outside3") {
+                Village_Outside3 outside3 = new Village_Outside3();
+                grid.Children.Add(outside3);
+                AddHandlersVillO3(outside3);
+                CurrentLocation = outside3;
             } else if (loca == "Village_Outside4") {
-                Village_Outside4.Visibility = Visibility.Visible;
+                Village_Outside4 outside4 = new Village_Outside4();
+                grid.Children.Add(outside4);
+                AddHandlersVillO4(outside4);
+                CurrentLocation = outside4;
             } else if (loca == "Village_Outside5") {
-                Village_Outside5.Visibility = Visibility.Visible;
+                Village_Outside5 outside5 = new Village_Outside5();
+                grid.Children.Add(outside5);
+                AddHandlersVillO5(outside5);
+                CurrentLocation = outside5;
             } else if (loca == "Village_House") {
-                Village_House.Visibility = Visibility.Visible;
+                Village_House house1 = new Village_House();
+                grid.Children.Add(house1);
+                AddHandlersVillHo1(house1);
+                CurrentLocation = house1;
             } else if (loca == "Village_House2") {
-                Village_House2.Visibility = Visibility.Visible;
+                Village_House2 house2 = new Village_House2();
+                grid.Children.Add(house2);
+                AddHandlersVillHo2(house2);
+                CurrentLocation = house2;
             } else if (loca == "Village_House3") {
-                Village_House3.Visibility = Visibility.Visible;
+                Village_House3 house3 = new Village_House3();
+                grid.Children.Add(house3);
+                AddHandlersVillHo3(house3);
+                CurrentLocation = house3;
             } else if (loca == "Village_Crypt") {
-                Village_Crypt.Visibility = Visibility.Visible;
-            } else if (loca == "Novigrad_Outside1") {
-                Novigrad_Outside1.Visibility = Visibility.Visible;
-            } else if (loca == "Novigrad_Outside2") {
-                Novigrad_Outside2.Visibility = Visibility.Visible;
-            } else if (loca == "Novigrad_Outside3") {
-                Novigrad_Outside3.Visibility = Visibility.Visible;
-            } else if (loca == "Novigrad_Outside4") {
-                Novigrad_Outside4.Visibility = Visibility.Visible;
-            } else if (loca == "Novigrad_Outside5") {
-                Novigrad_Outside5.Visibility = Visibility.Visible;
-            } else if (loca == "Novigrad_Outside6") {
-                Novigrad_Outside6.Visibility = Visibility.Visible;
-            } else if (loca == "Novigrad_Outside7") {
-                Novigrad_Outside7.Visibility = Visibility.Visible;
-            } else if (loca == "Novigrad_Crypt") {
-                Novigrad_Crypt.Visibility = Visibility.Visible;
-            } else if (loca == "Novigrad_Inn") {
-                Novigrad_Inn.Visibility = Visibility.Visible;
-            } else if (loca == "Novigrad_House1") {
-                Novigrad_House1.Visibility = Visibility.Visible;
+                Village_Crypt crypt = new Village_Crypt();
+                grid.Children.Add(crypt);
+                AddHandlersVillCrypt(crypt);
+                CurrentLocation = crypt;
             }
         }
         public void Meditation(object sender, RoutedEventArgs e) {

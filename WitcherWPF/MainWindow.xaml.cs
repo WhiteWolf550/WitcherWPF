@@ -31,10 +31,7 @@ namespace WitcherWPF {
         public MainWindow() {
             
             InitializeComponent();
-            //dia.CreateDialogues();
-            //Globals.DialoguePath = @"../../dialogues/DialogueChapter1.json";
-            //q.CreateQuests();
-            //crypt.CreateCrypts();
+            
             
 
             
