@@ -37,6 +37,17 @@ namespace WitcherWPF
             manager.SavePlayerInventory(inventory);
         }
         
+        public void AddItem(string ItemName, int ItemCount) {
+            List<Item> items = manager.LoadItems();
+            List<PlayerInventory> inventory = manager.LoadPlayerInventory();
+            foreach(Item item in items) {
+                if (item.Name == ItemName) {
+                    item.Count = 1;
+                    inventory.Add(new PlayerInventory(item));
+                }
+            }
+            manager.SavePlayerInventory(inventory);
+        }
 
         public void BuyItem(Item item, List<PlayerInventory> pinventory, int num) {
             List<PlayerInventory> items = pinventory.Where(s => s.Item.Name == item.Name).ToList();

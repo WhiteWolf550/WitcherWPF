@@ -161,6 +161,9 @@
     <Compile Include="Novigrad_House1.xaml.cs">
       <DependentUpon>Novigrad_House1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Novigrad_House2.xaml.cs">
+      <DependentUpon>Novigrad_House2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Novigrad_Inn.xaml.cs">
       <DependentUpon>Novigrad_Inn.xaml</DependentUpon>
     </Compile>
@@ -370,6 +373,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Novigrad_House1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Novigrad_House2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -791,6 +798,7 @@
     <Resource Include="img\Characters\Griffarin.png" />
     <Resource Include="img\Characters\Messenger.png" />
     <Resource Include="img\Characters\Trader2.png" />
+    <Resource Include="img\Items\Quest_FamilyRing.png" />
     <Content Include="sounds\ghoul\ghoul_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -20,9 +20,12 @@ namespace WitcherWPF {
     /// </summary>
     public partial class Novigrad_Outside2 : UserControl {
         public DispatcherTimer time = new DispatcherTimer();
-
+        List<PlayerQuest> pquest = new List<PlayerQuest>();
+        FileManager manager = new FileManager();
         public Novigrad_Outside2() {
             InitializeComponent();
+            Morenn.Visibility = Visibility.Hidden;
+            MorennShow();
             LoadBackground();
         }
         public void LoadBackground() {
@@ -42,6 +45,14 @@ namespace WitcherWPF {
         void Time_tick(object sender, EventArgs e) {
             LoadBackground();
 
+        }
+        public void MorennShow() {
+            pquest = manager.LoadPlayerQuests();
+            foreach (PlayerQuest item in pquest) {
+                if (item.Quest.QuestName == "Triss v nesnázích" && item.Quest.QuestID == 1) {
+                    Morenn.Visibility = Visibility.Visible;
+                } 
+            }
         }
     }
 }

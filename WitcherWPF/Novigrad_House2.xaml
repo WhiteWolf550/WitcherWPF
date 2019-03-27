@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="WitcherWPF.Novigrad_House2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WitcherWPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="894" d:DesignWidth="1426.666">
+    <Grid>
+        <Image x:Name="LocationImage" Source="img/Locations/Novigrad_House3.png" Margin="-99,-42,-80,-48" Grid.ColumnSpan="3" Grid.RowSpan="3"></Image>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Bolehlav" ToolTip="Bolehlav" Margin="524,351,712,186">
+            <Image Source="img/Characters/Bolehlav.png"></Image>
+        </Button>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" ToolTip="Odejít" Name="DoorO" Margin="895,396,410,398" Tag="Novigrad_House5">
+            <Image Source="img/UI/ui_door.png"></Image>
+        </Button>
+    </Grid>
+</UserControl>

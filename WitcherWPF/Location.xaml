@@ -37,6 +37,7 @@
         <local:Novigrad_Outside6 x:Name="Novigrad_Outside6" Visibility="Hidden"></local:Novigrad_Outside6>
         <local:Novigrad_Outside7 x:Name="Novigrad_Outside7" Visibility="Hidden"></local:Novigrad_Outside7>
         <local:Novigrad_House1 x:Name="Novigrad_House1" Visibility="Hidden"></local:Novigrad_House1>
+        <local:Novigrad_House2 x:Name="Novigrad_House2" Visibility="Hidden"></local:Novigrad_House2>
         <local:Novigrad_Crypt x:Name="Novigrad_Crypt" Visibility="Hidden"></local:Novigrad_Crypt>
         <local:Novigrad_Inn x:Name="Novigrad_Inn" Visibility="Hidden"></local:Novigrad_Inn>
         

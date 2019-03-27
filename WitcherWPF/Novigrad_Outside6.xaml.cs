@@ -20,8 +20,11 @@ namespace WitcherWPF {
     /// </summary>
     public partial class Novigrad_Outside6 : UserControl {
         public DispatcherTimer time = new DispatcherTimer();
-
+        List<PlayerQuest> pquest = new List<PlayerQuest>();
+        FileManager manager = new FileManager();
         public Novigrad_Outside6() {
+            DoorO.Visibility = Visibility.Hidden;
+            DoorShow();
             InitializeComponent();
             LoadBackground();
         }
@@ -42,6 +45,14 @@ namespace WitcherWPF {
         void Time_tick(object sender, EventArgs e) {
             LoadBackground();
 
+        }
+        public void DoorShow() {
+            pquest = manager.LoadPlayerQuests();
+            foreach (PlayerQuest item in pquest) {
+                if (item.Quest.QuestName == "Tajná organizace" && item.Quest.QuestID == 4) {
+                    DoorO.Visibility = Visibility.Visible;
+                }
+            }
         }
     }
 }

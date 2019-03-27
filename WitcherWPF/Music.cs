@@ -47,6 +47,8 @@ namespace WitcherWPF {
             this.musicday.Add("Novigrad_Outside7", new Uri(@"../../sounds/music/Novigrad_day.mp3", UriKind.Relative));
             this.musicday.Add("Novigrad_Crypt", new Uri(@"../../sounds/music/Novigrad_day.mp3", UriKind.Relative));
             this.musicday.Add("Novigrad_Inn", new Uri(@"../../sounds/music/Novigrad_Inn.mp3", UriKind.Relative));
+            this.musicday.Add("Novigrad_House1", new Uri(@"../../sounds/music/Novigrad_day.mp3", UriKind.Relative));
+            this.musicday.Add("Novigrad_House2", new Uri(@"../../sounds/music/Novigrad_day.mp3", UriKind.Relative));
 
             this.musicnight.Add("Old_wyzima1", new Uri(@"../../sounds/music/The_Order.mp3", UriKind.Relative));
             this.musicnight.Add("Old_wyzima2", new Uri(@"../../sounds/music/The_Order.mp3", UriKind.Relative));
@@ -72,6 +74,8 @@ namespace WitcherWPF {
             this.musicnight.Add("Novigrad_Outside7", new Uri(@"../../sounds/music/Novigrad_night.mp3", UriKind.Relative));
             this.musicnight.Add("Novigrad_Crypt", new Uri(@"../../sounds/music/Novigrad_night.mp3", UriKind.Relative));
             this.musicnight.Add("Novigrad_Inn", new Uri(@"../../sounds/music/Novigrad_Inn.mp3", UriKind.Relative));
+            this.musicnight.Add("Novigrad_House1", new Uri(@"../../sounds/music/Novigrad_night.mp3", UriKind.Relative));
+            this.musicnight.Add("Novigrad_House2", new Uri(@"../../sounds/music/Novigrad_night.mp3", UriKind.Relative));
 
             this.sounds.Add("NewPage", new Uri(@"../../sounds/UI/newpage.wav", UriKind.Relative));
             this.sounds.Add("OpenDoor", new Uri(@"../../sounds/UI/opendoor.wav", UriKind.Relative));

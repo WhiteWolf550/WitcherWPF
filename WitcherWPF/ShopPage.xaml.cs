@@ -415,25 +415,30 @@ namespace WitcherWPF
         }
         private void Sell() {
             int def = CurItem.Item.Count;
-            ShopDialog.Visibility = Visibility.Hidden;
-            if (Int32.Parse(Num.Content.ToString()) == CurItem.Item.Count) {
-                pinventory.Remove(CurItem);
-            }else {
-                foreach(PlayerInventory item in pinventory) {
-                    if (item == CurItem) {
-                        item.Item.Count -= Int32.Parse(Num.Content.ToString());
+            if (CurItem.Item.Type != "Quest") {
+                ShopDialog.Visibility = Visibility.Hidden;
+                if (Int32.Parse(Num.Content.ToString()) == CurItem.Item.Count) {
+                    pinventory.Remove(CurItem);
+                } else {
+                    foreach (PlayerInventory item in pinventory) {
+                        if (item == CurItem) {
+                            item.Item.Count -= Int32.Parse(Num.Content.ToString());
+                        }
                     }
                 }
-            }
-            int sellprice = CurItem.Item.Price / 2;
-            player.AddMoney(sellprice * Int32.Parse(Num.Content.ToString()), playerlist);
-            manager.SavePlayer(playerlist);
-            manager.SavePlayerInventory(pinventory);
 
-            item.GiveItem(CurItem, shops, Int32.Parse(Num.Content.ToString()));
-            
-            LoadShopInventory();
-            LoadInventory();
+                int sellprice = CurItem.Item.Price / 2;
+                player.AddMoney(sellprice * Int32.Parse(Num.Content.ToString()), playerlist);
+                manager.SavePlayer(playerlist);
+                manager.SavePlayerInventory(pinventory);
+
+                item.GiveItem(CurItem, shops, Int32.Parse(Num.Content.ToString()));
+
+                LoadShopInventory();
+                LoadInventory();
+            }else {
+                MessageBox.Show("Nemůžeš prodávat úkolové předměty!");
+            }
         }
         public void BuySword(MenuItem menu) {
             Sword sw = shopswordeq[menu];

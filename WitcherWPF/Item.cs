@@ -152,10 +152,16 @@ namespace WitcherWPF
             List<Item> loot = manager.LoadLoot();
             List<Crypt> crypts = manager.LoadCrypts();
             List<PlayerInventory> inventory = manager.LoadPlayerInventory();
+            List<PlayerInventory> standartitems = new List<PlayerInventory>();
             if (inventory == null) {
                 inventory = new List<PlayerInventory>();
             }
             foreach (var item1 in loot) {
+                if (item1.Type == "Alchemy") {
+                    standartitems = inventory.Where(s => s.Item.Type == "Alchemy").ToList();
+                }else {
+                    standartitems = inventory.Where(s => s.Item.Type != "Alchemy").ToList();
+                }
                 var match = loot.Where(s => s.Name == item1.Name).ToList();
                 var match2 = new List<PlayerInventory>();
                 try {
@@ -169,9 +175,11 @@ namespace WitcherWPF
                         if (item2.Item.Name == item1.Name) {
                             if(item2.Item.Count == 10) {
                                 if (match3.Count() == 0) {
-                                    PlayerInventory inv = new PlayerInventory(item1);
-                                    inventory.Add(inv);
-                                    break;
+                                    if (standartitems.Count != 40) {
+                                        PlayerInventory inv = new PlayerInventory(item1);
+                                        inventory.Add(inv);
+                                        break;
+                                    }
                                 }else {
 
                                 }
@@ -183,8 +191,10 @@ namespace WitcherWPF
                                     int rest = item2.Item.Count + item1.Count - 10;
                                     item2.Item.Count = 10; 
                                     item1.Count = rest;
-                                    PlayerInventory inv = new PlayerInventory(item1);
-                                    inventory.Add(inv);
+                                    if (standartitems.Count != 40) {
+                                        PlayerInventory inv = new PlayerInventory(item1);
+                                        inventory.Add(inv);
+                                    }
                                     break;
                                 }else {
                                     item2.Item.Count += item1.Count;
@@ -254,39 +264,43 @@ namespace WitcherWPF
         }
         public void GiveItem(PlayerInventory pitem, List<Shop> shops, int num) {
             int def = pitem.Item.Count;
-            foreach(Shop item in shops) {
-                List<Item> items = item.Items.Where(s => s.Name == pitem.Item.Name).ToList();
-                var match3 = items.Where(s => s.Count < 10).ToList();
-                if (items.Count > 0) {
-                    foreach (Item item2 in item.Items) {
-                        if (item2.Name == pitem.Item.Name) {
-                            if (item2.Count == 10) {
-                                if (match3.Count() == 0) {
-                                    item.Items.Add(pitem.Item);
-                                    break;
-                                }else {
+            if (pitem.Item.Type != "Quest") {
+                foreach (Shop item in shops) {
+                    List<Item> items = item.Items.Where(s => s.Name == pitem.Item.Name).ToList();
+                    var match3 = items.Where(s => s.Count < 10).ToList();
+                    if (items.Count > 0) {
+                        foreach (Item item2 in item.Items) {
+                            if (item2.Name == pitem.Item.Name) {
+                                if (item2.Count == 10) {
+                                    if (match3.Count() == 0) {
+                                        item.Items.Add(pitem.Item);
+                                        break;
+                                    } else {
 
-                                }
-                            } else {
-                                if (item2.Count + num > 10) {
-                                    int rest = item2.Count + num - 10;
-                                    item2.Count = 10;
-                                    Item it = pitem.Item;
-                                    it.Count = rest;
-
-                                    item.Items.Add(it);
-                                    break;
+                                    }
                                 } else {
-                                    item2.Count += num;
+                                    if (item2.Count + num > 10) {
+                                        int rest = item2.Count + num - 10;
+                                        item2.Count = 10;
+                                        Item it = pitem.Item;
+                                        it.Count = rest;
+
+                                        item.Items.Add(it);
+                                        break;
+                                    } else {
+                                        item2.Count += num;
+                                    }
                                 }
                             }
                         }
+                    } else {
+                        Item item3 = pitem.Item;
+                        item3.Count = num;
+                        item.Items.Add(item3);
                     }
-                }else {
-                    Item item3 = pitem.Item;
-                    item3.Count = num;
-                    item.Items.Add(item3);
                 }
+            }else {
+                MessageBox.Show("Nemůžeš prodat úkolové předměty!");
             }
             
             manager.SaveShops(shops);
@@ -330,6 +344,7 @@ namespace WitcherWPF
 
             //QUEST ITEMS
             items.Add(new Item("Zlatý prsten", "Zlatý prsten, který vypadá hodně staře", "Quest", "Strašidelný dům", @"img/Items/Quest_Ring.png", "žádné", null, null, null, 0));
+            items.Add(new Item("Rodiný prsten", "Prsten, který vypadá hodně staře, asi s předával přes generace", "Quest", "Zlatý prsten", @"img/Items/Quest_FamilyRing.png", "žádné", null, null, null, 0));
 
             //SPECIAL
             items.Add(new Item("Část zbroje: Hruď", "Stará část zbroje, která vypadá hodně staře", "Special", "Crypt1", @"img/Items/Armor_Part1.png",  "žádné", null, null, null, 0));

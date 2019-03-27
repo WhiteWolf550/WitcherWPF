@@ -21,10 +21,15 @@ namespace WitcherWPF {
     public partial class Novigrad_Outside1 : UserControl {
 
         public DispatcherTimer time = new DispatcherTimer();
-
+        List<PlayerQuest> pquest = new List<PlayerQuest>();
+        List<Game> game = new List<Game>();
+        List<Dialogues> dialogues = new List<Dialogues>();
+        FileManager manager = new FileManager();
+        Location location = new Location();
         public Novigrad_Outside1() {
             InitializeComponent();
             LoadBackground();
+            Prison();
         }
         public void LoadBackground() {
 
@@ -43,6 +48,31 @@ namespace WitcherWPF {
         void Time_tick(object sender, EventArgs e) {
             LoadBackground();
 
+        }
+        public void Prison() {
+            pquest = manager.LoadPlayerQuests();
+            game = manager.LoadGame();
+            foreach (PlayerQuest item in pquest) {
+                if (item.Quest.QuestName == "Tajná organizace" && item.Quest.QuestID == 1) {
+                    foreach(Game item2 in game) {
+                        if (item2.MayorDead == true) {
+                            ActivateDialogue("Co tady děláš?");
+                            location.CutsceneTransitionShow("Chapter2Cut2");
+                        }else {
+                            ActivateDialogue("Co tu děláš?");
+                            location.GetDialogue("Morenn");
+                        }
+                    }
+                }
+            }
+        }
+        public void ActivateDialogue(string Choice) {
+            dialogues = manager.LoadDialogue(Globals.DialoguePath);
+            foreach(Dialogues item in dialogues) {
+                if (item.Choice == Choice) {
+                    item.Enabled = true;
+                }
+            }
         }
     }
 }

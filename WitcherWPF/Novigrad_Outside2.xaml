@@ -30,8 +30,11 @@
             </Button.RenderTransform>
             <Image Source="img/UI/ui_steps.png"></Image>
         </Button>
-        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO" Margin="155,439,1121,331" Tag="Novigrad_House1">
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" ToolTip="Trissin dům" Name="DoorO" Margin="155,439,1121,331" Tag="Novigrad_House1">
             <Image Source="img/UI/ui_door.png"></Image>
+        </Button>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Morenn" ToolTip="Morenn" Margin="353,353,883,184">
+            <Image Source="img/Characters/Morenn.png"></Image>
         </Button>
     </Grid>
 </UserControl>

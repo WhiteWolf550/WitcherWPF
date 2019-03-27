@@ -19,5 +19,8 @@
             </Button.RenderTransform>
             <Image Source="img/UI/ui_steps.png"></Image>
         </Button>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO" Margin="653,483,645,311" Tag="Chapter2Cut3">
+            <Image Source="img/UI/ui_door.png"></Image>
+        </Button>
     </Grid>
 </UserControl>

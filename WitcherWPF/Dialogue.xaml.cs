@@ -472,6 +472,9 @@ namespace WitcherWPF
                 CutsceneName = "Chapter1Cut3Begin";
                 TravelShow();
             }
+            if (Dialogue.Choice == "Zlatý prsten") {
+                inventory.AddItem("Rodiný prsten", 1);
+            }
 
 
         }

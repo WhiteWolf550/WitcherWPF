@@ -52,55 +52,55 @@ namespace WitcherWPF {
             }
         }
         public void AddHandlers() {
-            Wyzima_Castle.Foltest.Click += new RoutedEventHandler(GetDialogue);
+            Wyzima_Castle.Foltest.Click += new RoutedEventHandler(GetDialogue_Click);
             Wyzima_Castle.FirePlace.Click += new RoutedEventHandler(Meditation);
             Wyzima_Castle.Flower.Click += new RoutedEventHandler(GetLoot);
             Wyzima_Castle.Steps.Click += new RoutedEventHandler(Switch_Click);
-            Wyzima_Castle2.Triss.Click += new RoutedEventHandler(GetDialogue);
+            Wyzima_Castle2.Triss.Click += new RoutedEventHandler(GetDialogue_Click);
             Wyzima_Castle2.Door.Click += new RoutedEventHandler(Switch_Click);
             Wyzima_Castle2.Steps.Click += new RoutedEventHandler(Switch_Click);
             Wyzima_Outside.ToCastle.Click += new RoutedEventHandler(Switch_Click);
             Wyzima_Outside.DoorO.Click += new RoutedEventHandler(Switch_Click);
-            Wyzima_Outside.Přeživší.Click += new RoutedEventHandler(GetDialogue);
+            Wyzima_Outside.Přeživší.Click += new RoutedEventHandler(GetDialogue_Click);
             Wyzima_Outside.ToHouse.Click += new RoutedEventHandler(Switch_Click);
             Wyzima_Smith.Outside.Click += new RoutedEventHandler(Switch_Click);
             Wyzima_Smith.Shelf.Click += new RoutedEventHandler(GetLoot);
-            Wyzima_Smith.Yaven.Click += new RoutedEventHandler(GetDialogue);
+            Wyzima_Smith.Yaven.Click += new RoutedEventHandler(GetDialogue_Click);
             Wyzima_Smith.FirePlace.Click += new RoutedEventHandler(Meditation);
             Wyzima_House.Shelf.Click += new RoutedEventHandler(GetLoot);
             Wyzima_House.Ghoul.Click += new RoutedEventHandler(EnterCombat1);
             Wyzima_House.Outside.Click += new RoutedEventHandler(Switch_Click);
 
-            Village_Inn.Olaf.Click += new RoutedEventHandler(GetDialogue);
-            Village_Inn.Zoltan.Click += new RoutedEventHandler(GetDialogue);
+            Village_Inn.Olaf.Click += new RoutedEventHandler(GetDialogue_Click);
+            Village_Inn.Zoltan.Click += new RoutedEventHandler(GetDialogue_Click);
             Village_Inn.DoorO.Click += new RoutedEventHandler(Switch_Click);
             Village_Inn.FirePlace.Click += new RoutedEventHandler(Meditation);
 
-            Village_Outside1.Turman.Click += new RoutedEventHandler(GetDialogue);
+            Village_Outside1.Turman.Click += new RoutedEventHandler(GetDialogue_Click);
             Village_Outside1.Ghoul.Click += new RoutedEventHandler(EnterCombatChQuest);
-            Village_Outside1.MasterHunter.Click += new RoutedEventHandler(GetDialogue);
+            Village_Outside1.MasterHunter.Click += new RoutedEventHandler(GetDialogue_Click);
             Village_Outside1.Barell.Click += new RoutedEventHandler(GetLoot);
             Village_Outside1.DoorO.Click += new RoutedEventHandler(Switch_Click);
             Village_Outside1.DoorO2.Click += new RoutedEventHandler(Switch_Click);
-            Village_Outside1.Trader.Click += new RoutedEventHandler(GetDialogue);
-            Village_Outside1.Jarek.Click += new RoutedEventHandler(GetDialogue);
+            Village_Outside1.Trader.Click += new RoutedEventHandler(GetDialogue_Click);
+            Village_Outside1.Jarek.Click += new RoutedEventHandler(GetDialogue_Click);
 
             Village_Outside2.Loot.Click += new RoutedEventHandler(GetLoot);
             Village_Outside2.Ghoul.Click += new RoutedEventHandler(EnterCombatChQuest);
             Village_Outside2.Steps.Click += new RoutedEventHandler(Switch_Click);
             Village_Outside2.Steps2.Click += new RoutedEventHandler(Switch_Click);
             Village_Outside2.DoorO1.Click += new RoutedEventHandler(Switch_Click);
-            Village_Outside2.Zoltan.Click += new RoutedEventHandler(GetDialogue);
+            Village_Outside2.Zoltan.Click += new RoutedEventHandler(GetDialogue_Click);
 
-            Village_Outside3.Madman.Click += new RoutedEventHandler(GetDialogue);
+            Village_Outside3.Madman.Click += new RoutedEventHandler(GetDialogue_Click);
             Village_Outside3.Ghoul.Click += new RoutedEventHandler(EnterCombatChQuest);
             Village_Outside3.Loot.Click += new RoutedEventHandler(GetLoot);
             Village_Outside3.DoorO1.Click += new RoutedEventHandler(Switch_Click);
             Village_Outside3.Steps.Click += new RoutedEventHandler(Switch_Click);
             Village_Outside3.Steps2.Click += new RoutedEventHandler(Switch_Click);
-            Village_Outside3.Zoltan.Click += new RoutedEventHandler(GetDialogue);
+            Village_Outside3.Zoltan.Click += new RoutedEventHandler(GetDialogue_Click);
             Village_Outside3.Crypt1.Click += new RoutedEventHandler(Switch_Click);
-            Village_Outside3.BrickMaker.Click += new RoutedEventHandler(GetDialogue);
+            Village_Outside3.BrickMaker.Click += new RoutedEventHandler(GetDialogue_Click);
 
             Village_Outside4.DoorO1.Click += new RoutedEventHandler(Switch_Click);
             Village_Outside4.Steps.Click += new RoutedEventHandler(Switch_Click);
@@ -109,17 +109,56 @@ namespace WitcherWPF {
             Village_Outside5.Steps.Click += new RoutedEventHandler(Switch_Click);
 
             Village_House.DoorO1.Click += new RoutedEventHandler(Switch_Click);
-            Village_House.Zoltan.Click += new RoutedEventHandler(GetDialogue);
+            Village_House.Zoltan.Click += new RoutedEventHandler(GetDialogue_Click);
 
             Village_House2.DoorO1.Click += new RoutedEventHandler(Switch_Click);
-            Village_House2.Lambert.Click += new RoutedEventHandler(GetDialogue);
+            Village_House2.Lambert.Click += new RoutedEventHandler(GetDialogue_Click);
 
             Village_House3.DoorO1.Click += new RoutedEventHandler(EnterCutscene);
-            Village_House3.Morenn.Click += new RoutedEventHandler(GetDialogue);
+            Village_House3.Morenn.Click += new RoutedEventHandler(GetDialogue_Click);
 
             Village_Crypt.Chest.Click += new RoutedEventHandler(GetLoot2);
             Village_Crypt.DoorO1.Click += new RoutedEventHandler(Switch_Click);
             Village_Crypt.Barghest.Click += new RoutedEventHandler(EnterCombatChQuest);
+
+            Novigrad_Outside1.Steps.Click += new RoutedEventHandler(Switch_Click);
+            Novigrad_Outside1.Steps2.Click += new RoutedEventHandler(Switch_Click);
+
+            Novigrad_Outside2.Steps.Click += new RoutedEventHandler(Switch_Click);
+            Novigrad_Outside2.DoorO.Click += new RoutedEventHandler(Switch_Click);
+            Novigrad_Outside2.Steps2.Click += new RoutedEventHandler(Switch_Click);
+            Novigrad_Outside2.Morenn.Click += new RoutedEventHandler(GetDialogue_Click);
+
+            Novigrad_Outside3.Steps.Click += new RoutedEventHandler(Switch_Click);
+            Novigrad_Outside3.Steps2.Click += new RoutedEventHandler(Switch_Click);
+            Novigrad_Outside3.DoorO.Click += new RoutedEventHandler(Switch_Click);
+
+            Novigrad_Outside4.Steps.Click += new RoutedEventHandler(Switch_Click);
+            Novigrad_Outside4.Steps2.Click += new RoutedEventHandler(Switch_Click);
+            Novigrad_Outside4.Abigail.Click += new RoutedEventHandler(GetDialogue_Click);
+
+            Novigrad_Outside5.Steps.Click += new RoutedEventHandler(Switch_Click);
+            Novigrad_Outside5.DoorO.Click += new RoutedEventHandler(Switch_Click);
+            Novigrad_Outside5.DoorO1.Click += new RoutedEventHandler(Switch_Click);
+
+            Novigrad_Outside6.Steps.Click += new RoutedEventHandler(Switch_Click);
+            Novigrad_Outside6.DoorO.Click += new RoutedEventHandler(EnterCutscene);
+
+            Novigrad_Outside7.DoorO.Click += new RoutedEventHandler(Switch_Click);
+            Novigrad_Outside7.DoorO2.Click += new RoutedEventHandler(Switch_Click);
+
+            Novigrad_House1.Triss.Click += new RoutedEventHandler(GetDialogue_Click);
+            Novigrad_House1.Loot.Click += new RoutedEventHandler(GetLoot);
+
+            Novigrad_House2.Bolehlav.Click += new RoutedEventHandler(GetDialogue_Click);
+            Novigrad_House2.DoorO.Click += new RoutedEventHandler(Switch_Click);
+
+            Novigrad_Inn.Griffarin.Click += new RoutedEventHandler(GetDialogue_Click);
+            Novigrad_Inn.Trader2.Click += new RoutedEventHandler(GetDialogue_Click);
+            Novigrad_Inn.DoorO.Click += new RoutedEventHandler(Switch_Click);
+
+            
+
         }
         public Location(Frame parentFrame, string location, Time time) : this() {
             this.parentFrame = parentFrame;
@@ -188,6 +227,8 @@ namespace WitcherWPF {
                 Novigrad_Crypt.Visibility = Visibility.Visible;
             }else if (loc == "Novigrad_Inn") {
                 Novigrad_Inn.Visibility = Visibility.Visible;
+            }else if (loc == "Novigrad_House1") {
+                Novigrad_House1.Visibility = Visibility.Visible;
             }
         }
         public Location(Frame parentFrame, Time time) : this() {
@@ -201,12 +242,16 @@ namespace WitcherWPF {
             media.PlaySound("Inventory");
             parentFrame.Navigate(new Inventory(parentFrame, false, time));
         }
-        public void GetDialogue(object sender, RoutedEventArgs e) {
-            Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);
+        public void GetDialogue_Click(object sender, RoutedEventArgs e) {
+            //Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);
             Button button = (sender as Button);
             string charworld = button.Name.ToString();
-            parentFrame.Navigate(new Dialogue(parentFrame, charworld, time));
+            GetDialogue(charworld);
              
+        }
+        public void GetDialogue(string charworld) {
+            Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);
+            parentFrame.Navigate(new Dialogue(parentFrame, charworld, time));
         }
         public void GetLoot(object sender, RoutedEventArgs e) {
             LootInventory.Children.Clear();
@@ -330,6 +375,7 @@ namespace WitcherWPF {
             Novigrad_Outside5.Visibility = Visibility.Hidden;
             Novigrad_Outside6.Visibility = Visibility.Hidden;
             Novigrad_Outside7.Visibility = Visibility.Hidden;
+            Novigrad_House1.Visibility = Visibility.Hidden;
         }
         public void LocationSwitch(string loca) {
             if (loca == "Old_wyzima2") {
@@ -364,6 +410,26 @@ namespace WitcherWPF {
                 Village_House3.Visibility = Visibility.Visible;
             } else if (loca == "Village_Crypt") {
                 Village_Crypt.Visibility = Visibility.Visible;
+            } else if (loca == "Novigrad_Outside1") {
+                Novigrad_Outside1.Visibility = Visibility.Visible;
+            } else if (loca == "Novigrad_Outside2") {
+                Novigrad_Outside2.Visibility = Visibility.Visible;
+            } else if (loca == "Novigrad_Outside3") {
+                Novigrad_Outside3.Visibility = Visibility.Visible;
+            } else if (loca == "Novigrad_Outside4") {
+                Novigrad_Outside4.Visibility = Visibility.Visible;
+            } else if (loca == "Novigrad_Outside5") {
+                Novigrad_Outside5.Visibility = Visibility.Visible;
+            } else if (loca == "Novigrad_Outside6") {
+                Novigrad_Outside6.Visibility = Visibility.Visible;
+            } else if (loca == "Novigrad_Outside7") {
+                Novigrad_Outside7.Visibility = Visibility.Visible;
+            } else if (loca == "Novigrad_Crypt") {
+                Novigrad_Crypt.Visibility = Visibility.Visible;
+            } else if (loca == "Novigrad_Inn") {
+                Novigrad_Inn.Visibility = Visibility.Visible;
+            } else if (loca == "Novigrad_House1") {
+                Novigrad_House1.Visibility = Visibility.Visible;
             }
         }
         public void Meditation(object sender, RoutedEventArgs e) {
@@ -401,12 +467,13 @@ namespace WitcherWPF {
         }
         private void EnterCombat1(object sender, RoutedEventArgs e) {
             Button button = (sender as Button);
-            
+            //MonsterName = button.Tag.ToString();
+
             CombatTransitionShow();
         }
         private void EnterCutscene(object sender, RoutedEventArgs e) {
             Button button = (sender as Button);
-            CutsceneTransitionShow();
+            CutsceneTransitionShow(null);
             CutsceneName = button.Tag.ToString();
         }
         private void EnterCombatChQuest(object sender, RoutedEventArgs e) {
@@ -426,10 +493,13 @@ namespace WitcherWPF {
 
             animation.Completed += (s, a) => BlackScreen.Visibility = Visibility.Visible;
             animation.Completed += (s, a) => BlackScreen.Opacity = 1;
-            animation.Completed += new EventHandler(GoToCombat);
+            animation.Completed += new EventHandler(GoToCombat_Event);
             BlackScreen.BeginAnimation(UIElement.OpacityProperty, animation);
         }
-        public void CutsceneTransitionShow() {
+        public void CutsceneTransitionShow(string CutsceneName) {
+            if (CutsceneName != null) {
+                this.CutsceneName = CutsceneName;
+            }
             BlackScreen.Visibility = Visibility.Visible;
             var animation = new DoubleAnimation {
                 To = 1,
@@ -446,11 +516,14 @@ namespace WitcherWPF {
         private void GoToCutscene(object sender, EventArgs e) {
             parentFrame.Navigate(new Cutscenes(parentFrame, time, CutsceneName));
         }
-        public void GoToCombat(object sender, EventArgs e) {
+        public void GoToCombat_Event(object sender, EventArgs e) {
+            GoToCombat();
+        }
+        public void GoToCombat() {
             Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);
             if (QuestName == null) {
                 parentFrame.Navigate(new Combat(parentFrame, false, time, false, Loot.Tag.ToString(), MonsterName));
-            }else {
+            } else {
                 parentFrame.Navigate(new Combat(parentFrame, false, time, false, QuestName, MonsterName));
             }
         }

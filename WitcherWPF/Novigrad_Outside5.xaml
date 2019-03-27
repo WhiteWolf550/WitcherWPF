@@ -19,10 +19,10 @@
             </Button.RenderTransform>
             <Image Source="img/UI/ui_steps.png"></Image>
         </Button>
-        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO" Margin="1288,446,10,348" Tag="Novigrad_Inn">
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO" Margin="1288,446,10,348" ToolTip="Hospoda" Tag="Novigrad_Inn">
             <Image Source="img/UI/ui_door.png"></Image>
         </Button>
-        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO1" Margin="261,427,1091,407" Tag="Novigrad_Inn">
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO1" Margin="261,427,1091,407" Tag="Novigrad_House2">
             <Image Source="img/UI/ui_door.png"></Image>
         </Button>
     </Grid>
