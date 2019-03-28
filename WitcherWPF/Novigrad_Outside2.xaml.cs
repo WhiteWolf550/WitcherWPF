@@ -27,6 +27,8 @@ namespace WitcherWPF {
             Morenn.Visibility = Visibility.Hidden;
             MorennShow();
             LoadBackground();
+            Timer();
+            time.Start();
         }
         public void LoadBackground() {
 

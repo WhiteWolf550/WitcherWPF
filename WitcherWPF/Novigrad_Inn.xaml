@@ -14,7 +14,7 @@
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Griffarin" ToolTip="Hospodský Griffarin" Margin="384,407,894,209">
             <Image Source="img/Characters/Griffarin.png"></Image>
         </Button>
-        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Trader2" ToolTip="Hospodský Griffarin" Margin="660,429,645,237">
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Trader2" ToolTip="Překupník" Margin="660,429,645,237">
             <Image Source="img/Characters/Trader2.png"></Image>
         </Button>
     </Grid>

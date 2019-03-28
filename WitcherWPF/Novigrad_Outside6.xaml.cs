@@ -23,10 +23,13 @@ namespace WitcherWPF {
         List<PlayerQuest> pquest = new List<PlayerQuest>();
         FileManager manager = new FileManager();
         public Novigrad_Outside6() {
+            
+            InitializeComponent();
             DoorO.Visibility = Visibility.Hidden;
             DoorShow();
-            InitializeComponent();
             LoadBackground();
+            Timer();
+            time.Start();
         }
         public void LoadBackground() {
 

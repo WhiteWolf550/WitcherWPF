@@ -31,7 +31,7 @@
             </Button.RenderTransform>
             <Image Source="img/UI/ui_steps.png"></Image>
         </Button>
-        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Abigail" ToolTip="Hospodský Griffarin" Margin="614,445,733,299">
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Abigail" ToolTip="Abigail" Margin="614,445,733,299">
             <Image Source="img/Characters/Abigail.png"></Image>
         </Button>
     </Grid>

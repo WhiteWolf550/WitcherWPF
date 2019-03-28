@@ -151,7 +151,7 @@ namespace WitcherWPF {
             Novigrad_Outside2.DoorO.Click += new RoutedEventHandler(Switch_Click);
             Novigrad_Outside2.Steps2.Click += new RoutedEventHandler(Switch_Click);
             Novigrad_Outside2.Morenn.Click += new RoutedEventHandler(GetDialogue_Click);
-
+            Novigrad_Outside2.Messenger.Click += new RoutedEventHandler(GetDialogue_Click);
         }
         public void AddHandlersNovO3(Novigrad_Outside3 Novigrad_Outside3) {
             Novigrad_Outside3.Steps.Click += new RoutedEventHandler(Switch_Click);
@@ -179,6 +179,7 @@ namespace WitcherWPF {
         public void AddHandlersNovHo1(Novigrad_House1 Novigrad_House1) {
             Novigrad_House1.Triss.Click += new RoutedEventHandler(GetDialogue_Click);
             Novigrad_House1.Loot.Click += new RoutedEventHandler(GetLoot);
+            Novigrad_House1.DoorO.Click += new RoutedEventHandler(Switch_Click);
         }
         public void AddHandlersNovHo2(Novigrad_House2 Novigrad_House2) {
             Novigrad_House2.Bolehlav.Click += new RoutedEventHandler(GetDialogue_Click);
@@ -348,7 +349,7 @@ namespace WitcherWPF {
             parentFrame.Navigate(new Inventory(parentFrame, false, time));
         }
         public void GetDialogue_Click(object sender, RoutedEventArgs e) {
-            //Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);
+            
             Button button = (sender as Button);
             string charworld = button.Name.ToString();
             GetDialogue(charworld);
@@ -394,8 +395,10 @@ namespace WitcherWPF {
             }
         }
         public void DisableLoot() {
+            
             /*if (loc == "Old_wyzima1") {
-                Wyzima_Castle.HideLoot(true);
+                
+
             } else if (loc == "Old_wyzima4") {
                 Wyzima_Smith.HideLoot(true);
             } else if (loc == "Village_Outside1") {
@@ -407,6 +410,7 @@ namespace WitcherWPF {
             } else if (loc == "Novigrad_House1") {
                 Novigrad_House1.HideLoot(true);
             }*/
+            
         }
         public void CloseLoot(object sender, RoutedEventArgs e) {
             TakeLoot.Visibility = Visibility.Hidden;
@@ -534,6 +538,61 @@ namespace WitcherWPF {
                 grid.Children.Add(crypt);
                 AddHandlersVillCrypt(crypt);
                 CurrentLocation = crypt;
+            } else if (loca == "Novigrad_Outside1") {
+                Novigrad_Outside1 location = new Novigrad_Outside1();
+                grid.Children.Add(location);
+                AddHandlersNovO1(location);
+                CurrentLocation = location;
+            } else if (loca == "Novigrad_Outside2") {
+                Novigrad_Outside2 location = new Novigrad_Outside2();
+                grid.Children.Add(location);
+                AddHandlersNovO2(location);
+                CurrentLocation = location;
+            } else if (loca == "Novigrad_Outside3") {
+                Novigrad_Outside3 location = new Novigrad_Outside3();
+                grid.Children.Add(location);
+                AddHandlersNovO3(location);
+                CurrentLocation = location;
+            } else if (loca == "Novigrad_Outside4") {
+                Novigrad_Outside4 location = new Novigrad_Outside4();
+                grid.Children.Add(location);
+                AddHandlersNovO4(location);
+                CurrentLocation = location;
+            } else if (loca == "Novigrad_Outside5") {
+                Novigrad_Outside5 location = new Novigrad_Outside5();
+                grid.Children.Add(location);
+                AddHandlersNovO5(location);
+                CurrentLocation = location;
+            } else if (loca == "Novigrad_Outside6") {
+                Novigrad_Outside6 location = new Novigrad_Outside6();
+                grid.Children.Add(location);
+                AddHandlersNovO6(location);
+                CurrentLocation = location;
+            } else if (loca == "Novigrad_Outside7") {
+                Novigrad_Outside7 location = new Novigrad_Outside7();
+                grid.Children.Add(location);
+                AddHandlersNovO7(location);
+                CurrentLocation = location;
+            } else if (loca == "Novigrad_Crypt") {
+                Novigrad_Crypt location = new Novigrad_Crypt();
+                grid.Children.Add(location);
+                AddHandlersNovCrypt(location);
+                CurrentLocation = location;
+            } else if (loca == "Novigrad_Inn") {
+                Novigrad_Inn location = new Novigrad_Inn();
+                grid.Children.Add(location);
+                AddHandlersNovInn(location);
+                CurrentLocation = location;
+            } else if (loca == "Novigrad_House1") {
+                Novigrad_House1 location = new Novigrad_House1();
+                grid.Children.Add(location);
+                AddHandlersNovHo1(location);
+                CurrentLocation = location;
+            } else if (loca == "Novigrad_House2") {
+                Novigrad_House2 location = new Novigrad_House2();
+                grid.Children.Add(location);
+                AddHandlersNovHo2(location);
+                CurrentLocation = location;
             }
         }
         public void Meditation(object sender, RoutedEventArgs e) {

@@ -15,5 +15,8 @@
             <Image Source="img/UI/ui_loot.png" RenderTransformOrigin="0.5,0.5" Height="45" Width="44">
             </Image>
         </Button>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO" Margin="1296,416,10,359" Tag="Novigrad_Outside2">
+            <Image Source="img/UI/ui_door.png"></Image>
+        </Button>
     </Grid>
 </UserControl>

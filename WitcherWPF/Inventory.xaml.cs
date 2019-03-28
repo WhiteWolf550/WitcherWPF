@@ -132,8 +132,7 @@ namespace WitcherWPF
         }
         public void GetAlchemy(object sender, RoutedEventArgs e) {
             if (Combat == false) {
-                parentFrame.Navigate(new Combat(parentFrame, false, time, false, null, "Ghůl"));
-                game.SaveGame(playerinfo, pinventory, armor, sword, effects);
+                MessageBox.Show("Musíš začít meditovat, aby jsi mohl použít alchymii");
             }
         }
         public void GetLocation(object sender, RoutedEventArgs e) {

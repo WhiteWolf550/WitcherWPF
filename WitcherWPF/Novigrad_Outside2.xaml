@@ -36,5 +36,8 @@
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Morenn" ToolTip="Morenn" Margin="353,353,883,184">
             <Image Source="img/Characters/Morenn.png"></Image>
         </Button>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Messenger" ToolTip="Poslíček" Margin="833,439,484,227">
+            <Image Source="img/Characters/Messenger.png"></Image>
+        </Button>
     </Grid>
 </UserControl>

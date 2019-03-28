@@ -83,6 +83,7 @@ namespace WitcherWPF
             }else if (CutsceneName == "Chapter1Cut3Die" || CutsceneName == "Chapter1Cut3Live") {
                 Globals.Combat = false;
                 parentFrame.Navigate(new Location(parentFrame, time));
+                time.Visibility = Visibility.Visible;
                 quest.UpdateQuest("Záhadná vesnice", QuestPop, QueName, QueGoal);
             } else if (CutsceneName == "Chapter1Cut4") {
                 CutsceneName = "Chapter2Cut1";

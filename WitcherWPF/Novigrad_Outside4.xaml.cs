@@ -24,6 +24,8 @@ namespace WitcherWPF {
         public Novigrad_Outside4() {
             InitializeComponent();
             LoadBackground();
+            Timer();
+            time.Start();
         }
         public void LoadBackground() {
 

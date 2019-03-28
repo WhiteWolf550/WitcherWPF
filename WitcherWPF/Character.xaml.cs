@@ -57,8 +57,7 @@ namespace WitcherWPF {
             skilltimer.Stop();
         }
         public void GetAlchemy(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Alchemy(parentFrame, time, false));
-            skilltimer.Stop();
+            MessageBox.Show("Musíš začít meditovat, aby jsi mohl použít alchymii");
         }
         public void GetLocation(object sender, RoutedEventArgs e) {
             parentFrame.Navigate(new Location(parentFrame, time));

@@ -22,7 +22,7 @@ namespace WitcherWPF
         private Frame parentFrame;
         private Time time;
         FileManager manager = new FileManager();
-
+        Music music = new Music();
         List<Game> game = new List<Game>();
         public PausePage() {
             InitializeComponent();
@@ -30,8 +30,8 @@ namespace WitcherWPF
         public PausePage(Frame parentFrame, Time time) : this() {
             this.parentFrame = parentFrame;
             this.time = time;
-
-            time.time.Stop();
+            time.Visibility = Visibility.Hidden;
+            //time.time.Stop();
             game = manager.LoadGame();
         }
         public void PageLoaded(object sender, RoutedEventArgs e) {
@@ -48,6 +48,8 @@ namespace WitcherWPF
         public void Menu() {
             Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);
             Globals.Combat = true;
+            time.time.Stop();
+            
             SaveGlobals();
             parentFrame.Navigate(new MainMenu(parentFrame, time));
         }

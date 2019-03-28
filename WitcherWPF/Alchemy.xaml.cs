@@ -299,6 +299,7 @@ namespace WitcherWPF
         private void ChangeTime(object sender, EventArgs e) {
             
             Globals.Hour = hour;
+            Globals.Minute = 0;
             time.Visibility = Visibility.Visible;
         }
     }

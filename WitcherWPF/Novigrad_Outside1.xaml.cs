@@ -30,6 +30,8 @@ namespace WitcherWPF {
             InitializeComponent();
             LoadBackground();
             Prison();
+            Timer();
+            time.Start();
         }
         public void LoadBackground() {
 

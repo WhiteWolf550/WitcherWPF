@@ -475,6 +475,14 @@ namespace WitcherWPF
             if (Dialogue.Choice == "Zlatý prsten") {
                 inventory.AddItem("Rodiný prsten", 1);
             }
+            if (Dialogue.Choice == "Mám ten prsten") {
+                foreach(PlayerInventory item in inventoryitems) {
+                    if (item.Item.Name == "Rodiný prsten") {
+                        inventoryitems.Remove(item);
+                        break;
+                    }
+                }
+            }
 
 
         }

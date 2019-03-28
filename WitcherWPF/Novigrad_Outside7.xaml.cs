@@ -27,6 +27,8 @@ namespace WitcherWPF {
             DoorO1.Visibility = Visibility.Hidden;
             DoorShow();
             LoadBackground();
+            Timer();
+            time.Start();
         }
         public void LoadBackground() {
 
