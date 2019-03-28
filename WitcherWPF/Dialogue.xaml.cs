@@ -431,7 +431,7 @@ namespace WitcherWPF
 
                     que.QuestShow(QuestPop);
                     sound.PlaySound(QuestSound);
-                    await Task.Delay(10000);
+                    await Task.Delay(6000);
                     que.QuestHide(QuestPop);
                     que.QuestSave(PlayerQuests);
 

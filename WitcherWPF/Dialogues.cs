@@ -245,9 +245,11 @@ namespace WitcherWPF
             List<Dialogues> dialog = new List<Dialogues>();
             List<Dialogues> dialog1 = new List<Dialogues>();
             List<Dialogues> dialog2 = new List<Dialogues>();
+            List<Dialogues> dialog3 = new List<Dialogues>();
             string path = @"../../dialogues/DialoguePrologue.json";
             string path1 = @"../../dialogues/DialogueChapter1.json";
             string path2 = @"../../dialogues/DialogueChapter2.json";
+            string path3 = @"../../dialogues/DialogueChapter3.json";
             //----------------------FOLTEST----------------
             //greet
             dialog.Add(new Dialogues("Foltest", "Vítej zpět Zaklínači", 1, "Pozdrav", "Greet", "Foltest", true, null, null, false));
@@ -1128,7 +1130,7 @@ namespace WitcherWPF
             dialog2.Add(new Dialogues("Bolehlav", "To si fakt myslíš, že ti to sežeru jo?", 1, "Konečně se potkáváme", "Talk", "Bolehlav", false, "Pach velkoměsta", null, false));
             dialog2.Add(new Dialogues("Geralt", "Už těžko nacházím práci, takže moje řešení je...", 1, "Konečně se potkáváme", "Talk", "Bolehlav", false, "Pach velkoměsta", null, false));
             dialog2.Add(new Dialogues("Bolehlav", "Být u nás... To asi nepůjde. Mezi nás nepouštíme, jakoukoliv havěť z ulice", 1, "Konečně se potkáváme", "Talk", "Bolehlav", false, "Pach velkoměsta", null, false));
-            dialog2.Add(new Dialogues("Geralt", "Zabíjení mi nedělá problém", 1, "Co po mě chceš?", "Talk", "Bolehlav", false, "Pach velkoměsta", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Zabíjení mi nedělá problém", 1, "Konečně se potkáváme", "Talk", "Bolehlav", false, "Pach velkoměsta", null, false));
             dialog2.Add(new Dialogues("Bolehlav", "Tak pozor na jazyk! My nejsme nějaký krvelačný vrahové! to ne", 1, "Konečně se potkáváme", "Talk", "Bolehlav", false, "Pach velkoměsta", null, false));
             dialog2.Add(new Dialogues("Bolehlav", "Vypadá to, že jsi našel špatný lidi, takže se radši vrať ke svým potvorám", 1, "Konečně se potkáváme", "Talk", "Bolehlav", false, "Pach velkoměsta", null, false));
             dialog2.Add(new Dialogues("Bolehlav", "Buď odsud vypadneš a budu dělat, že jsem tě nikdy neviděl a nebo tě zabijeme", 1, "Konečně se potkáváme", "Talk", "Bolehlav", false, "Pach velkoměsta", null, false));
@@ -1202,8 +1204,66 @@ namespace WitcherWPF
             dialog2.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Morenn", true, null, null, false));
             dialog2.Add(new Dialogues("Morenn", "Měj se Geralte", 2, "Nashle", "Talk", "Morenn", true, null, null, false));
 
-            
+            //----------------------------------------CHAPTER III------------------------------------
 
+
+            //----------------------MARIGOLD----------------
+            dialog3.Add(new Dialogues("Marigold", "Geralte!", 1, "Pozdrav", "Greet", "Marigold", true, null, null, false));
+
+            //1
+            dialog3.Add(new Dialogues("Marigold", "Geralte! Co ty tady", 1, "Marigold? Co ty tady děláš?", "Talk", "Marigold", true, "Vesnice na konci světa", null, false));
+            dialog3.Add(new Dialogues("Marigold", "Konečně jsi se rozhodl, že jsi odpočineš a užiješ si trošku zábavy?", 1, "Marigold? Co ty tady děláš?", "Talk", "Marigold", true, "Vesnice na konci světa", null, false));
+            dialog3.Add(new Dialogues("Geralte", "Ne Marigolde. Jsem tu kvůli jedné ženě", 1, "Marigold? Co ty tady děláš?", "Talk", "Marigold", true, "Vesnice na konci světa", null, false));
+            dialog3.Add(new Dialogues("Marigold", "No tak to gratuluji Geralte!", 1, "Marigold? Co ty tady děláš?", "Talk", "Marigold", true, "Vesnice na konci světa", null, false));
+            dialog3.Add(new Dialogues("Geralte", "Je pravděpodobně spojená s organizací jménem Ještěři", 1, "Marigold? Co ty tady děláš?", "Talk", "Marigold", true, "Vesnice na konci světa", null, false));
+            dialog3.Add(new Dialogues("Marigold", "Aha...", 1, "Marigold? Co ty tady děláš?", "Talk", "Marigold", true, "Vesnice na konci světa", null, false));
+            dialog3.Add(new Dialogues("Marigold", "Ale proč, tak daleko od Wyzimi?", 1, "Marigold? Co ty tady děláš?", "Talk", "Marigold", true, "Vesnice na konci světa", null, false));
+            dialog3.Add(new Dialogues("Geralte", "Marigolde....Kde to jsem...", 1, "Marigold? Co ty tady děláš?", "Talk", "Marigold", true, "Vesnice na konci světa", null, false));
+            dialog3.Add(new Dialogues("Marigold", "Vítej ve vesnici na konci světa. Jsme v Koviru", 1, "Marigold? Co ty tady děláš?", "Talk", "Marigold", true, "Vesnice na konci světa", null, false));
+            dialog3.Add(new Dialogues("Geralt", "V Koviru?!", 1, "Marigold? Co ty tady děláš?", "Talk", "Marigold", true, "Vesnice na konci světa", null, false));
+            dialog3.Add(new Dialogues("Geralt", "Tak to jsem neplánoval", 1, "Marigold? Co ty tady děláš?", "Talk", "Marigold", true, "Vesnice na konci světa", null, false));
+            dialog3.Add(new Dialogues("Marigold", "To nevadí Geralte! Tahle vesnice se ti bude líbit", 1, "Marigold? Co ty tady děláš?", "Talk", "Marigold", true, "Vesnice na konci světa", null, false));
+            dialog3.Add(new Dialogues("Marigold", "Veselejší vesnici jsem už dlouho neviděl", 1, "Marigold? Co ty tady děláš?", "Talk", "Marigold", true, "Vesnice na konci světa", null, false));
+            dialog3.Add(new Dialogues("Geralt", "Tak hlavně, aby jim to vydrželo", 1, "Marigold? Co ty tady děláš?", "Talk", "Marigold", true, "Vesnice na konci světa", null, false));
+            dialog3.Add(new Dialogues("Marigold", "Támhle v hlavní budově bydlí místní starosta", 1, "Marigold? Co ty tady děláš?", "Talk", "Marigold", true, "Vesnice na konci světa", null, false));
+            dialog3.Add(new Dialogues("Marigold", "Na rohu vesnice je hospoda. Tam musís zajít! mají tam skvělé pivo", 1, "Marigold? Co ty tady děláš?", "Talk", "Marigold", true, "Vesnice na konci světa", null, false));
+            dialog3.Add(new Dialogues("Marigold", "Víš co? Zajdeme tam hned teď!", 1, "Marigold? Co ty tady děláš?", "Talk", "Marigold", true, "Vesnice na konci světa", null, false));
+            dialog3.Add(new Dialogues("Geralt", "Ne teď to nepůjde. Musím najít tu ženu, kterou jsem sem pronásledoval", 1, "Marigold? Co ty tady děláš?", "Talk", "Marigold", true, "Vesnice na konci světa", null, false));
+            dialog3.Add(new Dialogues("Marigold", "No dobře. Kdyby jsi něco potřeboval, tak budu v hospodě", 1, "Marigold? Co ty tady děláš?", "Talk", "Marigold", true, "Vesnice na konci světa", null, false));
+            dialog3.Add(new Dialogues("Geralt", "Dobře. Tak zatím Marigolde", 1, "Marigold? Co ty tady děláš?", "Talk", "Marigold", true, "Vesnice na konci světa", null, false));
+
+
+            dialog3.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Marigold", true, null, null, false));
+            dialog3.Add(new Dialogues("Marigold", "Uvidíme se později", 2, "Nashle", "Talk", "Marigold", true, null, null, false));
+
+            //----------------------STAROSTA GUSTAV----------------
+            dialog3.Add(new Dialogues("Starosta Gustav", "Vítejte dobrý pane!", 1, "Pozdrav", "Greet", "Gustav", true, null, null, false));
+
+            //1
+            dialog3.Add(new Dialogues("Geralt", "Zdravím, vy jste místní starosta?", 1, "Vy jste starosta?", "Talk", "Gustav", false, "Nestvůra v lidské podobě", null, false));
+            dialog3.Add(new Dialogues("Starosta Gustav", "Ano ano. To jsem já Gustav Brekenrigs k vašim službám pane", 1, "Vy jste starosta?", "Talk", "Gustav", false, "Nestvůra v lidské podobě", null, false));
+            dialog3.Add(new Dialogues("Geralt", "Neviděl jste tu před chvílí projít nějakou ženu, která není z vesnice? Byla ozbrojená, černé vlasy, červená zbroj", 1, "Vy jste starosta?", "Talk", "Gustav", false, "Nestvůra v lidské podobě", null, false));
+            dialog3.Add(new Dialogues("Starosta Gustav", "Obávám se, že ne... Ale nebojte máme tu dostatek pěkných paní.", 1, "Vy jste starosta?", "Talk", "Gustav", false, "Nestvůra v lidské podobě", null, false));
+            dialog3.Add(new Dialogues("Geralt", "Může být nebezpečná, tak si dávejte pozor", 1, "Vy jste starosta?", "Talk", "Gustav", false, "Nestvůra v lidské podobě", null, false));
+            dialog3.Add(new Dialogues("Starosta Gustav", "Nebojte pane. Tady ještě nikdo nikdyd nevraždil. Nemáte se čeho obávat", 1, "Vy jste starosta?", "Talk", "Gustav", false, "Nestvůra v lidské podobě", null, false));
+            dialog3.Add(new Dialogues("Starosta Gustav", "Radši dnes zajděte na představení mistra Marigolda", 1, "Vy jste starosta?", "Talk", "Gustav", false, "Nestvůra v lidské podobě", null, false));
+            dialog3.Add(new Dialogues("Geralt", "Marigo...Mistr Marigold má představení?", 1, "Vy jste starosta?", "Talk", "Gustav", false, "Nestvůra v lidské podobě", null, false));
+            dialog3.Add(new Dialogues("Starosta Gustav", "Ano přesně tak! Skvělé že? Představení je dnes v 6 večer. Nezapomeňte přijít!", 1, "Vy jste starosta?", "Talk", "Gustav", false, "Nestvůra v lidské podobě", null, false));
+            dialog3.Add(new Dialogues("Starosta Gustav", "Pokud se ale budete chtít dovědět více o vesnici, tak si promluvte s mistrem Gervantem", 1, "Vy jste starosta?", "Talk", "Gustav", false, "Vesnice na konci světa", null, false));
+            dialog3.Add(new Dialogues("Geralt", "Děkuji pane starosto. Dávejte si ale pozor", 1, "Vy jste starosta?", "Talk", "Gustav", false, "Nestvůra v lidské podobě", null, false));
+
+            dialog3.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Gustav", true, null, null, false));
+            dialog3.Add(new Dialogues("Starosta Gustav", "Nashledanou pane", 2, "Nashle", "Talk", "Gustav", true, null, null, false));
+
+            //----------------------GERVANT----------------
+            dialog3.Add(new Dialogues("Gervant", "Zdravím mistře", 1, "Pozdrav", "Greet", "Gervant", true, null, null, false));
+
+            //1
+
+
+
+            dialog3.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Gervant", true, null, null, false));
+            dialog3.Add(new Dialogues("Gervant", "Hodně štěstí mistře", 2, "Nashle", "Talk", "Gervant", true, null, null, false));
 
             manager.SaveDialogues(dialog1, path1);
             manager.SaveDialogues(dialog, path);

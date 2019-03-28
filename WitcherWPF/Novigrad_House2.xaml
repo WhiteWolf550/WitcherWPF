@@ -11,7 +11,7 @@
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="Bolehlav" ToolTip="Bolehlav" Margin="524,351,712,186">
             <Image Source="img/Characters/Bolehlav.png"></Image>
         </Button>
-        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" ToolTip="Odejít" Name="DoorO" Margin="895,396,410,398" Tag="Novigrad_House5">
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" ToolTip="Odejít" Name="DoorO" Margin="895,396,410,398" Tag="Novigrad_Outside5">
             <Image Source="img/UI/ui_door.png"></Image>
         </Button>
     </Grid>
