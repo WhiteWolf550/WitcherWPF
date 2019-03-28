@@ -18,5 +18,8 @@
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO" Margin="1296,416,10,359" Tag="Novigrad_Outside2">
             <Image Source="img/UI/ui_door.png"></Image>
         </Button>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" ToolTip="Ohniště"  Name="FirePlace" Margin="398,416,925,360">
+            <Image Source="img/UI/ui_fire.png" ></Image>
+        </Button>
     </Grid>
 </UserControl>

@@ -960,24 +960,24 @@ namespace WitcherWPF
             dialog2.Add(new Dialogues("Triss", "Morenn? Kdo je Morenn", 1, "Zjistil jsem něco nového", "Talk", "Triss", false, "Tajná organizace", null, false));
             dialog2.Add(new Dialogues("Geralt", "Zoltan a já jsme ji zachránili z té vesnice", 1, "Zjistil jsem něco nového", "Talk", "Triss", false, "Tajná organizace", null, false));
             dialog2.Add(new Dialogues("Geralt", "A teď mi řekla, že mají v noci setkání v domě za kostelem", 1, "Zjistil jsem něco nového", "Talk", "Triss", false, "Tajná organizace", null, false));
-            dialog2.Add(new Dialogues("Triss", "A dá se jí věřit", 1, "Zjistil jsem něco nového", "Talk", "Triss", false, "Tajná organizace", null, false));
+            dialog2.Add(new Dialogues("Triss", "A dá se jí věřit?", 1, "Zjistil jsem něco nového", "Talk", "Triss", false, "Tajná organizace", null, false));
             dialog2.Add(new Dialogues("Geralt", "To... nevím", 1, "Zjistil jsem něco nového", "Talk", "Triss", false, "Tajná organizace", null, false));
             dialog2.Add(new Dialogues("Geralt", "Každopádně nemám na vybranou", 1, "Zjistil jsem něco nového", "Talk", "Triss", false, "Tajná organizace", null, false));
             dialog2.Add(new Dialogues("Triss", "Buď velice opatrný Geralte...", 1, "Zjistil jsem něco nového", "Talk", "Triss", false, "Tajná organizace", null, false));
 
             //3
             dialog2.Add(new Dialogues("Geralt", "Byl jsem na tom setkání a vím nové informace", 1, "Byl jsem na tom setkání", "Talk", "Triss", false, "Tajná organizace", null, false));
-            dialog2.Add(new Dialogues("Triss", "Jaké?", 1, "Zjistil jsem něco nového", "Talk", "Triss", false, "Tajná organizace", null, false));
-            dialog2.Add(new Dialogues("Geralt", "Slyšel jsem mluvit velitele jejich organizace, ale neviděl jsem jeho obličej", 1, "Zjistil jsem něco nového", "Talk", "Triss", false, "Tajná organizace", null, false));
-            dialog2.Add(new Dialogues("Geralt", "Říkají si `Ještěři`, ale jsem si skoro jistý, že to jsou zbytky ze Salamandry", 1, "Zjistil jsem něco nového", "Talk", "Triss", false, "Tajná organizace", null, false));
-            dialog2.Add(new Dialogues("Triss", "Zajímavé... ", 1, "Zjistil jsem něco nového", "Talk", "Triss", false, "Tajná organizace", null, false));
-            dialog2.Add(new Dialogues("Triss", "Ale proč zrovna Novigrad?", 1, "Zjistil jsem něco nového", "Talk", "Triss", false, "Tajná organizace", null, false));
-            dialog2.Add(new Dialogues("Geralt", "V Novigradu lehce získají zásoby a zbraně", 1, "Zjistil jsem něco nového", "Talk", "Triss", false, "Tajná organizace", null, false));
-            dialog2.Add(new Dialogues("Geralte", "S jejich velitelem komunikovali přes nějaké zrcadlo", 1, "Zjistil jsem něco nového", "Talk", "Triss", false, "Tajná organizace", null, false));
-            dialog2.Add(new Dialogues("Triss", "Opravdu?", 1, "Zjistil jsem něco nového", "Talk", "Triss", false, "Tajná organizace", null, false));
-            dialog2.Add(new Dialogues("Triss", "Pokud bys dokázal získat ten krystal, tak bych mohla zjistit lokaci, kde je ten velitel", 1, "Zjistil jsem něco nového", "Talk", "Triss", false, "Tajná organizace", null, false));
-            dialog2.Add(new Dialogues("Geralt", "Tak já se vrátím pro ten krystal", 1, "Zjistil jsem něco nového", "Talk", "Triss", false, "Tajná organizace", null, false));
-            dialog2.Add(new Dialogues("Triss", "Buď opatrný. Možná to budou hlídat", 1, "Zjistil jsem něco nového", "Talk", "Triss", false, "Tajná organizace", null, false));
+            dialog2.Add(new Dialogues("Triss", "Jaké?", 1, "Byl jsem na tom setkání", "Talk", "Triss", false, "Tajná organizace", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Slyšel jsem mluvit velitele jejich organizace, ale neviděl jsem jeho obličej", 1, "Byl jsem na tom setkání", "Talk", "Triss", false, "Tajná organizace", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Říkají si `Ještěři`, ale jsem si skoro jistý, že to jsou zbytky ze Salamandry", 1, "Byl jsem na tom setkání", "Talk", "Triss", false, "Tajná organizace", null, false));
+            dialog2.Add(new Dialogues("Triss", "Zajímavé... ", 1, "Byl jsem na tom setkání", "Talk", "Triss", false, "Tajná organizace", null, false));
+            dialog2.Add(new Dialogues("Triss", "Ale proč zrovna Novigrad?", 1, "Byl jsem na tom setkání", "Talk", "Triss", false, "Tajná organizace", null, false));
+            dialog2.Add(new Dialogues("Geralt", "V Novigradu lehce získají zásoby a zbraně", 1, "Byl jsem na tom setkání", "Talk", "Triss", false, "Tajná organizace", null, false));
+            dialog2.Add(new Dialogues("Geralte", "S jejich velitelem komunikovali přes nějaké zrcadlo", 1, "Byl jsem na tom setkání", "Talk", "Triss", false, "Tajná organizace", null, false));
+            dialog2.Add(new Dialogues("Triss", "Opravdu?", 1, "Byl jsem na tom setkání", "Talk", "Triss", false, "Tajná organizace", null, false));
+            dialog2.Add(new Dialogues("Triss", "Pokud bys dokázal získat ten krystal, tak bych mohla zjistit lokaci, kde je ten velitel", 1, "Byl jsem na tom setkání", "Talk", "Triss", false, "Tajná organizace", null, false));
+            dialog2.Add(new Dialogues("Geralt", "Tak já se vrátím pro ten krystal", 1, "Byl jsem na tom setkání", "Talk", "Triss", false, "Tajná organizace", null, false));
+            dialog2.Add(new Dialogues("Triss", "Buď opatrný. Možná to budou hlídat", 1, "Byl jsem na tom setkání", "Talk", "Triss", false, "Tajná organizace", null, false));
 
             //4
             dialog2.Add(new Dialogues("Geralt", "Co... se stalo?", 1, "Co se stalo?", "Talk", "Triss", false, "Triss v nesnázích", null, false));

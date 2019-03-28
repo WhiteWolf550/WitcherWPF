@@ -344,6 +344,7 @@ namespace WitcherWPF
 
             //QUEST ITEMS
             items.Add(new Item("Zlatý prsten", "Zlatý prsten, který vypadá hodně staře", "Quest", "Strašidelný dům", @"img/Items/Quest_Ring.png", "žádné", null, null, null, 0));
+            items.Add(new Item("Magický krystal", "Krytal, který slouží k zahájení komunikace zrcadlem", "Quest", "Tajná organizace", @"img/Items/Quest_Stone.png", "žádné", null, null, null, 0));
             items.Add(new Item("Rodiný prsten", "Prsten, který vypadá hodně staře, asi s předával přes generace", "Quest", "Zlatý prsten", @"img/Items/Quest_FamilyRing.png", "žádné", null, null, null, 0));
 
             //SPECIAL

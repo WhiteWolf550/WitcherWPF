@@ -87,6 +87,7 @@
     <Compile Include="BestiaryJournal.xaml.cs">
       <DependentUpon>BestiaryJournal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Bolehlav.cs" />
     <Compile Include="Character.xaml.cs">
       <DependentUpon>Character.xaml</DependentUpon>
     </Compile>
@@ -155,6 +156,9 @@
     <Compile Include="Monster.cs" />
     <Compile Include="Murderer1.cs" />
     <Compile Include="Music.cs" />
+    <Compile Include="Novigrad_Cave.xaml.cs">
+      <DependentUpon>Novigrad_Cave.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Novigrad_Crypt.xaml.cs">
       <DependentUpon>Novigrad_Crypt.xaml</DependentUpon>
     </Compile>
@@ -163,6 +167,9 @@
     </Compile>
     <Compile Include="Novigrad_House2.xaml.cs">
       <DependentUpon>Novigrad_House2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Novigrad_House4.xaml.cs">
+      <DependentUpon>Novigrad_House4.xaml</DependentUpon>
     </Compile>
     <Compile Include="Novigrad_Inn.xaml.cs">
       <DependentUpon>Novigrad_Inn.xaml</DependentUpon>
@@ -187,6 +194,9 @@
     </Compile>
     <Compile Include="Novigrad_Outside7.xaml.cs">
       <DependentUpon>Novigrad_Outside7.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Novigrad_Prison.xaml.cs">
+      <DependentUpon>Novigrad_Prison.xaml</DependentUpon>
     </Compile>
     <Compile Include="Old_wyzima2.xaml.cs">
       <DependentUpon>Old_wyzima2.xaml</DependentUpon>
@@ -368,6 +378,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Novigrad_Cave.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Novigrad_Crypt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -377,6 +391,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Novigrad_House2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Novigrad_House4.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -409,6 +427,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Novigrad_Outside7.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Novigrad_Prison.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -723,6 +745,11 @@
     <Content Include="cutscenes\Chapter1Cut3Live.mp4" />
     <Content Include="cutscenes\Chapter1Cut4.mp4" />
     <Content Include="cutscenes\Chapter2Cut1.mp4" />
+    <Content Include="cutscenes\Chapter2Cut2.mp4" />
+    <Content Include="cutscenes\Chapter2Cut3.mp4" />
+    <Content Include="cutscenes\Chapter2Cut4.mp4" />
+    <Content Include="cutscenes\Chapter2Cut5.mp4" />
+    <Content Include="cutscenes\Chapter2Cut6.mp4" />
     <Content Include="cutscenes\DecisionVideo.mp4" />
     <Content Include="gifs\Characters\Geralt.mp4" />
     <Resource Include="img\Char\Geralt.png" />
@@ -799,6 +826,11 @@
     <Resource Include="img\Characters\Messenger.png" />
     <Resource Include="img\Characters\Trader2.png" />
     <Resource Include="img\Items\Quest_FamilyRing.png" />
+    <Resource Include="img\Locations\Novigrad_Cave.png" />
+    <Resource Include="img\Locations\Novigrad_House4.png" />
+    <Resource Include="img\Locations\Novigrad_Prison.png" />
+    <Resource Include="img\Characters\Lizard.png" />
+    <Resource Include="img\Items\Quest_Stone.png" />
     <Content Include="sounds\ghoul\ghoul_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

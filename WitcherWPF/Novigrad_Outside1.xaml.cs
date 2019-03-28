@@ -29,7 +29,7 @@ namespace WitcherWPF {
         public Novigrad_Outside1() {
             InitializeComponent();
             LoadBackground();
-            Prison();
+            //Prison();
             Timer();
             time.Start();
         }
@@ -51,22 +51,24 @@ namespace WitcherWPF {
             LoadBackground();
 
         }
-        public void Prison() {
+        public int Prison() {
+            int go = 2;
             pquest = manager.LoadPlayerQuests();
             game = manager.LoadGame();
             foreach (PlayerQuest item in pquest) {
-                if (item.Quest.QuestName == "Tajná organizace" && item.Quest.QuestID == 1) {
+                if (item.Quest.QuestName == "Tajná organizace" && item.Quest.QuestID == 2) {
                     foreach(Game item2 in game) {
                         if (item2.MayorDead == true) {
-                            ActivateDialogue("Co tady děláš?");
-                            location.CutsceneTransitionShow("Chapter2Cut2");
+                            go = 1;
                         }else {
-                            ActivateDialogue("Co tu děláš?");
-                            location.GetDialogue("Morenn");
+                            go = 0;
                         }
                     }
                 }
             }
+            return go;
+            
+            
         }
         public void ActivateDialogue(string Choice) {
             dialogues = manager.LoadDialogue(Globals.DialoguePath);

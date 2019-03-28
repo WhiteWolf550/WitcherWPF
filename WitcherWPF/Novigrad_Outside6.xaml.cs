@@ -52,7 +52,7 @@ namespace WitcherWPF {
         public void DoorShow() {
             pquest = manager.LoadPlayerQuests();
             foreach (PlayerQuest item in pquest) {
-                if (item.Quest.QuestName == "Tajná organizace" && item.Quest.QuestID == 4) {
+                if (item.Quest.QuestName == "Tajná organizace" && item.Quest.QuestID == 4 && Globals.Hour == 23) {
                     DoorO.Visibility = Visibility.Visible;
                 }
             }

@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="WitcherWPF.Novigrad_House4"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WitcherWPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="894" d:DesignWidth="1426.666">
+    <Grid>
+        <Image x:Name="LocationImage" Source="img/Locations/Novigrad_House4.png" Margin="-99,-42,-80,-48" Grid.ColumnSpan="3" Grid.RowSpan="3"></Image>
+        <Button Name="Loot" Height="Auto" Tag="Tajná organizace" Margin="298,481,1047,341" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold">
+            <Image Source="img/UI/ui_loot.png" RenderTransformOrigin="0.5,0.5" Height="45" Width="44">
+            </Image>
+        </Button>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" Tag="Tajná organizace"  Name="Lizard" ToolTip="Bojovník organizace" Margin="260,358,1007,240">
+            <Image Source="img/Characters/Lizard.png"></Image>
+        </Button>
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO" Margin="876,390,455,426" Tag="Novigrad_Outside6">
+            <Image Source="img/UI/ui_door.png"></Image>
+        </Button>
+    </Grid>
+</UserControl>

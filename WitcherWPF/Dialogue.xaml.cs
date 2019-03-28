@@ -482,6 +482,15 @@ namespace WitcherWPF
                         break;
                     }
                 }
+                manager.SavePlayerInventory(inventoryitems);
+            }
+            if (Dialogue.Choice == "Co tady děláš?") {
+                Globals.location = "Novigrad_Outside3";
+            }
+            if (Dialogue.Choice == "Dejte mi Triss a přežijete") {
+                Enemy = "Bolehlav";
+                CutsceneName = "Chapter2Cut4";
+                TravelShow();
             }
 
 

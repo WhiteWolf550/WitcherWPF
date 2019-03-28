@@ -29,6 +29,8 @@ namespace WitcherWPF {
         Music media = new Music();
         Button butclick = new Button();
         UserControl CurrentLocation = new UserControl();
+        List<Dialogues> dialogues = new List<Dialogues>();
+        FileManager manager = new FileManager();
         static Button Loot = new Button();
         string QuestName = null;
         string MonsterName = null;
@@ -180,6 +182,7 @@ namespace WitcherWPF {
             Novigrad_House1.Triss.Click += new RoutedEventHandler(GetDialogue_Click);
             Novigrad_House1.Loot.Click += new RoutedEventHandler(GetLoot);
             Novigrad_House1.DoorO.Click += new RoutedEventHandler(Switch_Click);
+            Novigrad_House1.FirePlace.Click += new RoutedEventHandler(Meditation);
         }
         public void AddHandlersNovHo2(Novigrad_House2 Novigrad_House2) {
             Novigrad_House2.Bolehlav.Click += new RoutedEventHandler(GetDialogue_Click);
@@ -192,6 +195,18 @@ namespace WitcherWPF {
             Novigrad_Inn.Griffarin.Click += new RoutedEventHandler(GetDialogue_Click);
             Novigrad_Inn.Trader2.Click += new RoutedEventHandler(GetDialogue_Click);
             Novigrad_Inn.DoorO.Click += new RoutedEventHandler(Switch_Click);
+        }
+        public void AddHandlersNovHo4(Novigrad_House4 Nov) {
+            Nov.Lizard.Click += new RoutedEventHandler(EnterCombatChQuest);
+            Nov.Loot.Click += new RoutedEventHandler(GetLoot);
+            Nov.DoorO.Click += new RoutedEventHandler(Switch_Click);
+        }
+        public void AddHandlersNovCave(Novigrad_Cave Nov) {
+            Nov.Bolehlav.Click += new RoutedEventHandler(GetDialogue_Click);
+            Nov.FirePlace.Click += new RoutedEventHandler(Meditation);
+        }
+        public void AddHandlersNovPris(Novigrad_Prison Nov) {
+            Nov.Morenn.Click += new RoutedEventHandler(GetDialogue_Click);
         }
         public Location(Frame parentFrame, string location, Time time) : this() {
             this.parentFrame = parentFrame;
@@ -285,6 +300,7 @@ namespace WitcherWPF {
                 grid.Children.Add(location);
                 AddHandlersNovO1(location);
                 CurrentLocation = location;
+                //PrisonCheck(location);
             } else if (loc == "Novigrad_Outside2") {
                 Novigrad_Outside2 location = new Novigrad_Outside2();
                 grid.Children.Add(location);
@@ -335,6 +351,21 @@ namespace WitcherWPF {
                 grid.Children.Add(location);
                 AddHandlersNovHo2(location);
                 CurrentLocation = location;
+            }else if (loc == "Novigrad_House4") {
+                Novigrad_House4 location = new Novigrad_House4();
+                grid.Children.Add(location);
+                AddHandlersNovHo4(location);
+                CurrentLocation = location;
+            }else if (loc == "Novigrad_Prison") {
+                Novigrad_Prison location = new Novigrad_Prison();
+                grid.Children.Add(location);
+                AddHandlersNovPris(location);
+                CurrentLocation = location;
+            }else if (loc == "Novigrad_Cave") {
+                Novigrad_Cave location = new Novigrad_Cave();
+                grid.Children.Add(location);
+                AddHandlersNovCave(location);
+                CurrentLocation = location;
             }
         }
         public Location(Frame parentFrame, Time time) : this() {
@@ -342,6 +373,24 @@ namespace WitcherWPF {
             this.time = time;
             loc = Globals.location;
             SetLocation();
+        }
+        public void PrisonCheck(Novigrad_Outside1 location) {
+            if (location.Prison() == 1) {
+                ActivateDialogue("Co tady děláš?");
+                CutsceneTransitionShow("Chapter2Cut2");
+            } else if (location.Prison() == 0) {
+                ActivateDialogue("Co tu děláš?");
+                GetDialogue("Morenn");
+            }
+        }
+        public void ActivateDialogue(string Choice) {
+            dialogues = manager.LoadDialogue(Globals.DialoguePath);
+            foreach (Dialogues item in dialogues) {
+                if (item.Choice == Choice) {
+                    item.Enabled = true;
+                }
+            }
+            manager.SaveDialogues(dialogues, Globals.DialoguePath);
         }
         public void GetInventory(object sender, RoutedEventArgs e) {
             Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);
@@ -543,6 +592,7 @@ namespace WitcherWPF {
                 grid.Children.Add(location);
                 AddHandlersNovO1(location);
                 CurrentLocation = location;
+                PrisonCheck(location);
             } else if (loca == "Novigrad_Outside2") {
                 Novigrad_Outside2 location = new Novigrad_Outside2();
                 grid.Children.Add(location);
@@ -592,6 +642,21 @@ namespace WitcherWPF {
                 Novigrad_House2 location = new Novigrad_House2();
                 grid.Children.Add(location);
                 AddHandlersNovHo2(location);
+                CurrentLocation = location;
+            } else if (loca == "Novigrad_House4") {
+                Novigrad_House4 location = new Novigrad_House4();
+                grid.Children.Add(location);
+                AddHandlersNovHo4(location);
+                CurrentLocation = location;
+            } else if (loca == "Novigrad_Prison") {
+                Novigrad_Prison location = new Novigrad_Prison();
+                grid.Children.Add(location);
+                AddHandlersNovPris(location);
+                CurrentLocation = location;
+            } else if (loca == "Novigrad_Cave") {
+                Novigrad_Cave location = new Novigrad_Cave();
+                grid.Children.Add(location);
+                AddHandlersNovCave(location);
                 CurrentLocation = location;
             }
         }

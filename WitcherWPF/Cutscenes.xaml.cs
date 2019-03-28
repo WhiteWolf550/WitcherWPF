@@ -96,6 +96,23 @@ namespace WitcherWPF
                 Globals.location = "Novigrad_Outside2";
                 time.Visibility = Visibility.Visible;
                 parentFrame.Navigate(new Dialogue(parentFrame, "Messenger", time));
+            }else if (CutsceneName == "Chapter2Cut2") {
+                Globals.location = "Novigrad_Prison";
+                time.Visibility = Visibility.Visible;
+                Globals.Combat = false;
+                parentFrame.Navigate(new Location(parentFrame, time));
+                
+            }else if (CutsceneName == "Chapter2Cut3") {
+                time.Visibility = Visibility.Visible;
+                Globals.Combat = false;
+                parentFrame.Navigate(new Location(parentFrame, time));
+                quest.UpdateQuest("Tajná organizace", QuestPop, QueName, QueGoal);
+            }else if (CutsceneName == "Chapter2Cut4") {
+                CutsceneName = "Chapter2Cut5";
+                CutPlay();
+            }else if (CutsceneName == "Chapter2Cut6") {
+                CutsceneName = "Chapter3Cut1";
+                CutPlay();
             }
 
         }
