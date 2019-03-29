@@ -71,7 +71,15 @@ namespace WitcherWPF {
             
         }
         public int End() {
-
+            int ret = 0;
+            pquest = manager.LoadPlayerQuests();
+            game = manager.LoadGame();
+            foreach (PlayerQuest item in pquest) {
+                if (item.Quest.QuestName == "Tajná organizace" && item.Quest.QuestID == 10) {
+                    ret = 1;
+                }
+            }
+            return ret;
         }
         public void ActivateDialogue(string Choice) {
             dialogues = manager.LoadDialogue(Globals.DialoguePath);

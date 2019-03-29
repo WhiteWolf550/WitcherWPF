@@ -595,6 +595,7 @@ namespace WitcherWPF {
                 AddHandlersNovO1(location);
                 CurrentLocation = location;
                 PrisonCheck(location);
+                EndCheck(location);
             } else if (loca == "Novigrad_Outside2") {
                 Novigrad_Outside2 location = new Novigrad_Outside2();
                 grid.Children.Add(location);
@@ -661,6 +662,11 @@ namespace WitcherWPF {
                 AddHandlersNovCave(location);
                 CurrentLocation = location;
             }
+        }
+        public void EndCheck(Novigrad_Outside1 location) {
+            if (location.End() == 1) {
+                CutsceneTransitionShow("Chapter2Cut6");
+            } 
         }
         public void Meditation(object sender, RoutedEventArgs e) {
             Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);

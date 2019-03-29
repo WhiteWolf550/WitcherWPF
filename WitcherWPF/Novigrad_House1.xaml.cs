@@ -70,6 +70,8 @@ namespace WitcherWPF {
                     Triss.Visibility = Visibility.Visible;
                 }else if (item.Quest.QuestName == "Tajná organizace" && item.Quest.QuestID > 10) {
                     Triss.Visibility = Visibility.Visible;
+                }else if(item.Quest.QuestName == "Pach velkoměsta" && item.Quest.QuestID >= 1) {
+                    Triss.Visibility = Visibility.Visible;
                 }
             }
         }
