@@ -124,11 +124,73 @@ namespace WitcherWPF {
                 sound.PlaySound(QuestSound);
                 await Task.Delay(5000);
                 QuestHide(QuestPop);
-                
-                
+                        
+
+        }
+        public void UpdateQuest(string QuestName) {
+            Brush c = Brushes.Yellow;
+            string prolog = Globals.DialoguePath;
+            Player player = new Player();
+            List<Quest> Quests = manager.LoadQuests();
+            List<Player> playerlist = manager.LoadPlayer();
+            List<PlayerQuest> playerQuests = manager.LoadPlayerQuests();
+            List<Dialogues> dialogues = manager.LoadDialogue(prolog);
+            int id = 0;
+            PlayerQuest playerquest = new PlayerQuest();
+            int questexp = 0;
+            string QuestSound = "QuestUpdate";
+            int questreward = 0;
+            var matches = playerQuests.Where(s => s.Quest.QuestName == QuestName);
+            foreach (PlayerQuest item in matches) {
+                id = item.Quest.QuestID;
+            }
+            var findquest = Quests.Where(s => s.QuestName == QuestName && s.QuestID == id + 1);
+
+            if (matches.Count() == 0) {
+                findquest = Quests.Where(s => s.QuestName == QuestName && s.QuestID == 1);
+                foreach (Quest item in findquest) {
+                    playerQuests.Add(new PlayerQuest(item));
+                    
+                }
+            } else {
+                foreach (PlayerQuest item in matches) {
+                    foreach (Quest item2 in findquest) {
+                        item.Quest.QuestID++;
+                        item.Quest.QuestDescription = item2.QuestDescription;
+                        item.Quest.QuestGoal = item2.QuestGoal;
+                        item.Quest.DialogueActivate = item2.DialogueActivate;
+                        playerquest = item;
+                        
+                        questexp = item2.experience;
+                        questreward = item2.reward;
+
+                        if (item2.DialogueActivate != null) {
+                            var mat = dialogues.Where(s => s.Choice == item2.DialogueActivate);
+                            foreach (var di in mat) {
+                                di.Enabled = true;
+                            }
+                        }
+                    }
+
+                }
+            }
+            if (questexp != 0) {
+                player.AddXP(questexp, playerlist);
+                player.LevelUP(playerlist);
+                playerQuests.Remove(playerquest);
+                c = Brushes.Green;
+                QuestSound = "QuestComplete";
+            }
+            if (questreward != 0) {
+                player.AddMoney(questreward, playerlist);
+
+            }
+            manager.SavePlayerQuests(playerQuests);
+            manager.SaveDialogues(dialogues, prolog);
+           
+            sound.PlaySound(QuestSound);
             
-            
-            
+
 
         }
         public void CreatePlayerQuests() {

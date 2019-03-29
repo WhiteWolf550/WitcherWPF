@@ -70,6 +70,9 @@ namespace WitcherWPF {
             
             
         }
+        public int End() {
+
+        }
         public void ActivateDialogue(string Choice) {
             dialogues = manager.LoadDialogue(Globals.DialoguePath);
             foreach(Dialogues item in dialogues) {

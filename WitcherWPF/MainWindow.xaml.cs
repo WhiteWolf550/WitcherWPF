@@ -33,6 +33,7 @@ namespace WitcherWPF {
             InitializeComponent();
             //dia.CreateDialogues();
             //q.CreateQuests();
+            item.CreateItems();
             
 
             

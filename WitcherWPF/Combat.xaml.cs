@@ -627,6 +627,10 @@ namespace WitcherWPF {
                 enemy = new Barghest();
             }else if (EnemyMainName == "Human1") {
                 enemy = new Murderer1();
+            }else if (EnemyMainName == "Bolehlav") {
+                enemy = new Bolehlav();
+            }else if (EnemyMainName == "Ještěr") {
+                enemy = new Lizard();
             }
         }
         public void LoadEnemy() {

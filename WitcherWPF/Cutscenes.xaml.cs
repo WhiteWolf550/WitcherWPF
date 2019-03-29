@@ -105,12 +105,21 @@ namespace WitcherWPF
             }else if (CutsceneName == "Chapter2Cut3") {
                 time.Visibility = Visibility.Visible;
                 Globals.Combat = false;
+                Globals.Hour = 0;
+                Globals.Minute = 0;
                 parentFrame.Navigate(new Location(parentFrame, time));
                 quest.UpdateQuest("Tajná organizace", QuestPop, QueName, QueGoal);
             }else if (CutsceneName == "Chapter2Cut4") {
                 CutsceneName = "Chapter2Cut5";
                 CutPlay();
-            }else if (CutsceneName == "Chapter2Cut6") {
+            }else if (CutsceneName == "Chapter2Cut5") {
+                time.Visibility = Visibility.Visible;
+                Globals.Combat = false;
+                Globals.Hour = 10;
+                Globals.Minute = 21;
+                Globals.location = "Novigrad_House1";
+                parentFrame.Navigate(new Dialogue(parentFrame, "Triss", time));
+            } else if (CutsceneName == "Chapter2Cut6") {
                 CutsceneName = "Chapter3Cut1";
                 CutPlay();
             }

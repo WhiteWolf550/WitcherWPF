@@ -131,6 +131,7 @@
     <Compile Include="Journal.xaml.cs">
       <DependentUpon>Journal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lizard.cs" />
     <Compile Include="LoadScreen.xaml.cs">
       <DependentUpon>LoadScreen.xaml</DependentUpon>
     </Compile>

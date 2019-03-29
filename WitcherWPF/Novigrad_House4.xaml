@@ -12,7 +12,7 @@
             <Image Source="img/UI/ui_loot.png" RenderTransformOrigin="0.5,0.5" Height="45" Width="44">
             </Image>
         </Button>
-        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" Tag="Tajná organizace"  Name="Lizard" ToolTip="Bojovník organizace" Margin="260,358,1007,240">
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" Tag="Tajná organizace"  Name="Lizard" ToolTip="Ještěr" Margin="260,358,1007,240">
             <Image Source="img/Characters/Lizard.png"></Image>
         </Button>
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO" Margin="876,390,455,426" Tag="Novigrad_Outside6">

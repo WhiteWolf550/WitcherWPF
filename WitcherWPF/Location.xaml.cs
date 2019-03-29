@@ -173,10 +173,12 @@ namespace WitcherWPF {
         public void AddHandlersNovO6(Novigrad_Outside6 Novigrad_Outside6) {
             Novigrad_Outside6.Steps.Click += new RoutedEventHandler(Switch_Click);
             Novigrad_Outside6.DoorO.Click += new RoutedEventHandler(EnterCutscene);
+            Novigrad_Outside6.DoorO1.Click += new RoutedEventHandler(Switch_Click);
         }
         public void AddHandlersNovO7(Novigrad_Outside7 Novigrad_Outside7) {
             Novigrad_Outside7.DoorO.Click += new RoutedEventHandler(Switch_Click);
             Novigrad_Outside7.DoorO2.Click += new RoutedEventHandler(Switch_Click);
+            Novigrad_Outside7.DoorO1.Click += new RoutedEventHandler(Switch_Click);
         }
         public void AddHandlersNovHo1(Novigrad_House1 Novigrad_House1) {
             Novigrad_House1.Triss.Click += new RoutedEventHandler(GetDialogue_Click);

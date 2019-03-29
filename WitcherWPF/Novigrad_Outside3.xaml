@@ -30,7 +30,7 @@
             </Button.RenderTransform>
             <Image Source="img/UI/ui_steps.png"></Image>
         </Button>
-        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO" Margin="1285,499,10,286" Tag="Novigrad_Crypt">
+        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO" Margin="1285,499,10,286" Tag="Novigrad_Outside7">
             <Image Source="img/UI/ui_door.png"></Image>
         </Button>
     </Grid>

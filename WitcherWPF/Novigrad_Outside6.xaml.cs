@@ -26,7 +26,9 @@ namespace WitcherWPF {
             
             InitializeComponent();
             DoorO.Visibility = Visibility.Hidden;
+            DoorO1.Visibility = Visibility.Hidden;
             DoorShow();
+            DoorShow2();
             LoadBackground();
             Timer();
             time.Start();
@@ -54,6 +56,14 @@ namespace WitcherWPF {
             foreach (PlayerQuest item in pquest) {
                 if (item.Quest.QuestName == "Tajná organizace" && item.Quest.QuestID == 4 && Globals.Hour == 23) {
                     DoorO.Visibility = Visibility.Visible;
+                }
+            }
+        }
+        public void DoorShow2() {
+            pquest = manager.LoadPlayerQuests();
+            foreach (PlayerQuest item in pquest) {
+                if (item.Quest.QuestName == "Tajná organizace" && item.Quest.QuestID == 6) {
+                    DoorO1.Visibility = Visibility.Visible;
                 }
             }
         }

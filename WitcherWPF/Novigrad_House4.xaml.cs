@@ -23,6 +23,8 @@ namespace WitcherWPF {
         public Novigrad_House4() {
             InitializeComponent();
             Lizard.Visibility = Visibility.Hidden;
+            Loot.Visibility = Visibility.Hidden;
+            Crystal();
             Enem();
         }
 
@@ -31,6 +33,14 @@ namespace WitcherWPF {
             foreach (PlayerQuest item in pquest) {
                 if (item.Quest.QuestName == "Tajná organizace" && item.Quest.QuestID == 6) {
                     Lizard.Visibility = Visibility.Visible;
+                }
+            }
+        }
+        public void Crystal() {
+            pquest = manager.LoadPlayerQuests();
+            foreach (PlayerQuest item in pquest) {
+                if (item.Quest.QuestName == "Tajná organizace" && item.Quest.QuestID == 7) {
+                    Loot.Visibility = Visibility.Visible;
                 }
             }
         }

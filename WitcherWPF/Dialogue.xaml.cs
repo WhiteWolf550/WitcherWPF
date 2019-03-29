@@ -492,6 +492,10 @@ namespace WitcherWPF
                 CutsceneName = "Chapter2Cut4";
                 TravelShow();
             }
+            if (Dialogue.Choice == "Co se stalo?") {
+                inventory.DropItem("Magický krystal", inventoryitems);
+                manager.SavePlayerInventory(inventoryitems);
+            }
 
 
         }

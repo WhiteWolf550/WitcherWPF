@@ -1259,8 +1259,15 @@ namespace WitcherWPF
             dialog3.Add(new Dialogues("Gervant", "Zdravím mistře", 1, "Pozdrav", "Greet", "Gervant", true, null, null, false));
 
             //1
-
-
+            dialog3.Add(new Dialogues("Geralt", "Vy jste Gervant?", 1, "Jsi Gervant?", "Talk", "Gervant", false, "Nestvůra v lidské podobě", null, false));
+            dialog3.Add(new Dialogues("Gervant", "Ano to jsem já. Potřebujete něco?", 1, "Jsi Gervant?", "Talk", "Gervant", false, "Nestvůra v lidské podobě", null, false));
+            dialog3.Add(new Dialogues("Geralt", "Neviděl jste tu před chvilí projít ozbrojenou ženu v červené zbroji?", 1, "Jsi Gervant?", "Talk", "Gervant", false, "Nestvůra v lidské podobě", null, false));
+            dialog3.Add(new Dialogues("Gervant", "Hmmmm...", 1, "Jsi Gervant?", "Talk", "Gervant", false, "Nestvůra v lidské podobě", null, false));
+            dialog3.Add(new Dialogues("Gervant", "Ne. Obávám se že ne", 1, "Jsi Gervant?", "Talk", "Gervant", false, "Nestvůra v lidské podobě", null, false));
+            dialog3.Add(new Dialogues("Geralt", "Je tu nějaké místo, kde by se mohla schovat?", 1, "Jsi Gervant?", "Talk", "Gervant", false, "Nestvůra v lidské podobě", null, false));
+            dialog3.Add(new Dialogues("Gervant", "Hmm.. Mohla by se schovat v domě ve vesnici, ale to je nepravděpodobné", 1, "Jsi Gervant?", "Talk", "Gervant", false, "Nestvůra v lidské podobě", null, false));
+            dialog3.Add(new Dialogues("Gervant", "Tady k sobě domů nikdo nepustí cizince", 1, "Jsi Gervant?", "Talk", "Gervant", false, "Nestvůra v lidské podobě", null, false));
+            dialog3.Add(new Dialogues("Geralt", "Dobře, děkuji", 1, "Jsi Gervant?", "Talk", "Gervant", false, "Nestvůra v lidské podobě", null, false));
 
             dialog3.Add(new Dialogues("Geralt", "Sbohem", 2, "Nashle", "Talk", "Gervant", true, null, null, false));
             dialog3.Add(new Dialogues("Gervant", "Hodně štěstí mistře", 2, "Nashle", "Talk", "Gervant", true, null, null, false));

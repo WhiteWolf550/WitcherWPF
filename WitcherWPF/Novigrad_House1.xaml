@@ -21,5 +21,9 @@
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto" ToolTip="Ohniště"  Name="FirePlace" Margin="398,416,925,360">
             <Image Source="img/UI/ui_fire.png" ></Image>
         </Button>
+        <StackPanel Visibility="Hidden" Opacity="0"  Name="QuestPop" HorizontalAlignment="Center" VerticalAlignment="Top" MinHeight="100" MinWidth="100" Grid.Column="1" Grid.Row="2">
+            <Label  HorizontalContentAlignment="Center" Name="QueName" Content="New Quest" FontSize="55" Foreground="#DDE82323" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></Label>
+            <TextBlock TextWrapping="Wrap" Name="QueGoal" Text="New Goal" FontSize="35" Background="{x:Null}" Foreground="#DDE82323" HorizontalAlignment="Center" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></TextBlock>
+        </StackPanel>
     </Grid>
 </UserControl>

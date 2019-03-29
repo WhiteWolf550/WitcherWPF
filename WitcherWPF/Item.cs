@@ -75,16 +75,19 @@ namespace WitcherWPF
                 if (matches.Count() == 1) {
                     lootcount = 0;
                 }
-            }else {
+            } else {
                 lootcount = rand.Next(1, 3);
             }
             
-            
-            if (!File.Exists(lootpath)) {
+
+                if (!File.Exists(lootpath)) {
 
                 for (int i = 0;i <= lootcount;i++) {
                     int rn = rand.Next(0, itc);
                     int randomcount = rand.Next(1, 5);
+                    if (LootType != "Loot") {
+                        randomcount = 1;
+                    }
                     
                     if (!useditems.Contains(rn)) {
                         Image inventoryimage = new Image();
