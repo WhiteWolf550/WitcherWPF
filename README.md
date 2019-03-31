@@ -13,8 +13,8 @@ The Witcher: Witcher's Secrets je akční RPG
 Hra se ovládá hlavně pomocí myši.
 Hra je hodně soustředěná na příběh, ale nabízí, také zajímavý soubojový systém podobnému tomu ze zaklínače 1.
 
-<b>Herní doba</b>
-
+<b>Herní doba</b><br>
+1 hodina+<br>
 <b>Soubojový systém</b>
 
 Hráč se na souboj může připravit pomocí elixírů, které se si může vytvořit u ohniště, nebo krbu.
