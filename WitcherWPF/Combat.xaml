@@ -35,7 +35,7 @@
         <Rectangle Fill="Black" Opacity="0.5" Name="Blackout" Visibility="Hidden" ></Rectangle>
         <TextBox Background="Black" Foreground="Orange" TextAlignment="Left"  VerticalContentAlignment="Top"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Name="textb" Width="314" Height="138"/>
 
-        <Label  HorizontalContentAlignment="Right" MinWidth="100" Name="EnemyName" Content="EnemyName" FontSize="40" Padding="0" Margin="876,607,255,231" Background="{x:Null}" Foreground="#DDFFFFFF"></Label>
+        <Label  HorizontalContentAlignment="Right" MinWidth="100" Name="EnemyName" Content="EnemyName" FontSize="40" Padding="0" Margin="876,607,255,231" Background="{x:Null}" Foreground="#DDFFFFFF" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></Label>
 
         <ProgressBar Padding="0" Name="EnduranceBar" Margin="194,0,1046,813" VerticalAlignment="Bottom" HorizontalAlignment="Center" Minimum="0" Maximum="100" Value="100" Width="187" Height="12" Background="#FF303030">
             <ProgressBar.Foreground>

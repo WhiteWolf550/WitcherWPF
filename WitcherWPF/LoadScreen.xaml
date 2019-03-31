@@ -32,7 +32,7 @@
                                 <DoubleAnimation
                 Storyboard.TargetName="LoadBar" 
                 Storyboard.TargetProperty="Value"
-                From="0" To="100" Duration="0:0:10"  />
+                From="0" To="100" Duration="0:0:5"  />
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger>

@@ -186,8 +186,8 @@
 
         <Image Source="img/UI/Meditate.png" Margin="56,218,933,215" ></Image>
         <StackPanel Orientation="Horizontal" Margin="214,686,1048,136">
-            <Label FontSize="15" Content="Meditovat do: " Foreground="#DDFFFFFF"></Label>
-            <Label FontSize="15" Name="Hour" Content="12" Background="{x:Null}" Foreground="#DDFFFFFF" Width="57"></Label>
+            <Label FontSize="15" Content="Meditovat do: " Foreground="#DDFFFFFF" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></Label>
+            <Label FontSize="15" Name="Hour" Content="12" Background="{x:Null}" Foreground="#DDFFFFFF" Width="57" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></Label>
         </StackPanel>
         <Button Click="StartMeditation_Click" Name="StartMeditation" Background="{x:Null}" BorderBrush="{x:Null}" Margin="242,323,1127,445" Height="Auto"></Button>
         <ScrollBar Name="ScrollBR" Width="300" ValueChanged="ScrollBar_ValueChanged" Height="0" Orientation="Horizontal" Maximum="23" Minimum="0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="118,714,1009,118"/>

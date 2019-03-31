@@ -11,9 +11,9 @@
     <Grid>
         <Image Source="img/UI/Pause_back.jpg" Margin="-120,-54,-62,-60"></Image>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" MinHeight="100" MinWidth="100">
-            <Button Content="Pokračovat" Click="Continue_Click" FontSize="70" Background="{x:Null}" BorderBrush="{x:Null}" MinHeight="100"></Button>
-            <Button Content="Návrat do hlavního menu" Click="Menu_Click" FontSize="70" Background="{x:Null}" BorderBrush="{x:Null}" MinHeight="100"></Button>
-            <Button Content="Ukončit a uložit" Click="ExitnSave_Click" FontSize="70" Background="{x:Null}" BorderBrush="{x:Null}" MinHeight="100"></Button>
+            <Button Content="Pokračovat" Click="Continue_Click" FontSize="70" Background="{x:Null}" BorderBrush="{x:Null}" MinHeight="100" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></Button>
+            <Button Content="Návrat do hlavního menu" Click="Menu_Click" FontSize="70" Background="{x:Null}" BorderBrush="{x:Null}" MinHeight="100" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></Button>
+            <Button Content="Ukončit a uložit" Click="ExitnSave_Click" FontSize="70" Background="{x:Null}" BorderBrush="{x:Null}" MinHeight="100" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></Button>
         </StackPanel>
     </Grid>
 </Page>

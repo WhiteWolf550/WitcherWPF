@@ -435,6 +435,7 @@ namespace WitcherWPF {
 
             }
             Globals.LootReset = false;
+            LocationSwitch(Globals.location);
             DisableLoot();
         }
         public void ScriptedEvents(string Event) {
@@ -703,7 +704,7 @@ namespace WitcherWPF {
         }
         private void EnterCombat1(object sender, RoutedEventArgs e) {
             Button button = (sender as Button);
-            //MonsterName = button.Tag.ToString();
+            MonsterName = button.Tag.ToString();
 
             CombatTransitionShow();
         }

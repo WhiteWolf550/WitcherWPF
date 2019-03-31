@@ -20,18 +20,14 @@
             <RowDefinition Height="372*"/>
         </Grid.RowDefinitions>
         <Image Source="img/UI/back.png" Margin="-132,-84,-124,-63" Grid.RowSpan="2" Grid.ColumnSpan="4"></Image>
-
-        <local:AardSkills x:Name="Aard" Width="1324" Height="856" Grid.ColumnSpan="3" Margin="32,57,49,-63" Grid.RowSpan="2" Visibility="Hidden"/>
-        <local:IgniSkills x:Name="Igni" Width="1324" Height="856" Grid.ColumnSpan="3" Margin="32,57,49,-63" Grid.RowSpan="2" Visibility="Hidden"/>
-        <local:QuenSkills x:Name="Quen" Width="1324" Height="856" Grid.ColumnSpan="3" Margin="32,57,49,-63" Grid.RowSpan="2" Visibility="Hidden"/>
-        <local:AxiiSkills x:Name="Axii" Width="1324" Height="856" Grid.ColumnSpan="3" Margin="32,57,49,-63" Grid.RowSpan="2" Visibility="Hidden"/>
-        <local:YrdenSkills x:Name="Yrden" Width="1324" Height="856" Grid.ColumnSpan="3" Margin="32,57,49,-63" Grid.RowSpan="2" Visibility="Hidden"/>
-        <local:StrongSkills x:Name="Strength" Width="1324" Height="856" Grid.ColumnSpan="3" Margin="32,57,49,-63" Grid.RowSpan="2" Visibility="Hidden"/>
-        <local:EnduranceSkills x:Name="Endurance" Width="1324" Height="856" Grid.ColumnSpan="3" Margin="32,57,49,-63" Grid.RowSpan="2" Visibility="Hidden"/>
+        <WrapPanel Name="grid"  Width="1324" Height="856" Grid.ColumnSpan="3" Margin="32,57,49,-63" Grid.RowSpan="2">
+            
+        </WrapPanel>
+        
 
         <StackPanel Grid.Column="2" Margin="648,28,30,643" Grid.Row="1" Orientation="Horizontal">
-            <Label Content="Dovednostní body:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40"   Background="{x:Null}" Foreground="#DDFFFFFF" Grid.Column="2" Grid.Row="1"/>
-            <Label Name="SkillPoints" Content="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" Background="{x:Null}" Foreground="#DDFFFFFF" Grid.Column="2" Grid.Row="1" Width="58"/>
+            <Label Content="Dovednostní body:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40"   Background="{x:Null}" Foreground="#DDFFFFFF" Grid.Column="2" Grid.Row="1" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"/>
+            <Label Name="SkillPoints" Content="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" Background="{x:Null}" Foreground="#DDFFFFFF" Grid.Column="2" Grid.Row="1" Width="58" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"/>
         </StackPanel>
 
         <Button Background="{x:Null}" BorderBrush="{x:Null}" MinWidth="50" MinHeight="80" Click="GetLocation" Margin="0,9" Height="Auto">
@@ -154,13 +150,13 @@
                         </LinearGradientBrush>
                     </StackPanel.Background>
 
-                    <Button Click="AardClick" Content="Aard" FontSize="30" Background="{x:Null}" BorderBrush="Black" BorderThickness="1" Foreground="White" HorizontalContentAlignment="Center" Width="300" Height="50"></Button>
-                    <Button Click="IgniClick"  Content="Igni" FontSize="30" Background="{x:Null}" BorderBrush="Black" BorderThickness="1" Foreground="White" HorizontalContentAlignment="Center" Width="300" Height="50"></Button>
-                    <Button Click="QuenClick"  Content="Quen" FontSize="30" Background="{x:Null}" BorderBrush="Black" BorderThickness="1" Foreground="White" HorizontalContentAlignment="Center" Width="300" Height="50"></Button>
-                    <Button Click="AxiiClick"  Content="Axii" FontSize="30" Background="{x:Null}" BorderBrush="Black" BorderThickness="1" Foreground="White" HorizontalContentAlignment="Center" Width="300" Height="50"></Button>
-                    <Button Click="YrdenClick" Content="Yrden" FontSize="30" Background="{x:Null}" BorderBrush="Black" BorderThickness="1" Foreground="White" HorizontalContentAlignment="Center" Width="300" Height="50"></Button>
-                    <Button Click="StrongClick"  Content="Síla" FontSize="30" Background="{x:Null}" BorderBrush="Black" BorderThickness="1" Foreground="White" HorizontalContentAlignment="Center" Width="300" Height="50"></Button>
-                    <Button Click="FastClick"  Content="Rychlost" FontSize="30" Background="{x:Null}" BorderBrush="Black" BorderThickness="1" Foreground="White" HorizontalContentAlignment="Center" Width="300" Height="50"></Button>
+                    <Button Click="AardClick" Content="Aard" FontSize="30" Background="{x:Null}" BorderBrush="Black" BorderThickness="1" Foreground="White" HorizontalContentAlignment="Center" Width="300" Height="50" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></Button>
+                    <Button Click="IgniClick"  Content="Igni" FontSize="30" Background="{x:Null}" BorderBrush="Black" BorderThickness="1" Foreground="White" HorizontalContentAlignment="Center" Width="300" Height="50" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></Button>
+                    <Button Click="QuenClick"  Content="Quen" FontSize="30" Background="{x:Null}" BorderBrush="Black" BorderThickness="1" Foreground="White" HorizontalContentAlignment="Center" Width="300" Height="50" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></Button>
+                    <Button Click="AxiiClick"  Content="Axii" FontSize="30" Background="{x:Null}" BorderBrush="Black" BorderThickness="1" Foreground="White" HorizontalContentAlignment="Center" Width="300" Height="50" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></Button>
+                    <Button Click="YrdenClick" Content="Yrden" FontSize="30" Background="{x:Null}" BorderBrush="Black" BorderThickness="1" Foreground="White" HorizontalContentAlignment="Center" Width="300" Height="50" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></Button>
+                    <Button Click="StrongClick"  Content="Síla" FontSize="30" Background="{x:Null}" BorderBrush="Black" BorderThickness="1" Foreground="White" HorizontalContentAlignment="Center" Width="300" Height="50" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></Button>
+                    <Button Click="FastClick"  Content="Rychlost" FontSize="30" Background="{x:Null}" BorderBrush="Black" BorderThickness="1" Foreground="White" HorizontalContentAlignment="Center" Width="300" Height="50" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></Button>
                 </StackPanel>
             </Border>
 

@@ -621,7 +621,7 @@ namespace WitcherWPF {
             
         }
         public void SelectEnemy() {
-            if (EnemyMainName == "Ghůl") {
+            if (EnemyMainName == "Ghůl" || EnemyMainName == "Ghoul") {
                 enemy = new Ghoul();
             }else if (EnemyMainName == "Barghest") {
                 enemy = new Barghest();
@@ -637,6 +637,7 @@ namespace WitcherWPF {
             if (frominventory == false) {
                 SelectEnemy();
                 EnemyHP.Value = enemy.MaxHP;
+                EnemyHP.Maximum = enemy.MaxHP;
                 EnemyHP.ToolTip = enemy.MaxHP;
                 EnemyName.Content = enemy.Name;            
             }else {

@@ -14,7 +14,7 @@
         <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO1" Margin="442,485,907,349" Tag="Novigrad_Cave">
             <Image Source="img/UI/ui_door.png"></Image>
         </Button>
-        <Button Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO2" Margin="1331,485,0,330" Tag="Novigrad_Crypt">
+        <Button Visibility="Hidden" Background="{x:Null}" BorderBrush="{x:Null}" Height="Auto"  Name="DoorO2" Margin="1331,485,0,330" Tag="Novigrad_Crypt">
             <Image Source="img/UI/ui_door.png"></Image>
         </Button>
     </Grid>

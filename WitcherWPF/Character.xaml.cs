@@ -64,63 +64,73 @@ namespace WitcherWPF {
             skilltimer.Stop();
         }
 
-        private void AardClick(object sender, RoutedEventArgs e) {   
-            HideAll();
+        private void AardClick(object sender, RoutedEventArgs e) {
+            /*HideAll();
             Aard.Load();
-            Aard.Visibility = Visibility.Visible;
-            //sound.PlaySound("ChooseTree");
+            Aard.Visibility = Visibility.Visible;*/
+
+            grid.Children.Clear();
+            AardSkills skll = new AardSkills();
+            grid.Children.Add(skll);
+            skll.Load();
+
+            sound.PlaySound("ChooseTree");
         }
         private void IgniClick(object sender, RoutedEventArgs e) {
-            
-            HideAll();
-            Igni.Load();
-            Igni.Visibility = Visibility.Visible;
-            //sound.PlaySound("ChooseTree");
+
+            grid.Children.Clear();
+            IgniSkills skll = new IgniSkills();
+            grid.Children.Add(skll);
+            skll.Load();
+
+            sound.PlaySound("ChooseTree");
         }
         private void QuenClick(object sender, RoutedEventArgs e) {
-            
-            HideAll();
-            Quen.Load();
-            Quen.Visibility = Visibility.Visible;
-            //sound.PlaySound("ChooseTree");
+
+            grid.Children.Clear();
+            QuenSkills skll = new QuenSkills();
+            grid.Children.Add(skll);
+            skll.Load();
+
+            sound.PlaySound("ChooseTree");
         }
         private void YrdenClick(object sender, RoutedEventArgs e) {
-            
-            HideAll();
-            Yrden.Load();
-            Yrden.Visibility = Visibility.Visible;
-            //sound.PlaySound("ChooseTree");
+
+            grid.Children.Clear();
+            YrdenSkills skll = new YrdenSkills();
+            grid.Children.Add(skll);
+            skll.Load();
+
+            sound.PlaySound("ChooseTree");
         }
         private void AxiiClick(object sender, RoutedEventArgs e) {
-           
-            HideAll();
-            Axii.Load();
-            Axii.Visibility = Visibility.Visible;
-            //sound.PlaySound("ChooseTree");
+
+            grid.Children.Clear();
+            AxiiSkills skll = new AxiiSkills();
+            grid.Children.Add(skll);
+            skll.Load();
+
+            sound.PlaySound("ChooseTree");
         }
         private void StrongClick(object sender, RoutedEventArgs e) {
-            
-            HideAll();
-            Strength.Load();
-            Strength.Visibility = Visibility.Visible;
-            //sound.PlaySound("ChooseTree");
+
+            grid.Children.Clear();
+            StrongSkills skll = new StrongSkills();
+            grid.Children.Add(skll);
+            skll.Load();
+
+            sound.PlaySound("ChooseTree");
         }
         private void FastClick(object sender, RoutedEventArgs e) {
-            
-            HideAll();
-            Endurance.Load();
-            Endurance.Visibility = Visibility.Visible;
-            //sound.PlaySound("ChooseTree");
+
+            grid.Children.Clear();
+            EnduranceSkills skll = new EnduranceSkills();
+            grid.Children.Add(skll);
+            skll.Load();
+
+            sound.PlaySound("ChooseTree");
         }
-        private void HideAll() {
-            Endurance.Visibility = Visibility.Hidden;
-            Strength.Visibility = Visibility.Hidden;
-            Yrden.Visibility = Visibility.Hidden;
-            Axii.Visibility = Visibility.Hidden;
-            Quen.Visibility = Visibility.Hidden;
-            Aard.Visibility = Visibility.Hidden;
-            Igni.Visibility = Visibility.Hidden;
-        }
+        
         void Timer_tick(object sender, EventArgs e) {
             SkillPoints.Content = player.GetSkillPoints();
         }

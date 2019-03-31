@@ -84,18 +84,18 @@
             </StackPanel.Background>
             <StackPanel Height="133" Margin="21,20,26,20">
                 <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="46,0,38,0" Width="77" Height="36">
-                    <Label HorizontalAlignment="Center" Name="Num" FontSize="20" Content="2" HorizontalContentAlignment="Right" Foreground="#DDFFFFFF" Height="25" Padding="0" Margin="0,6" Width="24"></Label>
-                    <Label Content="/10" FontSize="20" HorizontalAlignment="Center" Name="MaxNum" Width="44" Foreground="#DDFFFFFF"></Label>
+                    <Label HorizontalAlignment="Center" Name="Num" FontSize="20" Content="2" HorizontalContentAlignment="Right" Foreground="#DDFFFFFF" Height="25" Padding="0" Margin="0,6" Width="24" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></Label>
+                    <Label Content="/10" FontSize="20" HorizontalAlignment="Center" Name="MaxNum" Width="44" Foreground="#DDFFFFFF" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></Label>
                 </StackPanel>
-                <Label Name="Price" Content="Cena: 200" HorizontalAlignment="Center" FontSize="15" Foreground="#DDFFFFFF"></Label>
+                <Label Name="Price" Content="Cena: 200" HorizontalAlignment="Center" FontSize="15" Foreground="#DDFFFFFF" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></Label>
                 <ScrollBar Name="ScrollBR" ValueChanged="ScrollBar_ValueChanged" Height="0" Orientation="Horizontal" Maximum="10" Minimum="1" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}"/>
                 <StackPanel Orientation="Horizontal" Height="53">
                     <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Width="170">
-                        <Button VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Tag="Sell" Name="SellnBuyBut" Click="SellorBuy_Click" Padding="0"  Content="Prodat" Background="#FF283020" BorderBrush="{x:Null}" Height="30" Width="81"></Button>
+                        <Button VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Tag="Sell" Name="SellnBuyBut" Click="SellorBuy_Click" Padding="0"  Content="Prodat" Background="#FF283020" BorderBrush="{x:Null}" Height="30" Width="81" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></Button>
                         
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Width="111">
-                        <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center" Click="Close_Click" Padding="0"  Content="Zrušit" Background="#FF283020" BorderBrush="{x:Null}" Height="30" Width="81"></Button>
+                        <Button HorizontalAlignment="Center" HorizontalContentAlignment="Center" Click="Close_Click" Padding="0"  Content="Zrušit" Background="#FF283020" BorderBrush="{x:Null}" Height="30" Width="81" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></Button>
                     </StackPanel>
 
                 </StackPanel>

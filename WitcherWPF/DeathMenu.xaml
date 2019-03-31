@@ -11,8 +11,8 @@
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <Image Source="img/UI/Skull.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="380"></Image>
             <Label Style="{StaticResource MORPHEUS}" FontWeight="Bold" Content="JSI MRTVÝ" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="70" Foreground="#DDFFFFFF"></Label>
-            <Button Name="Load"  Content="Načíst hru" FontSize="60" Background="{x:Null}" BorderBrush="{x:Null}" Height="86" Foreground="White"></Button>
-            <Button Name="Exit"  Content="Ukončit hru" FontSize="60" Background="{x:Null}" BorderBrush="{x:Null}" Height="86"></Button>
+            <Button Name="Load"  Content="Načíst hru" FontSize="60" Background="{x:Null}" BorderBrush="{x:Null}" Height="86" Foreground="White" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></Button>
+            <Button Name="Exit"  Content="Ukončit hru" FontSize="60" Background="{x:Null}" BorderBrush="{x:Null}" Height="86" FontFamily="/WitcherWPF;component/fonts/#Cyr Old lat Cz"></Button>
         </StackPanel>
     </Grid>
 </UserControl>
