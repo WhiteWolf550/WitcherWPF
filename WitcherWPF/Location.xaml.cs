@@ -159,6 +159,7 @@ namespace WitcherWPF {
             Novigrad_Outside3.Steps.Click += new RoutedEventHandler(Switch_Click);
             Novigrad_Outside3.Steps2.Click += new RoutedEventHandler(Switch_Click);
             Novigrad_Outside3.DoorO.Click += new RoutedEventHandler(Switch_Click);
+            Novigrad_Outside3.Blacksmith.Click += new RoutedEventHandler(GetDialogue_Click);
         }
         public void AddHandlersNovO4(Novigrad_Outside4 Novigrad_Outside4) {
             Novigrad_Outside4.Steps.Click += new RoutedEventHandler(Switch_Click);
@@ -408,7 +409,7 @@ namespace WitcherWPF {
         }
         public void GetDialogue(string charworld) {
             Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);
-            parentFrame.Navigate(new Dialogue(parentFrame, charworld, time));
+            parentFrame.Navigate(new Dialogue(parentFrame, charworld, time, false));
         }
         public void GetLoot(object sender, RoutedEventArgs e) {
             LootInventory.Children.Clear();
@@ -704,7 +705,8 @@ namespace WitcherWPF {
         }
         private void EnterCombat1(object sender, RoutedEventArgs e) {
             Button button = (sender as Button);
-            MonsterName = button.Tag.ToString();
+            MonsterName = button.Name.ToString();
+            QuestName = button.Tag.ToString();
 
             CombatTransitionShow();
         }

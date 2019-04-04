@@ -112,6 +112,9 @@
     </Compile>
     <Compile Include="Dialogues.cs" />
     <Compile Include="Effect.cs" />
+    <Compile Include="EndPage.xaml.cs">
+      <DependentUpon>EndPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EnduranceSkills.xaml.cs">
       <DependentUpon>EnduranceSkills.xaml</DependentUpon>
     </Compile>
@@ -143,6 +146,9 @@
     </Compile>
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Map_Novigrad.xaml.cs">
+      <DependentUpon>Map_Novigrad.xaml</DependentUpon>
     </Compile>
     <Compile Include="Map_Old_Wyzima.xaml.cs">
       <DependentUpon>Map_Old_Wyzima.xaml</DependentUpon>
@@ -320,6 +326,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EndPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EnduranceSkills.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -364,6 +374,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Map.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Map_Novigrad.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -591,7 +605,7 @@
     <Resource Include="img\Maps\Map_Outskirts.png" />
     <Resource Include="img\Maps\Map_Swamp.png" />
     <Resource Include="img\Maps\Map_Trade_Quarter.png" />
-    <Resource Include="img\Maps\Map_Vizima_Temple_Quarter.png" />
+    <Resource Include="img\Maps\Map_Novigrad.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\UI\alch_back_a.png" />
@@ -832,6 +846,10 @@
     <Resource Include="img\Locations\Novigrad_Prison.png" />
     <Resource Include="img\Characters\Lizard.png" />
     <Resource Include="img\Items\Quest_Stone.png" />
+    <Resource Include="img\Swords\Sword_Blade.png" />
+    <Resource Include="img\Swords\Sword_Moonblade.png" />
+    <Resource Include="img\Armors\Armor_Mahakam.png" />
+    <Resource Include="img\Characters\Blacksmith.png" />
     <Content Include="sounds\ghoul\ghoul_death.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -862,6 +880,8 @@
     <Content Include="sounds\human\human_dodge.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="sounds\music\Combat3.mp3" />
+    <Content Include="sounds\music\Combat2.mp3" />
     <Content Include="sounds\music\Novigrad_Inn.mp3" />
     <Content Include="sounds\music\Novigrad_night.mp3" />
     <Content Include="sounds\music\Novigrad_day.mp3" />
@@ -1162,7 +1182,7 @@
     </Content>
     <Content Include="sounds\music\Peacefull.mp3" />
     <Content Include="sounds\music\Fortress.mp3" />
-    <Content Include="sounds\music\Mighty.mp3" />
+    <Content Include="sounds\music\Combat1.mp3" />
     <Content Include="sounds\music\Castle.mp3" />
     <Content Include="sounds\music\The_Order.mp3" />
   </ItemGroup>

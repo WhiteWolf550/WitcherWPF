@@ -47,9 +47,9 @@ namespace WitcherWPF
         }
         public void Menu() {
             Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Keys);
-            Globals.Combat = true;
-            time.time.Stop();
             
+            
+            Globals.Combat = true;
             SaveGlobals();
             parentFrame.Navigate(new MainMenu(parentFrame, time));
         }

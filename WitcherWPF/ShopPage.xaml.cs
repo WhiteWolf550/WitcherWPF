@@ -399,7 +399,7 @@ namespace WitcherWPF
             }
         }
         private void ExitShop_Click(object sender, RoutedEventArgs e) {
-            parentFrame.Navigate(new Dialogue(parentFrame, character, time));
+            parentFrame.Navigate(new Dialogue(parentFrame, character, time, false));
         }
 
         private void ScrollBar_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) {

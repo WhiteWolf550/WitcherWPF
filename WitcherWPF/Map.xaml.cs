@@ -52,6 +52,20 @@ namespace WitcherWPF
                 Village.Visibility = Visibility.Visible;
             }else if (map == "Village_Outside3") {
                 Village.Visibility = Visibility.Visible;
+            }else if (map == "Novigrad_Outside1") {
+                Novigrad.Visibility = Visibility.Visible;
+            } else if (map == "Novigrad_Outside2") {
+                Novigrad.Visibility = Visibility.Visible;
+            } else if (map == "Novigrad_Outside3") {
+                Novigrad.Visibility = Visibility.Visible;
+            } else if (map == "Novigrad_Outside4") {
+                Novigrad.Visibility = Visibility.Visible;
+            } else if (map == "Novigrad_Outside5") {
+                Novigrad.Visibility = Visibility.Visible;
+            } else if (map == "Novigrad_Outside6") {
+                Novigrad.Visibility = Visibility.Visible;
+            } else if (map == "Novigrad_Outside7") {
+                Novigrad.Visibility = Visibility.Visible;
             }
         }
         public void GetInventory(object sender, RoutedEventArgs e) {

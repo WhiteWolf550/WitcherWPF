@@ -35,6 +35,7 @@ namespace WitcherWPF
         private Frame parentFrame;
         private Time time;
         public string Character;
+        private bool Forced;
         DispatcherTimer timer = new DispatcherTimer();
         Dialogue df;
         FileManager manager = new FileManager();
@@ -62,9 +63,10 @@ namespace WitcherWPF
             TravelHide();
 
         }
-        public Dialogue(Frame parentFrame, string Char, Time time) : this() {
+        public Dialogue(Frame parentFrame, string Char, Time time, bool Forced) : this() {
             this.parentFrame = parentFrame;
             this.time = time;
+            this.Forced = Forced;
             inventoryitems = manager.LoadPlayerInventory();
             Character = Char;
             dialogues.DialogueGreet(PersonName, PersonText, Character);
@@ -157,7 +159,11 @@ namespace WitcherWPF
             DialogueOptions.Visibility = Visibility.Hidden;
             Button button = (Button)sender;
             if (button.Content.ToString() == "Nashle") {
-                dialogues.DialogueLeave(PersonName, PersonText, parentFrame, Character, time);
+                if (Forced == false) {
+                    dialogues.DialogueLeave(PersonName, PersonText, parentFrame, Character, time);
+                }else {
+                    DialogueOptions.Visibility = Visibility.Visible;
+                }
 
             } else if (button.Content.ToString() == button.Tag.ToString()) {
                 DialogueS(button, false);
@@ -440,6 +446,7 @@ namespace WitcherWPF
                     manager.SavePlayerQuests(PlayerQuests);
                     manager.SavePlayer(playerlist);
                     manager.SaveDialogues(dialog, prolog);
+                    Forced = false;
                     ScriptedEvents(dlgs, qst);
                     
 
@@ -495,6 +502,9 @@ namespace WitcherWPF
             if (Dialogue.Choice == "Co se stalo?") {
                 inventory.DropItem("Magický krystal", inventoryitems);
                 manager.SavePlayerInventory(inventoryitems);
+            }
+            if (Dialogue.Choice == "Jsi v pořádku?") {
+                dialogues.DialogueLeave(PersonName, PersonText, parentFrame, Character, time);
             }
 
 

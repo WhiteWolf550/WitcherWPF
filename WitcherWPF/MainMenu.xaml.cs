@@ -24,8 +24,10 @@ namespace WitcherWPF {
         private Time time;
         Music sound = new Music();
         Game game = new Game();
+        List<Game> games = new List<Game>();
         public MainMenu() {
             InitializeComponent();
+            
             MainMenuMusic();
             CheckGame();
         }
@@ -33,10 +35,12 @@ namespace WitcherWPF {
         public MainMenu (Frame parentFrame, Time time) : this() {
             this.parentFrame = parentFrame;
             this.time = time;
-            
+            time.time.Stop();
+
         }
         private void MainMenuMusic() {
             Globals.Combat = true;
+            
             sound.MainMenuMusic();
         }
 
@@ -48,7 +52,8 @@ namespace WitcherWPF {
             LoadGame();
         }
         private void ExitGameClick(object sender, RoutedEventArgs e) {
-
+            SaveGlobals();
+            System.Windows.Application.Current.Shutdown();
         }
         public void NewGame() {
             game.NewGame();
@@ -69,6 +74,19 @@ namespace WitcherWPF {
                 Globals.DialoguePath = item.DialoguePath;
                 Globals.Chapter = item.Chapter;
             }
+        }
+        public void SaveGlobals() {
+            List<Game> game = new List<Game>();
+            FileManager manager = new FileManager();
+            game = manager.LoadGame();
+            foreach (Game item in game) {
+                item.Hour = Globals.Hour;
+                item.Minute = Globals.Minute;
+                item.Chapter = Globals.Chapter;
+                item.DialoguePath = Globals.DialoguePath;
+                item.CurrentLocation = Globals.location;
+            }
+            manager.SaveGame(game);
         }
         public void LoadGame() {
             parentFrame.Navigate(new LoadScreen(parentFrame, time, sound));
@@ -94,7 +112,16 @@ namespace WitcherWPF {
             if (!File.Exists("../../saves/Game.json")) {
                 GameNew.IsEnabled = false;
             }else {
-
+                GameCompletedCheck();
+            }
+        }
+        public void GameCompletedCheck() {
+            FileManager manager = new FileManager();
+            games = manager.LoadGame();
+            foreach(Game item in games) {
+                if (item.Chapter == 4 || Globals.Chapter == 4) {
+                    GameNew.IsEnabled = false;
+                }
             }
         }
     }

@@ -30,6 +30,7 @@ namespace WitcherWPF
         public bool Combat;
         private string EnemyName;
         private string CutsceneName;
+        private string Quest;
         static string ipath = @"../../gamefiles/GameItems.json";
         static string playerinvpath = @"../../saves/PlayerInventory.json";
         static string playergearpath = @"../../saves/Player.json";
@@ -85,12 +86,13 @@ namespace WitcherWPF
                 StaminaRegen();
             }
         }
-        public Inventory(Frame parentFrame, bool Combat, Time time, string EnemyName, string Cutscene) : this() {
+        public Inventory(Frame parentFrame, bool Combat, Time time, string EnemyName, string Cutscene, string Quest) : this() {
             this.EnemyName = EnemyName;
             this.parentFrame = parentFrame;
             this.time = time;
             this.Combat = Combat;
             this.CutsceneName = Cutscene;
+            this.Quest = Quest;
             Stamina.Interval = TimeSpan.FromSeconds(1);
             Stamina.Tick += new EventHandler(Stamina_tick);
             Player player = new Player();
@@ -141,7 +143,7 @@ namespace WitcherWPF
                 parentFrame.Navigate(new Location(parentFrame, time));
             }else {
                 game.SaveGame(playerinfo, pinventory, armor, sword, effects);
-                parentFrame.Navigate(new Combat(parentFrame, true, time, false, null, EnemyName, CutsceneName));
+                parentFrame.Navigate(new Combat(parentFrame, true, time, false, Quest, EnemyName, CutsceneName));
             }
         }
         public void LoadInventory(bool InvLoad) {
@@ -173,11 +175,14 @@ namespace WitcherWPF
                         inventoryimage.Source = new BitmapImage(new Uri(item.Item.Source, UriKind.Relative));
                         inventoryimage.Margin = new Thickness(-15, -3, -3, -3);
                         ContextMenu cm = new ContextMenu();
-                        MenuItem drop = new MenuItem();
-                        drop.Header = "Zahodit předmět";
-                        drop.Click += DropItem;
-                        drop.Tag = item.Item.Name;
-                        cm.Items.Add(drop);
+                        if (item.Item.Type != "Quest") {
+                            MenuItem drop = new MenuItem();
+                            drop.Header = "Zahodit předmět";
+                            drop.Click += DropItem;
+                            drop.Tag = item.Item.Name;
+                            cm.Items.Add(drop);
+                            buttonitems.Add(drop, item);
+                        }
                         if (item.Item.Action != null) {
                             MenuItem use = new MenuItem();
                             use.Header = item.Item.Action;
@@ -186,7 +191,7 @@ namespace WitcherWPF
                             cm.Items.Add(use);
                             buttonitems.Add(use, item);
                         } else {
-                            buttonitems.Add(drop, item);
+                            //buttonitems.Add(drop, item);
                         }
                         Button inventoryitem = new Button();
                         inventoryitem.Content = inventoryimage;

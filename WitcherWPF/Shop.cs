@@ -36,7 +36,10 @@ namespace WitcherWPF {
             List<Item> matches2 = items.Where(s => s.Effect == "Alcohol" || s.Type == "Drink" || s.Type == "Food").ToList();
             List<Sword> mats = swords.Where(s => s.Level == 1).ToList();
             List<Armor> mata = armors.Where(s => s.Level == 1).ToList();
-            foreach(Item item in matches) {
+
+            List<Sword> swdsch2 = swords.Where(s => s.Level == 6).ToList();
+            List<Armor> armrsch2 = armors.Where(s => s.Level == 6).ToList();
+            foreach (Item item in matches) {
                 item.Count = 10;
             }   
             foreach(Item item in matches2) {
@@ -44,6 +47,8 @@ namespace WitcherWPF {
             }
             shops.Add(new Shop("Yaven", "Blacksmith", matches, mats, mata));
             shops.Add(new Shop("Olaf", "Innkeeper", matches2, null, null));
+            shops.Add(new Shop("Griffarin", "Innkeeper", matches2, null, null));
+            shops.Add(new Shop("Blacksmith", "Blacksmith", matches2, swdsch2, armrsch2));
 
 
             manager.SaveShops(shops);

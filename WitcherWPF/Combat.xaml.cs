@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,10 +56,10 @@ namespace WitcherWPF {
         private Frame parentFrame;
         private Time time;
         private bool Potion;
-        private string quest = null;
+        static public string quest = null;
         private bool frominventory;
-        private string EnemyMainName;
-        private string CutsceneName;
+        static public string EnemyMainName;
+        static public string CutsceneName;
 
         FileManager manager = new FileManager();
         static Player player = new Player();
@@ -120,26 +121,7 @@ namespace WitcherWPF {
         bool Parry = false;
         bool BlackBlood = false;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        static int musicint;
         bool EnemyAttacking = false;
         bool ThunderBolt = false;
         bool EnemyCanAttack = false;
@@ -163,8 +145,11 @@ namespace WitcherWPF {
             this.frominventory = frominventory;
             this.Potion = Potion;
             this.time = time;
-            this.EnemyMainName = Enemy;
-            this.quest = Quest;
+            if (frominventory == false) {
+                EnemyMainName = Enemy;
+                quest = Quest;
+            }
+
             Deathmenu.Load.Click += new RoutedEventHandler(LoadGame);
             Deathmenu.Exit.Click += new RoutedEventHandler(ExitGame);
             StaminaCheck();
@@ -173,9 +158,9 @@ namespace WitcherWPF {
             LoadEffects();
             SetTimers();
             SignChecker.Start();
-            if (frominventory == false) {
-                SetMusic();
-            }
+            
+             SetMusic();
+            
 
 
         }
@@ -184,9 +169,11 @@ namespace WitcherWPF {
             this.frominventory = frominventory;
             this.Potion = Potion;
             this.time = time;
-            this.EnemyMainName = Enemy;
-            this.quest = Quest;
-            this.CutsceneName = Cutscene;
+            if (frominventory == false) {
+                EnemyMainName = Enemy;
+                quest = Quest;
+                CutsceneName = Cutscene;
+            }
             Deathmenu.Load.Click += new RoutedEventHandler(LoadGame);
             Deathmenu.Exit.Click += new RoutedEventHandler(ExitGame);
             StaminaCheck();
@@ -195,15 +182,21 @@ namespace WitcherWPF {
             LoadEffects();
             SetTimers();
             SignChecker.Start();
-            if (frominventory == false) {
-                SetMusic();
-            }
+            
+            SetMusic();
+            
 
 
         }
         public void SetMusic() {
-            time.location.BattleMusic();
-            backgroundmedia.Open(new Uri(@"../../sounds/music/Mighty.mp3", UriKind.Relative));
+            //time.location.BattleMusic();
+
+            if (frominventory == false) {
+                Random rand = new Random();
+                musicint = rand.Next(1, 4);
+            }
+
+            backgroundmedia.Open(new Uri(@"../../sounds/music/Combat" + musicint +".mp3", UriKind.Relative));
             backgroundmedia.Volume = 0.1;
             backgroundmedia.MediaEnded += new EventHandler(Music_Ended);
             backgroundmedia.Play();
@@ -570,6 +563,9 @@ namespace WitcherWPF {
                 NoSwordAnimation();
             }else {
                 if (Potion == false) {
+                    SteelSword = false;
+                    SwordChosen = true;
+                    SwordAnims();
                     if (SwordChosen == true && EnemyCheck() == false) {
                         EnemyTimeToAttack.Start();
 
@@ -645,6 +641,7 @@ namespace WitcherWPF {
                 EnemyHP.ToolTip = EnemyHealthPoints;
                 EnemyName.Content = EnemName;
                 enemy.HP = Convert.ToInt32(EnemyHealthPoints);
+                EnemyDeath();
             }
             EnemyAnimationSets = enemy.AnimationSet;
             EnemySoundsSet = enemy.SoundSet;
@@ -732,8 +729,10 @@ namespace WitcherWPF {
                 AttackBlock = true;
                 SkullLoot.Visibility = Visibility.Visible;
                 CombatExit.Visibility = Visibility.Visible;
-                player.AddXP(enemy.XP, playerlist);
-                QuestUpdate();
+                if (frominventory == false) {
+                    player.AddXP(enemy.XP, playerlist);
+                    QuestUpdate();
+                }
                 
             } else {
                 if (Parry == false) {
@@ -797,10 +796,16 @@ namespace WitcherWPF {
                 HealthBar.Value = 0;
                 HealthBar.ToolTip = 0;
                 Stamina.Stop();
+                DeleteEffects();
             } else {
                 if (hide == true) {
                     IdleAnimation();
                 }
+            }
+        }
+        private void DeleteEffects() {
+            if (File.Exists("saves/Effects.json")) {
+                File.Delete("saves/Effects.json");
             }
         }
         public void EnemySound(string Key) {
@@ -848,7 +853,7 @@ namespace WitcherWPF {
 
 
         private void StrongAttack(object sender, RoutedEventArgs e) {
-            
+            frominventory = false;
             if (SwordChosen == true && PlayerAttacking == false && AttackBlock == false) {
                 if (enemy.Dodge() == true && YrdenActive == false && AxiiActive == false) {
                     EnemyDodge = true;
@@ -867,7 +872,7 @@ namespace WitcherWPF {
             
         }
         private void FastAttack(object sender, RoutedEventArgs e) {
-            
+            frominventory = false;
             if (SwordChosen == true && PlayerAttacking == false && AttackBlock == false) {
                 if (enemy.Dodge() == true && YrdenActive == false && AxiiActive == false) {
                     EnemyDodge = true;
@@ -1312,8 +1317,9 @@ namespace WitcherWPF {
             manager.SavePlayer(playerlist);
             EnemyHealthPoints = EnemyHP.Value;
             EnemName = enemy.Name;
+            backgroundmedia.Stop();
             Application.Current.MainWindow.KeyDown -= new KeyEventHandler(Crossway);
-            parentFrame.Navigate(new Inventory(parentFrame, true, time, EnemyMainName, CutsceneName));
+            parentFrame.Navigate(new Inventory(parentFrame, true, time, EnemyMainName, CutsceneName, quest));
             
         }
         public void UsePotion(Effect effect) {
@@ -1367,6 +1373,7 @@ namespace WitcherWPF {
         private void ExitCombat(object sender, RoutedEventArgs e) {
             backgroundmedia.Stop();
             PotionCheck();
+            PlayerLoad();
             Save();
             //time.location.StopBattleMusic();
             Globals.Combat = false;
@@ -1413,7 +1420,7 @@ namespace WitcherWPF {
             }else {
                 backgroundmedia.Stop();
                 Globals.Combat = false;
-                parentFrame.Navigate(new Dialogue(parentFrame, Character, time));
+                parentFrame.Navigate(new Dialogue(parentFrame, Character, time, true));
             }
         }
         private void Save() {

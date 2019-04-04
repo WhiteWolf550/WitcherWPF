@@ -49,6 +49,7 @@ namespace WitcherWPF
             //LoadBar.Value += 20;
             if (LoadBar.Value == 100) {
                 loadtimer.Stop();
+                time.time.Start();
                 TransitionShow();
             }
         }

@@ -311,15 +311,14 @@ namespace WitcherWPF
         }
         public void CreateItems() {
             List<Item> items = new List<Item>();
-            items.Add(new Item("Kuře", "Jídlo,Po snězení doplní malou část zdraví", "Food", "Loot", @"img/Items/Food_Chicken.png", "žádné", "Food", "Sníst", null, 20));
-            items.Add(new Item("Wyverní maso", "Vzácné maso, které se dá prodat", "Food", "Loot", @"img/Items/Food_Wyvern_Meat.png", "žádné", "Food", "Sníst", null, 90));
-            items.Add(new Item("Jablečný Džus", "Nápoj, lze vypít pro doplňení malé části zdraví", "Drink", "Loot", @"img/Items/Drink_Apple_Juice.png", "žádné", "Drink", "Vypít", null, 15));
-            items.Add(new Item("Fisstech", "Silná droga, lze prodat", "Loot", "Loot", @"img/Items/Potion_Fisstech.png", "žádné", "Drug", "Použít", null, 150));
-            items.Add(new Item("Víno", "Alkohol, lze prodat kupcům nebo použít", "Alcohol", "Loot", @"img/Items/Alcohol_Winered.png", "žádné", "Alcohol", "Vypít", null, 20));
+            items.Add(new Item("Kuře", "Jídlo, lze prodat", "Food", "Loot", @"img/Items/Food_Chicken.png", "žádné", "Food", "Sníst", null, 20));
+            items.Add(new Item("Maso", "Klasické maso, které se dá prodat", "Food", "Loot", @"img/Items/Food_Wyvern_Meat.png", "žádné", "Food", "Sníst", null, 90));
+            items.Add(new Item("Jablečný Džus", "Nápoj, lze prodat", "Drink", "Loot", @"img/Items/Drink_Apple_Juice.png", "žádné", "Drink", "Vypít", null, 15));
+            items.Add(new Item("Víno", "Alkohol, lze prodat kupcům", "Alcohol", "Loot", @"img/Items/Alcohol_Winered.png", "žádné", "Alcohol", "Vypít", null, 20));
             items.Add(new Item("Temerská žitná", "Středně silný alkohol, lze prodat kupcům nebo použít jako Alchymistický základ", "MediumAlcohol", "Loot", @"img/Items/Alcohol_Temerian_Rye.png", "žádné", "Alcohol", "Vypít", null, 50));
             items.Add(new Item("Trpasličí vodka", "Velice silný alkohol, lze prodat kupcům za vysokou částku nebo použít jako Alchymistický základ", "StrongAlcohol", "Loot", @"img/Items/Alcohol_Dwarven_Spirit.png", "žádné", "Alcohol", "Vypít", null, 80));
 
-            items.Add(new Item("Barghesti", "Kniha o barghestech", "Loot", "Loot", @"img/Items/Book_Bestiary.png", null, "Barghest", "Číst", "Barghesti jsou fakt svině...", 100));
+            items.Add(new Item("Barghesti", "Kniha o barghestech", "Loot", "Book", @"img/Items/Book_Bestiary.png", null, "Barghest", "Číst", "Něco o bargestech", 100));
             //POTIONS
             items.Add(new Item("Puštík", "Elixír, který rychle doplňuje Geraltovu výdrž", "Potion", "Alchemy", @"img/Items/Potion_Tawny_Owl.png", null, "Potion", "Vypít", null, 20));
             items.Add(new Item("Vlaštovka", "Elixír, který rychle doplňuje Geraltovo zdraví", "Potion", "Alchemy", @"img/Items/Potion_Swallow.png", null, "Potion", "Vypít", null, 20));
@@ -342,6 +341,11 @@ namespace WitcherWPF
             items.Add(new Item("Krev z Ghůla", "Krev, která se dá získat z Ghůla", "Alchemy", "Ghůl", @"img/Items/Monster_Ghoul_Blood.png", "Aether", "Alchemy", null, null, 10));
             items.Add(new Item("Bílý Ocet", "Bílý Ocet, který se dá použít v Alchymii", "Alchemy", "Ghůl", @"img/Items/Monster_White_vinegar.png", "Vitriol", "Alchemy", null, null, 10));
             items.Add(new Item("Žluč", "Žluč, která se dá použít v Alchymii", "Alchemy", "Ghůl", @"img/Items/Monster_Abomination_Lymph.png", "Rebis", "Alchemy", null, null, 10));
+
+            items.Add(new Item("Fisstech", "Silná droga, lze prodat", "Loot", "Ještěr", @"img/Items/Potion_Fisstech.png", "žádné", "Drug", "Použít", null, 150));
+
+            items.Add(new Item("Temerská žitná", "Středně silný alkohol, lze prodat kupcům nebo použít jako Alchymistický základ", "MediumAlcohol", "Bolehlav", @"img/Items/Alcohol_Temerian_Rye.png", "žádné", "Alcohol", "Vypít", null, 50));
+            items.Add(new Item("Maso", "Klasické maso, které se dá prodat", "Food", "Vrah", @"img/Items/Food_Wyvern_Meat.png", "žádné", "Food", "Sníst", null, 90));
             //BUILDING
             items.Add(new Item("Dřevo", "Dřevo lze použít jako stavební materiál a nebo ho lze prodat", "Build", "Loot", @"img/Items/Wood.png", "žádné", "Build", null, null, 10));
 

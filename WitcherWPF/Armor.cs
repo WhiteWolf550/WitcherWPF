@@ -43,7 +43,7 @@ namespace WitcherWPF {
             List<Armor> armors = new List<Armor>();
             armors.Add(new Armor("Středně těžká zbroj", "Zbroj wyzimské stráže", "Obnošená zbroj wyzimské stráže", 1, 5, 0, 0, @"img/Armors/Armor_Temeria2.png", 150, null, 10, "Loot"));
             armors.Add(new Armor("Středně těžká zbroj", "Mantikoří zbroj", "Kazajka používaná zaklínači ze školy Mantikory", 1, 10, 0, 0, @"img/Armors/Armor_Manticore.png", 200, "Manticore", 10, "Start"));
-            armors.Add(new Armor("Středně těžká zbroj", "Mahakamská zbroj", "Zbroj vyrobená trpaslíky z Mahakamu", 5, 20, 0, 0, @"img/Armors/Armor_Manticore.png", 200, "Mahakam", 10, "Shop"));
+            armors.Add(new Armor("Středně těžká zbroj", "Mahakamská zbroj", "Zbroj vyrobená trpaslíky z Mahakamu", 6, 50, 0, 0, @"img/Armors/Armor_Mahakam.png", 800, "Mahakam", 10, "Shop"));
             armors.Add(new Armor("Těžká zbroj", "Ocelová zbroj", "Ocelová zbroj s pevnou ocelovou hrudí a vyztuženými nárameníky", 10, 25, 2, 0, @"img/Armors/Armor_Manticore.png", 100, "None", 0, "HumanLoot"));
 
             manager.SaveArmor(armors);

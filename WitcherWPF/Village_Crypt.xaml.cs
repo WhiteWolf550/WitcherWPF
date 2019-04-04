@@ -39,6 +39,8 @@ namespace WitcherWPF
             foreach(Effect item in effects) {
                 if (item.Name == "Kočka") {
                     BlackScreen.Visibility = Visibility.Hidden;
+                }else {
+                    MessageBox.Show("Aby jsi viděl ve tmě, tak musíš použít kočku");
                 }
             }
         }

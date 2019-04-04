@@ -44,12 +44,8 @@ namespace WitcherWPF
         
         //---------------------DIALOGUE START---------------------------
         public async void DialogueGreet(Label Name, TextBlock Text, string Character) {
-            JsonSerializerSettings settings = new JsonSerializerSettings {
-                TypeNameHandling = TypeNameHandling.All
-            };
-            string prolog = Globals.DialoguePath;
-            string jsonFromFileinv = File.ReadAllText(prolog);
-            List<Dialogues> dialog = JsonConvert.DeserializeObject<List<Dialogues>>(jsonFromFileinv, settings);
+            FileManager manager = new FileManager();
+            List<Dialogues> dialog = manager.LoadDialogue(Globals.DialoguePath);
             var matches = dialog.Where(s => s.Dialogue == Character);
             var matches2 = matches.Where(s => s.Type == "Greet");
             
@@ -64,12 +60,8 @@ namespace WitcherWPF
         }
         //---------------------DIALOGUE EXIT---------------------------
         public async void DialogueLeave(Label Name, TextBlock Text, Frame parentFrame, string Character, Time time) {
-            JsonSerializerSettings settings = new JsonSerializerSettings {
-                TypeNameHandling = TypeNameHandling.All
-            };
-            string prolog = Globals.DialoguePath;
-            string jsonFromFileinv = File.ReadAllText(prolog);
-            List<Dialogues> dialog = JsonConvert.DeserializeObject<List<Dialogues>>(jsonFromFileinv, settings);
+            FileManager manager = new FileManager();
+            List<Dialogues> dialog = manager.LoadDialogue(Globals.DialoguePath);
             var matches = dialog.Where(s => s.Dialogue == Character);
             var matches2 = matches.Where(s => s.Choice == "Nashle");
 

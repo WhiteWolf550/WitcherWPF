@@ -77,7 +77,7 @@ namespace WitcherWPF
                 Globals.Combat = false;
                 Globals.location = "Village_Outside2";
                 time.Visibility = Visibility.Visible;
-                parentFrame.Navigate(new Dialogue(parentFrame, "Vesničan", time));
+                parentFrame.Navigate(new Dialogue(parentFrame, "Vesničan", time, true));
             }else if (CutsceneName == "Chapter1Cut3Begin") {
                 parentFrame.Navigate(new DecisionPage(parentFrame,  time));
             }else if (CutsceneName == "Chapter1Cut3Die" || CutsceneName == "Chapter1Cut3Live") {
@@ -95,7 +95,7 @@ namespace WitcherWPF
                 Globals.Combat = false;
                 Globals.location = "Novigrad_Outside2";
                 time.Visibility = Visibility.Visible;
-                parentFrame.Navigate(new Dialogue(parentFrame, "Messenger", time));
+                parentFrame.Navigate(new Dialogue(parentFrame, "Messenger", time, true));
             }else if (CutsceneName == "Chapter2Cut2") {
                 Globals.location = "Novigrad_Prison";
                 time.Visibility = Visibility.Visible;
@@ -118,10 +118,11 @@ namespace WitcherWPF
                 Globals.Hour = 10;
                 Globals.Minute = 21;
                 Globals.location = "Novigrad_House1";
-                parentFrame.Navigate(new Dialogue(parentFrame, "Triss", time));
+                parentFrame.Navigate(new Dialogue(parentFrame, "Triss", time, true));
             } else if (CutsceneName == "Chapter2Cut6") {
-                CutsceneName = "Chapter3Cut1";
-                CutPlay();
+                //CutsceneName = "Chapter3Cut1";
+                //CutPlay();
+                parentFrame.Navigate(new EndPage(parentFrame, time));
             }
 
         }

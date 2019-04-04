@@ -26,6 +26,10 @@ namespace WitcherWPF {
         Quest q = new Quest();
         Crypt crypt = new Crypt();
         Item item = new Item();
+        Shop shop = new Shop();
+        Sword sw = new Sword();
+        Armor ar = new Armor();
+
         Potion potion = new Potion();
 
         public MainWindow() {
@@ -34,7 +38,9 @@ namespace WitcherWPF {
             //dia.CreateDialogues();
             //q.CreateQuests();
             //item.CreateItems();
-            
+            //ar.CreateArmor();
+            //sw.CreateSwords();
+            shop.CreateShops();
 
             
             time.Visibility = Visibility.Hidden;

@@ -11,11 +11,12 @@
     <Grid>
         <Image Source="img/UI/MenuBackground.jpg" Margin="-58,-24,-33,-34"></Image>
         <Image Source="img/ui/medallion.png" Margin="482,85,487,522"></Image>
-        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Height="552" Margin="618,342,618,0">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" HorizontalAlignment="Center" Height="300" Margin="618,400,618,194">
             <Button Click="NewGameClick" Content="Nová hra" FontSize="30" Height="70" Background="{x:Null}" BorderBrush="{x:Null}"></Button>
             <Button Name="GameNew" Click="LoadGameClick" Content="Načíst hru" FontSize="30" Height="70" Background="{x:Null}" BorderBrush="{x:Null}"></Button>
             <Button Click="ExitGameClick" Content="Ukončit hru" FontSize="30" Height="70" Background="{x:Null}" BorderBrush="{x:Null}"></Button>
         </StackPanel>
+        <Label Content="Beta verze hry 0.6" Foreground="White" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="40" Opacity="0.6" Margin="0,0,0,130"></Label>
         <Rectangle HorizontalAlignment="Left" Height="894" Stroke="Black" VerticalAlignment="Top" Width="1427" Fill="Black" Name="BlackScreen" Visibility="Hidden" Opacity="0"/>
     </Grid>
 </Page>
