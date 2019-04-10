@@ -64,6 +64,7 @@ namespace WitcherWPF
                 RemoveHandler();
                 Globals.Combat = false;
                 time.Timer();
+                time.time.Start();
                 parentFrame.Navigate(new Location(parentFrame, "Old_wyzima2", time));
             }else if (CutsceneName == "PrologueCut2") {
                 CutsceneName = "Chapter1Cut1";
